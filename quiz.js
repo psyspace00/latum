@@ -7,6 +7,7 @@
 // Zusätzlich erzeugt app.js Anatomiefragen automatisch aus data.js.
 
 const QUIZ_KATEGORIEN = [
+  { id: "pflegeprozess", titel: "Pflegeprozess" },
   { id: "prophylaxen", titel: "Prophylaxen" },
   { id: "kontrakturen", titel: "Kontrakturen" },
   { id: "dekubitus", titel: "Dekubitus" },
@@ -17,6 +18,32 @@ const QUIZ_KATEGORIEN = [
 ];
 
 const QUIZ = [
+  // ---------------- Pflegeprozess ----------------
+  { kat: "pflegeprozess", typ: "order", frage: "Bringe die Phasen des Pflegeprozesses nach Fiechter und Meier in die richtige Reihenfolge.", optionen: ["Informationssammlung", "Probleme und Ressourcen erkennen", "Pflegeziele festlegen", "Maßnahmen planen", "Durchführung", "Evaluation"],
+    erklaerung: "Sechs-Phasen-Modell: Die Evaluation führt als Regelkreis zurück zur Informationssammlung." },
+  { kat: "pflegeprozess", typ: "single", frage: "Welche Tätigkeit ist nach § 4 PflBG Pflegefachpersonen vorbehalten?", optionen: ["Essen anreichen", "Erhebung und Feststellung des individuellen Pflegebedarfs", "Betten beziehen", "Blutdruck messen"], richtig: 1,
+    erklaerung: "Vorbehalten sind die Erhebung des Pflegebedarfs, die Steuerung des Pflegeprozesses und die Evaluation/Qualitätssicherung." },
+  { kat: "pflegeprozess", typ: "single", frage: "Welches Pflegeziel ist korrekt nach der SMART-Regel formuliert?", optionen: ["Pflegekraft mobilisiert Herrn M.", "Herr M. soll mobiler werden.", "Herr M. geht am 12.11. mit Rollator und Begleitung 10 m bis zum Bad.", "Mobilisation 3× täglich."], richtig: 2,
+    erklaerung: "Das Ziel ist spezifisch, messbar, realistisch, terminiert und aus Sicht des Patienten als Zustand formuliert." },
+  { kat: "pflegeprozess", typ: "multi", frage: "Welche Aussagen zur Pflegedokumentation sind richtig?", optionen: ["Zeitnah mit Datum, Uhrzeit und Handzeichen", "Mit Bleistift, damit man korrigieren kann", "Sachlich und wertfrei beschreiben", "Nur selbst Beobachtetes dokumentieren", "Die Dokumentation kann als Beweismittel dienen"], richtig: [0, 2, 3, 4],
+    erklaerung: "Dokumentation muss dokumentenecht sein – Bleistift ist nicht erlaubt." },
+  { kat: "pflegeprozess", typ: "single", fall: "Frau S. ist seit zwei Tagen bettlägerig. Ihre Haut ist intakt, die Braden-Skala ergibt 13 Punkte.",
+    frage: "Um welche Art von Pflegeproblem handelt es sich bei der Dekubitusgefahr?", optionen: ["Aktuelles Problem", "Potenzielles Problem (Risiko)", "Verdecktes Problem", "Generelles Problem"], richtig: 1,
+    erklaerung: "Ein Dekubitus droht, liegt aber noch nicht vor – ein potenzielles Problem, dem durch Prophylaxe vorgebeugt wird." },
+  { kat: "pflegeprozess", typ: "single", frage: "Wofür steht das „E“ im PESR-Format?", optionen: ["Evaluation", "Ätiologie (Ursache)", "Ernährung", "Ergebnis"], richtig: 1,
+    erklaerung: "P = Problem, E = Ätiologie (Ursache), S = Symptome, R = Ressourcen." },
+  { kat: "pflegeprozess", typ: "single", frage: "Welche Formulierung ist für einen Pflegebericht geeignet?", optionen: ["„Patient war heute schwierig.“", "„Hat schlecht gegessen.“", "„Frühstück: ½ Scheibe Brot, 100 ml Tee.“", "„Patientin ist wohl depressiv.“"], richtig: 2,
+    erklaerung: "Beobachtungen werden konkret, messbar und wertfrei beschrieben." },
+  { kat: "pflegeprozess", typ: "multi", frage: "Welche Themenfelder gehören zur Strukturierten Informationssammlung (SIS)?", optionen: ["Kognitive und kommunikative Fähigkeiten", "Mobilität und Beweglichkeit", "Krankheitsbezogene Anforderungen und Belastungen", "Selbstversorgung", "Leben in sozialen Beziehungen", "Ernährungsberatung durch die Ärztin"], richtig: [0, 1, 2, 3, 4],
+    erklaerung: "Das sechste Themenfeld ist Haushaltsführung bzw. Wohnen/Häuslichkeit." },
+  { kat: "pflegeprozess", typ: "single", frage: "Was ist eine interne Ressource?", optionen: ["Die Tochter kommt täglich", "Ein Rollator ist vorhanden", "Die Patientin ist motiviert und kann den linken Arm einsetzen", "Der Hausarzt macht Hausbesuche"], richtig: 2,
+    erklaerung: "Interne Ressourcen sind Fähigkeiten der Person selbst, externe stammen aus dem Umfeld." },
+  { kat: "pflegeprozess", typ: "single", frage: "Wie viele AEDL umfasst das Modell nach Monika Krohwinkel?", optionen: ["10", "12", "13", "15"], richtig: 2,
+    erklaerung: "13 Aktivitäten und existenzielle Erfahrungen des Lebens; die ATL nach Juchli sind 12." },
+  { kat: "pflegeprozess", typ: "single", fall: "Das Ziel „Herr M. geht am 12.11. 10 m mit Rollator“ wurde nicht erreicht. Er klagt beim Gehen über starke Knieschmerzen.",
+    frage: "Was ist im Rahmen der Evaluation der nächste sinnvolle Schritt?", optionen: ["Maßnahmen unverändert fortsetzen", "Ursache analysieren (Schmerz), Informationen ergänzen, Arzt informieren und Ziel/Maßnahmen anpassen", "Ziel streichen", "Nichts dokumentieren"], richtig: 1,
+    erklaerung: "Bei Nichterreichen werden die Ursachen analysiert – hier ein neues Problem (Schmerz) –, der Plan angepasst und der Kreislauf beginnt erneut." },
+
   // ---------------- Prophylaxen ----------------
   { kat: "prophylaxen", typ: "multi", fall: "Frau K., 84 Jahre, ist nachts zweimal auf dem Weg zur Toilette gestürzt. Sie nimmt ein Diuretikum und ein Schlafmittel, trägt nachts Pantoffeln und hat eine Sehschwäche.",
     frage: "Welche Faktoren erhöhen bei Frau K. das Sturzrisiko?", optionen: ["Diuretikum mit nächtlichem Harndrang", "Schlafmittel", "Pantoffeln", "Sehschwäche", "Stürze in der Vorgeschichte"], richtig: [0, 1, 2, 3, 4],

@@ -16,6 +16,202 @@
 const BEREICHE = [
   // ===================================================================
   {
+    id: "pflegeprozess", titel: "Pflegeprozess", untertitel: "Assessment, Probleme, Ziele, Planung, Durchführung, Evaluation", icon: "zyklus",
+    kapitel: [
+      {
+        id: "ueberblick", titel: "Überblick", kurz: "Phasenmodelle und rechtliche Grundlage",
+        abschnitte: [
+          { h: "Was ist der Pflegeprozess?" },
+          { p: "Der Pflegeprozess ist eine systematische, zielgerichtete Arbeitsmethode. Pflege wird nicht nach Gewohnheit, sondern geplant, individuell, nachvollziehbar und überprüfbar durchgeführt – gemeinsam mit der pflegebedürftigen Person." },
+          { merke: "Nach dem Pflegeberufegesetz (§ 4 PflBG) sind Pflegefachpersonen vorbehalten: die Erhebung und Feststellung des individuellen Pflegebedarfs, die Organisation, Gestaltung und Steuerung des Pflegeprozesses sowie die Analyse, Evaluation, Sicherung und Entwicklung der Pflegequalität." },
+          { h: "Sechs-Phasen-Modell nach Fiechter und Meier" },
+          { tabelle: { kopf: ["Phase", "Inhalt", "Leitfrage"], zeilen: [
+            ["1. Informationssammlung", "Pflegeanamnese, Beobachtung, Assessment", "Wie geht es der Person, was braucht sie?"],
+            ["2. Probleme und Ressourcen erkennen", "Pflegeprobleme/Pflegediagnosen und Fähigkeiten benennen", "Was kann sie, wo braucht sie Hilfe?"],
+            ["3. Pflegeziele festlegen", "Nah- und Fernziele, SMART formuliert", "Was soll erreicht werden?"],
+            ["4. Maßnahmen planen", "Wer macht was, wann, wie, wie oft, womit?", "Wie wird das Ziel erreicht?"],
+            ["5. Durchführung", "Pflege nach Plan, Dokumentation im Pflegebericht", "Was wurde getan, was ist aufgefallen?"],
+            ["6. Evaluation", "Zielerreichung überprüfen, Plan anpassen", "Wurde das Ziel erreicht?"]
+          ] } },
+          { p: "Das Vier-Phasen-Modell der WHO fasst zusammen: Einschätzung (Assessment) – Planung – Durchführung – Evaluation. Beide Modelle sind ein Regelkreis: Die Evaluation führt zurück zur Informationssammlung." },
+          { h: "Ordnungsmodelle für die Informationssammlung" },
+          { liste: [
+            "AEDL nach Monika Krohwinkel (13 Aktivitäten und existenzielle Erfahrungen des Lebens)",
+            "ATL nach Liliane Juchli (12 Aktivitäten des täglichen Lebens)",
+            "Strukturmodell mit Strukturierter Informationssammlung (SIS) – in der Langzeitpflege weit verbreitet"
+          ] }
+        ]
+      },
+      {
+        id: "assessment", titel: "Informationssammlung (Assessment)", kurz: "Pflegeanamnese, Quellen, Assessmentinstrumente",
+        abschnitte: [
+          { h: "Ziel" },
+          { p: "Ein möglichst vollständiges Bild der Person: Gesundheitszustand, Fähigkeiten, Einschränkungen, Gewohnheiten, Wünsche, soziales Umfeld und Biografie." },
+          { h: "Quellen" },
+          { liste: [
+            "Die pflegebedürftige Person selbst (wichtigste Quelle)",
+            "Angehörige, Betreuerinnen und Betreuer",
+            "Beobachtung und Messung durch Pflegende (Vitalzeichen, Haut, Mobilität, Verhalten)",
+            "Arztbriefe, Überleitungsbogen, frühere Dokumentation",
+            "Andere Berufsgruppen (Physio-, Ergotherapie, Logopädie, Sozialdienst)"
+          ] },
+          { tabelle: { kopf: ["Datenart", "Beispiel"], zeilen: [
+            ["Subjektiv (Aussage der Person)", "„Ich habe Schmerzen im Rücken.“"],
+            ["Objektiv (beobachtet, gemessen)", "Blutdruck 150/90 mmHg, Rötung am Kreuzbein"],
+            ["Aktuell", "Heutige Atemnot"],
+            ["Biografisch", "War Landwirt, steht gern früh auf"]
+          ] } },
+          { h: "Assessmentinstrumente (Auswahl)" },
+          { tabelle: { kopf: ["Instrument", "Erfasst"], zeilen: [
+            ["Braden-Skala", "Dekubitusrisiko"],
+            ["Barthel-Index", "Selbstständigkeit im Alltag (0–100 Punkte)"],
+            ["NRS / VAS", "Schmerzintensität (0–10)"],
+            ["BESD", "Schmerz bei Menschen mit Demenz"],
+            ["MNA / NRS 2002", "Ernährungszustand"],
+            ["Timed Up and Go, Tinetti", "Mobilität und Sturzrisiko"],
+            ["Glasgow Coma Scale", "Bewusstsein"],
+            ["Mini-Mental-Status-Test (MMST)", "Kognitive Leistung"]
+          ] } },
+          { h: "AEDL nach Krohwinkel" },
+          { liste: [
+            "1. Kommunizieren",
+            "2. Sich bewegen",
+            "3. Vitale Funktionen des Lebens aufrechterhalten",
+            "4. Sich pflegen",
+            "5. Essen und trinken",
+            "6. Ausscheiden",
+            "7. Sich kleiden",
+            "8. Ruhen und schlafen",
+            "9. Sich beschäftigen",
+            "10. Sich als Mann oder Frau fühlen und verhalten",
+            "11. Für eine sichere Umgebung sorgen",
+            "12. Soziale Bereiche des Lebens sichern",
+            "13. Mit existenziellen Erfahrungen des Lebens umgehen"
+          ] },
+          { h: "ATL nach Juchli" },
+          { liste: [
+            "Wach sein und schlafen", "Sich bewegen", "Sich waschen und kleiden", "Essen und trinken", "Ausscheiden", "Körpertemperatur regulieren",
+            "Atmen", "Sich sicher fühlen und verhalten", "Raum und Zeit gestalten – sich beschäftigen", "Kommunizieren", "Kind, Frau, Mann sein", "Sinn finden im Werden, Sein, Vergehen"
+          ] },
+          { h: "Strukturmodell: SIS" },
+          { p: "Die Strukturierte Informationssammlung beginnt mit der Frage an die Person: „Was bewegt Sie im Augenblick? Was brauchen Sie? Was können wir für Sie tun?“ Danach folgen sechs Themenfelder und eine Risikomatrix." },
+          { tabelle: { kopf: ["Themenfeld", "Inhalt"], zeilen: [
+            ["1", "Kognitive und kommunikative Fähigkeiten"],
+            ["2", "Mobilität und Beweglichkeit"],
+            ["3", "Krankheitsbezogene Anforderungen und Belastungen"],
+            ["4", "Selbstversorgung"],
+            ["5", "Leben in sozialen Beziehungen"],
+            ["6", "Haushaltsführung (ambulant) bzw. Wohnen/Häuslichkeit (stationär)"]
+          ] } },
+          { p: "Risikomatrix: Dekubitus, Sturz, Inkontinenz, Schmerz, Ernährung (und Sonstiges) – jeweils mit Einschätzung, ob eine weitere Einschätzung (Assessment) nötig ist." }
+        ]
+      },
+      {
+        id: "probleme", titel: "Pflegeprobleme und Ressourcen", kurz: "Arten von Problemen, PESR, Pflegediagnosen",
+        abschnitte: [
+          { h: "Pflegeproblem" },
+          { p: "Ein Pflegeproblem ist eine Beeinträchtigung in einer Lebensaktivität, bei der die Person pflegerische Unterstützung braucht." },
+          { tabelle: { kopf: ["Art", "Bedeutung", "Beispiel"], zeilen: [
+            ["Aktuelles Problem", "Liegt jetzt vor", "Kann sich nicht selbstständig waschen"],
+            ["Potenzielles Problem (Risiko)", "Droht, wenn nicht vorgebeugt wird", "Dekubitusgefahr bei Bettlägerigkeit"],
+            ["Verdecktes Problem", "Wird nicht geäußert, aber vermutet", "Angst vor der Operation"],
+            ["Generelles Problem", "Betrifft alle in dieser Situation", "Nüchternheit vor einer OP"],
+            ["Individuelles Problem", "Betrifft nur diese Person", "Schluckstörung nach Schlaganfall"]
+          ] } },
+          { h: "Ressourcen" },
+          { liste: ["Interne Ressourcen: Fähigkeiten und Stärken der Person (kann den rechten Arm bewegen, ist motiviert)", "Externe Ressourcen: Umfeld (Angehörige kommen täglich, Rollator vorhanden)", "Ressourcen immer mit erfassen – sie bestimmen, was die Person selbst übernehmen kann (aktivierende Pflege)"] },
+          { h: "Formulierung: PESR-Format" },
+          { tabelle: { kopf: ["Element", "Bedeutung", "Beispiel"], zeilen: [
+            ["P – Problem", "Was ist beeinträchtigt?", "Eingeschränkte Mobilität"],
+            ["E – Ätiologie", "Ursache", "durch Hemiparese rechts nach Schlaganfall"],
+            ["S – Symptome", "Woran erkennbar?", "kann nicht allein aufstehen, unsicherer Stand"],
+            ["R – Ressourcen", "Was kann die Person?", "linke Körperseite kräftig, motiviert, Rollator vorhanden"]
+          ] } },
+          { p: "Pflegediagnosen (z. B. nach NANDA-I) beschreiben Pflegeprobleme in einer einheitlichen Fachsprache, etwa „Beeinträchtigte körperliche Mobilität“ oder „Risiko eines Dekubitus“." }
+        ]
+      },
+      {
+        id: "ziele", titel: "Pflegeziele", kurz: "SMART formulieren, Nah- und Fernziele",
+        abschnitte: [
+          { h: "SMART-Regel" },
+          { tabelle: { kopf: ["Buchstabe", "Bedeutung"], zeilen: [
+            ["S – spezifisch", "Eindeutig und konkret"],
+            ["M – messbar", "Überprüfbar (Strecke, Zeit, Wert)"],
+            ["A – akzeptiert", "Mit der Person abgestimmt, für sie erstrebenswert"],
+            ["R – realistisch", "Mit den Ressourcen erreichbar"],
+            ["T – terminiert", "Mit Datum zur Überprüfung"]
+          ] } },
+          { tabelle: { kopf: ["Zielart", "Beispiel"], zeilen: [
+            ["Nahziel", "Herr M. geht am 12.11. mit Rollator und Begleitung 10 m bis zum Bad."],
+            ["Fernziel", "Herr M. geht bis zur Entlassung selbstständig mit Rollator über den Stationsflur."],
+            ["Erhaltungsziel", "Die Haut am Kreuzbein bleibt intakt."]
+          ] } },
+          { merke: "Ziele werden aus Sicht der pflegebedürftigen Person als Zustand formuliert („Herr M. kann …“) – nicht als Tätigkeit der Pflegenden („Pflegekraft mobilisiert …“)." }
+        ]
+      },
+      {
+        id: "planung", titel: "Maßnahmenplanung", kurz: "Wer, was, wann, wie, wie oft, womit",
+        abschnitte: [
+          { p: "Pflegemaßnahmen beschreiben, wie das Ziel erreicht wird. Sie müssen so konkret sein, dass jede Pflegeperson sie gleich durchführt." },
+          { tabelle: { kopf: ["Frage", "Beispiel"], zeilen: [
+            ["Wer?", "Pflegefachkraft/Pflegehilfskraft nach Anleitung"],
+            ["Was?", "Mobilisation vom Bett in den Stuhl"],
+            ["Wann und wie oft?", "3× täglich (8, 12, 17 Uhr)"],
+            ["Wie?", "Über die linke, kräftige Seite, nach Kinästhetik-Prinzipien"],
+            ["Womit?", "Rollator, feste Schuhe"]
+          ] } },
+          { liste: ["Ressourcen einbeziehen (aktivierende Pflege)", "Wünsche und Gewohnheiten berücksichtigen", "Pflegestandards und Expertenstandards beachten", "Ärztliche Anordnungen und Therapien anderer Berufsgruppen abstimmen"] }
+        ]
+      },
+      {
+        id: "doku", titel: "Durchführung und Pflegebericht", kurz: "Dokumentationsregeln mit Beispielen",
+        abschnitte: [
+          { h: "Durchführung" },
+          { p: "Die geplanten Maßnahmen werden umgesetzt, Durchführungsnachweise abgezeichnet. Beobachtungen und Abweichungen werden im Pflegebericht festgehalten. Beim Strukturmodell werden nur Abweichungen vom Maßnahmenplan und besondere Ereignisse berichtet." },
+          { h: "Regeln für die Dokumentation" },
+          { liste: [
+            "Zeitnah, mit Datum, Uhrzeit und Handzeichen",
+            "Sachlich, wertfrei und beschreibend – keine Wertungen oder Vermutungen als Tatsachen",
+            "Eindeutig, verständlich, nur gebräuchliche Abkürzungen",
+            "Dokumentenecht (kein Bleistift), nichts überkleben oder unleserlich machen; Korrekturen nachvollziehbar",
+            "Nur selbst Beobachtetes oder Durchgeführtes dokumentieren",
+            "Die Dokumentation ist eine Urkunde und kann vor Gericht als Beweismittel dienen"
+          ] },
+          { h: "Beispiele" },
+          { tabelle: { kopf: ["Ungünstig", "Besser"], zeilen: [
+            ["„Patient war heute schwierig.“", "„Herr M. lehnte um 8 Uhr die Körperpflege ab und sagte, er sei zu müde. Um 10 Uhr Körperpflege mit Unterstützung durchgeführt.“"],
+            ["„Hat wenig gegessen.“", "„Frühstück: ½ Scheibe Brot, 100 ml Tee.“"],
+            ["„Haut gerötet.“", "„Nicht wegdrückbare Rötung am Kreuzbein, ca. 3 × 4 cm, Haut intakt.“"],
+            ["„Patient ist dement und aggressiv.“", "„Frau K. schlug bei der Hilfe beim Ankleiden mit der Hand nach der Pflegekraft und rief: ‚Lassen Sie mich!‘“"]
+          ] } }
+        ]
+      },
+      {
+        id: "evaluation", titel: "Evaluation", kurz: "Zielerreichung prüfen und Plan anpassen",
+        abschnitte: [
+          { p: "In der Evaluation wird überprüft, ob die Pflegeziele erreicht wurden und die Maßnahmen wirksam waren." },
+          { tabelle: { kopf: ["Ergebnis", "Konsequenz"], zeilen: [
+            ["Ziel erreicht", "Neues Ziel festlegen oder Maßnahmen beenden"],
+            ["Ziel teilweise erreicht", "Maßnahmen beibehalten oder anpassen, Termin neu setzen"],
+            ["Ziel nicht erreicht", "Ursachen analysieren: Ziel realistisch? Maßnahmen passend? Neue Informationen?"]
+          ] } },
+          { liste: ["Zu festgelegten Terminen und bei jeder Zustandsänderung", "Gemeinsam mit der Person und ggf. Angehörigen", "Ergebnis dokumentieren – der Kreislauf beginnt erneut"] },
+          { h: "Durchgehendes Fallbeispiel" },
+          { tabelle: { kopf: ["Phase", "Herr M., 72 Jahre, Schlaganfall mit Hemiparese rechts"], zeilen: [
+            ["Information", "Kann nicht allein aufstehen, linke Seite kräftig, möchte wieder selbst ins Bad gehen"],
+            ["Problem/Ressource", "Eingeschränkte Mobilität durch Hemiparese rechts; Ressource: motiviert, linke Seite kräftig"],
+            ["Ziel", "Geht am 12.11. mit Rollator und Begleitung 10 m ins Bad"],
+            ["Maßnahme", "3× täglich Gehtraining mit Rollator, Transfer über links, feste Schuhe"],
+            ["Durchführung", "Pflegebericht: „12.11., 8:10 Uhr: 10 m mit Rollator und Begleitung, sicherer Stand.“"],
+            ["Evaluation", "Ziel erreicht → neues Ziel: 20 m mit Rollator ohne Begleitung"]
+          ] } }
+        ]
+      }
+    ]
+  },
+
+  // ===================================================================
+  {
     id: "prophylaxen", titel: "Prophylaxen", untertitel: "Definition, Risiken, Skalen und Maßnahmen", icon: "schild",
     kapitel: [
       {

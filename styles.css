@@ -182,6 +182,7 @@ mark { background: color-mix(in srgb, var(--hl) 28%, transparent); color: inheri
 .tile-red .tile-ico { background: linear-gradient(135deg, #fb7185, #e11d48); }
 .tile-pink .tile-ico { background: linear-gradient(135deg, #f9a8d4, #db2777); }
 .tile-green .tile-ico { background: linear-gradient(135deg, #86efac, #16a34a); }
+.tile-orange .tile-ico { background: linear-gradient(135deg, #fdba74, #ea580c); }
 .tile-wide { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px; margin-top: 12px; text-align: left; transition: transform .2s var(--ease); }
 .tile-wide > span:nth-child(2) { flex: 1; }
 .tile-wide .tile-ico { margin: 0; background: linear-gradient(135deg, #fbbf24, #f97316); }
