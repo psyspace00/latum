@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – Tiếng Việt: câu hỏi thi (Vietnamesische Übersetzung von quiz.js)
 // Gleiche Reihenfolge wie QUIZ; kat, typ und richtig werden aus quiz.js übernommen.
 

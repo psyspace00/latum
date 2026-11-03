@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – Oberflächentexte Deutsch / Tiếng Việt
 // Medizinische Fachbegriffe (Latein/international) werden nicht übersetzt.
 
@@ -40,7 +43,8 @@ const UI_TEXTE = {
       "<h3>Bedienung</h3><ul><li><b>DE / VI</b> oben rechts: Sprache der Oberfläche und Erklärungen (Deutsch oder Tiếng Việt). Lateinische Fachbegriffe bleiben immer erhalten.</li><li><b>Suche</b> oben rechts: Körperteile oder Themen auf Deutsch, Vietnamesisch oder Latein.</li>" +
       "<li><b>Zurück</b>: Pfeil oben links oder vom linken Bildschirmrand nach rechts wischen.</li><li><b>3D</b>: ziehen zum Drehen, zwei Finger zum Zoomen, antippen zum Öffnen.</li><li><b>Detailblatt</b>: nach unten wischen zum Schließen.</li></ul>" +
       "<h3>Grundlagen und Quellen</h3><p>Lateinische Bezeichnungen nach der <i>Terminologia Anatomica</i>. Pflegeinhalte orientiert an den Expertenstandards des DNQP, NPIAP/EPUAP (Dekubitus), ESC/ESH (Blutdruck), NEWS2 und dem Aufbau gängiger Pflegelehrbücher (z. B. „Pflege Heute“). Texte, Grafiken und 3D-Modelle sind eigenständig erstellte, vereinfachte Lernhilfen. Die vietnamesische Übersetzung wurde maschinell erstellt und sollte fachlich gegengelesen werden.</p>" +
-      "<h3>Hinweis</h3><p>MediSmart ersetzt weder Lehrbuch noch Unterricht, ärztliche Anordnungen oder Hausstandards. Normwerte und Maßnahmen dienen der Orientierung.</p>"
+      "<h3>Hinweis</h3><p>MediSmart ersetzt weder Lehrbuch noch Unterricht, ärztliche Anordnungen oder Hausstandards. Normwerte und Maßnahmen dienen der Orientierung.</p>" +
+      "<h3>Urheberrecht</h3><p>© 2026 Maximilian Riehn. Alle Rechte vorbehalten. MediSmart ist geistiges Eigentum von Maximilian Riehn. Kopieren, Weitergeben oder Veröffentlichen von Inhalten nur mit schriftlicher Genehmigung.</p>"
   },
   vi: {
     appSub: "Giải phẫu và kiến thức điều dưỡng cho việc học của bạn",
@@ -80,7 +84,8 @@ const UI_TEXTE = {
       "<h3>Cách sử dụng</h3><ul><li><b>DE / VI</b> ở góc trên bên phải: ngôn ngữ giao diện và phần giải thích (tiếng Đức hoặc tiếng Việt). Thuật ngữ y khoa tiếng Latinh luôn được giữ nguyên.</li><li><b>Tìm kiếm</b> ở góc trên bên phải: bộ phận cơ thể hoặc chủ đề bằng tiếng Việt, tiếng Đức hoặc tiếng Latinh.</li>" +
       "<li><b>Quay lại</b>: mũi tên ở góc trên bên trái hoặc vuốt từ mép trái màn hình sang phải.</li><li><b>3D</b>: kéo để xoay, hai ngón để phóng to, chạm để mở.</li><li><b>Bảng chi tiết</b>: vuốt xuống để đóng.</li></ul>" +
       "<h3>Cơ sở và nguồn tham khảo</h3><p>Tên Latinh theo <i>Terminologia Anatomica</i>. Nội dung điều dưỡng dựa trên các tiêu chuẩn chuyên gia của DNQP (Đức), NPIAP/EPUAP (loét tì đè), ESC/ESH (huyết áp), NEWS2 và cấu trúc của các giáo trình điều dưỡng thông dụng (ví dụ „Pflege Heute“). Văn bản, hình minh họa và mô hình 3D là tài liệu học tập đơn giản hóa, được biên soạn độc lập. Bản dịch tiếng Việt được tạo bằng máy và nên được chuyên gia đọc lại.</p>" +
-      "<h3>Lưu ý</h3><p>MediSmart không thay thế giáo trình, bài giảng, y lệnh của bác sĩ hay quy định của cơ sở. Các giá trị bình thường và biện pháp chỉ mang tính tham khảo. Nội dung chuyên môn dựa trên hệ thống y tế Đức.</p>"
+      "<h3>Lưu ý</h3><p>MediSmart không thay thế giáo trình, bài giảng, y lệnh của bác sĩ hay quy định của cơ sở. Các giá trị bình thường và biện pháp chỉ mang tính tham khảo. Nội dung chuyên môn dựa trên hệ thống y tế Đức.</p>" +
+      "<h3>Bản quyền</h3><p>© 2026 Maximilian Riehn. Bảo lưu mọi quyền. MediSmart là tài sản trí tuệ của Maximilian Riehn. Chỉ được sao chép, chia sẻ hoặc công bố nội dung khi có sự đồng ý bằng văn bản.</p>"
   }
 };
 

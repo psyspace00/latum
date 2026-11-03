@@ -1,3 +1,6 @@
+/* MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+   Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE). */
+
 /* MediSmart – Oberfläche im Stil von iOS/macOS
    Glas (backdrop-filter), weiche Schatten, große Radien, San-Francisco-Systemschrift. */
 
@@ -367,3 +370,11 @@ td:first-child { font-weight: 600; }
 .tabbar svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .tabbar button.active { color: var(--accent); }
 .tabbar button.active svg { stroke-width: 2.1; }
+
+/* ---------- Kopierschutz ---------- */
+body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+input, textarea { -webkit-user-select: text; user-select: text; }
+@media print {
+  body > * { display: none !important; }
+  body::before { content: "© 2026 Maximilian Riehn. Alle Rechte vorbehalten."; display: block; padding: 40px; }
+}

@@ -1,0 +1,15 @@
+MediSmart
+Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+
+Diese Software einschließlich Quellcode, Texten, Übersetzungen, Prüfungsfragen,
+Grafiken und 3D-Modellen ist geistiges Eigentum von Maximilian Riehn und
+urheberrechtlich geschützt.
+
+Ohne vorherige schriftliche Genehmigung von Maximilian Riehn ist es nicht
+gestattet, die Software oder Teile davon zu kopieren, zu verändern, zu
+veröffentlichen, weiterzugeben, zu verkaufen oder in eigene Produkte zu
+übernehmen. Das Öffentlichmachen des Quellcodes zum Betrieb der App räumt
+keine Nutzungsrechte daran ein.
+
+Ausgenommen ist die Bibliothek Three.js (vendor/three.module.min.js):
+Copyright 2010-2023 Three.js Authors, MIT-Lizenz (SPDX: MIT).

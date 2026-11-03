@@ -1,3 +1,6 @@
+/* MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+   Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE). */
+
 /* MediSmart – Farben der Querschnitt-Grafiken (Füllung f-*, Linie k-*) */
 .f-none { fill: none; }
 .f-skin { fill: #f2d9c6; } .f-skinl { fill: #f4e6da; } .fig .f-reg { fill: #efcfb8; stroke: #fff; stroke-width: 1.2; }

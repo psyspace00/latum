@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – Tiếng Việt: bản dịch các thuật ngữ giải phẫu (Vietnamesische Übersetzung der Anatomie)
 // Lateinische Fachbegriffe bleiben unverändert; übersetzt werden Bedeutung und Erklärung.
 // Aufbau: VI_ANATOMIE[katId] = { ten: "Bereichsname", gruppen: [ [Gruppentitel, [Eintrag, …]], … ] }

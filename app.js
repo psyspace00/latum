@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – App-Logik
 // Gliederung: 1 Symbole · 2 Sprache · 3 Daten · 4 Zustand · 5 Grafiken & 3D · 6 Navigation (iOS-Stack)
 //             7 Seiten · 8 Detailblatt · 9 Suche · 10 Quiz · 11 Karteikarten · 12 Start

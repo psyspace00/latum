@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – Tiếng Việt: nội dung điều dưỡng (Vietnamesische Übersetzung von pflege.js)
 // Gleicher Aufbau wie BEREICHE (gleiche IDs, Abschnitte in derselben Reihenfolge).
 // Fachbegriffe (lateinisch/international) und Skalennamen bleiben unverändert.

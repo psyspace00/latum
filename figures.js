@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // Mein medizinisches Latum – schematische Abbildungen (SVG)
 // Jede Struktur trägt in data-p ein oder mehrere Kürzel (das erste bestimmt, was beim Antippen geöffnet wird).
 // "teile" ordnet die Kürzel den lateinischen Begriffen aus data.js zu.

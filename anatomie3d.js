@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – interaktive 3D-Anatomie (Three.js, wird erst beim Öffnen einer 3D-Ansicht geladen).
 // Die Modelle sind aus Grundkörpern aufgebaut (schematisch, nicht maßstabsgetreu).
 // Bedienung: ziehen = drehen, zwei Finger/Mausrad = zoomen, antippen = Struktur öffnen.

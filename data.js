@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // Mein medizinisches Latum – Anatomische Fachbegriffe (Latein / Deutsch)
 // Nomenklatur nach Terminologia Anatomica; Gliederung nach Organsystemen,
 // wie in der Pflegeausbildung üblich.

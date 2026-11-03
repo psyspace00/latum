@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – Prüfungsfragen (Niveau: generalistische Pflegeausbildung / Pflegefachkraft)
 // Fragetypen:
 //   single – genau eine richtige Antwort       richtig: Index

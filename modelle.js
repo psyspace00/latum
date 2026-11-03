@@ -1,3 +1,6 @@
+// MediSmart - Copyright (c) 2026 Maximilian Riehn. Alle Rechte vorbehalten.
+// Geistiges Eigentum von Maximilian Riehn. Kopieren, Veraendern und Weitergeben nur mit schriftlicher Genehmigung (siehe LICENSE).
+
 // MediSmart – Verzeichnis der 3D-Modelle (ohne Three.js, damit die App sofort weiß,
 // welche Begriffe eine 3D-Ansicht haben). Die Modelle selbst baut anatomie3d.js.
 // "teile": Kürzel der 3D-Bauteile → lateinische Begriffe aus data.js.
