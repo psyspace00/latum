@@ -1,0 +1,55 @@
+/* MediSmart – Farben der Querschnitt-Grafiken (Füllung f-*, Linie k-*) */
+.f-none { fill: none; }
+.f-skin { fill: #f2d9c6; } .f-skinl { fill: #f4e6da; } .fig .f-reg { fill: #efcfb8; stroke: #fff; stroke-width: 1.2; }
+.f-accent { fill: #0f766e; } .k-accent { stroke: #0f766e; } .k-dash { stroke: #8a9a98; } .k-dashed { stroke-dasharray: 4 3; }
+.k-membrane { stroke: #c97b84; } .f-cyto { fill: #fbeee6; } .k-er { stroke: #8fb3d9; } .f-ribo { fill: #3b5b8c; }
+.f-nucleus { fill: #c9b3de; } .k-nucleus { stroke: #8b6bb1; } .f-nucleolus { fill: #7e57a8; } .f-chrom { fill: #5b3f80; }
+.k-golgi { stroke: #e3a64f; } .f-mito { fill: #f0a07a; } .k-cristae { stroke: #b5552f; } .f-lyso { fill: #9ccf8a; }
+.f-vesicle { fill: #f7d77a; } .f-perox { fill: #a8d5d1; } .f-centriole { fill: #6d6d6d; }
+.f-bone { fill: #efe4c8; } .f-bonel { fill: #f6efdd; } .f-bone2 { fill: #e8d9b3; } .f-bone3 { fill: #e2cfa0; }
+.k-bone { stroke: #dccaa0; } .k-bonedk { stroke: #b8a06a; }
+.f-cart { fill: #cfe6ec; } .f-cart2 { fill: #e0eff2; } .k-cart { stroke: #a9cdd6; }
+.f-dark { fill: #2d2a2a; } .f-darkl { fill: #6b6363; } .f-white { fill: #fff; } .k-white { stroke: #fff; } .k-dark { stroke: #3a3333; }
+.k-suture { stroke: #8a7550; } .f-tooth { fill: #fffdf5; } .k-canal { stroke: #c25b5b; }
+.f-fluid { fill: #bfe0f5; } .f-fluid2 { fill: #d6ebf8; } .k-fluid { stroke: #7fb8de; }
+.k-synovial { stroke: #e39aa6; } .k-capsule { stroke: #9c8f7a; } .k-lig { stroke: #c9bfa3; } .k-lig2 { stroke: #b5a882; }
+.f-lig { fill: #e8e2cf; } .f-ligl { fill: #f3e9ee; }
+.f-muscle { fill: #d9705f; } .f-muscle2 { fill: #e58f7f; } .f-tendon { fill: #f1ead8; } .k-tendon { stroke: #efe6d0; } .k-muscle { stroke: #c75a4a; }
+.f-art { fill: #d64541; } .k-art { stroke: #d64541; } .f-artl { fill: #f2b2ad; }
+.f-vein { fill: #3f6fc6; } .k-vein { stroke: #3f6fc6; } .f-veinl { fill: #b6c9ee; } .k-portal { stroke: #7c5cc4; }
+.f-myo { fill: #c9645a; } .f-myo2 { fill: #b4544b; } .k-chord { stroke: #f4efe6; } .k-valve { stroke: #f7f1d9; } .f-valve { fill: #f7f1d9; }
+.f-node { fill: #f2b632; } .k-cond { stroke: #f2b632; } .k-peri { stroke: #b07a86; } .f-heartl { fill: #f3c2bd; } .f-liverl { fill: #e2b4a5; }
+.f-advent { fill: #f0d6c8; } .f-media { fill: #e08a7b; } .f-intima { fill: #f6e4dc; }
+.f-ery { fill: #d94a45; } .f-ery2 { fill: #e8736d; } .f-leuko { fill: #f3ecf6; } .f-leukon { fill: #7b5aa6; }
+.f-eosg { fill: #e6735c; } .f-basog { fill: #3d2b6b; } .f-thrombo { fill: #c58fb8; }
+.f-lymph { fill: #9bcf6f; } .f-lymph2 { fill: #b8de94; } .k-lymph { stroke: #8ac460; } .k-lymphduct { stroke: #6aa84f; }
+.f-thymus { fill: #c6dba8; } .f-spleen { fill: #9b3d4f; }
+.f-brainl { fill: #f1dcd9; } .f-brain { fill: #e9b8b2; } .f-lobe1 { fill: #f2c5bd; } .f-lobe2 { fill: #f5d6a8; } .f-lobe3 { fill: #cfe0b4; } .f-lobe4 { fill: #c8d8ee; }
+.k-gyrus { stroke: rgba(255, 255, 255, .75); } .f-motor { fill: #e8857a; } .f-sens { fill: #f0b36b; } .k-sulcus { stroke: #8a5a55; }
+.f-area { fill: #b7a1d9; } .f-area2 { fill: #9cc7a0; } .f-cereb { fill: #e3b6c6; } .f-stem { fill: #d9a7a0; } .f-stem2 { fill: #cf968f; }
+.f-white2 { fill: #f7f1ea; } .f-thal { fill: #d8b4d0; } .f-nervel { fill: #f2d15c; }
+.f-air { fill: #fff; } .f-airdk { fill: #f4e1df; } .k-mucosa { stroke: #e58fa0; } .f-mucosa { fill: #f2a9b6; } .f-tongue { fill: #e88c95; } .f-lip { fill: #e3828c; }
+.f-gland { fill: #e9c46a; } .f-gland2 { fill: #e0a64c; } .f-gland3 { fill: #c9a1d6; } .k-gland { stroke: #c99a3a; } .f-colloid { fill: #f7e7b5; } .f-medullagl { fill: #b5763a; }
+.f-gut { fill: #f0b9a8; } .k-gut { stroke: #eaa995; } .f-gutl { fill: #f3d8cf; } .f-medi { fill: #f3e6e6; }
+.k-pleura { stroke: #8aa6b8; } .k-pleura2 { stroke: #6d8ea3; } .f-lung { fill: #f4c6c6; } .f-lung2 { fill: #f0b3b6; } .f-lung3 { fill: #eaa2a7; }
+.k-fissure { stroke: #b36c75; } .k-bronch { stroke: #c8dfe6; } .f-inset { fill: #fff; } .f-alv { fill: #f5c2c5; }
+.f-stomach { fill: #f0a99a; } .f-stomach2 { fill: #eb9888; } .f-pancreas { fill: #f2c98a; } .k-duct { stroke: #b08a4a; }
+.k-colon { stroke: #e7b49f; } .k-colon2 { stroke: #d99a85; } .f-colon { fill: #e7b49f; } .k-small { stroke: #f2c3b0; }
+.f-liver { fill: #a9493f; } .f-liver2 { fill: #b85c50; } .f-gall { fill: #6fae5b; } .k-gall { stroke: #5c9a4a; }
+.f-perio { fill: #f0c7b5; } .f-enamel { fill: #fbfbf6; } .f-dentin { fill: #f2e7c6; } .k-cement { stroke: #c9b07a; } .f-pulp { fill: #e9858a; } .f-gum { fill: #f19aa5; }
+.f-kidney { fill: #b9584d; } .f-kidneyl { fill: #e9c2bc; } .f-bladder { fill: #f3d97a; } .k-urine { stroke: #e2c13f; } .f-trigon { fill: #f2c14a; }
+.f-fat { fill: #f7e19c; } .f-fat2 { fill: #f3d77b; } .f-cortex { fill: #c8685c; } .f-medulla { fill: #9e4a42; } .f-urine { fill: #f2d870; }
+.f-cortexl { fill: #f6dfda; } .f-medullal { fill: #f1d0cb; } .f-bowman { fill: #f6e6c5; } .k-tubule { stroke: #e5a85a; } .k-henle { stroke: #d98c5f; } .k-collect { stroke: #c79a4a; }
+.f-uterus { fill: #e7958d; } .f-vagina { fill: #f2b9c0; } .k-tube { stroke: #e39b8f; } .f-ovary { fill: #f3cfa0; } .f-luteum { fill: #f2c437; }
+.k-funic { stroke: #d8a99a; } .f-cav { fill: #e7a3a3; } .f-spong { fill: #f0c0bd; } .f-glans { fill: #e8a1a0; } .k-skin { stroke: #e3bfa6; } .f-testis { fill: #f0c2a7; } .f-epi { fill: #d9a07f; }
+.k-nerve { stroke: #e8b51e; } .f-nerve { fill: #f2cc4d; } .f-dura { fill: #d9cfc1; } .k-arach { stroke: #9aa4b0; } .k-pia { stroke: #b07a86; } .f-grey { fill: #b6a0a6; }
+.k-neuron { stroke: #c9a227; } .f-neuron { fill: #f0cf6a; } .f-myelin { fill: #f7efd7; } .f-schwann { fill: #7d6aa8; } .f-synapse { fill: #e8b51e; }
+.f-vitreous { fill: #eef6fb; } .f-sclera { fill: #fbfaf6; } .f-choroid { fill: #8e3b3b; } .f-retina { fill: #f0a07f; } .f-macula { fill: #e9c42f; } .f-disc { fill: #f5e2b0; }
+.f-aqueous { fill: #d4ecfb; } .f-cornea { fill: #dff1fb; } .f-ciliary { fill: #9a5b4b; } .k-zonula { stroke: #9c8d7c; } .f-lens { fill: #e3eef7; } .k-capsl { stroke: #7a9ab1; }
+.f-iris { fill: #5e8c8a; } .f-pupil { fill: #1f1f1f; } .k-conj { stroke: #f1a5b0; } .k-limbus { stroke: #6e8f9a; } .f-tarsus { fill: #f3e1c8; } .k-brow { stroke: #6b4f3a; }
+.f-cerumen { fill: #c58b2a; } .f-tympan { fill: #e9d2b5; } .k-ossicle { stroke: #d8c9a0; } .f-ossicle { fill: #e8dcbc; } .f-endo { fill: #a9d6ef; } .f-macula2 { fill: #7fb3d6; } .k-endo { stroke: #8cc6e8; }
+.k-vallate { stroke: #c75c6b; } .f-vallate { fill: #d96d7c; } .k-foliate { stroke: #c75c6b; } .f-fungi { fill: #f2a6b0; }
+.f-dermis { fill: #f3cdb6; } .f-epiderm { fill: #f6ddc8; } .f-corneum { fill: #e8cfae; } .k-basale { stroke: #b07a5a; } .f-melano { fill: #5b3a29; }
+.k-hair { stroke: #4a3426; } .f-follicle { fill: #e9c4a6; } .f-bulb { fill: #c99876; } .f-papilla { fill: #e07b7b; } .f-sebum { fill: #f2dc8a; }
+.k-sweat { stroke: #8fc3e6; } .f-sweat { fill: #a7d2ee; } .f-receptor { fill: #e6c96a; } .f-receptor2 { fill: #f4e3a6; }
+

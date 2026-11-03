@@ -1138,7 +1138,7 @@ const FIGUREN = (function () {
       return o;
     },
     teile: {
-      mm_bulbi: ["Mm. bulbi"], rectus_lat: ["M. rectus lateralis"], rectus_med: ["M. rectus medialis"], opticus: ["N. opticus (II)"], a_centralis: ["A. centralis retinae", "V. centralis retinae"],
+      _ganz: ["Oculus", "Bulbus oculi"], mm_bulbi: ["Mm. bulbi"], rectus_lat: ["M. rectus lateralis"], rectus_med: ["M. rectus medialis"], opticus: ["N. opticus (II)"], a_centralis: ["A. centralis retinae", "V. centralis retinae"],
       vitreum: ["Corpus vitreum", "Camera vitrea bulbi"], fibrosa: ["Tunica fibrosa bulbi"], sclera: ["Sclera"], uvea: ["Tunica vasculosa bulbi"], choroidea: ["Choroidea"],
       interna: ["Tunica interna bulbi"], retina: ["Retina", "Pars optica retinae", "Stratum pigmentosum retinae", "Bacilli", "Coni"], macula: ["Macula lutea"], fovea: ["Fovea centralis"],
       papille: ["Discus nervi optici"], lamina_crib: ["Lamina cribrosa sclerae"], kammerwasser: ["Humor aquosus"], vk: ["Camera anterior bulbi"], hk: ["Camera posterior bulbi"],
@@ -1205,7 +1205,7 @@ const FIGUREN = (function () {
       return o;
     },
     teile: {
-      os_temp: ["Os temporale"], antrum: ["Antrum mastoideum"], cell_mast: ["Cellulae mastoideae"], auricula: ["Auricula", "Auris externa"], helix: ["Helix"], concha: ["Concha auriculae"],
+      _ganz: ["Auris"], os_temp: ["Os temporale"], antrum: ["Antrum mastoideum"], cell_mast: ["Cellulae mastoideae"], auricula: ["Auricula", "Auris externa"], helix: ["Helix"], concha: ["Concha auriculae"],
       tragus: ["Tragus"], lobulus: ["Lobulus auriculae"], meatus: ["Meatus acusticus externus"], cerumen: ["Cerumen"], trommelfell: ["Membrana tympanica"],
       pauke: ["Cavitas tympani", "Auris media"], tensor: ["M. tensor tympani"], stapedius: ["M. stapedius"], malleus: ["Malleus", "Ossicula auditus"], incus: ["Incus"], stapes: ["Stapes"],
       fen_ov: ["Fenestra vestibuli"], fen_rot: ["Fenestra cochleae"], tuba: ["Tuba auditiva"], lab: ["Labyrinthus", "Auris interna", "Endolympha", "Perilympha"],

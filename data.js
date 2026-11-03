@@ -680,7 +680,7 @@ const KATEGORIEN = [
     id: "herz", icon: "🫀", lat: "Cor", de: "Herz",
     gruppen: [
       { titel: "Aufbau", items: [
-        ["Cor", "Herz", "Griech.: Kardia."],
+        ["Cor", "Herz", "Muskuläres Hohlorgan im Mediastinum, etwa faustgroß (ca. 300 g). Vier Räume (2 Vorhöfe, 2 Kammern), vier Klappen; pumpt in Ruhe ca. 5 l Blut pro Minute durch Lungen- und Körperkreislauf. Wandschichten: Endokard, Myokard, Epikard. Griech.: Kardia."],
         ["Pericardium", "Herzbeutel"],
         ["Epicardium", "Epikard", "Inneres Blatt des Herzbeutels."],
         ["Myocardium", "Herzmuskel(schicht)"],
@@ -968,7 +968,7 @@ const KATEGORIEN = [
         ["Bronchioli respiratorii", "Atembronchiolen"],
         ["Alveolus pulmonis", "Lungenbläschen, Alveole", "Ort des Gasaustauschs."],
         ["Surfactant", "Antiatelektasefaktor", "Setzt die Oberflächenspannung in den Alveolen herab."],
-        ["Pulmo", "Lunge", "Griech.: Pneumon. Rechts 3, links 2 Lappen."],
+        ["Pulmo", "Lunge", "Paariges Organ des Gasaustauschs im Brustkorb, umhüllt von der Pleura. Rechts 3, links 2 Lappen; ca. 300 Mio. Alveolen mit etwa 100 m² Austauschfläche. Griech.: Pneumon."],
         ["Lobus superior", "Oberlappen"],
         ["Lobus medius", "Mittellappen", "Nur rechts."],
         ["Lobus inferior", "Unterlappen"],
@@ -1185,7 +1185,7 @@ const KATEGORIEN = [
     id: "harn", icon: "💧", lat: "Systema urinarium", de: "Niere und Harnwege",
     gruppen: [
       { titel: "Niere", items: [
-        ["Ren", "Niere", "Griech.: Nephros."],
+        ["Ren", "Niere", "Paariges, bohnenförmiges Organ im Retroperitonealraum. Filtert ca. 180 l Primärharn pro Tag, regelt Wasser-, Elektrolyt- und Säure-Basen-Haushalt sowie den Blutdruck (Renin) und bildet Erythropoetin. Griech.: Nephros."],
         ["Capsula fibrosa", "Nierenkapsel"],
         ["Cortex renalis", "Nierenrinde"],
         ["Medulla renalis", "Nierenmark"],
@@ -1456,7 +1456,7 @@ const KATEGORIEN = [
         ["efferens", "efferent, wegführend", "Vom ZNS weg (motorisch)."]
       ]},
       { titel: "Gehirn", items: [
-        ["Encephalon", "Gehirn"],
+        ["Encephalon", "Gehirn", "Teil des ZNS im Schädel: Großhirn, Zwischenhirn, Hirnstamm (Mittelhirn, Brücke, verlängertes Mark) und Kleinhirn, umgeben von Hirnhäuten und Liquor."],
         ["Cerebrum", "Großhirn", "Synonym: Telencephalon (Endhirn)."],
         ["Hemisphaerium cerebri", "Großhirnhälfte, Hemisphäre"],
         ["Cortex cerebri", "Großhirnrinde"],
@@ -1590,7 +1590,7 @@ const KATEGORIEN = [
     id: "sinne", icon: "👁️", lat: "Organa sensuum", de: "Sinnesorgane",
     gruppen: [
       { titel: "Auge", items: [
-        ["Oculus", "Auge", "Griech.: Ophthalmos."],
+        ["Oculus", "Auge", "Sinnesorgan des Sehens: Augapfel (Bulbus oculi) mit drei Schichten – äußere Augenhaut (Sclera, Cornea), mittlere Augenhaut (Choroidea, Corpus ciliare, Iris) und innere Augenhaut (Retina) – sowie Linse, Glaskörper und Kammerwasser. Dazu Schutz- und Hilfseinrichtungen: Lider, Bindehaut, Tränenapparat, äußere Augenmuskeln. Griech.: Ophthalmos."],
         ["Bulbus oculi", "Augapfel"],
         ["Orbita", "Augenhöhle"],
         ["Palpebra", "Augenlid", "Griech.: Blepharon."],
@@ -1661,7 +1661,7 @@ const KATEGORIEN = [
         ["Visus", "Sehschärfe"]
       ]},
       { titel: "Ohr", items: [
-        ["Auris", "Ohr", "Griech.: Ous (Oto-)."],
+        ["Auris", "Ohr", "Hör- und Gleichgewichtsorgan: Außenohr (Ohrmuschel, Gehörgang), Mittelohr (Trommelfell, Paukenhöhle, Gehörknöchelchen, Ohrtrompete) und Innenohr (Schnecke als Hörorgan, Vorhof und Bogengänge als Gleichgewichtsorgan). Griech.: Ous (Oto-)."],
         ["Auris externa", "äußeres Ohr"],
         ["Auricula", "Ohrmuschel"],
         ["Lobulus auriculae", "Ohrläppchen"],
@@ -1732,7 +1732,7 @@ const KATEGORIEN = [
     gruppen: [
       { titel: "Hautschichten", items: [
         ["Integumentum commune", "allgemeine Körperdecke"],
-        ["Cutis", "Haut", "Griech.: Derma."],
+        ["Cutis", "Haut", "Größtes Organ des Körpers (ca. 1,8 m²): Oberhaut, Lederhaut und Unterhaut. Schutz, Temperaturregulation, Sinnesorgan, Vitamin-D-Bildung. Griech.: Derma."],
         ["Epidermis", "Oberhaut"],
         ["Stratum corneum", "Hornschicht"],
         ["Stratum basale", "Basalschicht", "Ort der Zellneubildung."],

@@ -1,8 +1,9 @@
 // Offline-Cache: Erst aus dem Netz laden (damit Updates ankommen), sonst aus dem Cache.
 // Bei Änderungen an der Dateiliste die Versionsnummer erhöhen.
-const CACHE = "latum-v2";
+const CACHE = "medismart-v3";
 const DATEIEN = [
-  "./", "./index.html", "./styles.css", "./app.js", "./data.js", "./figures.js", "./manifest.json",
+  "./", "./index.html", "./styles.css", "./figuren.css", "./app.js", "./data.js", "./figures.js", "./modelle.js",
+  "./pflege.js", "./quiz.js", "./anatomie3d.js", "./vendor/three.module.min.js", "./manifest.json",
   "./icons/icon-180.png", "./icons/icon-192.png", "./icons/icon-512.png"
 ];
 
