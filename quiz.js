@@ -17,6 +17,7 @@ const QUIZ_KATEGORIEN = [
   { id: "vitalzeichen", titel: "Vitalzeichen" },
   { id: "herzkreislauf", titel: "Herz-Kreislauf & Lunge" },
   { id: "ernaehrung", titel: "Ernährung" },
+  { id: "ausscheidung", titel: "Stoma & Dauerkatheter" },
   { id: "anatomie", titel: "Anatomie & Latein" }
 ];
 
@@ -228,5 +229,40 @@ const QUIZ = [
   { kat: "anatomie", typ: "single", frage: "Welcher Muskel ist das Ziel der ventroglutealen Injektion?", optionen: ["M. gluteus maximus", "M. gluteus medius", "M. vastus lateralis", "M. deltoideus"], richtig: 1,
     erklaerung: "Bei der ventroglutealen Injektion wird in den M. gluteus medius (und minimus) injiziert – weit entfernt vom N. ischiadicus." },
   { kat: "anatomie", typ: "multi", frage: "Welche Knochen bilden das Hüftbein (Os coxae)?", optionen: ["Os ilium", "Os ischii", "Os pubis", "Os sacrum", "Femur"], richtig: [0, 1, 2],
-    erklaerung: "Darmbein, Sitzbein und Schambein verschmelzen zum Hüftbein. Das Kreuzbein gehört zur Wirbelsäule." }
+    erklaerung: "Darmbein, Sitzbein und Schambein verschmelzen zum Hüftbein. Das Kreuzbein gehört zur Wirbelsäule." },
+
+  // ---------------- Stoma & Dauerkatheter (am Ende, damit die Reihenfolge zu QUIZ_VI passt) ----------------
+  { kat: "ausscheidung", typ: "single", frage: "Welche Flüssigkeit eignet sich zum Blocken eines Dauerkatheters?", optionen: ["NaCl 0,9 %", "Luft", "Steriles Aqua destillata oder 8–10-%-Glycerinlösung", "Leitungswasser"], richtig: 2,
+    erklaerung: "NaCl kann auskristallisieren und den Blockkanal verstopfen. Luft ist ungeeignet, und Leitungswasser ist nicht steril." },
+  { kat: "ausscheidung", typ: "multi", frage: "Welche Aussagen zur Pflege bei liegendem DK sind richtig?", optionen: ["Urinbeutel immer unter Blasenniveau halten", "Ableitungssystem möglichst nicht öffnen", "Täglich die Notwendigkeit des Katheters prüfen", "Beutel zum Schutz des Betts auf den Boden legen", "Blase täglich routinemäßig spülen"], richtig: [0, 1, 2],
+    erklaerung: "Der Beutel gehört nicht auf den Boden, und routinemäßige Spülungen werden nicht empfohlen." },
+  { kat: "ausscheidung", typ: "order", frage: "Bringe die Schritte beim Legen eines transurethralen DK in die richtige Reihenfolge.", optionen: ["Anordnung prüfen und Person informieren", "Intimpflege und Händedesinfektion", "Harnröhrenöffnung aseptisch desinfizieren", "Katheter einführen, bis Urin fließt", "Ballon blocken", "Katheter zurückziehen und fixieren"],
+    erklaerung: "Geblockt wird erst, wenn Urin fließt. Dann liegt der Ballon sicher in der Blase." },
+  { kat: "ausscheidung", typ: "single", fall: "Herr K. bekommt einen transurethralen Katheter. Nach dem Einführen fließt Urin, der Ballon wird geblockt und der Katheter fixiert.",
+    frage: "Welcher Schritt darf jetzt keinesfalls vergessen werden?", optionen: ["Vorhaut wieder über die Eichel schieben", "Ballon nochmals entleeren", "Blase sofort spülen", "Katheter abklemmen"], richtig: 0,
+    erklaerung: "Bleibt die Vorhaut zurückgestreift, droht eine Paraphimose, also eine schmerzhafte Schwellung mit Durchblutungsstörung der Eichel." },
+  { kat: "ausscheidung", typ: "single", frage: "Was bedeutet 1 Charrière (Ch)?", optionen: ["1 mm Innendurchmesser", "1/3 mm Außendurchmesser", "1 ml Blockvolumen", "1 cm Katheterlänge"], richtig: 1,
+    erklaerung: "Ein Katheter mit 15 Ch hat also etwa 5 mm Außendurchmesser." },
+  { kat: "ausscheidung", typ: "single", frage: "Wo wird eine Urinprobe bei liegendem DK gewonnen?", optionen: ["Aus dem Urinbeutel", "Nach Diskonnektieren am Schlauchende", "Nach Desinfektion an der Entnahmestelle des Ableitungssystems", "Über den Blockkanal"], richtig: 2,
+    erklaerung: "So bleibt das System geschlossen, und die Probe stammt nicht aus dem länger stehenden Beutelurin." },
+  { kat: "ausscheidung", typ: "single", fall: "Frau B. hat seit 2 Tagen einen DK. Sie ist neu verwirrt, hat 38,9 °C, einen schnellen Puls und trüben Urin.",
+    frage: "Was ist die wichtigste Maßnahme?", optionen: ["Trinkmenge bis morgen erhöhen", "Vitalzeichen erfassen und sofort Arzt informieren", "Katheter selbst entfernen", "Abwarten und in 6 Stunden erneut messen"], richtig: 1,
+    erklaerung: "Die Zeichen können auf eine katheterassoziierte Infektion bis hin zur Urosepsis hindeuten." },
+  { kat: "ausscheidung", typ: "multi", frage: "Welche Vorteile hat ein suprapubischer Katheter gegenüber einem transurethralen?", optionen: ["Die Harnröhre wird geschont", "Spontanurin kann getestet werden", "Er kann ohne ärztlichen Eingriff gelegt werden", "Er hat kein Komplikationsrisiko"], richtig: [0, 1],
+    erklaerung: "Die Anlage ist ein ärztlicher Eingriff, der auch Risiken hat, zum Beispiel Blutungen oder Darmverletzungen." },
+  { kat: "ausscheidung", typ: "single", frage: "Bei welchem Stoma ist die Ausscheidung am ehesten dünnflüssig und enzymreich?", optionen: ["Sigmacolostoma", "Descendostoma", "Ileostoma", "Urostoma"], richtig: 2,
+    erklaerung: "Am Dünndarm wurde dem Stuhl noch wenig Wasser entzogen. Die Enzyme können die Haut schnell schädigen." },
+  { kat: "ausscheidung", typ: "single", frage: "Wie sieht ein gesundes Stoma aus?", optionen: ["Rosig bis rot und feucht", "Blass und trocken", "Dunkelblau und kühl", "Schwarz und krustig"], richtig: 0,
+    erklaerung: "Blaue oder schwarze Verfärbungen können eine Nekrose anzeigen und müssen sofort ärztlich abgeklärt werden." },
+  { kat: "ausscheidung", typ: "single", frage: "Wie groß sollte die Öffnung der Hautschutzplatte zugeschnitten sein?", optionen: ["1–2 mm größer als das Stoma", "1 cm größer als das Stoma", "Genau 1 cm kleiner als das Stoma", "Die Größe spielt keine Rolle"], richtig: 0,
+    erklaerung: "Ist die Öffnung zu groß, kommt Ausscheidung an die Haut. Ist sie zu klein, kann die Platte das Stoma verletzen." },
+  { kat: "ausscheidung", typ: "order", frage: "Bringe den Versorgungswechsel beim Stoma in die richtige Reihenfolge.", optionen: ["Material vorbereiten und Händedesinfektion", "Alte Versorgung von oben nach unten ablösen", "Stoma und Haut reinigen und trocknen", "Stoma und Haut beobachten", "Öffnung passend zuschneiden", "Neue Versorgung aufkleben und andrücken"],
+    erklaerung: "Die Platte haftet nur auf sauberer, trockener Haut. Beobachten und Dokumentieren gehören zu jedem Wechsel." },
+  { kat: "ausscheidung", typ: "multi", frage: "Worauf achtest du besonders bei einem Menschen mit Ileostoma?", optionen: ["Flüssigkeits- und Elektrolytverlust", "Faserreiche Speisen können das Stoma verlegen", "Tabletten mit verzögerter Freisetzung wirken möglicherweise schlechter", "Trinkmenge streng begrenzen"], richtig: [0, 1, 2],
+    erklaerung: "Das Ileostoma kann viel Flüssigkeit ausscheiden. Die Trinkmenge wird daher nicht routinemäßig begrenzt." },
+  { kat: "ausscheidung", typ: "single", fall: "Frau H. wurde ein Colostoma angelegt. Sie möchte das Stoma nicht ansehen und sagt: „Das ekelt mich.“",
+    frage: "Welche Reaktion ist am besten?", optionen: ["„Das ist doch nicht schlimm.“", "Gefühle ernst nehmen, Gespräch anbieten und schrittweise anleiten", "Das Thema vermeiden und alles für sie übernehmen", "Sie sofort auffordern, die Versorgung selbst zu wechseln"], richtig: 1,
+    erklaerung: "Akzeptanz braucht Zeit. Stomatherapie und Selbsthilfegruppen können zusätzlich unterstützen." },
+  { kat: "ausscheidung", typ: "single", frage: "Welche Komplikation beschreibt eine Vorwölbung neben dem Stoma?", optionen: ["Retraktion", "Stenose", "Parastomale Hernie", "Nekrose"], richtig: 2,
+    erklaerung: "Die parastomale Hernie ist ein Bruch neben dem Stoma. Schweres Heben sollte vermieden werden." }
 ];

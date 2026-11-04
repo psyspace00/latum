@@ -946,5 +946,218 @@ const BEREICHE_VI = [
         { liste: ["Kế hoạch uống nước, đồ uống yêu thích, để đồ uống trong tầm nhìn và tầm tay", "Thường xuyên nhắc uống, dụng cụ hỗ trợ uống", "Thực phẩm nhiều nước (súp, trái cây, sữa chua)", "Khi cần truyền dịch hoặc truyền dưới da theo y lệnh"] }
       ] }
     ]
+  },
+  {
+    id: "ausscheidung", titel: "Stoma & Ống thông tiểu lưu", untertitel: "Ống thông bàng quang và đường ra nhân tạo của ruột và nước tiểu",
+    kapitel: [
+      { id: "dk_grundlagen", titel: "Ống thông tiểu lưu (DK): cơ bản", kurz: "Chỉ định, đường đặt, chất liệu, Charrière", abschnitte: [
+        { h: "Ống thông tiểu lưu là gì?" },
+        { p: "Ống thông tiểu lưu (DK) là ống nằm trong bàng quang trong thời gian dài và dẫn nước tiểu vào một hệ thống dẫn lưu kín. Một bóng chèn được bơm đầy để giữ ống trong bàng quang. Ngược lại, ống thông một lần được rút ngay sau khi làm rỗng bàng quang." },
+        { merke: "Mọi ống thông đều có nguy cơ nhiễm trùng. Vì vậy, chỉ đặt khi có chỉ định rõ ràng, kiểm tra sự cần thiết mỗi ngày và rút sớm nhất có thể." },
+        { h: "Các chỉ định có thể có" },
+        { liste: [
+          "Bí tiểu cấp hoặc tắc nghẽn đường ra, ví dụ do phì đại tuyến tiền liệt",
+          "Theo dõi chính xác lượng nước tiểu ở người bệnh nặng (cân bằng dịch)",
+          "Phẫu thuật kéo dài hoặc phẫu thuật đường tiết niệu",
+          "Bảo vệ vết thương vùng kín và mông khi tiểu không tự chủ, ví dụ loét tì đè độ III/IV",
+          "Chăm sóc giảm nhẹ khi mọi cử động đều gây đau nhiều"
+        ] },
+        { warn: "Chỉ riêng tiểu không tự chủ hoặc việc giảm khối lượng công việc chăm sóc không phải là chỉ định đặt ống thông tiểu lưu." },
+        { h: "So sánh các đường đặt" },
+        { tabelle: { kopf: ["", "Qua niệu đạo", "Trên xương mu"], zeilen: [
+          ["Đường đi", "Qua niệu đạo (Urethra)", "Qua thành bụng phía trên khớp mu (Symphyse)"],
+          ["Người đặt", "Điều dưỡng hoặc bác sĩ theo y lệnh", "Thủ thuật của bác sĩ (chọc dò)"],
+          ["Ưu điểm", "Đặt đơn giản và nhanh", "Bảo vệ niệu đạo, có thể kiểm tra khả năng tự đi tiểu"],
+          ["Nhược điểm", "Tổn thương niệu đạo, hẹp niệu đạo, vi khuẩn dễ đi ngược lên", "Nguy cơ của thủ thuật như chảy máu hoặc tổn thương ruột, cần chăm sóc vị trí đặt"]
+        ] } },
+        { h: "Chất liệu và kích cỡ" },
+        { tabelle: { kopf: ["Đặc điểm", "Ý nghĩa"], zeilen: [
+          ["Charrière (Ch)", "Đường kính ngoài: 1 Ch = 1/3 mm. Nhỏ nhất có thể, lớn vừa đủ theo nhu cầu"],
+          ["Cỡ thường dùng", "Nữ thường 12–14 Ch, nam thường 14–16 Ch"],
+          ["Silicon", "Dung nạp tốt, phù hợp để lưu lâu hơn"],
+          ["Latex", "Chỉ lưu ngắn ngày, cần hỏi tiền sử dị ứng"],
+          ["Đầu Nélaton", "Dạng chuẩn, thẳng và bo tròn"],
+          ["Đầu Tiemann", "Đầu cong, dùng cho nam giới khó đặt, ví dụ do phì đại tuyến tiền liệt"]
+        ] } },
+        { anatomie: "harn" },
+        { link: { bereich: "prophylaxen", kapitel: "zystitis" } }
+      ] },
+      { id: "dk_legen", titel: "Đặt ống thông tiểu lưu", kurz: "Từng bước vô khuẩn, ở nữ và nam", abschnitte: [
+        { h: "Chuẩn bị" },
+        { liste: [
+          "Kiểm tra y lệnh và chỉ định, hỏi tiền sử dị ứng (latex, thuốc sát khuẩn, gel)",
+          "Thông báo cho người bệnh, xin đồng ý, bảo vệ sự riêng tư",
+          "Tư thế nằm ngửa, vệ sinh vùng kín, sát khuẩn tay",
+          "Chuẩn bị bộ dụng cụ vô khuẩn, ống thông phù hợp, hệ thống dẫn lưu kín, gel bôi trơn, thuốc sát khuẩn niêm mạc và dung dịch bơm bóng",
+          "An toàn nhất là làm hai người: một người thao tác vô khuẩn, một người đưa dụng cụ"
+        ] },
+        { merke: "Đặt ống thông là thủ thuật vô khuẩn: dùng găng vô khuẩn, dụng cụ vô khuẩn và tuân thủ thời gian tác dụng của thuốc sát khuẩn theo nhà sản xuất." },
+        { h: "Các bước thực hiện" },
+        { tabelle: { kopf: ["Bước", "Nữ", "Nam"], zeilen: [
+          ["Sát khuẩn", "Vạch môi âm hộ, lau từ khớp mu về phía hậu môn, mỗi gạc chỉ dùng một lần", "Kéo bao quy đầu ra sau, lau quy đầu theo vòng tròn từ lỗ niệu đạo ra ngoài"],
+          ["Bôi trơn", "Bôi gel lên đầu ống hoặc vào niệu đạo", "Bơm gel vô khuẩn vào niệu đạo, chờ đủ thời gian tác dụng"],
+          ["Đưa ống vào", "Đẩy nhẹ, không dùng lực, đến khi nước tiểu chảy ra", "Kéo thẳng dương vật lên trên, khi có lực cản thì hạ xuống, đẩy tiếp đến khi nước tiểu chảy ra"],
+          ["Đoạn an toàn", "Đẩy thêm vài centimet", "Đẩy đến gần chỗ chia nhánh của ống"],
+          ["Kết thúc", "Bơm bóng, kéo lại đến khi có lực cản, cố định", "Bơm bóng, kéo lại, nhất định phải kéo bao quy đầu trở lại"]
+        ] } },
+        { h: "Bơm bóng" },
+        { liste: [
+          "Chỉ bơm bóng khi nước tiểu chảy ra: khi đó bóng nằm trong bàng quang",
+          "Dùng Aqua destillata vô khuẩn hoặc dung dịch glycerin 8–10 %, lượng theo nhà sản xuất (thường 5–10 ml)",
+          "Không dùng NaCl: có thể kết tinh và làm tắc kênh bơm bóng",
+          "Không dùng không khí: bóng sẽ nổi lên và nhanh xẹp"
+        ] },
+        { warn: "Đau khi bơm bóng gợi ý ống nằm sai vị trí trong niệu đạo: dừng ngay, rút dịch ra, báo bác sĩ." },
+        { h: "Tình huống khó" },
+        { liste: [
+          "Ống vào âm đạo: ống được coi là không còn vô khuẩn. Dùng ống vô khuẩn mới",
+          "Có lực cản: tuyệt đối không dùng lực, nếu không có thể tạo đường sai (Via falsa)",
+          "Máu ở niệu đạo hoặc đau nhiều: dừng lại, báo bác sĩ",
+          "Lượng nước tiểu lớn khi bí tiểu: theo dõi tuần hoàn, có thể chảy máu do giảm áp đột ngột. Tuân theo y lệnh và quy định của cơ sở"
+        ] },
+        { warn: "Nếu bao quy đầu vẫn bị kéo ra sau, có thể xảy ra Paraphimose: quy đầu sưng đau và giảm tưới máu. Đây là tình trạng cấp cứu." },
+        { h: "Ghi chép" },
+        { p: "Ngày giờ, chỉ định, loại và cỡ ống, số lô, lượng và loại dung dịch bơm bóng, lượng và tính chất nước tiểu, điều bất thường, chữ ký." }
+      ] },
+      { id: "dk_pflege", titel: "Chăm sóc ống thông và biến chứng", kurz: "Phòng nhiễm trùng, nhận biết vấn đề, rút ống", abschnitte: [
+        { h: "Chăm sóc khi đang đặt ống" },
+        { liste: [
+          "Sát khuẩn tay trước và sau mỗi lần tiếp xúc, đeo găng khi có thể tiếp xúc nước tiểu",
+          "Vệ sinh vùng kín hằng ngày bằng nước và dung dịch rửa dịu nhẹ, lau ống theo hướng ra xa niệu đạo",
+          "Không dùng thuốc sát khuẩn thường quy cho lỗ niệu đạo",
+          "Cố định ống không để căng kéo: ở nữ tại đùi, ở nam theo quy định của cơ sở",
+          "Luôn để túi thấp hơn bàng quang, không gập dây, không đặt túi xuống sàn",
+          "Xả túi kịp thời qua van, sát khuẩn trước và sau, mỗi người có dụng cụ chứa riêng",
+          "Khuyến khích uống đủ nước nếu không có hạn chế",
+          "Ghi chép hằng ngày: lượng nước tiểu, màu, độ đục, sự cần thiết của ống"
+        ] },
+        { merke: "Hệ thống dẫn lưu phải luôn kín. Lấy mẫu nước tiểu tại vị trí lấy mẫu của hệ thống sau khi sát khuẩn, không bao giờ lấy từ túi." },
+        { h: "Thay ống thông" },
+        { p: "Việc thay ống tùy theo chất liệu, hướng dẫn của nhà sản xuất và nhu cầu, ví dụ khi tắc, đóng cặn hoặc nhiễm trùng. Nói chung không thay thường quy theo khoảng thời gian cố định. Cũng không khuyến cáo rửa bàng quang thường quy." },
+        { h: "Biến chứng" },
+        { tabelle: { kopf: ["Vấn đề", "Dấu hiệu", "Biện pháp"], zeilen: [
+          ["Nhiễm trùng tiết niệu", "Nước tiểu đục, hôi, sốt, đau hông lưng, lú lẫn", "Đo dấu hiệu sinh tồn, báo bác sĩ, lấy mẫu theo y lệnh"],
+          ["Tắc ống", "Không có nước tiểu trong túi, đau bụng dưới, bàng quang căng", "Kiểm tra dây, báo bác sĩ, thay hoặc rửa theo y lệnh"],
+          ["Co thắt bàng quang", "Đau quặn, nước tiểu rò ra cạnh ống", "Kiểm tra vị trí và dòng chảy, báo bác sĩ"],
+          ["Tổn thương niệu đạo", "Chảy máu, đau, về sau hẹp niệu đạo (Striktur)", "Cố định không căng kéo, xem lại chỉ định, báo bác sĩ"],
+          ["Bóng không xẹp", "Không rút được dịch ra", "Không kéo ống, báo bác sĩ"]
+        ] } },
+        { warn: "Sốt, rét run, tụt huyết áp hoặc mới xuất hiện lú lẫn có thể là dấu hiệu Urosepsis: báo bác sĩ ngay." },
+        { h: "Ống thông trên xương mu: điểm riêng" },
+        { liste: [
+          "Đến khi lành, thay băng vô khuẩn theo y lệnh",
+          "Sau đó kiểm tra vị trí đặt hằng ngày: đỏ, dịch tiết, đau",
+          "Cố định ống không căng kéo, kiểm tra vị trí",
+          "Chỉ xả qua hệ thống kín, không tháo rời"
+        ] },
+        { h: "Rút ống thông" },
+        { liste: [
+          "Kiểm tra y lệnh, thông báo cho người bệnh, đeo găng, lót tấm thấm",
+          "Rút hết dịch trong bóng qua van và so sánh lượng với hồ sơ",
+          "Rút ống từ từ, không có lực cản, tốt nhất khi người bệnh thở ra",
+          "Sau đó vệ sinh vùng kín, khuyến khích uống nước, theo dõi lần tiểu đầu tiên và lượng nước tiểu",
+          "Khi bí tiểu hoặc khó chịu, báo bác sĩ và kiểm tra nước tiểu tồn dư nếu cần"
+        ] }
+      ] },
+      { id: "stoma_grundlagen", titel: "Stoma: cơ bản", kurz: "Colostoma, Ileostoma, Urostoma và sự khác biệt", abschnitte: [
+        { h: "Stoma là gì?" },
+        { p: "Stoma là lỗ mở của một tạng rỗng ra ngoài cơ thể, được tạo bằng phẫu thuật. Trong điều dưỡng, quan trọng nhất là đường ra nhân tạo của ruột (Enterostoma) và của nước tiểu (Urostoma). Stoma có thể tạm thời hoặc vĩnh viễn." },
+        { h: "Nguyên nhân thường gặp" },
+        { liste: ["Ung thư ruột hoặc bàng quang", "Bệnh viêm ruột mạn tính như Morbus Crohn và Colitis ulcerosa", "Viêm túi thừa, tắc ruột (Ileus), thủng ruột", "Bảo vệ miệng nối ruột sau phẫu thuật", "Chấn thương"] },
+        { h: "So sánh các loại stoma" },
+        { tabelle: { kopf: ["", "Colostoma", "Ileostoma", "Urostoma"], zeilen: [
+          ["Đường ra", "Ruột già", "Ruột non", "Dẫn lưu nước tiểu, ví dụ Ileum-Conduit"],
+          ["Vị trí thường gặp", "Thường ở dưới bên trái", "Thường ở dưới bên phải", "Thường ở dưới bên phải"],
+          ["Chất thải", "Sệt đến thành khuôn", "Lỏng đến sệt, rất thường xuyên", "Nước tiểu, liên tục"],
+          ["Da", "Nguy cơ thấp hơn", "Nguy cơ cao do men tiêu hóa", "Nguy cơ do ẩm liên tục"],
+          ["Túi", "Túi kín có màng lọc", "Túi xả được", "Túi Urostoma có chống trào ngược và van xả"]
+        ] } },
+        { h: "Cách phân loại khác" },
+        { liste: [
+          "Một nòng (endständig): đưa một đầu ruột ra ngoài, thường vĩnh viễn",
+          "Hai nòng (doppelläufig): đưa một quai ruột có hai lỗ ra ngoài, thường tạm thời",
+          "Vị trí trên ruột già ảnh hưởng đến chất thải: stoma càng ở đoạn sau thì phân càng đặc"
+        ] },
+        { h: "Stoma khỏe mạnh trông như thế nào" },
+        { liste: ["Hồng đến đỏ tươi và ẩm, giống niêm mạc miệng", "Cao hơn mặt da một chút, Ileostoma nhô rõ hơn", "Chảy máu nhẹ khi làm sạch thường vô hại", "Không có cảm giác đau vì niêm mạc không có dây thần kinh cảm giác đau"] },
+        { warn: "Stoma đỏ sẫm, xanh hoặc đen: có thể là rối loạn tưới máu (Nekrose). Báo bác sĩ ngay." },
+        { h: "Trước phẫu thuật" },
+        { p: "Chuyên gia chăm sóc stoma tư vấn và đánh dấu vị trí khi nằm, ngồi và đứng. Người bệnh phải nhìn thấy và với tới stoma dễ dàng; stoma không nên nằm ở nếp da, sẹo hoặc cạp quần." },
+        { anatomie: "verdauung" }
+      ] },
+      { id: "stoma_versorgung", titel: "Chăm sóc stoma", kurz: "Hệ thống, thay dụng cụ, bảo vệ da", abschnitte: [
+        { h: "Hệ thống dụng cụ" },
+        { tabelle: { kopf: ["Hệ thống", "Cấu tạo", "Thời gian thay tham khảo"], zeilen: [
+          ["Một mảnh", "Đế bảo vệ da và túi gắn liền", "Thường mỗi ngày hoặc khi cần"],
+          ["Hai mảnh", "Đế ở trên da, túi được gắn vào", "Đế khoảng 2–3 ngày, túi khi cần"]
+        ] } },
+        { p: "Khoảng thời gian phụ thuộc vào sản phẩm, da và chất thải. Dụng cụ bị rò phải được thay ngay. Xả hoặc thay túi trước khi túi đầy khoảng một phần ba đến một nửa." },
+        { h: "Thay dụng cụ từng bước" },
+        { liste: [
+          "Chuẩn bị dụng cụ mới, thước đo, kéo, gạc, nước, túi rác",
+          "Mời người bệnh cùng tham gia, sát khuẩn tay, đeo găng, bảo vệ giường và quần áo",
+          "Gỡ đế cũ nhẹ nhàng từ trên xuống dưới, đồng thời giữ da",
+          "Lấy phân, làm sạch stoma từ ngoài vào trong bằng nước và lau khô da",
+          "Quan sát stoma và da: màu, kích thước, đỏ, tổn thương",
+          "Đo stoma và cắt lỗ đế cho vừa (lớn hơn stoma khoảng 1–2 mm)",
+          "Dán đế phẳng từ dưới lên trên và dùng tay ấm giữ vài phút",
+          "Gắn túi, kiểm tra độ chắc và ghi chép"
+        ] },
+        { merke: "Da quanh stoma phải sạch, khô và không có dầu, nếu không đế sẽ không dính. Lỗ quá lớn làm chất thải tiếp xúc với da." },
+        { h: "Bảo vệ da" },
+        { liste: [
+          "Chỉ dùng nước hoặc chất làm sạch trung tính không chứa dầu, khi cần dùng dung dịch gỡ băng dính",
+          "Không dùng xăng, cồn, dầu hoặc kem béo",
+          "Cẩn thận loại bỏ lông xung quanh",
+          "Bù chỗ không phẳng và nếp da bằng keo stoma hoặc vòng bảo vệ da",
+          "Khi da đỏ hoặc tổn thương, mời chuyên gia chăm sóc stoma tham gia"
+        ] },
+        { h: "Điểm đặc biệt" },
+        { liste: [
+          "Ileostoma: bảo vệ da đặc biệt kỹ vì dịch ruột non chứa men tiêu hóa mạnh",
+          "Urostoma: nước tiểu vẫn chảy khi thay, nên chuẩn bị vật liệu thấm hút. Ban đêm nối với túi lớn hơn",
+          "Irrigation: thụt rửa ruột qua Colostoma ở đoạn Sigma hoặc Descendens, chỉ khi bác sĩ đồng ý và có hướng dẫn"
+        ] }
+      ] },
+      { id: "stoma_alltag", titel: "Stoma: biến chứng và sinh hoạt", kurz: "Nhận biết vấn đề, dinh dưỡng, tâm lý, hướng dẫn", abschnitte: [
+        { h: "Biến chứng" },
+        { tabelle: { kopf: ["Biến chứng", "Ý nghĩa", "Cần làm gì?"], zeilen: [
+          ["Nekrose", "Stoma sẫm đến đen, rối loạn tưới máu", "Báo bác sĩ ngay"],
+          ["Retraktion", "Stoma tụt xuống dưới mặt da", "Bác sĩ và chuyên gia stoma, điều chỉnh dụng cụ"],
+          ["Prolaps", "Ruột lộ ra nhiều qua stoma", "Báo bác sĩ, báo ngay nếu đổi màu"],
+          ["Parastomale Hernie", "Thoát vị cạnh stoma, có khối phồng", "Tránh mang nặng, đai bụng và bác sĩ"],
+          ["Stenose", "Lỗ stoma hẹp, khó thải", "Báo bác sĩ"],
+          ["Viêm da", "Đỏ và rỉ dịch do dụng cụ bị rò", "Kiểm tra dụng cụ và lỗ cắt, chuyên gia stoma"],
+          ["Nhiễm nấm", "Đỏ kèm các nốt nhỏ vệ tinh, ngứa", "Báo bác sĩ, điều trị theo y lệnh"]
+        ] } },
+        { warn: "Không có chất thải, đau quặn bụng, nôn và bụng chướng có thể là dấu hiệu tắc ruột: báo bác sĩ ngay." },
+        { h: "Dinh dưỡng" },
+        { liste: [
+          "Thường không cần chế độ ăn đặc biệt: thử từng món mới và nhai kỹ",
+          "Gây đầy hơi: bắp cải, đậu, hành, đồ uống có ga",
+          "Gây mùi: trứng, cá, hành, tỏi, một số loại phô mai",
+          "Giảm mùi: sữa chua, nam việt quất, mùi tây, rau bina",
+          "Gây táo: gạo, chuối, bánh mì trắng. Nhuận tràng: trái cây sống, rượu, cà phê"
+        ] },
+        { h: "Điểm riêng theo loại stoma" },
+        { liste: [
+          "Ileostoma: uống nhiều nước và bổ sung điện giải, sớm nhận biết mất nước",
+          "Ileostoma: thức ăn nhiều xơ như măng tây, nấm, các loại hạt hoặc cam quýt có thể gây tắc stoma",
+          "Ileostoma: thuốc phóng thích chậm có thể không được hấp thu đủ. Cần hỏi bác sĩ hoặc dược sĩ",
+          "Urostoma: uống nhiều nước, theo dõi nước tiểu đục và có mùi"
+        ] },
+        { h: "Hỗ trợ tâm lý xã hội" },
+        { p: "Stoma làm thay đổi hình ảnh cơ thể và có thể gây xấu hổ, ghê sợ, lo lắng về mùi, về đời sống vợ chồng và tình dục. Hãy tôn trọng những cảm xúc này, giữ sự riêng tư và chú ý nét mặt của chính bạn khi thay dụng cụ." },
+        { h: "Hướng dẫn và sinh hoạt" },
+        { liste: [
+          "Khuyến khích tự chăm sóc từng bước: trước hết quan sát, sau đó phụ giúp, rồi tự làm",
+          "Mời người thân tham gia nếu người bệnh muốn, sớm sắp xếp chuyên gia stoma và dụng cụ",
+          "Giới thiệu nhóm tự lực, ví dụ Deutsche ILCO",
+          "Thường vẫn có thể tắm, đi du lịch và chơi thể thao. Tránh mang vác nặng",
+          "Luôn mang theo bộ dụng cụ dự phòng"
+        ] },
+        { merke: "Chữ viết tắt „AP“ (Anus praeter) vẫn thường dùng trong thực tế. Thuật ngữ chính xác hơn là Colostoma và Ileostoma." }
+      ] }
+    ]
   }
 ];

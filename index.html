@@ -59,12 +59,14 @@
   <nav class="tabbar">
     <button data-tab="start"><svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-6H9v6H5.5A1.5 1.5 0 0 1 4 19z"/></svg><span>Start</span></button>
     <button data-tab="lernen"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12.5h5M8.5 16.5l1.5 1.5 3-3"/></svg><span>Lernen</span></button>
+    <button data-tab="test"><svg viewBox="0 0 24 24"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.5 2M9.5 3h5M12 3v3"/></svg><span>Test-Vorbereitung</span></button>
     <button data-tab="gemerkt"><svg viewBox="0 0 24 24"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.7L12 16.8l-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg><span>Gemerkt</span></button>
     <button data-tab="info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg><span>Info</span></button>
   </nav>
 
   <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
   <section class="sheet" id="sheet" hidden aria-modal="true" role="dialog"></section>
+  <div class="update-layer" id="updateLayer" hidden></div>
 
   <script src="schutz.js"></script>
   <script src="data.js"></script>
@@ -76,6 +78,7 @@
   <script src="vi_pflege.js"></script>
   <script src="vi_quiz.js"></script>
   <script src="sprache.js"></script>
+  <script src="version.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

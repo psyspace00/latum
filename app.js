@@ -3,7 +3,7 @@
 
 // MediSmart – App-Logik
 // Gliederung: 1 Symbole · 2 Sprache · 3 Daten · 4 Zustand · 5 Grafiken & 3D · 6 Navigation (iOS-Stack)
-//             7 Seiten · 8 Detailblatt · 9 Suche · 10 Quiz · 11 Karteikarten · 12 Start
+//             7 Seiten · 8 Detailblatt · 9 Suche · 10 Quiz · 11 Karteikarten · 12 Test-Vorbereitung · 13 Update-Pop-up · 14 Start
 (function () {
   "use strict";
 
@@ -37,7 +37,8 @@
     quiz: '<rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12.5h5M8.5 16.5l1.5 1.5 3-3"/>',
     karten: '<rect x="3.5" y="6.5" width="12" height="14" rx="2"/><path d="M8.5 3.5h10a2 2 0 0 1 2 2v12"/>',
     bild: '<rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6" stroke-dasharray="2 2.5"/>',
-    wuerfel: '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/>'
+    wuerfel: '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/>',
+    tropfen: '<path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z"/><circle cx="12" cy="14.5" r="2.4"/>'
   };
   const icon = (id, cls) => `<span class="ico${cls ? " " + cls : ""}"><svg viewBox="0 0 24 24">${ICONS[id] || ""}</svg></span>`;
 
@@ -46,7 +47,7 @@
 
   // Hauptmenü: Körper & Anatomie, danach die Pflegebereiche
   const MENUE_BEREICHE = [["pflegeprozess", "zyklus", "orange"], ["prophylaxen", "schild", "blue"], ["kontrakturen", "gelenk", "indigo"],
-    ["vitalzeichen", "puls", "red"], ["herzkreislauf", "herz", "pink"], ["ernaehrung", "apfel", "green"]];
+    ["vitalzeichen", "puls", "red"], ["herzkreislauf", "herz", "pink"], ["ernaehrung", "apfel", "green"], ["ausscheidung", "tropfen", "amber"]];
 
   // =====================================================================
   // 2 · SPRACHE (Oberfläche Deutsch / Tiếng Việt – Fachbegriffe bleiben lateinisch)
@@ -295,7 +296,7 @@
   })();
 
   // Tabs
-  const TAB_WURZEL = { start: { v: "home" }, lernen: { v: "lernen" }, gemerkt: { v: "gemerkt" }, info: { v: "info" } };
+  const TAB_WURZEL = { start: { v: "home" }, lernen: { v: "lernen" }, test: { v: "testvorb" }, gemerkt: { v: "gemerkt" }, info: { v: "info" } };
   document.querySelectorAll(".tabbar button").forEach(b => {
     b.onclick = () => {
       const tab = b.dataset.tab;
@@ -419,6 +420,9 @@
 
     quiz: (r, seite) => quizSeite(r, seite),
     karten: (r, seite) => kartenSeite(r, seite),
+    testvorb: (r, seite) => testUebersicht(seite),
+    test: (r, seite) => testSeite(r, seite),
+    testEdit: (r, seite) => testEditor(r, seite),
 
     gemerkt() {
       const favs = ALLE.filter(e => state.favs.has(e.key));
@@ -428,6 +432,7 @@
 
     info() {
       return { titel: T().tabInfo, html: gross(T().infoTitel, T().infoLead(ALLE.length.toLocaleString("de-DE"), KAPITEL.length, QUIZ.length)) +
+        `<button class="glass-card info-version" data-action="neuigkeiten"><span><b>${T().versionText(APP_VERSIONEN[0].nummer)}</b><br><span class="muted small">${T().wasIstNeu}</span></span>${chev}</button>` +
         `<div class="glass-card prose">${T().infoHtml}</div>` };
     }
   };
@@ -458,6 +463,7 @@
     const gt = t.closest("[data-goto]");
     if (gt) { const z = aktuell().el.querySelector("#g-" + gt.dataset.goto); if (z) aktuell().el.scrollTo({ top: z.offsetTop - 70, behavior: "smooth" }); return; }
     if (t.closest('[data-action="suche"]')) $("search").focus();
+    if (t.closest('[data-action="neuigkeiten"]')) zeigeNeuigkeiten([APP_VERSIONEN[0]]);
   });
 
   // =====================================================================
@@ -545,7 +551,9 @@
   }
   function suchePflege(query) {
     const q = plain(query.trim());
-    if (q.length < 3) return [];
+    if (q.length < 2) return [];
+    // Zwei Zeichen (z. B. „DK“) zählen nur als ganzes Wort im Kapiteltitel
+    if (q.length === 2) return KAPITEL.filter(k => (" " + k.sTitel.replace(/[^a-z0-9]+/g, " ") + " ").indexOf(" " + q + " ") >= 0);
     return KAPITEL.map(k => ({ k, s: k.sTitel.indexOf(q) >= 0 ? 2 : k.sText.indexOf(q) >= 0 ? 1 : 0 })).filter(x => x.s).sort((a, b) => b.s - a.s).map(x => x.k);
   }
   function zeigeSuche() {
@@ -592,6 +600,11 @@
   // Frage in der aktuellen Sprache (vietnamesische Texte aus QUIZ_VI, gleiche Reihenfolge)
   const QUIZ_I = QUIZ.map((q, i) => Object.assign({ nr: i }, q));
   const frageText = q => (vi() && !q.auto && QUIZ_VI[q.nr]) ? Object.assign({}, q, QUIZ_VI[q.nr]) : q;
+  const anzeigeFrage = f => f.auto ? Object.assign({}, f, autoText(f)) : frageText(f);
+  // Reihenfolge-Fragen: Optionen stehen in richtiger Folge, also muss jede Wahl ihrer Position entsprechen
+  const istRichtig = (f, wahl) => f.typ === "single" ? wahl[0] === f.richtig
+    : f.typ === "multi" ? wahl.length === f.richtig.length && f.richtig.every(x => wahl.indexOf(x) >= 0)
+    : wahl.length === f.anzeige.length && wahl.every((oi, pos) => oi === pos);
 
   // Automatisch erzeugte Anatomiefragen (Latein ↔ Übersetzung, Ablenker aus demselben Bereich)
   function anatomieFragen(n) {
@@ -626,7 +639,7 @@
         `<div class="section-title">${T().nachThema}</div><div class="list">` + Object.keys(proKat).map(k => `<div class="row"><div class="row-text"><div class="row-main">${esc(katTitel(k))}</div></div><span class="count">${proKat[k][0]} / ${proKat[k][1]}</span></div>`).join("") + "</div>" +
         `<div class="actions mt"><button class="btn primary-btn" data-q="neu">${T().neueRunde}</button></div>` };
     }
-    const f0 = Q.fragen[Q.i], f = f0.auto ? Object.assign({}, f0, autoText(f0)) : frageText(f0);
+    const f = anzeigeFrage(Q.fragen[Q.i]);
     const hinweis = f.typ === "multi" ? T().hinweisMulti : f.typ === "order" ? T().hinweisOrder : T().hinweisSingle;
     const opts = f.anzeige.map(oi => {
       const gewaehlt = f.typ === "order" ? Q.wahl.indexOf(oi) : Q.wahl.indexOf(oi) >= 0 ? 1 : -1;
@@ -658,11 +671,7 @@
       });
       const p = el.querySelector("[data-q=pruefen]");
       if (p) p.onclick = () => {
-        let ok;
-        if (f.typ === "single") ok = Q.wahl[0] === f.richtig;
-        else if (f.typ === "multi") ok = Q.wahl.length === f.richtig.length && f.richtig.every(x => Q.wahl.indexOf(x) >= 0);
-        else ok = Q.wahl.every((oi, pos) => oi === pos);
-        Q.ergebnis[Q.i] = ok; Q.geprueft = true; zeichne(seite, true);
+        Q.ergebnis[Q.i] = istRichtig(f, Q.wahl); Q.geprueft = true; zeichne(seite, true);
       };
       const rs = el.querySelector("[data-q=reset]");
       if (rs) rs.onclick = () => { Q.wahl = []; zeichne(seite, true); };
@@ -714,13 +723,222 @@
   }
 
   // =====================================================================
-  // 12 · START UND SPRACHWECHSEL
+  // 12 · TEST-VORBEREITUNG – wie in der Schule: Auswertung erst nach dem Abgeben
+  const THEMEN_IDS = QUIZ_KATEGORIEN.map(k => k.id);
+  const eigeneTests = () => store.get("eigeneTests", []);
+  const testErgebnisse = () => store.get("testErg", {});
+  const testKey = r => r.eigen ? "e:" + r.eigen : "k:" + r.kats.join("+") + ":" + r.n;
+  const eigenerTest = id => eigeneTests().find(t => t.id === id);
+  const aktualisiereUebersicht = () => { const s = stack.find(x => x.route.v === "testvorb"); if (s) zeichne(s, true); };
+
+  function testUebersicht(seite) {
+    if (!seite.bau) seite.bau = { kats: [], n: 10 };
+    const B = seite.bau, erg = testErgebnisse(), zeit = store.get("testZeit", false);
+    const startRow = (route, titel, sub) => { const p = erg[testKey(route)];
+      return `<button class="row"${go(route)}><div class="row-text"><div class="row-main">${esc(titel)}</div><div class="row-sub">${esc(sub)}</div></div>` +
+        (p != null ? `<span class="count">${T().zuletzt(p)}</span>` : "") + `${chev}</button>`; };
+    const verfuegbar = id => QUIZ.filter(q => q.kat === id).length + (id === "anatomie" ? 12 : 0);
+    const eigene = eigeneTests();
+    let h = gross(T().tabTest, T().testLead);
+    h += `<div class="list"><button class="row" data-test="zeit"><div class="row-text"><div class="row-main">${T().zeitlimit}</div><div class="row-sub">${T().zeitlimitSub}</div></div><span class="schalter${zeit ? " an" : ""}"></span></button></div>`;
+    h += `<div class="section-title">${T().kurztests}</div><div class="list">` + startRow({ v: "test", kats: THEMEN_IDS, n: 20 }, T().gesamttest, T().gesamttestSub(20)) +
+      QUIZ_KATEGORIEN.map(k => { const n = Math.min(10, verfuegbar(k.id)); return startRow({ v: "test", kats: [k.id], n }, katTitel(k.id), T().testFragen(n)); }).join("") + "</div>";
+    h += `<div class="section-title">${T().zusammenstellen}</div><p class="muted small">${T().themenWaehlen}</p><div class="chips wrap">` +
+      QUIZ_KATEGORIEN.map(k => `<button class="chip${B.kats.indexOf(k.id) >= 0 ? " active" : ""}" data-tk="${k.id}">${esc(katTitel(k.id))}</button>`).join("") + "</div>" +
+      `<div class="section-title">${T().anzahl}</div><div class="seg-big">` + [5, 10, 15, 20].map(n => `<button data-tn="${n}" class="${B.n === n ? "active" : ""}">${n}</button>`).join("") + "</div>" +
+      `<div class="actions mt"><button class="btn primary-btn" data-test="bau"${B.kats.length ? "" : " disabled"}>${T().testStarten}</button></div>`;
+    h += `<div class="section-title">${T().meineTests}</div><p class="muted small">${T().meineTestsLead}</p>` +
+      (eigene.length ? `<div class="list">` + eigene.map(t => { const p = erg["e:" + t.id];
+        return `<div class="row mein-test"><button class="row-text"${go({ v: "test", eigen: t.id })}><div class="row-main">${esc(t.name)}</div><div class="row-sub">${T().testFragen(t.fragen.length)}${p != null ? " · " + T().zuletzt(p) : ""}</div></button>` +
+          `<button class="edit-btn" aria-label="${T().edBearbeiten}"${go({ v: "testEdit", id: t.id })}>✎</button></div>`; }).join("") + "</div>" : "") +
+      `<div class="actions mt"><button class="btn"${go({ v: "testEdit" })}>${T().neuerTest}</button></div>`;
+    return { titel: T().tabTest, html: h, nach: el => {
+      el.querySelector('[data-test="zeit"]').onclick = () => { store.set("testZeit", !zeit); zeichne(seite, true); };
+      el.querySelectorAll("[data-tk]").forEach(b => b.onclick = () => {
+        const id = b.dataset.tk;
+        B.kats = B.kats.indexOf(id) >= 0 ? B.kats.filter(x => x !== id) : B.kats.concat(id);
+        zeichne(seite, true);
+      });
+      el.querySelectorAll("[data-tn]").forEach(b => b.onclick = () => { B.n = +b.dataset.tn; zeichne(seite, true); });
+      el.querySelector('[data-test="bau"]').onclick = () => push({ v: "test", kats: THEMEN_IDS.filter(id => B.kats.indexOf(id) >= 0), n: B.n });
+    } };
+  }
+
+  function stelleTest(r) {
+    let fragen;
+    if (r.eigen) fragen = mischen(eigenerTest(r.eigen).fragen).map(q => Object.assign({ kat: "eigen", typ: "single" }, q));
+    else {
+      let pool = QUIZ_I.filter(q => r.kats.indexOf(q.kat) >= 0);
+      if (r.kats.indexOf("anatomie") >= 0) pool = pool.concat(anatomieFragen(12));
+      fragen = mischen(pool).slice(0, r.n);
+    }
+    return fragen.map(q => Object.assign({}, q, { anzeige: mischen((q.optionen || q.opts).map((o, i) => i)) }));
+  }
+  const loesungText = f => f.typ === "single" ? f.optionen[f.richtig]
+    : f.typ === "multi" ? f.richtig.map(i => f.optionen[i]).join(", ") : f.optionen.join(" → ");
+  const uhrText = ms => { const s = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
+
+  function testSeite(r, seite) {
+    if (!seite.test) {
+      const fragen = stelleTest(r);
+      seite.test = { fragen, i: 0, antworten: fragen.map(() => []), ergebnis: null, ende: store.get("testZeit", false) ? Date.now() + fragen.length * 60000 : null };
+      if (seite.test.ende) {
+        const X = seite.test;
+        X.uhr = setInterval(() => {
+          if (!seite.el.isConnected) { clearInterval(X.uhr); return; }
+          const rest = X.ende - Date.now(), u = seite.el.querySelector("[data-uhr]");
+          if (u) { u.textContent = "⏱ " + uhrText(rest); u.classList.toggle("knapp", rest < 60000); }
+          if (rest <= 0) abgeben(r, seite);
+        }, 1000);
+      }
+    }
+    const X = seite.test, n = X.fragen.length;
+    const name = r.eigen ? eigenerTest(r.eigen).name : r.kats.length === 1 ? katTitel(r.kats[0]) : r.kats.length === THEMEN_IDS.length ? T().gesamttest : T().gemischterTest;
+    const kat = id => id === "eigen" ? T().meineTests : katTitel(id);
+
+    if (X.ergebnis) {
+      const richtig = X.ergebnis.filter(Boolean).length, pct = Math.round(richtig / n * 100), proKat = {};
+      X.fragen.forEach((f, j) => { const k = proKat[f.kat] = proKat[f.kat] || [0, 0]; k[1]++; if (X.ergebnis[j]) k[0]++; });
+      const falsch = X.fragen.map(anzeigeFrage).filter((f, j) => !X.ergebnis[j]);
+      return { titel: T().ergebnis, html: gross(T().ergebnis, esc(name)) +
+        `<div class="glass-card score"><div class="ring" style="--p:${pct}"><span>${pct}%</span></div><div>${T().vonRichtig(richtig, n)}<br><span class="muted">${T().lob[pct >= 80 ? 0 : pct >= 60 ? 1 : 2]}</span></div></div>` +
+        (Object.keys(proKat).length > 1 ? `<div class="section-title">${T().nachThema}</div><div class="list">` + Object.keys(proKat).map(k => `<div class="row"><div class="row-text"><div class="row-main">${esc(kat(k))}</div></div><span class="count">${proKat[k][0]} / ${proKat[k][1]}</span></div>`).join("") + "</div>" : "") +
+        (falsch.length ? `<div class="section-title">${T().falschBeantwortet(falsch.length)}</div>` + falsch.map(f => `<div class="glass-card review"><b>${esc(f.frage)}</b>` +
+          `<p class="loesung">${T().richtigWaere} <span${f.latOpt ? ' class="lat"' : ""}>${esc(loesungText(f))}</span></p>${f.erklaerung ? `<p class="muted">${esc(f.erklaerung)}</p>` : ""}</div>`).join("")
+          : `<div class="callout ok"><b>${T().alleRichtig}</b></div>`) +
+        `<div class="actions mt"><button class="btn primary-btn" data-t="neu">${T().testNochmal}</button></div>`,
+        nach: el => { el.querySelector("[data-t=neu]").onclick = () => { seite.test = null; zeichne(seite); seite.el.scrollTop = 0; }; } };
+    }
+
+    const f = anzeigeFrage(X.fragen[X.i]), wahl = X.antworten[X.i];
+    const hinweis = f.typ === "multi" ? T().hinweisMulti : f.typ === "order" ? T().hinweisOrder : T().hinweisSingle;
+    const opts = f.anzeige.map(oi => {
+      const pos = wahl.indexOf(oi);
+      const marke = pos < 0 ? "" : f.typ === "order" ? pos + 1 : f.typ === "multi" ? "✓" : "";
+      return `<button class="opt${f.typ !== "order" && pos >= 0 ? " sel" : ""}" data-opt="${oi}"><span class="opt-mark ${f.typ}">${marke}</span><span class="opt-text${f.latOpt ? " lat" : ""}">${esc(f.optionen[oi])}</span></button>`;
+    }).join("");
+    const letzte = X.i === n - 1;
+    const h = `<div class="quiz-top"><span class="pill">${esc(kat(f.kat))}</span>` +
+      (X.ende ? `<span class="test-uhr${X.ende - Date.now() < 60000 ? " knapp" : ""}" data-uhr>⏱ ${uhrText(X.ende - Date.now())}</span>` : "") +
+      `<span class="muted">${T().frageVon(X.i + 1, n)}</span></div>` +
+      `<div class="progress"><div style="width:${Math.round((X.i + 1) / n * 100)}%"></div></div>` +
+      (f.fall ? `<div class="callout fall"><b>${T().fallbeispiel}</b>${esc(f.fall)}</div>` : "") +
+      `<h2 class="frage">${esc(f.frage)}</h2><p class="muted small">${hinweis}</p><div class="opts">${opts}</div>` +
+      `<div class="actions mt"><button class="btn" data-t="vor"${X.i ? "" : " disabled"}>${T().zurueck}</button>` +
+      `<button class="btn primary-btn" data-t="${letzte ? "ab" : "weiter"}">${letzte ? T().testAbgeben : T().testWeiter}</button></div>`;
+    return { titel: name, html: h, nach: el => {
+      el.querySelectorAll("[data-opt]").forEach(b => b.onclick = () => {
+        const oi = +b.dataset.opt, w = X.antworten[X.i];
+        if (f.typ === "single") X.antworten[X.i] = [oi];
+        else if (w.indexOf(oi) >= 0) w.splice(w.indexOf(oi), 1);
+        else w.push(oi);
+        zeichne(seite, true);
+      });
+      const wechsel = d => { X.i += d; zeichne(seite); seite.el.scrollTop = 0; };
+      el.querySelector("[data-t=vor]").onclick = () => { if (X.i) wechsel(-1); };
+      const w = el.querySelector("[data-t=weiter]");
+      if (w) w.onclick = () => wechsel(1);
+      const ab = el.querySelector("[data-t=ab]");
+      if (ab) ab.onclick = () => {
+        const offen = X.antworten.filter(a => !a.length).length;
+        if (!offen || confirm(T().testOffen(offen))) abgeben(r, seite);
+      };
+    } };
+  }
+  function abgeben(r, seite) {
+    const X = seite.test;
+    if (!X || X.ergebnis) return;
+    clearInterval(X.uhr);
+    X.ergebnis = X.fragen.map((f, j) => istRichtig(f, X.antworten[j]));
+    const erg = testErgebnisse();
+    erg[testKey(r)] = Math.round(X.ergebnis.filter(Boolean).length / X.fragen.length * 100);
+    store.set("testErg", erg);
+    aktualisiereUebersicht();
+    zeichne(seite);
+    seite.el.scrollTop = 0;
+  }
+
+  // Eigene Tests: nur Fragen mit einer richtigen Antwort, gespeichert auf diesem Gerät
+  const leereFrage = () => ({ frage: "", optionen: ["", "", "", ""], richtig: 0 });
+  function testEditor(r, seite) {
+    if (!seite.ed) {
+      const alt = r.id && eigenerTest(r.id);
+      seite.ed = alt ? { name: alt.name, fragen: alt.fragen.map(q => ({ frage: q.frage, richtig: q.richtig, optionen: q.optionen.concat(["", "", "", ""]).slice(0, Math.max(4, q.optionen.length)) })) }
+        : { name: "", fragen: [leereFrage()] };
+    }
+    const E = seite.ed, titel = r.id ? T().edBearbeiten : T().edNeu;
+    let h = gross(titel, T().edHinweis);
+    h += `<div class="section-title">${T().edName}</div><input class="feld" data-ed="name" maxlength="60" value="${esc(E.name)}" placeholder="${esc(T().edNamePlatz)}" autocomplete="off">`;
+    E.fragen.forEach((q, i) => {
+      h += `<div class="glass-card ed-frage"><div class="ed-kopf"><span>${T().edFrage(i + 1)}</span>` + (E.fragen.length > 1 ? `<button class="ed-weg" data-ed-weg="${i}">${T().edFrageWeg}</button>` : "") + "</div>" +
+        `<textarea class="feld" rows="2" data-ed-f="${i}" placeholder="${esc(T().edFragePlatz)}">${esc(q.frage)}</textarea>` +
+        q.optionen.map((o, j) => `<div class="ed-opt"><button class="opt-mark single${q.richtig === j ? " an" : ""}" data-ed-r="${i}:${j}" aria-label="${esc(T().edAntwort(j + 1))}">${q.richtig === j ? "✓" : ""}</button>` +
+          `<input class="feld" data-ed-o="${i}:${j}" value="${esc(o)}" placeholder="${esc(T().edAntwort(j + 1))}" autocomplete="off"></div>`).join("") + "</div>";
+    });
+    h += `<div class="actions mt"><button class="btn" data-ed-neu>${T().edFrageNeu}</button></div><p class="ed-fehler" data-ed-fehler hidden></p>` +
+      `<div class="actions mt"><button class="btn primary-btn" data-ed-speichern>${T().edSpeichern}</button></div>` +
+      (r.id ? `<div class="actions mt"><button class="btn no" data-ed-loeschen>${T().edLoeschen}</button></div>` : "");
+    return { titel, html: h, nach: el => {
+      el.querySelector('[data-ed="name"]').oninput = ev => { E.name = ev.target.value; };
+      el.querySelectorAll("[data-ed-f]").forEach(x => x.oninput = () => { E.fragen[+x.dataset.edF].frage = x.value; });
+      el.querySelectorAll("[data-ed-o]").forEach(x => x.oninput = () => { const [i, j] = x.dataset.edO.split(":").map(Number); E.fragen[i].optionen[j] = x.value; });
+      el.querySelectorAll("[data-ed-r]").forEach(x => x.onclick = () => { const [i, j] = x.dataset.edR.split(":").map(Number); E.fragen[i].richtig = j; zeichne(seite, true); });
+      el.querySelectorAll("[data-ed-weg]").forEach(x => x.onclick = () => { E.fragen.splice(+x.dataset.edWeg, 1); zeichne(seite, true); });
+      el.querySelector("[data-ed-neu]").onclick = () => { E.fragen.push(leereFrage()); zeichne(seite, true); };
+      el.querySelector("[data-ed-speichern]").onclick = () => {
+        const fehler = m => { const p = el.querySelector("[data-ed-fehler]"); p.textContent = m; p.hidden = false; };
+        if (!E.name.trim()) return fehler(T().edFehlerName);
+        const fragen = [];
+        for (let i = 0; i < E.fragen.length; i++) {
+          const q = E.fragen[i], richtigText = q.optionen[q.richtig].trim(), opts = q.optionen.map(o => o.trim()).filter(Boolean);
+          if (!q.frage.trim() || opts.length < 2 || !richtigText) return fehler(T().edFehlerFrage(i + 1));
+          // Leere Antworten fallen weg, deshalb die Position der richtigen Antwort neu bestimmen
+          const richtig = q.optionen.slice(0, q.richtig).filter(o => o.trim()).length;
+          fragen.push({ frage: q.frage.trim(), optionen: opts, richtig });
+        }
+        const id = r.id || Date.now().toString(36), liste = eigeneTests().filter(t => t.id !== id);
+        liste.push({ id, name: E.name.trim(), fragen });
+        store.set("eigeneTests", liste);
+        aktualisiereUebersicht();
+        pop();
+      };
+      const del = el.querySelector("[data-ed-loeschen]");
+      if (del) del.onclick = () => {
+        if (!confirm(T().edLoeschenFrage)) return;
+        store.set("eigeneTests", eigeneTests().filter(t => t.id !== r.id));
+        const erg = testErgebnisse(); delete erg["e:" + r.id]; store.set("testErg", erg);
+        aktualisiereUebersicht();
+        pop();
+      };
+    } };
+  }
+
+  // =====================================================================
+  // 13 · UPDATE-POP-UP – erscheint pro Version genau einmal (Einträge in version.js)
+  const updateLayer = $("updateLayer");
+  function zeigeNeuigkeiten(versionen) {
+    updateLayer.innerHTML = `<div class="update-card" role="dialog" aria-modal="true"><div class="update-eyebrow">${T().updateNeu}</div>` +
+      versionen.map(v => `<h2>${T().versionText(v.nummer)}</h2>` + v[sprache].map(g => `<h3>${esc(g.titel)}</h3><ul>${g.punkte.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`).join("")).join("") +
+      `<button class="btn primary-btn" data-update="zu">${T().alleKlar}</button></div>`;
+    updateLayer.hidden = false;
+  }
+  updateLayer.addEventListener("click", ev => { if (ev.target === updateLayer || ev.target.closest('[data-update="zu"]')) updateLayer.hidden = true; });
+  function pruefeVersion() {
+    const aktuelle = APP_VERSIONEN[0].nummer, gesehen = store.get("version", null);
+    if (gesehen === aktuelle) return;
+    const pos = APP_VERSIONEN.findIndex(v => v.nummer === gesehen);
+    store.set("version", aktuelle);
+    zeigeNeuigkeiten(pos > 0 ? APP_VERSIONEN.slice(0, pos) : [APP_VERSIONEN[0]]);
+  }
+
+  // =====================================================================
+  // 14 · START UND SPRACHWECHSEL
   // Feste Texte der Oberfläche (Tabs, Suche) in der aktuellen Sprache setzen
   function statischeTexte() {
     document.documentElement.lang = sprache;
     searchInput.placeholder = T().suchen;
     $("searchCancel").textContent = T().abbrechen;
-    const tabs = { start: T().tabStart, lernen: T().tabLernen, gemerkt: T().tabGemerkt, info: T().tabInfo };
+    const tabs = { start: T().tabStart, lernen: T().tabLernen, test: T().tabTest, gemerkt: T().tabGemerkt, info: T().tabInfo };
     document.querySelectorAll(".tabbar button").forEach(b => { b.querySelector("span").textContent = tabs[b.dataset.tab]; });
     document.querySelectorAll("#langSeg button").forEach(b => b.classList.toggle("active", b.dataset.lang === sprache));
   }
@@ -734,11 +952,12 @@
       if (state.detail) oeffneDetail(state.detail.key, { ansicht: state.detail.ansicht, fig: state.detail.fig });
     };
   });
-  document.addEventListener("keydown", ev => { if (ev.key === "Escape") { if (!sheet.hidden) schliesseDetail(); else if (stack.length > 1) pop(); } });
+  document.addEventListener("keydown", ev => { if (ev.key === "Escape") { if (!updateLayer.hidden) updateLayer.hidden = true; else if (!sheet.hidden) schliesseDetail(); else if (stack.length > 1) pop(); } });
 
   statischeTexte();
   setzeWurzel({ v: "home" });
   document.querySelector('.tabbar [data-tab="start"]').classList.add("active");
+  pruefeVersion();
 
   if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
 })();

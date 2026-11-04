@@ -1076,5 +1076,239 @@ const BEREICHE = [
         ]
       }
     ]
+  },
+
+  // ===================================================================
+  // STOMA & DAUERKATHETER (Ausscheidung)
+  {
+    id: "ausscheidung", titel: "Stoma & Dauerkatheter", untertitel: "Blasenkatheter und künstliche Darm- und Harnausgänge", icon: "tropfen",
+    kapitel: [
+      {
+        id: "dk_grundlagen", titel: "Dauerkatheter (DK): Grundlagen", kurz: "Indikationen, Zugangswege, Material, Charrière",
+        abschnitte: [
+          { h: "Was ist ein Dauerkatheter?" },
+          { p: "Ein Dauerkatheter (DK) ist ein Schlauch, der über längere Zeit in der Harnblase bleibt und den Urin in ein geschlossenes Ableitungssystem führt. Ein aufgefüllter Ballon (Blockung) hält ihn in der Blase. Im Gegensatz dazu wird ein Einmalkatheter sofort nach der Entleerung wieder entfernt." },
+          { merke: "Jeder Katheter ist ein Infektionsrisiko. Deshalb gilt: nur bei klarer Indikation legen, täglich die Notwendigkeit prüfen und so früh wie möglich entfernen." },
+          { h: "Mögliche Indikationen" },
+          { liste: [
+            "Akuter Harnverhalt oder Abflussbehinderung, z. B. bei Prostatavergrößerung",
+            "Genaue Urinausscheidung bei schwerkranken Menschen (Bilanzierung)",
+            "Operationen mit langer Dauer oder an den Harnwegen",
+            "Schutz von Wunden im Intim- und Gesäßbereich bei Inkontinenz, z. B. Dekubitus Kategorie III/IV",
+            "Palliativsituation, wenn jede Bewegung starke Schmerzen auslöst"
+          ] },
+          { warn: "Inkontinenz allein oder ein geringerer Pflegeaufwand sind keine Indikation für einen Dauerkatheter." },
+          { h: "Zugangswege im Vergleich" },
+          { tabelle: { kopf: ["", "Transurethral", "Suprapubisch"], zeilen: [
+            ["Weg", "Durch die Harnröhre (Urethra)", "Durch die Bauchdecke oberhalb der Symphyse"],
+            ["Anlage", "Pflegefachperson oder Arzt nach Anordnung", "Ärztlicher Eingriff (Punktion)"],
+            ["Vorteile", "Einfach und schnell zu legen", "Harnröhre wird geschont, Spontanurin kann getestet werden"],
+            ["Nachteile", "Harnröhrenverletzung, Strikturen, Keime steigen leicht auf", "Eingriffsrisiken wie Blutung oder Darmverletzung, Eintrittsstelle braucht Pflege"]
+          ] } },
+          { h: "Material und Größe" },
+          { tabelle: { kopf: ["Merkmal", "Bedeutung"], zeilen: [
+            ["Charrière (Ch)", "Außendurchmesser: 1 Ch = 1/3 mm. So dünn wie möglich, so dick wie nötig"],
+            ["Übliche Größen", "Frauen meist 12–14 Ch, Männer meist 14–16 Ch"],
+            ["Silikon", "Gut verträglich, für längere Liegedauer geeignet"],
+            ["Latex", "Nur für kurze Liegedauer, Allergie erfragen"],
+            ["Nélaton-Spitze", "Gerade, abgerundete Standardform"],
+            ["Tiemann-Spitze", "Gebogen, für Männer mit erschwerter Passage, z. B. bei Prostatavergrößerung"]
+          ] } },
+          { anatomie: "harn" },
+          { link: { bereich: "prophylaxen", kapitel: "zystitis" } }
+        ]
+      },
+      {
+        id: "dk_legen", titel: "DK legen", kurz: "Schritt für Schritt aseptisch, bei Frau und Mann",
+        abschnitte: [
+          { h: "Vorbereitung" },
+          { liste: [
+            "Ärztliche Anordnung und Indikation prüfen, Allergien erfragen (Latex, Antiseptikum, Gel)",
+            "Person informieren, Einverständnis einholen, Intimsphäre schützen",
+            "Rückenlage, Intimpflege durchführen, Händedesinfektion",
+            "Steriles Set, passenden Katheter, geschlossenes Ableitungssystem, Gleitgel, Schleimhautantiseptikum und Blockflüssigkeit bereitlegen",
+            "Am sichersten zu zweit: Eine Person arbeitet steril, die andere reicht an"
+          ] },
+          { merke: "Das Legen ist ein aseptischer Eingriff: sterile Handschuhe, steriles Material und die Einwirkzeit des Antiseptikums nach Herstellerangabe einhalten." },
+          { h: "Ablauf" },
+          { tabelle: { kopf: ["Schritt", "Frau", "Mann"], zeilen: [
+            ["Desinfizieren", "Labien spreizen, von der Symphyse Richtung Anus wischen, jeden Tupfer nur einmal", "Vorhaut zurückschieben, Eichel kreisförmig von der Harnröhrenöffnung nach außen"],
+            ["Gleitmittel", "Gel auf die Katheterspitze oder in die Harnröhre", "Steriles Gel in die Harnröhre, Einwirkzeit beachten"],
+            ["Einführen", "Ohne Gewalt vorschieben, bis Urin fließt", "Penis nach oben strecken, bei Widerstand senken, vorschieben, bis Urin fließt"],
+            ["Sicherheitsstrecke", "Noch einige Zentimeter weiter", "Bis nahe an die Katheter-Gabelung"],
+            ["Abschluss", "Blocken, zurückziehen bis Widerstand, fixieren", "Blocken, zurückziehen, Vorhaut unbedingt wieder vorschieben"]
+          ] } },
+          { h: "Blocken" },
+          { liste: [
+            "Erst blocken, wenn Urin fließt: Dann liegt der Ballon in der Blase",
+            "Steriles Aqua destillata oder 8–10-%-Glycerinlösung, Menge nach Herstellerangabe (meist 5–10 ml)",
+            "Kein NaCl: Es kann auskristallisieren und den Blockkanal verstopfen",
+            "Keine Luft: Der Ballon würde aufschwimmen und schnell an Volumen verlieren"
+          ] },
+          { warn: "Schmerzen beim Blocken sprechen für eine Fehllage in der Harnröhre: Sofort stoppen, Flüssigkeit zurückziehen, Arzt informieren." },
+          { h: "Problemsituationen" },
+          { liste: [
+            "Katheter in der Vagina: Gilt als unsteril. Neuen sterilen Katheter verwenden",
+            "Widerstand: Niemals mit Gewalt schieben, sonst droht ein falscher Weg (Via falsa)",
+            "Blut in der Harnröhre oder starke Schmerzen: Abbrechen, Arzt informieren",
+            "Große Urinmenge bei Harnverhalt: Kreislauf beobachten, eine Entlastungsblutung ist möglich. Anordnung und Hausstandard beachten"
+          ] },
+          { warn: "Bleibt die Vorhaut zurückgestreift, kann eine Paraphimose entstehen: Die Eichel schwillt schmerzhaft an und wird schlechter durchblutet. Das ist ein Notfall." },
+          { h: "Dokumentation" },
+          { p: "Datum und Uhrzeit, Indikation, Kathetertyp und -größe, Charge, Blockmenge und -flüssigkeit, Urinmenge und -aussehen, Besonderheiten, Handzeichen." }
+        ]
+      },
+      {
+        id: "dk_pflege", titel: "DK-Pflege und Komplikationen", kurz: "Infektionen vermeiden, Probleme erkennen, Katheter entfernen",
+        abschnitte: [
+          { h: "Pflege bei liegendem DK" },
+          { liste: [
+            "Vor und nach jedem Kontakt Hände desinfizieren, bei möglichem Urinkontakt Handschuhe tragen",
+            "Täglich Intimpflege mit Wasser und milder Waschlotion, dabei den Katheter von der Harnröhre weg reinigen",
+            "Keine Antiseptika für die routinemäßige Pflege des Harnröhrenausgangs",
+            "Katheter zugfrei fixieren: Bei Frauen am Oberschenkel, bei Männern je nach Hausstandard",
+            "Beutel immer unter Blasenniveau, Schlauch nicht abknicken, Beutel nicht auf den Boden legen",
+            "Beutel rechtzeitig über den Ablasshahn leeren, vorher und nachher desinfizieren, eigener Behälter für jede Person",
+            "Ausreichend trinken lassen, wenn keine Einschränkung besteht",
+            "Täglich dokumentieren: Urinmenge, Farbe, Trübung, Notwendigkeit des Katheters"
+          ] },
+          { merke: "Das Ableitungssystem bleibt geschlossen. Urinproben werden nach Desinfektion an der Entnahmestelle des Systems gewonnen, nie aus dem Beutel." },
+          { h: "Katheterwechsel" },
+          { p: "Der Wechsel richtet sich nach Material, Herstellerangabe und Bedarf, z. B. bei Verstopfung, Inkrustation oder Infektion. Ein routinemäßiger Wechsel in festen Abständen ist nicht generell vorgesehen. Routinemäßige Blasenspülungen werden ebenfalls nicht empfohlen." },
+          { h: "Komplikationen" },
+          { tabelle: { kopf: ["Problem", "Anzeichen", "Maßnahme"], zeilen: [
+            ["Harnwegsinfektion", "Trüber, übelriechender Urin, Fieber, Flankenschmerz, Verwirrtheit", "Vitalzeichen messen, Arzt informieren, Probe nach Anordnung"],
+            ["Verstopfung", "Kein Urin im Beutel, Unterbauchschmerz, volle Blase", "Schlauch prüfen, Arzt informieren, Wechsel oder Spülung nach Anordnung"],
+            ["Blasenspasmen", "Krampfartige Schmerzen, Urin läuft neben dem Katheter", "Lage und Durchfluss prüfen, Arzt informieren"],
+            ["Harnröhrenschäden", "Blutung, Schmerzen, später Harnröhrenenge (Striktur)", "Zugfrei fixieren, Indikation prüfen, Arzt informieren"],
+            ["Ballon entleert sich nicht", "Keine Flüssigkeit lässt sich zurückziehen", "Nicht ziehen, Arzt informieren"]
+          ] } },
+          { warn: "Fieber, Schüttelfrost, Blutdruckabfall oder neue Verwirrtheit können auf eine Urosepsis hindeuten: Sofort Arzt informieren." },
+          { h: "Suprapubischer Katheter: Besonderheiten" },
+          { liste: [
+            "Bis zur Abheilung aseptischer Verbandswechsel nach Anordnung",
+            "Danach Einstichstelle täglich auf Rötung, Sekret und Schmerzen prüfen",
+            "Katheter zugfrei fixieren, Lage kontrollieren",
+            "Nur das Ablassen über das geschlossene System nutzen, nicht diskonnektieren"
+          ] },
+          { h: "Katheter entfernen" },
+          { liste: [
+            "Anordnung prüfen, Person informieren, Handschuhe, Unterlage",
+            "Ballon über das Blockventil vollständig entleeren und die Menge mit der Dokumentation vergleichen",
+            "Katheter langsam und ohne Widerstand herausziehen, am besten beim Ausatmen",
+            "Danach Intimpflege, Trinken anregen, erste Spontanmiktion und Urinmenge beobachten",
+            "Bei Harnverhalt oder Beschwerden Arzt informieren und ggf. Restharn kontrollieren"
+          ] }
+        ]
+      },
+      {
+        id: "stoma_grundlagen", titel: "Stoma: Grundlagen", kurz: "Colostoma, Ileostoma, Urostoma und ihre Unterschiede",
+        abschnitte: [
+          { h: "Was ist ein Stoma?" },
+          { p: "Ein Stoma ist eine operativ angelegte Öffnung eines Hohlorgans nach außen. In der Pflege sind vor allem künstliche Darmausgänge (Enterostoma) und künstliche Harnableitungen (Urostoma) wichtig. Ein Stoma kann vorübergehend (temporär) oder dauerhaft (permanent) sein." },
+          { h: "Häufige Gründe" },
+          { liste: ["Darm- oder Blasenkrebs", "Chronisch-entzündliche Darmerkrankungen wie Morbus Crohn und Colitis ulcerosa", "Divertikulitis, Darmverschluss (Ileus), Darmdurchbruch", "Schutz einer Darmnaht nach einer Operation", "Verletzungen"] },
+          { h: "Stomaarten im Vergleich" },
+          { tabelle: { kopf: ["", "Colostoma", "Ileostoma", "Urostoma"], zeilen: [
+            ["Ausgang", "Dickdarm", "Dünndarm", "Harnableitung, z. B. Ileum-Conduit"],
+            ["Typische Lage", "Meist links unten", "Meist rechts unten", "Meist rechts unten"],
+            ["Ausscheidung", "Breiig bis geformt", "Flüssig bis breiig, sehr häufig", "Urin, ununterbrochen"],
+            ["Haut", "Geringeres Risiko", "Hohes Risiko durch Verdauungsenzyme", "Risiko durch dauernde Nässe"],
+            ["Beutel", "Geschlossen mit Filter", "Ausstreifbeutel", "Urostomiebeutel mit Rücklaufschutz und Ablass"]
+          ] } },
+          { h: "Weitere Einteilung" },
+          { liste: [
+            "Endständig: Ein Darmende wird ausgeleitet, oft dauerhaft",
+            "Doppelläufig: Eine Darmschlinge mit zwei Öffnungen wird ausgeleitet, oft vorübergehend",
+            "Der Ort am Dickdarm beeinflusst die Ausscheidung: Je weiter hinten das Stoma liegt, desto fester ist der Stuhl"
+          ] },
+          { h: "So sieht ein gesundes Stoma aus" },
+          { liste: ["Rosig bis kräftig rot und feucht, ähnlich der Mundschleimhaut", "Leicht über dem Hautniveau, bei Ileostoma deutlich erhaben", "Kleine Blutungen beim Reinigen sind meist harmlos", "Schmerzunempfindlich, weil die Schleimhaut keine Schmerznerven hat"] },
+          { warn: "Dunkelrot, blau oder schwarz verfärbtes Stoma: Das kann eine Durchblutungsstörung (Nekrose) sein. Sofort Arzt informieren." },
+          { h: "Vor der Operation" },
+          { p: "Die Stomatherapie berät und zeichnet die Lage im Liegen, Sitzen und Stehen an. Das Stoma muss für die Person gut sichtbar und erreichbar sein und soll nicht in Hautfalten, an Narben oder am Hosenbund liegen." },
+          { anatomie: "verdauung" }
+        ]
+      },
+      {
+        id: "stoma_versorgung", titel: "Stomaversorgung", kurz: "Systeme, Wechsel der Versorgung, Hautschutz",
+        abschnitte: [
+          { h: "Versorgungssysteme" },
+          { tabelle: { kopf: ["System", "Aufbau", "Wechsel als Orientierung"], zeilen: [
+            ["Einteilig", "Hautschutzplatte und Beutel sind fest verbunden", "Meist täglich oder nach Bedarf"],
+            ["Zweiteilig", "Platte bleibt auf der Haut, Beutel wird angekoppelt", "Platte etwa alle 2–3 Tage, Beutel nach Bedarf"]
+          ] } },
+          { p: "Die Abstände hängen von Produkt, Haut und Ausscheidung ab. Undichte Versorgungen werden immer sofort gewechselt. Beutel werden entleert oder gewechselt, bevor sie etwa zu einem Drittel bis zur Hälfte gefüllt sind." },
+          { h: "Versorgungswechsel Schritt für Schritt" },
+          { liste: [
+            "Material bereitlegen: neue Versorgung, Schablone, Schere, Kompressen, Wasser, Abwurf",
+            "Person einbeziehen, Händedesinfektion, Handschuhe, Bett und Kleidung schützen",
+            "Alte Platte von oben nach unten vorsichtig ablösen und die Haut dabei gegenhalten",
+            "Stuhl abnehmen, Stoma von außen nach innen mit Wasser reinigen und die Haut gut trocknen",
+            "Stoma und Haut beobachten: Farbe, Größe, Rötung, Hautdefekte",
+            "Stoma ausmessen und die Plattenöffnung passend zuschneiden (etwa 1–2 mm größer als das Stoma)",
+            "Platte faltenfrei von unten nach oben aufkleben und einige Minuten mit der warmen Hand andrücken",
+            "Beutel ankoppeln, Sitz prüfen und alles dokumentieren"
+          ] },
+          { merke: "Die Haut um das Stoma muss sauber, trocken und fettfrei sein, sonst hält die Platte nicht. Eine zu große Öffnung lässt Ausscheidung an die Haut." },
+          { h: "Hautschutz" },
+          { liste: [
+            "Nur Wasser oder pH-neutrale, rückfettungsfreie Reinigung und bei Bedarf Pflasterlöser verwenden",
+            "Kein Benzin, Alkohol oder Öl und keine fettenden Cremes",
+            "Haare in der Umgebung vorsichtig entfernen",
+            "Unebenheiten und Falten mit Stomapaste oder Hautschutzringen ausgleichen",
+            "Bei Rötung oder Hautdefekten Stomatherapie einbeziehen"
+          ] },
+          { h: "Besonderheiten" },
+          { liste: [
+            "Ileostoma: Haut besonders schützen, weil der Dünndarminhalt aggressive Enzyme enthält",
+            "Urostoma: Der Urin läuft beim Wechsel weiter, deshalb saugfähiges Material bereithalten. Nachts einen größeren Beutel anschließen",
+            "Irrigation: Darmspülung über ein Colostoma im Sigma- oder Descendens-Bereich, nur nach ärztlicher Absprache und Anleitung"
+          ] }
+        ]
+      },
+      {
+        id: "stoma_alltag", titel: "Stoma: Komplikationen und Alltag", kurz: "Probleme erkennen, Ernährung, Psyche, Anleitung",
+        abschnitte: [
+          { h: "Komplikationen" },
+          { tabelle: { kopf: ["Komplikation", "Bedeutung", "Was tun?"], zeilen: [
+            ["Nekrose", "Stoma dunkel bis schwarz, Durchblutungsstörung", "Sofort Arzt informieren"],
+            ["Retraktion", "Stoma zieht sich unter das Hautniveau zurück", "Arzt und Stomatherapie, angepasste Versorgung"],
+            ["Prolaps", "Darm tritt verstärkt aus dem Stoma aus", "Arzt informieren, bei Verfärbung sofort"],
+            ["Parastomale Hernie", "Bruch neben dem Stoma, Vorwölbung", "Schweres Heben vermeiden, Bauchstütze und Arzt"],
+            ["Stenose", "Stomaöffnung verengt, Entleerung erschwert", "Arzt informieren"],
+            ["Hautentzündung", "Rötung und Nässen durch undichte Versorgung", "Versorgung und Öffnung prüfen, Stomatherapie"],
+            ["Pilzinfektion", "Rötung mit kleinen Satellitenherden, Juckreiz", "Arzt informieren, Behandlung nach Anordnung"]
+          ] } },
+          { warn: "Keine Ausscheidung, Bauchkrämpfe, Erbrechen und ein aufgeblähter Bauch können auf einen Darmverschluss hinweisen: Sofort Arzt informieren." },
+          { h: "Ernährung" },
+          { liste: [
+            "Meist ist keine spezielle Diät nötig: Neue Lebensmittel einzeln ausprobieren und gut kauen",
+            "Blähend: Kohl, Hülsenfrüchte, Zwiebeln, kohlensäurehaltige Getränke",
+            "Geruchsbildend: Eier, Fisch, Zwiebeln, Knoblauch, bestimmter Käse",
+            "Geruchshemmend: Joghurt, Preiselbeeren, Petersilie, Spinat",
+            "Stopfend: Reis, Banane, Weißbrot. Abführend: rohes Obst, Alkohol, Kaffee"
+          ] },
+          { h: "Besonderheiten je nach Stoma" },
+          { liste: [
+            "Ileostoma: Viel Flüssigkeit und Elektrolyte, Austrocknung früh erkennen",
+            "Ileostoma: Faserreiches wie Spargel, Pilze, Nüsse oder Zitrusfrüchte kann das Stoma verlegen",
+            "Ileostoma: Tabletten mit verzögerter Wirkstofffreisetzung werden möglicherweise nicht ausreichend aufgenommen. Mit Arzt oder Apotheke klären",
+            "Urostoma: Reichlich trinken, Urin auf Trübung und Geruch beobachten"
+          ] },
+          { h: "Psychosoziale Begleitung" },
+          { p: "Ein Stoma verändert das Körperbild und kann Scham, Ekel, Angst vor Geruch und Sorgen um Partnerschaft und Sexualität auslösen. Nimm diese Gefühle ernst, wahre die Intimsphäre und achte auf deine eigene Mimik beim Versorgungswechsel." },
+          { h: "Anleitung und Alltag" },
+          { liste: [
+            "Selbstständigkeit Schritt für Schritt fördern: Erst zuschauen, dann mithelfen, dann selbst versorgen",
+            "Angehörige auf Wunsch einbeziehen, früh Stomatherapie und Hilfsmittelversorgung organisieren",
+            "Selbsthilfe anbieten, z. B. Deutsche ILCO",
+            "Duschen, Baden, Reisen und Sport sind meist möglich. Schweres Heben vermeiden",
+            "Immer ein Notfallset mit Ersatzversorgung mitnehmen"
+          ] },
+          { merke: "Die Abkürzung „AP“ (Anus praeter) ist im Alltag noch üblich. Fachlich genauer sind die Begriffe Colostoma und Ileostoma." }
+        ]
+      }
+    ]
   }
 ];
