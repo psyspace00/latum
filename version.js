@@ -3,6 +3,7 @@
 
 // MediSmart – Versionen und Änderungen für das Update-Pop-up
 // Bei jedem Update OBEN einen neuen Eintrag ergänzen: kurz, gegliedert, auf Deutsch und Vietnamesisch.
+// Unter den neuen Punkten bleiben die letzten Änderungen des vorigen Patches als Hinweis stehen.
 // Das Pop-up erscheint pro Version genau einmal. Wer Versionen übersprungen hat, sieht alle neuen Einträge.
 
 // Empfänger des Feedback-Formulars (öffnet die Mail-App der Schülerinnen und Schüler)
@@ -10,33 +11,39 @@ const FEEDBACK_ADRESSE = "maximilian-wandt@gmx.de";
 
 const APP_VERSIONEN = [
   {
-    nummer: "1.01",
+    nummer: "1.02",
     de: [
-      { titel: "Neu", punkte: [
+      { titel: "Geändert", punkte: [
+        "Feedback: Deine Rückmeldung geht jetzt direkt an Max"
+      ] },
+      { titel: "Zuletzt neu (Version 1.01)", punkte: [
         "Hauptthema ist jetzt die Pflegeausbildung, hoch-medizinische Inhalte blendet der Schalter „Medizin-Vertiefung“ ein",
         "Diagnosen: 32 häufige Krankheitsbilder mit Zeichen, Pflege und Warnhinweisen",
         "Biografiearbeit mit 4 Kapiteln und Prüfungsfragen",
         "Dehydratations- und Mangelernährungsprophylaxe (jetzt 13 Prophylaxen)",
         "Suche bündelt große Themen, z. B. „Hypertonie“",
         "Tab „Installieren“ für iPhone und Android",
-        "Feedback direkt an die Lehrkraft"
+        "Feedback direkt an Max"
       ] },
-      { titel: "Geändert", punkte: [
+      { titel: "Zuletzt geändert (Version 1.01)", punkte: [
         "Die fertigen Tests sind jetzt unter „Lernen“, im Tab „Test-Vorbereitung“ bleiben eigene Tests",
         "Hypertonie und Hypotonie fachlich überarbeitet"
       ] }
     ],
     vi: [
-      { titel: "Mới", punkte: [
+      { titel: "Thay đổi", punkte: [
+        "Góp ý: Góp ý của bạn nay được gửi trực tiếp cho Max"
+      ] },
+      { titel: "Mới gần đây (phiên bản 1.01)", punkte: [
         "Chủ đề chính nay là đào tạo điều dưỡng, nội dung y khoa chuyên sâu được bật bằng công tắc „Y khoa chuyên sâu“",
         "Chẩn đoán: 32 bệnh thường gặp với dấu hiệu, chăm sóc và cảnh báo",
         "Biografiearbeit với 4 chương và câu hỏi thi",
         "Phòng ngừa mất nước và suy dinh dưỡng (nay có 13 biện pháp dự phòng)",
         "Tìm kiếm gom các chủ đề lớn, ví dụ „Hypertonie“",
         "Thẻ „Cài đặt“ cho iPhone và Android",
-        "Gửi góp ý trực tiếp cho giáo viên"
+        "Gửi góp ý trực tiếp cho Max"
       ] },
-      { titel: "Thay đổi", punkte: [
+      { titel: "Thay đổi gần đây (phiên bản 1.01)", punkte: [
         "Các bài kiểm tra có sẵn nay nằm ở „Học“, thẻ „Ôn kiểm tra“ giữ bài tự soạn",
         "Đã rà soát lại chuyên môn về tăng và hạ huyết áp"
       ] }
