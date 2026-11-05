@@ -450,6 +450,30 @@ const BEREICHE_VI = [
           "Túi nước tiểu luôn thấp hơn bàng quang, không đặt trên sàn, tránh nước tiểu chảy ngược",
           "Giữ ấm (tránh lạnh vùng bụng dưới)"
         ] }
+      ] },
+      { id: "dehydratation", titel: "Phòng ngừa mất nước", kurz: "Sớm nhận biết và tránh thiếu dịch (Exsikkose)", abschnitte: [
+        { h: "Định nghĩa" },
+        { p: "Mất nước xảy ra khi cơ thể mất nhiều dịch hơn lượng đưa vào. Mất nước nặng gọi là Exsikkose. Người cao tuổi đặc biệt có nguy cơ vì cảm giác khát giảm và cơ thể dự trữ ít nước hơn." },
+        { h: "Yếu tố nguy cơ" },
+        { liste: ["Giảm cảm giác khát, sa sút trí tuệ, trầm cảm", "Nuốt khó, cần hỗ trợ khi uống", "Sợ đi vệ sinh hoặc tiểu không tự chủ", "Sốt, đổ mồ hôi, nóng, nôn, tiêu chảy", "Thuốc lợi tiểu và thuốc nhuận tràng"] },
+        { h: "Đánh giá" },
+        { liste: ["Theo dõi lượng và thói quen uống, ghi bảng theo dõi nếu cần", "Niêm mạc khô, lưỡi khô có vảy, nếp véo da mất chậm (ít giá trị hơn ở người cao tuổi)", "Nước tiểu sẫm màu và ít, táo bón", "Chóng mặt, huyết áp thấp, mạch nhanh", "Mới xuất hiện lú lẫn, mệt mỏi, té ngã"] },
+        { h: "Biện pháp" },
+        { liste: ["Tham khảo: khoảng 1,5–2 lít/ngày hoặc khoảng 30 ml/kg cân nặng, nếu bác sĩ không hạn chế", "Hỏi đồ uống yêu thích, để đồ uống trong tầm nhìn và tầm tay", "Mời uống thường xuyên, dùng giờ uống cố định và thói quen sinh hoạt", "Dụng cụ hỗ trợ uống, đồ uống làm đặc theo y lệnh khi nuốt khó", "Cho món ăn nhiều nước, ví dụ súp, dưa hấu, sữa chua", "Khi nóng, sốt, nôn và tiêu chảy, mời uống nhiều hơn và báo bác sĩ"] },
+        { warn: "Với suy tim hoặc suy thận, áp dụng lượng nước theo chỉ định của bác sĩ. Lú lẫn đột ngột, vấn đề tuần hoàn hoặc rất ít nước tiểu: báo bác sĩ." },
+        { link: { bereich: "ernaehrung", kapitel: "bilanz" } }
+      ] },
+      { id: "mangelernaehrung", titel: "Phòng ngừa suy dinh dưỡng", kurz: "Sàng lọc, cân nặng, món yêu thích và hỗ trợ khi ăn", abschnitte: [
+        { h: "Định nghĩa" },
+        { p: "Suy dinh dưỡng xảy ra khi cơ thể thiếu năng lượng, đạm hoặc các chất dinh dưỡng khác trong thời gian dài. Hậu quả là mất cơ, té ngã, vết thương chậm lành, nhiễm trùng và loét tì đè. Người thừa cân cũng có thể bị suy dinh dưỡng." },
+        { merke: "Cơ sở là tiêu chuẩn chuyên gia DNQP về quản lý dinh dưỡng nhằm bảo đảm và thúc đẩy ăn uống qua đường miệng trong điều dưỡng." },
+        { h: "Yếu tố nguy cơ" },
+        { liste: ["Khó nhai và nuốt, sức khỏe răng miệng kém, răng giả không vừa", "Chán ăn, đau, buồn nôn, bệnh ung thư", "Sa sút trí tuệ, trầm cảm, cô đơn", "Hạn chế vận động, cần hỗ trợ khi ăn", "Thuốc làm thay đổi vị giác hoặc cảm giác thèm ăn"] },
+        { h: "Đánh giá" },
+        { liste: ["Sàng lọc khi nhập viện và đều đặn sau đó, ví dụ MNA hoặc NRS 2002", "Kiểm tra và ghi cân nặng đều đặn", "Dấu hiệu cảnh báo: sụt cân ngoài ý muốn trên 5 % trong 3 tháng hoặc trên 10 % trong 6 tháng", "Quan sát thói quen ăn, sở thích và khẩu phần, ghi bảng theo dõi nếu cần"] },
+        { h: "Biện pháp" },
+        { liste: ["Tôn trọng món yêu thích và thói quen từ tiểu sử cuộc đời", "Không khí yên tĩnh, dễ chịu, ăn cùng nhau, dành đủ thời gian", "Bữa nhỏ và bữa phụ, thức ăn cầm tay (Fingerfood) khi sa sút trí tuệ", "Bổ sung kem, bơ hoặc đạm vào món ăn", "Dinh dưỡng dạng uống theo y lệnh, mời chuyên gia dinh dưỡng tham gia", "Chăm sóc răng miệng, kiểm tra răng giả, điều trị đau", "Tư thế thẳng, dụng cụ hỗ trợ và giúp đỡ khi ăn"] },
+        { link: { bereich: "ernaehrung", kapitel: "dysphagie" } }
       ] }
     ]
   },
@@ -652,7 +676,7 @@ const BEREICHE_VI = [
           "Huyết áp tâm thu: tiếng đầu tiên nghe được (tiếng Korotkow); huyết áp tâm trương: khi tiếng mất"
         ] },
         { warn: "Không đo ở tay có cầu nối động – tĩnh mạch (lọc máu), sau phẫu thuật vú có nạo hạch, tay đang truyền dịch, tay bị liệt hoặc bị thương." },
-        { h: "Phân loại (người lớn, đo tại phòng khám, ESC/ESH)" },
+        { h: "Phân loại (người lớn, đo tại phòng khám, ESH 2023)" },
         { tabelle: { kopf: ["Phân loại", "Tâm thu (mmHg)", "Tâm trương (mmHg)"], zeilen: [
           ["Tối ưu", "< 120", "< 80"],
           ["Bình thường", "120–129", "80–84"],
@@ -661,7 +685,8 @@ const BEREICHE_VI = [
           ["Tăng huyết áp độ 2", "160–179", "100–109"],
           ["Tăng huyết áp độ 3", "≥ 180", "≥ 110"]
         ] } },
-        { p: "Hạ huyết áp: thường tâm thu dưới 100 mmHg (ở nữ dưới khoảng 100/60). Hạ huyết áp tư thế đứng: tâm thu giảm ≥ 20 mmHg hoặc tâm trương giảm ≥ 10 mmHg trong vòng 3 phút sau khi đứng dậy (nghiệm pháp Schellong)." },
+        { p: "Hướng dẫn ESC 2024 phân loại khác: không tăng dưới 120/70, tăng từ 120/70 đến 139/89, tăng huyết áp từ 140/90 mmHg. Ngưỡng 140/90 mmHg giống nhau ở cả hai cách phân loại. Khi thi, hãy dùng cách phân loại mà trường của bạn sử dụng." },
+        { p: "Hạ huyết áp: kéo dài dưới khoảng 100/60 mmHg (trị số khác nhau tùy nguồn). Nếu không có triệu chứng thì thường không phải là bệnh. Hạ huyết áp tư thế đứng: tâm thu giảm ≥ 20 mmHg hoặc tâm trương giảm ≥ 10 mmHg trong vòng 3 phút sau khi đứng dậy (nghiệm pháp Schellong)." },
         { h: "Nguồn sai số" },
         { tabelle: { kopf: ["Sai sót", "Ảnh hưởng"], zeilen: [
           ["Băng quấn quá hẹp / quá lỏng", "Trị số quá cao"],
@@ -671,7 +696,7 @@ const BEREICHE_VI = [
           ["Đo sau gắng sức, khi nói chuyện, khi lạnh", "Trị số quá cao"]
         ] } },
         { h: "Biện pháp" },
-        { liste: ["Cơn tăng huyết áp (ví dụ > 180/120 kèm triệu chứng): nâng cao thân trên, nghỉ ngơi, đo lại, báo bác sĩ ngay", "Hạ huyết áp kèm chóng mặt: nằm thẳng, nâng chân (tư thế chống sốc theo y lệnh), vận động từ từ", "Theo dõi sát và ghi chép"] }
+        { liste: ["Tăng huyết áp mất kiểm soát (trên 180/110 mmHg, chưa có dấu hiệu tổn thương cơ quan cấp): nâng cao thân trên, nghỉ ngơi, đo lại, báo bác sĩ", "Cấp cứu tăng huyết áp (kèm ví dụ đau ngực, khó thở, rối loạn thị giác, liệt, lú lẫn): gọi cấp cứu", "Hạ huyết áp kèm chóng mặt: ngồi hoặc nằm xuống, nâng chân nếu không có chống chỉ định (ví dụ suy tim), vận động từ từ", "Theo dõi sát và ghi chép"] }
       ] },
       { id: "temperatur", titel: "Thân nhiệt", kurz: "Vị trí đo, sốt, các giai đoạn sốt", abschnitte: [
         { h: "Vị trí đo và giá trị bình thường" },
@@ -800,9 +825,12 @@ const BEREICHE_VI = [
         { h: "Hô hấp và trao đổi khí" },
         { liste: ["Hít vào là chủ động (cơ hoành, cơ liên sườn ngoài), thở ra khi nghỉ là thụ động", "Trao đổi khí bằng khuếch tán qua màng phế nang – mao mạch", "Hô hấp được thúc đẩy chủ yếu bởi nồng độ CO₂ trong máu (trung tâm hô hấp ở Medulla oblongata)", "Oxy được vận chuyển gắn với hemoglobin"] }
       ] },
-      { id: "erkrankungen_herz", titel: "Bệnh tim", kurz: "Tăng huyết áp, bệnh mạch vành, nhồi máu cơ tim, suy tim, rung nhĩ", abschnitte: [
+      { id: "erkrankungen_herz", titel: "Bệnh tim", kurz: "Tăng huyết áp, hạ huyết áp, bệnh mạch vành, nhồi máu cơ tim, suy tim, rung nhĩ", abschnitte: [
         { h: "Tăng huyết áp động mạch (Hypertonie)" },
-        { liste: ["Huyết áp tăng kéo dài ≥ 140/90 mmHg; phần lớn là nguyên phát", "Hậu quả: nhồi máu cơ tim, đột quỵ, suy tim, suy thận", "Chăm sóc: đo huyết áp đều đặn, uống thuốc đúng, tư vấn ăn nhạt, vận động, giảm cân, bỏ thuốc lá"] },
+        { liste: ["Huyết áp tăng kéo dài ≥ 140/90 mmHg; phần lớn là nguyên phát", "Thường không có triệu chứng trong thời gian dài; có thể đau đầu, chóng mặt, chảy máu mũi, rối loạn thị giác", "Hậu quả: nhồi máu cơ tim, đột quỵ, suy tim, suy thận", "Chăm sóc: đo huyết áp đều đặn, uống thuốc đúng, tư vấn ăn nhạt, vận động, giảm cân, bỏ thuốc lá"] },
+        { warn: "Trên 180/110 mmHg kèm đau ngực, khó thở, rối loạn thị giác, liệt hoặc lú lẫn: cấp cứu tăng huyết áp, gọi cấp cứu ngay." },
+        { h: "Hạ huyết áp động mạch (Hypotonie)" },
+        { liste: ["Kéo dài dưới khoảng 100/60 mmHg; nếu không có triệu chứng thường không cần điều trị", "Dấu hiệu: chóng mặt, tối sầm mắt, mệt mỏi, tay chân lạnh, ngất", "Nguyên nhân: thể trạng, thiếu dịch, thuốc, bệnh tim, mất máu", "Chăm sóc: đứng dậy từ từ, ngồi chờ một lát trước, uống đủ nước, vận động, tất áp lực theo y lệnh, chú ý nguy cơ té ngã"] },
         { h: "Bệnh mạch vành (KHK) và đau thắt ngực (Angina pectoris)" },
         { liste: ["Hẹp động mạch vành do xơ vữa → cơ tim thiếu oxy", "Đau thắt ngực: tức ngực, đè ép, lan ra tay trái, cổ, hàm, thượng vị – đỡ khi nghỉ hoặc dùng nitro", "Chăm sóc: điều chỉnh mức gắng sức, xịt nitro theo y lệnh (đo huyết áp trước!), giảm yếu tố nguy cơ"] },
         { h: "Nhồi máu cơ tim (Myokardinfarkt)" },
@@ -1157,6 +1185,81 @@ const BEREICHE_VI = [
           "Luôn mang theo bộ dụng cụ dự phòng"
         ] },
         { merke: "Chữ viết tắt „AP“ (Anus praeter) vẫn thường dùng trong thực tế. Thuật ngữ chính xác hơn là Colostoma và Ileostoma." }
+      ] }
+    ]
+  },
+  {
+    id: "biografie", titel: "Làm việc với tiểu sử (Biografiearbeit)", untertitel: "Hiểu con người và cuộc đời của họ, đưa vào việc chăm sóc",
+    kapitel: [
+      { id: "bio_grundlagen", titel: "Cơ bản", kurz: "Định nghĩa, mục tiêu, ý nghĩa đối với điều dưỡng", abschnitte: [
+        { h: "Biografiearbeit là gì?" },
+        { p: "Biografiearbeit là cùng một người tìm hiểu câu chuyện cuộc đời của họ và đưa hiểu biết này vào việc chăm sóc hằng ngày. Đây không phải là việc thu thập dữ liệu một lần, mà là một quá trình liên tục dựa trên sự tin tưởng." },
+        { tabelle: { kopf: ["Khái niệm", "Ý nghĩa"], zeilen: [
+          ["Lý lịch (Lebenslauf)", "Dữ kiện bên ngoài: ngày sinh, trường học, nghề nghiệp, gia đình"],
+          ["Tiểu sử (Biografie)", "Câu chuyện cá nhân: trải nghiệm, cảm xúc, giá trị, ý nghĩa"],
+          ["Biografiearbeit", "Sử dụng câu chuyện đó một cách có ý thức và trân trọng trong mối quan hệ và chăm sóc"]
+        ] } },
+        { h: "Mục tiêu" },
+        { liste: ["Xem mỗi người là một cá nhân độc nhất và tôn trọng phẩm giá của họ", "Hiểu hành vi tốt hơn, không vội đánh giá là „khó tính“", "Mang lại sự tin tưởng, an toàn và định hướng", "Củng cố bản sắc và lòng tự trọng", "Duy trì thói quen và nguồn lực", "Lập kế hoạch chăm sóc cá thể và mời người thân tham gia"] },
+        { merke: "Điều dưỡng có thể hỏi, người bệnh quyết định: Biografiearbeit luôn là tự nguyện." },
+        { h: "Vị trí trong quy trình điều dưỡng" },
+        { liste: ["Thu thập thông tin: hỏi về thói quen, sở thích, điều không thích và sự kiện quan trọng", "SIS: ghi lại góc nhìn của người bệnh trong buổi trò chuyện đầu tiên", "AEDL theo Krohwinkel: đặc biệt „Đối diện với những trải nghiệm hiện sinh“ và „Bảo đảm các lĩnh vực xã hội của cuộc sống“", "Lập kế hoạch: điều chỉnh lịch sinh hoạt, ăn uống, quần áo và nghi thức", "Lượng giá: kiểm tra các hoạt động có tốt cho người bệnh không"] },
+        { link: { bereich: "pflegeprozess", kapitel: "assessment" } }
+      ] },
+      { id: "bio_methoden", titel: "Phương pháp và cách trò chuyện", kurz: "Phiếu tiểu sử, chăm sóc hồi tưởng, câu hỏi tốt", abschnitte: [
+        { h: "Nguồn thông tin" },
+        { liste: ["Chính người bệnh: trò chuyện hằng ngày, ví dụ khi vệ sinh cá nhân", "Người thân và bạn bè, nếu người bệnh đồng ý", "Ảnh, kỷ vật, âm nhạc và đồ vật yêu thích", "Quan sát hành vi, sở thích và phản ứng", "Phiếu chuyển tuyến và hồ sơ chăm sóc trước đây"] },
+        { h: "Phương pháp" },
+        { tabelle: { kopf: ["Phương pháp", "Cách thực hiện"], zeilen: [
+          ["Phiếu tiểu sử", "Thu thập có cấu trúc; điền từng bước, không như thẩm vấn"],
+          ["Chăm sóc hồi tưởng", "Cá nhân hoặc nhóm với chủ đề như thời đi học, lễ hội, nghề nghiệp"],
+          ["Hộp kỷ niệm", "Đồ vật ngày xưa để cầm nắm và kể chuyện"],
+          ["Sách cuộc đời", "Ảnh và lời viết, cùng nhau thực hiện"],
+          ["Âm nhạc và mùi hương", "Bài hát hoặc mùi quen thuộc gợi lại ký ức"],
+          ["Hoạt động thường ngày", "Việc quen thuộc, ví dụ gấp quần áo, làm vườn, làm bánh"]
+        ] } },
+        { h: "Chủ đề quan trọng" },
+        { liste: ["Quê quán, gia đình, người thân quan trọng", "Nghề nghiệp, sở thích, niềm tự hào và thành công", "Lịch sinh hoạt: thức dậy, ngủ, vệ sinh, quần áo", "Ăn uống: sở thích, thói quen, điều không thích", "Đức tin, giá trị, văn hóa, lối sống", "Biến cố lớn, mất mát, nỗi sợ", "Mong muốn về chăm sóc và cuối đời"] },
+        { h: "Cách trò chuyện" },
+        { liste: ["Chọn thời điểm yên tĩnh và nơi phù hợp", "Đặt câu hỏi mở: „Lúc đó ông/bà thấy thế nào?“", "Lắng nghe tích cực, chịu được khoảng lặng, không phán xét", "Chỉ hỏi trong phạm vi người bệnh muốn kể", "Đáp lại cảm xúc và kết thúc nhẹ nhàng"] },
+        { warn: "Không „đào lại“ chuyện đau buồn. Khi người bệnh buồn hoặc né tránh: đổi chủ đề, ở bên cạnh, tìm hỗ trợ nếu cần." }
+      ] },
+      { id: "bio_demenz", titel: "Biografiearbeit khi sa sút trí tuệ", kurz: "Validation, Böhm, yếu tố khởi phát và ví dụ", abschnitte: [
+        { h: "Vì sao đặc biệt quan trọng?" },
+        { p: "Trí nhớ ngắn hạn suy giảm sớm hơn nhiều ký ức xưa. Vì vậy người bệnh thường sống trong thế giới trước đây. Biết tiểu sử giúp hiểu hành vi và phản ứng phù hợp. Tuổi thơ và tuổi thanh niên thường để lại dấu ấn sâu đậm." },
+        { h: "Ví dụ trong chăm sóc" },
+        { tabelle: { kopf: ["Quan sát", "Lý do có thể", "Gợi ý chăm sóc"], zeilen: [
+          ["Bồn chồn mỗi chiều lúc 17 giờ", "Trước đây tan làm, đón con đi học về", "Đi cùng, giao việc nhỏ hoặc nghi thức buổi tối"],
+          ["Muốn dậy lúc 5 giờ", "Trước đây làm nông hoặc ca sớm", "Điều chỉnh lịch sinh hoạt, không ép nằm"],
+          ["Từ chối tắm vòi sen", "Trước đây chỉ rửa ở bồn, xấu hổ, trải nghiệm xấu", "Lau rửa ở bồn, tôn trọng sở thích"],
+          ["Tích trữ thức ăn", "Thời kỳ đói kém trong chiến tranh", "Tạo an tâm, cho xem đồ dự trữ, không la mắng"]
+        ] } },
+        { h: "Các khái niệm phù hợp" },
+        { tabelle: { kopf: ["Khái niệm", "Ý chính"], zeilen: [
+          ["Validation (Naomi Feil)", "Chấp nhận và coi trọng cảm xúc thay vì sửa lời người bệnh"],
+          ["Integrative Validation (Nicole Richard)", "Nhận ra và khẳng định cảm xúc, động lực, sử dụng chủ đề cuộc đời"],
+          ["Mô hình tâm lý tiểu sử (Erwin Böhm)", "Hiểu dấu ấn cuộc đời để làm sống lại tâm hồn"],
+          ["Chăm sóc lấy con người làm trung tâm (Tom Kitwood)", "Con người là trung tâm, không phải bệnh"]
+        ] } },
+        { merke: "Tiêu chuẩn chuyên gia DNQP về xây dựng mối quan hệ khi chăm sóc người sa sút trí tuệ đặt thái độ lấy con người làm trung tâm lên hàng đầu. Hiểu biết về người bệnh rất quan trọng cho điều này." },
+        { h: "Sang chấn và yếu tố khởi phát" },
+        { liste: ["Chiến tranh, chạy nạn, bạo lực, xâm hại tình dục và mất mát có thể trỗi dậy", "Yếu tố khởi phát có thể là: còi báo động, không gian hẹp, bóng tối, tắm vòi sen, chạm vào vùng kín", "Không xem sự từ chối là chuyện cá nhân, giữ bình tĩnh và báo trước từng bước", "Cố gắng tôn trọng mong muốn về người chăm sóc", "Chia sẻ yếu tố khởi phát trong nhóm và ghi chép"] },
+        { diagnose: "demenz" }
+      ] },
+      { id: "bio_praxis", titel: "Ghi chép, giới hạn và đa dạng", kurz: "Bảo mật, văn hóa, làm việc nhóm, cách viết", abschnitte: [
+        { h: "Bảo mật dữ liệu và bí mật nghề nghiệp" },
+        { liste: ["Thông tin tiểu sử rất riêng tư và cần được bảo mật", "Tham gia là tự nguyện, cần có sự đồng ý", "Chỉ ghi những gì quan trọng cho việc chăm sóc", "Trong nhóm chỉ trao đổi chuyên môn, không biến thành chuyện phiếm", "Bí mật nghề nghiệp (§ 203 StGB) và bảo vệ dữ liệu (DSGVO) cũng áp dụng ở đây"] },
+        { h: "Ghi chép tốt" },
+        { tabelle: { kopf: ["Chưa tốt", "Tốt hơn"], zeilen: [
+          ["„Lúc nào tắm cũng khó khăn.“", "„Từ chối tắm vòi sen. Buổi sáng chấp nhận tốt việc lau rửa ở bồn.“"],
+          ["„Không ăn gì.“", "„Buổi sáng thích cà phê phin, thích bữa sáng nóng lúc 8 giờ, không ăn cá.“"],
+          ["„Từng ở chiến tranh nên kỳ lạ.“", "„Tiếng ồn lớn gây sợ hãi. Đóng cửa nhẹ và báo trước khi làm.“"]
+        ] } },
+        { h: "Tôn trọng sự đa dạng" },
+        { liste: ["Hỏi về văn hóa, tôn giáo, ngôn ngữ và lịch sử di cư, không tự suy đoán", "Tôn trọng nghi thức, quy định ăn uống, giờ cầu nguyện và mong muốn khi lâm chung", "Tôn trọng xu hướng tính dục và bản dạng giới", "Khi có rào cản ngôn ngữ, dùng người hỗ trợ có chuyên môn nếu có thể", "Tách biệt tiểu sử với giá trị của bản thân: không phán xét lựa chọn cuộc đời"] },
+        { h: "Giới hạn" },
+        { liste: ["Điều dưỡng không phải là nhà trị liệu", "Khi có khủng hoảng nặng hoặc hậu quả sang chấn, mời chuyên gia", "Tiểu sử giải thích hành vi nhưng không định đoạt hành vi", "Mọi người có quyền giấu hoặc kể câu chuyện của mình theo cách khác", "Trao đổi về áp lực của bản thân trong nhóm hoặc buổi giám sát chuyên môn"] },
+        { merke: "Hiểu biết về tiểu sử chỉ có tác dụng khi đi vào thực tế: trong kế hoạch chăm sóc, lịch sinh hoạt và khi bàn giao." }
       ] }
     ]
   }

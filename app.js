@@ -3,7 +3,7 @@
 
 // MediSmart – App-Logik
 // Gliederung: 1 Symbole · 2 Sprache · 3 Daten · 4 Zustand · 5 Grafiken & 3D · 6 Navigation (iOS-Stack)
-//             7 Seiten · 8 Detailblatt · 9 Suche · 10 Quiz · 11 Karteikarten · 12 Test-Vorbereitung · 13 Update-Pop-up · 14 Start
+//             7 Seiten (auch Diagnosen, Installieren, Feedback) · 8 Detailblatt · 9 Suche und Themen-Bündel · 10 Quiz · 11 Karteikarten · 12 Test-Vorbereitung · 13 Update-Pop-up · 14 Start
 (function () {
   "use strict";
 
@@ -38,7 +38,10 @@
     karten: '<rect x="3.5" y="6.5" width="12" height="14" rx="2"/><path d="M8.5 3.5h10a2 2 0 0 1 2 2v12"/>',
     bild: '<rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="6" stroke-dasharray="2 2.5"/>',
     wuerfel: '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/>',
-    tropfen: '<path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z"/><circle cx="12" cy="14.5" r="2.4"/>'
+    tropfen: '<path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z"/><circle cx="12" cy="14.5" r="2.4"/>',
+    buch: '<path d="M5 4.5A2 2 0 0 1 7 3h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 2h12v-4M12 7.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zM9.2 14.5c.4-1.6 1.5-2.3 2.8-2.3s2.4.7 2.8 2.3"/>',
+    diagnose: '<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4M12 9v6M9 12h6"/>',
+    feedback: '<path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v10a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17A1.5 1.5 0 0 1 4 15.5z"/><path d="M8 9h8M8 12.5h5"/>'
   };
   const icon = (id, cls) => `<span class="ico${cls ? " " + cls : ""}"><svg viewBox="0 0 24 24">${ICONS[id] || ""}</svg></span>`;
 
@@ -47,7 +50,7 @@
 
   // Hauptmenü: Körper & Anatomie, danach die Pflegebereiche
   const MENUE_BEREICHE = [["pflegeprozess", "zyklus", "orange"], ["prophylaxen", "schild", "blue"], ["kontrakturen", "gelenk", "indigo"],
-    ["vitalzeichen", "puls", "red"], ["herzkreislauf", "herz", "pink"], ["ernaehrung", "apfel", "green"], ["ausscheidung", "tropfen", "amber"]];
+    ["vitalzeichen", "puls", "red"], ["herzkreislauf", "herz", "pink"], ["ernaehrung", "apfel", "green"], ["ausscheidung", "tropfen", "amber"], ["biografie", "buch", "violet"]];
 
   // =====================================================================
   // 2 · SPRACHE (Oberfläche Deutsch / Tiếng Việt – Fachbegriffe bleiben lateinisch)
@@ -108,6 +111,16 @@
   const eigeneZuerst = (e, a, b) => (a.fig.kats.indexOf(e.kat.id) >= 0 ? 0 : 1) - (b.fig.kats.indexOf(e.kat.id) >= 0 ? 0 : 1);
   ALLE.forEach(e => { e.figs.sort((a, b) => eigeneZuerst(e, a, b)); e.m3d.sort((a, b) => eigeneZuerst(e, a, b)); });
   if (FEHLEND.length) console.warn("Zuordnung ohne Begriff:", FEHLEND);
+
+  // Pflege-Grundwissen: Wortbausteine und je Kategorie die ersten Hauptstrukturen aus den Grafiken.
+  // Alles Weitere (z. B. einzelne Muskeln, Nerven, Gefäße) erscheint erst mit der Medizin-Vertiefung.
+  const PFLEGE_BEGRIFFE = new Set(["M. gluteus medius", "M. deltoideus", "M. vastus lateralis", "N. ischiadicus", "A. radialis", "A. brachialis", "A. carotis communis", "A. femoralis", "A. dorsalis pedis", "V. cava superior", "V. cava inferior"]);
+  const MAX_BASIS = 30, basisZahl = {};
+  ALLE.forEach(e => {
+    const id = e.kat.id, kern = (e.figs.length || e.m3d.length) && e.lat.trim().split(/\s+/).length <= 2 && !/^(Nn?\.|Mm?\.|Aa?\.|Vv?\.|Lig|Rr?\.)/.test(e.lat) && (basisZahl[id] || 0) < MAX_BASIS;
+    if (kern) basisZahl[id] = (basisZahl[id] || 0) + 1;
+    e.basis = id === "wortbau" || !!kern || PFLEGE_BEGRIFFE.has(e.lat);
+  });
   const figTitel = f => vi() ? (FIG_TITEL_VI[f.id] || f.titel) : f.titel;
   const modellTitel = m => vi() ? (MODELL_TITEL_VI[m.id] || m.titel) : m.titel;
   const kurzTitel = t => t.split(" (")[0].replace(" 3D", "");
@@ -115,8 +128,8 @@
   // Pflegeinhalte: deutsche Fassung, vietnamesische Fassung mit gleichem Aufbau
   const BER = {}, BER_VI = {}, KAPITEL = [];
   BEREICHE_VI.forEach(b => { BER_VI[b.id] = b; });
-  const abschnittText = k => k.abschnitte.map(a => a.h || a.p || a.merke || a.warn || (a.liste || []).join(" ") ||
-    (a.tabelle ? a.tabelle.zeilen.map(z => z.join(" ")).join(" ") : "")).join(" ");
+  const einText = a => a.h || a.p || a.merke || a.warn || (a.liste || []).join(" ") || (a.tabelle ? a.tabelle.zeilen.map(z => z.join(" ")).join(" ") : "");
+  const abschnittText = k => k.abschnitte.map(einText).join(" ");
   BEREICHE.forEach(b => {
     BER[b.id] = b;
     b.kapitel.forEach(k => {
@@ -142,13 +155,45 @@
   }
   window.__medismart = { ALLE, FEHLEND, KAPITEL };
 
+  // Suchtext ohne Satzzeichen, damit Wörter sauber erkannt werden
+  const wortText = s => " " + plain(s).replace(/[^a-z0-9]+/g, " ").trim() + " ";
+  // Vietnamesisch braucht bei kurzen Wörtern die Akzente: mắt (Auge), mất (verlieren) und mặt (Gesicht) sind verschiedene Wörter
+  const rohText = s => " " + String(s).toLowerCase().normalize("NFC").replace(/[^p{L}p{N}]+/gu, " ").trim() + " ";
+  const suchText = (de, vi) => ({ de: wortText(de), alle: wortText(de + " " + vi), roh: rohText(vi) });
+
+  // Abschnitte der Pflegekapitel einzeln durchsuchbar (Überschrift plus Inhalt, Deutsch und Vietnamesisch)
+  const BLOECKE = [];
+  KAPITEL.forEach(k => {
+    const vb = BER_VI[k.bereich.id], vk = vb && vb.kapitel.find(x => x.id === k.id);
+    let b = null;
+    k.abschnitte.forEach((a, i) => {
+      const v = vk && vk.abschnitte[i];
+      if (a.h || !b) { b = { k, start: i, titel: a.h || k.titel, titelVi: (v && v.h) || (vk && vk.titel) || a.h || k.titel, de: "", vi: "" }; BLOECKE.push(b); }
+      if (!a.h) { b.de += " " + einText(a); if (v) b.vi += " " + einText(v); }
+    });
+    // Der erste Abschnitt zählt auch für den Kapiteltitel, damit z. B. „DK legen“ gefunden wird
+    let erster = true;
+    BLOECKE.forEach(x => { if (x.k === k) { x.sTitel = suchText(x.titel + (erster ? " " + k.titel : ""), x.titelVi + (erster && vk ? " " + vk.titel : "")); x.sText = suchText(x.de, x.vi); erster = false; } });
+  });
+
+  // Diagnosen in der aktuellen Sprache
+  const DIAG = {};
+  DIAGNOSEN.forEach(d => { DIAG[d.id] = d; d.terme = [d.name, d.fach].concat(d.syn, (DIAGNOSEN_VI[d.id] || {}).name || []).map(t => plain(t).replace(/[^a-z0-9]+/g, " ").trim()); });
+  const diag = d => (vi() && DIAGNOSEN_VI[d.id]) ? Object.assign({}, d, DIAGNOSEN_VI[d.id]) : d;
+  const diagGruppe = g => vi() ? g.vi : g.de;
+
   // =====================================================================
   // 4 · ZUSTAND
-  const state = { favs: new Set(store.get("favs", [])), tab: "start", query: "", detail: null };
+  const state = { favs: new Set(store.get("favs", [])), tab: "start", query: "", detail: null, medizin: store.get("medizin", false) === true };
+  // Medizin-Vertiefung: ausgeschaltet zeigt die App nur das Grundwissen für die Pflegeausbildung
+  const sichtbar = e => state.medizin || e.basis;
+  const sichtbarIn = k => k.eintraege.filter(sichtbar);
+  const kapitelSichtbar = k => state.medizin || !k.medizin;
+  const themenIds = () => QUIZ_KATEGORIEN.map(k => k.id).filter(id => state.medizin || id !== "anatomie");
   const $ = id => document.getElementById(id);
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const mischen = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
-  const go = r => ` data-go='${JSON.stringify(r)}'`;
+  const go = r => ` data-go="${esc(JSON.stringify(r))}"`;
 
   // =====================================================================
   // 5 · GRAFIKEN & 3D
@@ -296,7 +341,7 @@
   })();
 
   // Tabs
-  const TAB_WURZEL = { start: { v: "home" }, lernen: { v: "lernen" }, test: { v: "testvorb" }, gemerkt: { v: "gemerkt" }, info: { v: "info" } };
+  const TAB_WURZEL = { start: { v: "home" }, lernen: { v: "lernen" }, test: { v: "testvorb" }, gemerkt: { v: "gemerkt" }, info: { v: "info" }, installieren: { v: "installieren" } };
   document.querySelectorAll(".tabbar button").forEach(b => {
     b.onclick = () => {
       const tab = b.dataset.tab;
@@ -324,34 +369,109 @@
   }
   function katRow(k) {
     return `<button class="row with-ico"${go({ v: "kat", id: k.id })}>${icon(k.id)}<div class="row-text">` +
-      `<div class="row-main lat">${esc(k.lat)}</div><div class="row-sub">${esc(katName(k))}</div></div><span class="count">${k.eintraege.length}</span>${chev}</button>`;
+      `<div class="row-main lat">${esc(k.lat)}</div><div class="row-sub">${esc(katName(k))}</div></div><span class="count">${sichtbarIn(k).length}</span>${chev}</button>`;
   }
   function begriffDesTages() {
-    const pool = ALLE.filter(e => e.figs.length && e.figs[0].tok);
+    const pool = ALLE.filter(e => sichtbar(e) && e.figs.length && e.figs[0].tok);
     const d = new Date(), n = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 864e5) + d.getFullYear() * 7;
     return pool[(n * 7919) % pool.length];
   }
+
+  const koerperTitel = () => state.medizin ? T().koerperAnatomie : T().koerperBasis;
+  const medizinSchalter = () => `<button class="glass-card schalter-row" data-action="medizin"><span><b>${T().medizinTitel}</b><br><span class="muted small">${T().medizinSub}</span></span><span class="schalter${state.medizin ? " an" : ""}"></span></button>`;
+  const feedbackZeile = () => `<button class="tile-wide"${go({ v: "feedback" })}>${icon("feedback", "tile-ico")}<span><span class="tile-title">${T().feedback}</span><span class="tile-sub">${T().feedbackSub}</span></span>${chev}</button>`;
 
   const SEITEN = {
     home() {
       const t = begriffDesTages(), tf = t.figs[0];
       let h = `<div class="home-head">${icon("schild", "brand")}<div>` + gross("MediSmart", T().appSub) + "</div></div>";
       h += `<button class="search-hero" data-action="suche"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>${esc(T().sucheHero)}</button>`;
-      h += `<div class="tiles"><button class="tile tile-teal"${go({ v: "anatomie" })}>${icon("anatomie", "tile-ico")}<span class="tile-title">${T().koerperAnatomie}</span><span class="tile-sub">${T().anatomieSub}</span></button>` +
-        MENUE_BEREICHE.map(([id, ic, farbe]) => `<button class="tile tile-${farbe}"${go({ v: "bereich", id })}>${icon(ic, "tile-ico")}` +
-          `<span class="tile-title">${esc(bereich(id).titel)}</span><span class="tile-sub">${esc(T().menueSub[id])}</span></button>`).join("") + "</div>";
+      h += `<div class="tiles">` + MENUE_BEREICHE.map(([id, ic, farbe]) => `<button class="tile tile-${farbe}"${go({ v: "bereich", id })}>${icon(ic, "tile-ico")}` +
+          `<span class="tile-title">${esc(bereich(id).titel)}</span><span class="tile-sub">${esc(T().menueSub[id])}</span></button>`).join("") +
+        `<button class="tile tile-slate"${go({ v: "diagnosen" })}>${icon("diagnose", "tile-ico")}<span class="tile-title">${T().diagnosen}</span><span class="tile-sub">${T().diagnosenSub(DIAGNOSEN.length)}</span></button>` +
+        `<button class="tile tile-teal"${go({ v: "anatomie" })}>${icon("anatomie", "tile-ico")}<span class="tile-title">${koerperTitel()}</span><span class="tile-sub">${state.medizin ? T().anatomieSub : T().basisSub}</span></button></div>`;
       h += `<button class="tile-wide" data-tab-go="lernen">${icon("quiz", "tile-ico")}<span><span class="tile-title">${T().pruefungstraining}</span>` +
         `<span class="tile-sub">${T().fragenMitFall(QUIZ.length)}</span></span>${chev}</button>`;
+      h += medizinSchalter();
       h += `<div class="section-title">${T().begriffDesTages}</div><button class="today glass-card" data-key="${esc(t.key)}">${figHtml(tf.fig, tf.tok, { small: true })}` +
         `<div class="today-body"><div class="today-main lat">${esc(t.lat)}</div><div class="today-sub">${esc(tr(t))}</div></div></button>`;
+      h += feedbackZeile();
       return { titel: "MediSmart", html: h };
     },
 
     anatomie() {
-      let h = gross(T().koerperAnatomie, T().anatomieLead(ALLE.length.toLocaleString("de-DE"), FIGUREN.length, MODELLE_3D.length));
+      const anzahl = ALLE.filter(sichtbar).length;
+      let h = gross(koerperTitel(), T().anatomieLead(anzahl.toLocaleString("de-DE"), FIGUREN.length, MODELLE_3D.length));
       h += `<div class="section-title">${T().modelle3d}</div><div class="chips">` + MODELLE_3D.map(m => `<button class="chip"${go({ v: "modell", id: m.id })}>${icon("wuerfel", "chip-ico")}${esc(kurzTitel(modellTitel(m)))}</button>`).join("") + "</div>";
-      SEKTIONEN.forEach((ids, i) => { h += `<div class="section-title">${T().sektionen[i]}</div><div class="list">` + ids.filter(id => KAT[id]).map(id => katRow(KAT[id])).join("") + "</div>"; });
-      return { titel: T().koerperAnatomie, html: h };
+      SEKTIONEN.forEach((ids, i) => { const sicht = ids.filter(id => KAT[id] && sichtbarIn(KAT[id]).length); if (sicht.length) h += `<div class="section-title">${T().sektionen[i]}</div><div class="list">` + sicht.map(id => katRow(KAT[id])).join("") + "</div>"; });
+      if (!state.medizin) h += medizinSchalter();
+      return { titel: koerperTitel(), html: h };
+    },
+
+    diagnosen() {
+      let h = gross(T().diagnosen, T().diagnosenLead);
+      DIAGNOSE_GRUPPEN.forEach(g => {
+        h += `<div class="section-title">${esc(diagGruppe(g))}</div><div class="list">` + DIAGNOSEN.filter(d => d.gruppe === g.id).map(d => `<button class="row"${go({ v: "diagnose", id: d.id })}><div class="row-text"><div class="row-main">${esc(diag(d).name)}</div><div class="row-sub">${esc(d.fach)}</div></div>${chev}</button>`).join("") + "</div>";
+      });
+      return { titel: T().diagnosen, html: h };
+    },
+
+    diagnose(r) {
+      const d = diag(DIAG[r.id]), g = DIAGNOSE_GRUPPEN.find(x => x.id === d.gruppe), fragen = themaFragen(DIAG[r.id].syn[0]);
+      let h = `<p class="eyebrow">${esc(diagGruppe(g))}</p>` + gross(d.name, esc(d.fach));
+      h += `<p class="text">${esc(d.was)}</p><h2 class="sec-h">${T().typischeZeichen}</h2><ul class="glass-card liste">${d.zeichen.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+      h += `<h2 class="sec-h">${T().pflegeSchwerpunkte}</h2><ul class="glass-card liste">${d.pflege.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+      h += `<div class="callout warn"><b>${T().achtung}</b>${esc(d.warn)}</div>`;
+      h += d.links.map(([bid, kid]) => { const z = kapitel(bid, kid), ic = (MENUE_BEREICHE.find(x => x[0] === bid) || [])[1]; return `<button class="link-card"${go({ v: "kapitel", b: bid, k: kid })}>${icon(ic)}<span><b>${T().weiterPrefix}: ${esc(z.titel)}</b><small>${esc(z.kurz)}</small></span>${chev}</button>`; }).join("");
+      if (fragen.length) h += `<button class="tile-wide mt"${go({ v: "quiz", such: DIAG[r.id].syn[0] })}>${icon("quiz", "tile-ico")}<span><span class="tile-title">${T().wissenTesten}</span><span class="tile-sub">${T().fragen(fragen.length)}</span></span>${chev}</button>`;
+      return { titel: d.name, html: h };
+    },
+
+    installieren() {
+      const standalone = (window.matchMedia && matchMedia("(display-mode: standalone)").matches) || navigator.standalone === true;
+      const ua = navigator.userAgent, ios = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1), android = /android/i.test(ua);
+      const karte = (titel, schritte) => `<div class="section-title">${titel}</div><ol class="glass-card liste schritte">${schritte.map(x => `<li>${x}</li>`).join("")}</ol>`;
+      const iphone = karte(T().instIphone, T().instIphoneSchritte), droid = karte(T().instAndroid, T().instAndroidSchritte) + karte(T().instSamsung, T().instSamsungSchritte);
+      let h = gross(T().installieren, standalone ? T().instFertig : T().instLead);
+      if (installEvent && !standalone) h += `<div class="actions"><button class="btn primary-btn" data-inst="jetzt">${T().instJetzt}</button></div>`;
+      if (!standalone) h += ios ? iphone + droid : android ? droid + iphone : droid + iphone;
+      h += `<div class="section-title">${T().instTeilen}</div><p class="muted small">${T().instTeilenLead}</p><div class="glass-card link-box">${esc(appUrl())}</div><div class="actions"><button class="btn" data-inst="teilen">${T().instLinkTeilen}</button></div><p class="ed-fehler ok" data-inst-info hidden></p>`;
+      return { titel: T().installieren, html: h, nach: el => {
+        const jetzt = el.querySelector('[data-inst="jetzt"]');
+        if (jetzt) jetzt.onclick = async () => { const e = installEvent; if (!e) return; e.prompt(); try { await e.userChoice; } catch (x) {} installEvent = null; const s = aktuell(); if (s && s.route.v === "installieren") zeichne(s, true); };
+        el.querySelector('[data-inst="teilen"]').onclick = async () => {
+          const info = el.querySelector("[data-inst-info]");
+          try {
+            if (navigator.share) await navigator.share({ title: "MediSmart", url: appUrl() });
+            else { await navigator.clipboard.writeText(appUrl()); info.textContent = T().instKopiert; info.hidden = false; }
+          } catch (x) { if (x && x.name !== "AbortError") { info.textContent = appUrl(); info.hidden = false; } }
+        };
+      } };
+    },
+
+    feedback(r, seite) {
+      if (!seite.fb) seite.fb = { art: 0, text: "", name: "", gesendet: false };
+      const F = seite.fb;
+      let h = gross(T().feedback, T().feedbackLead);
+      h += `<div class="section-title">${T().feedbackArt}</div><div class="chips wrap">` + T().feedbackArten.map((a, i) => `<button class="chip${F.art === i ? " active" : ""}" data-fb-art="${i}">${esc(a)}</button>`).join("") + "</div>";
+      h += `<div class="section-title">${T().feedbackText}</div><textarea class="feld" rows="6" maxlength="1500" data-fb="text" placeholder="${esc(T().feedbackPlatz)}">${esc(F.text)}</textarea>`;
+      h += `<div class="section-title">${T().feedbackName}</div><input class="feld" data-fb="name" maxlength="60" value="${esc(F.name)}" placeholder="${esc(T().feedbackNamePlatz)}" autocomplete="off">`;
+      h += `<p class="ed-fehler" data-fb-info hidden></p><div class="actions mt"><button class="btn primary-btn" data-fb-senden>${T().feedbackSenden}</button></div>`;
+      h += F.gesendet ? `<div class="callout ok"><b>${T().feedbackDanke}</b>${T().feedbackHinweis}</div><div class="actions mt"><button class="btn" data-fb-kopie>${T().feedbackKopieren}</button></div>` : `<p class="muted small">${T().feedbackHinweisVorab}</p>`;
+      const nachricht = () => `${T().feedbackArten[F.art]}\n\n${F.text.trim()}\n\n${F.name.trim() ? "– " + F.name.trim() : ""}\n(MediSmart ${APP_VERSIONEN[0].nummer})`;
+      return { titel: T().feedback, html: h, nach: el => {
+        el.querySelectorAll("[data-fb-art]").forEach(b => b.onclick = () => { F.art = +b.dataset.fbArt; zeichne(seite, true); });
+        el.querySelector('[data-fb="text"]').oninput = ev => { F.text = ev.target.value; };
+        el.querySelector('[data-fb="name"]').oninput = ev => { F.name = ev.target.value; };
+        el.querySelector("[data-fb-senden]").onclick = () => {
+          if (!F.text.trim()) { const p = el.querySelector("[data-fb-info]"); p.textContent = T().feedbackLeer; p.hidden = false; return; }
+          const betreff = `MediSmart Feedback: ${T().feedbackArten[F.art]}`;
+          location.href = `mailto:${FEEDBACK_ADRESSE}?subject=${encodeURIComponent(betreff)}&body=${encodeURIComponent(nachricht())}`;
+          F.gesendet = true; zeichne(seite, true);
+        };
+        const k = el.querySelector("[data-fb-kopie]");
+        if (k) k.onclick = async () => { try { await navigator.clipboard.writeText(`${FEEDBACK_ADRESSE}\n\n${nachricht()}`); k.textContent = T().instKopiert; } catch (x) { k.textContent = FEEDBACK_ADRESSE; } };
+      } };
     },
 
     modell(r) {
@@ -364,7 +484,7 @@
     kat(r, seite) {
       const k = KAT[r.id], figs = FIGUREN.filter(f => f.kats.indexOf(k.id) >= 0), mods = MODELLE_3D.filter(m => m.kats.indexOf(k.id) >= 0);
       seite.figIdx = seite.figIdx || 0;
-      let h = `<div class="cat-head">${icon(k.id, "big")}<div><h1 class="large-title lat">${esc(k.lat)}</h1><p class="lead">${esc(katName(k))} · ${T().begriffe(k.eintraege.length)}</p></div></div>`;
+      let h = `<div class="cat-head">${icon(k.id, "big")}<div><h1 class="large-title lat">${esc(k.lat)}</h1><p class="lead">${esc(katName(k))} · ${T().begriffe(sichtbarIn(k).length)}</p></div></div>`;
       const ansichten = mods.map(m => ({ typ: "3d", m })).concat(figs.map(f => ({ typ: "fig", f })));
       if (ansichten.length) {
         const i = Math.min(seite.figIdx, ansichten.length - 1), a = ansichten[i];
@@ -372,15 +492,16 @@
         h += `<div class="glass-card pad0">` + (a.typ === "3d" ? v3dHtml(a.m.id, null) : figHtml(a.f, null, { interactive: true })) +
           `<div class="fig-caption"><b>${esc(a.typ === "3d" ? modellTitel(a.m) : figTitel(a.f))}</b><span>${T().tippeStruktur}</span></div></div>`;
       }
-      if (k.gruppen.length > 1) h += `<div class="section-title">${T().themen}</div><div class="chips">` + k.gruppen.map((g, j) => `<button class="chip" data-goto="${j}">${esc(gruppenName(g))}</button>`).join("") + "</div>";
-      k.gruppen.forEach((g, j) => { h += `<div class="section-title anchor" id="g-${j}">${esc(gruppenName(g))}</div><div class="list">` + g.eintraege.map(e => rowHtml(e)).join("") + "</div>"; });
+      const gruppen = k.gruppen.map((g, j) => ({ g, j, es: g.eintraege.filter(sichtbar) })).filter(x => x.es.length);
+      if (gruppen.length > 1) h += `<div class="section-title">${T().themen}</div><div class="chips">` + gruppen.map(({ g, j }) => `<button class="chip" data-goto="${j}">${esc(gruppenName(g))}</button>`).join("") + "</div>";
+      gruppen.forEach(({ g, j, es }) => { h += `<div class="section-title anchor" id="g-${j}">${esc(gruppenName(g))}</div><div class="list">` + es.map(e => rowHtml(e)).join("") + "</div>"; });
       return { titel: k.lat, html: h };
     },
 
     bereich(r) {
       const b = bereich(r.id), ic = (MENUE_BEREICHE.find(x => x[0] === r.id) || [])[1];
       let h = `<div class="cat-head">${icon(ic, "big")}<div>${gross(b.titel)}<p class="lead">${esc(b.untertitel)}</p></div></div>`;
-      h += `<div class="list">` + b.kapitel.map((k, i) => `<button class="row with-ico"${go({ v: "kapitel", b: r.id, k: k.id })}>` +
+      h += `<div class="list">` + b.kapitel.filter(k => kapitelSichtbar(BER[r.id].kapitel.find(x => x.id === k.id) || k)).map((k, i) => `<button class="row with-ico"${go({ v: "kapitel", b: r.id, k: k.id })}>` +
         `<span class="ico num">${i + 1}</span><div class="row-text"><div class="row-main">${esc(k.titel)}</div><div class="row-sub">${esc(k.kurz)}</div></div>${chev}</button>`).join("") + "</div>";
       const qk = r.id === "kontrakturen" ? "kontrakturen+dekubitus" : r.id;
       h += `<button class="tile-wide mt"${go({ v: "quiz", kat: qk })}>${icon("quiz", "tile-ico")}<span><span class="tile-title">${T().wissenTesten}</span><span class="tile-sub">${esc(T().pruefungsfragenZu(b.titel))}</span></span>${chev}</button>`;
@@ -390,8 +511,9 @@
     kapitel(r) {
       const b = bereich(r.b), k = kapitel(r.b, r.k);
       let h = `<p class="eyebrow">${esc(b.titel)}</p>` + gross(k.titel, esc(k.kurz));
-      k.abschnitte.forEach(a => {
-        if (a.h) h += `<h2 class="sec-h">${esc(a.h)}</h2>`;
+      k.abschnitte.forEach((a, i) => {
+        if (a.h) h += `<h2 class="sec-h" id="ab-${i}">${esc(a.h)}</h2>`;
+        else if (a.diagnose) { const d = diag(DIAG[a.diagnose]); h += `<button class="link-card"${go({ v: "diagnose", id: a.diagnose })}>${icon("diagnose")}<span><b>${T().diagnosen}: ${esc(d.name)}</b><small>${esc(d.fach)}</small></span>${chev}</button>`; }
         else if (a.p) h += `<p class="text">${esc(a.p)}</p>`;
         else if (a.liste) h += `<ul class="glass-card liste">${a.liste.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
         else if (a.merke) h += `<div class="callout merke"><b>${T().merke}</b>${esc(a.merke)}</div>`;
@@ -402,25 +524,53 @@
         else if (a.modell) h += `<div class="glass-card pad0">${v3dHtml(a.modell, null)}</div>`;
         else if (a.link) { const z = kapitel(a.link.bereich, a.link.kapitel), ic = (MENUE_BEREICHE.find(x => x[0] === a.link.bereich) || [])[1]; h += `<button class="link-card"${go({ v: "kapitel", b: a.link.bereich, k: z.id })}>${icon(ic)}<span><b>${T().weiterPrefix}: ${esc(z.titel)}</b><small>${esc(z.kurz)}</small></span>${chev}</button>`; }
       });
-      return { titel: k.titel, html: h };
+      return { titel: k.titel, html: h, nach: (el, seite) => {
+        if (r.zu != null && !seite.gescrollt) { seite.gescrollt = true; const z = el.querySelector("#ab-" + r.zu); if (z) el.scrollTop = Math.max(0, z.offsetTop - 70); }
+      } };
     },
 
-    lernen() {
+    // Üben (Lösung sofort) und Test (Lösung erst nach dem Abgeben) in einer gemeinsamen Liste
+    lernen(r, seite) {
+      if (!seite.bau) seite.bau = { kats: [], n: 10 };
+      const B = seite.bau, testModus = store.get("lernModus", "ueben") === "test", zeit = store.get("testZeit", false), erg = testErgebnisse();
+      const kats = QUIZ_KATEGORIEN.filter(k => themenIds().indexOf(k.id) >= 0);
+      B.kats = B.kats.filter(id => themenIds().indexOf(id) >= 0);
+      const verfuegbar = id => QUIZ.filter(q => q.kat === id).length + (id === "anatomie" ? 12 : 0);
+      const ges = { v: "test", kats: themenIds(), n: 20 };
       let h = gross(T().lernen, T().lernenLead);
-      h += `<button class="tile-wide accent"${go({ v: "quiz", kat: "mix" })}>${icon("quiz", "tile-ico")}<span><span class="tile-title">${T().simulation}</span><span class="tile-sub">${T().simulationSub}</span></span>${chev}</button>`;
-      h += `<div class="section-title">${T().fragenNachThema}</div><div class="list">` + QUIZ_KATEGORIEN.map(k => {
-        const n = QUIZ.filter(q => q.kat === k.id).length + (k.id === "anatomie" ? 12 : 0);
-        return `<button class="row"${go({ v: "quiz", kat: k.id })}><div class="row-text"><div class="row-main">${esc(katTitel(k.id))}</div><div class="row-sub">${T().fragen(n)}${k.id === "anatomie" ? T().teilsAuto : ""}</div></div>${chev}</button>`;
+      h += `<div class="seg-big"><button data-lm="ueben" class="${testModus ? "" : "active"}">${T().modusUeben}</button><button data-lm="test" class="${testModus ? "active" : ""}">${T().modusTest}</button></div>`;
+      h += `<p class="muted small">${testModus ? T().testLead : T().uebenLead}</p>`;
+      if (testModus) h += `<div class="list"><button class="row" data-lt="zeit"><div class="row-text"><div class="row-main">${T().zeitlimit}</div><div class="row-sub">${T().zeitlimitSub}</div></div><span class="schalter${zeit ? " an" : ""}"></span></button></div>`;
+      h += `<button class="tile-wide accent"${go(testModus ? ges : { v: "quiz", kat: "mix" })}>${icon("quiz", "tile-ico")}<span><span class="tile-title">${testModus ? T().gesamttest : T().simulation}</span><span class="tile-sub">${testModus ? T().gesamttestSub(20) + (erg[testKey(ges)] != null ? " · " + T().zuletzt(erg[testKey(ges)]) : "") : T().simulationSub}</span></span>${chev}</button>`;
+      h += `<div class="section-title">${T().fragenNachThema}</div><div class="list">` + kats.map(k => {
+        const n = verfuegbar(k.id), tn = Math.min(10, n), route = testModus ? { v: "test", kats: [k.id], n: tn } : { v: "quiz", kat: k.id }, p = erg[testKey({ kats: [k.id], n: tn })];
+        return `<button class="row"${go(route)}><div class="row-text"><div class="row-main">${esc(katTitel(k.id))}</div><div class="row-sub">${T().fragen(testModus ? tn : n)}${!testModus && k.id === "anatomie" ? T().teilsAuto : ""}</div></div>${testModus && p != null ? `<span class="count">${T().zuletzt(p)}</span>` : ""}${chev}</button>`;
       }).join("") + "</div>";
+      if (testModus) h += `<div class="section-title">${T().zusammenstellen}</div><p class="muted small">${T().themenWaehlen}</p><div class="chips wrap">` +
+        kats.map(k => `<button class="chip${B.kats.indexOf(k.id) >= 0 ? " active" : ""}" data-tk="${k.id}">${esc(katTitel(k.id))}</button>`).join("") + "</div>" +
+        `<div class="section-title">${T().anzahl}</div><div class="seg-big">` + [5, 10, 15, 20].map(n => `<button data-tn="${n}" class="${B.n === n ? "active" : ""}">${n}</button>`).join("") + "</div>" +
+        `<div class="actions mt"><button class="btn primary-btn" data-lt="bau"${B.kats.length ? "" : " disabled"}>${T().testStarten}</button></div>`;
       h += `<div class="section-title">${T().lateinLernen}</div><div class="tiles two">` +
         `<button class="tile tile-teal"${go({ v: "karten", modus: "karten" })}>${icon("karten", "tile-ico")}<span class="tile-title">${T().karteikarten}</span><span class="tile-sub">${T().karteiSub}</span></button>` +
         `<button class="tile tile-indigo"${go({ v: "karten", modus: "bild" })}>${icon("bild", "tile-ico")}<span class="tile-title">${T().bildquiz}</span><span class="tile-sub">${T().bildquizSub}</span></button></div>`;
-      return { titel: T().lernen, html: h };
+      return { titel: T().lernen, html: h, nach: el => {
+        el.querySelectorAll("[data-lm]").forEach(b => b.onclick = () => { store.set("lernModus", b.dataset.lm); zeichne(seite, true); });
+        const z = el.querySelector('[data-lt="zeit"]');
+        if (z) z.onclick = () => { store.set("testZeit", !zeit); zeichne(seite, true); };
+        el.querySelectorAll("[data-tk]").forEach(b => b.onclick = () => {
+          const id = b.dataset.tk;
+          B.kats = B.kats.indexOf(id) >= 0 ? B.kats.filter(x => x !== id) : B.kats.concat(id);
+          zeichne(seite, true);
+        });
+        el.querySelectorAll("[data-tn]").forEach(b => b.onclick = () => { B.n = +b.dataset.tn; zeichne(seite, true); });
+        const bau = el.querySelector('[data-lt="bau"]');
+        if (bau) bau.onclick = () => push({ v: "test", kats: themenIds().filter(id => B.kats.indexOf(id) >= 0), n: B.n });
+      } };
     },
 
     quiz: (r, seite) => quizSeite(r, seite),
     karten: (r, seite) => kartenSeite(r, seite),
-    testvorb: (r, seite) => testUebersicht(seite),
+    testvorb: () => testUebersicht(),
     test: (r, seite) => testSeite(r, seite),
     testEdit: (r, seite) => testEditor(r, seite),
 
@@ -431,7 +581,8 @@
     },
 
     info() {
-      return { titel: T().tabInfo, html: gross(T().infoTitel, T().infoLead(ALLE.length.toLocaleString("de-DE"), KAPITEL.length, QUIZ.length)) +
+      return { titel: T().tabInfo, html: gross(T().infoTitel, T().infoLead(ALLE.filter(sichtbar).length.toLocaleString("de-DE"), KAPITEL.filter(kapitelSichtbar).length, QUIZ.length)) +
+        medizinSchalter() + feedbackZeile() +
         `<button class="glass-card info-version" data-action="neuigkeiten"><span><b>${T().versionText(APP_VERSIONEN[0].nummer)}</b><br><span class="muted small">${T().wasIstNeu}</span></span>${chev}</button>` +
         `<div class="glass-card prose">${T().infoHtml}</div>` };
     }
@@ -464,7 +615,13 @@
     if (gt) { const z = aktuell().el.querySelector("#g-" + gt.dataset.goto); if (z) aktuell().el.scrollTo({ top: z.offsetTop - 70, behavior: "smooth" }); return; }
     if (t.closest('[data-action="suche"]')) $("search").focus();
     if (t.closest('[data-action="neuigkeiten"]')) zeigeNeuigkeiten([APP_VERSIONEN[0]]);
+    if (t.closest('[data-action="medizin"]')) setzeMedizin(!state.medizin);
   });
+  function setzeMedizin(an) {
+    state.medizin = an; store.set("medizin", an);
+    stack.forEach(s => zeichne(s, true));
+    if (state.query) zeigeSuche();
+  }
 
   // =====================================================================
   // 8 · DETAILBLATT (Anatomie-Begriff)
@@ -473,7 +630,7 @@
     opt = opt || {};
     const e = BY_KEY[key];
     if (!e) return;
-    const liste = e.kat.eintraege, idx = liste.indexOf(e), fav = state.favs.has(e.key);
+    const sicht = sichtbarIn(e.kat), liste = sicht.indexOf(e) >= 0 ? sicht : e.kat.eintraege, idx = liste.indexOf(e), fav = state.favs.has(e.key);
     let ansicht = opt.ansicht || (e.m3d.length ? "3d" : "fig");
     if (ansicht === "3d" && !e.m3d.length) ansicht = "fig";
     if (ansicht === "fig" && !e.figs.length) ansicht = e.m3d.length ? "3d" : null;
@@ -541,7 +698,7 @@
         if (f === q) s = Math.max(s, 100);
         else if (f.indexOf(q) === 0) s = Math.max(s, 80);
         else if ((" " + f).indexOf(" " + q) >= 0 || f.indexOf("(" + q) >= 0) s = Math.max(s, 60);
-        else if (f.indexOf(q) >= 0) s = Math.max(s, 40);
+        else if (q.length >= 3 && f.indexOf(q) >= 0) s = Math.max(s, 40);
       });
       if (s < 0 && p.length >= 3 && (e.pLat.indexOf(p) >= 0 || e.pDe.indexOf(p) >= 0)) s = 30;
       if (s < 0 && q.length >= 3 && e.sInfo.indexOf(q) >= 0) s = 10;
@@ -552,14 +709,70 @@
   function suchePflege(query) {
     const q = plain(query.trim());
     if (q.length < 2) return [];
+    const sicht = KAPITEL.filter(kapitelSichtbar);
     // Zwei Zeichen (z. B. „DK“) zählen nur als ganzes Wort im Kapiteltitel
-    if (q.length === 2) return KAPITEL.filter(k => (" " + k.sTitel.replace(/[^a-z0-9]+/g, " ") + " ").indexOf(" " + q + " ") >= 0);
-    return KAPITEL.map(k => ({ k, s: k.sTitel.indexOf(q) >= 0 ? 2 : k.sText.indexOf(q) >= 0 ? 1 : 0 })).filter(x => x.s).sort((a, b) => b.s - a.s).map(x => x.k);
+    if (q.length === 2) return sicht.filter(k => (" " + k.sTitel.replace(/[^a-z0-9]+/g, " ") + " ").indexOf(" " + q + " ") >= 0);
+    return sicht.map(k => ({ k, s: k.sTitel.indexOf(q) >= 0 ? 2 : k.sText.indexOf(q) >= 0 ? 1 : 0 })).filter(x => x.s).sort((a, b) => b.s - a.s).map(x => x.k);
   }
+
+  // Themen-Suche: Bündelt Diagnose, Kapitelabschnitte, Fragen und Begriffe. Treffer in mehreren Bereichen gelten als großes Thema.
+  // Kurze Wörter (z. B. „DK“, „Mắt“) zählen nur als ganzes Wort, sonst gäbe es zu viele Zufallstreffer
+  const viWort = query => /[^ -äöüß]/i.test(query.trim()) ? rohText(query).trim() : null;
+  function trifft(s, t, roh) {
+    if (t.length >= 5) return s.alle.indexOf(t) >= 0;
+    return roh ? s.roh.indexOf(" " + roh + " ") >= 0 : s.de.indexOf(" " + t + " ") >= 0;
+  }
+  function passendeDiagnosen(q) {
+    return DIAGNOSEN.filter(d => d.terme.some(t => t === q || (q.length >= 4 && (" " + t).indexOf(" " + q) >= 0)));
+  }
+  function themaTerme(query) {
+    const q = plain(query.trim()).replace(/[^a-z0-9]+/g, " ").trim(), terme = new Set(q ? [q] : []);
+    passendeDiagnosen(q).forEach(d => d.terme.forEach(t => { if (t.length >= 3) terme.add(t); }));
+    return Array.from(terme);
+  }
+  const QUIZ_SUCHE = QUIZ.map((q, i) => { const v = QUIZ_VI[i] || {}; return suchText([q.frage, q.fall, q.erklaerung, (q.optionen || []).join(" ")].filter(Boolean).join(" "), [v.frage, v.fall, v.erklaerung, (v.optionen || []).join(" ")].filter(Boolean).join(" ")); });
+  function themaFragen(query) {
+    const terme = themaTerme(query), roh = viWort(query);
+    return QUIZ_I.filter((q, i) => (state.medizin || q.kat !== "anatomie") && terme.some(t => trifft(QUIZ_SUCHE[i], t, roh)));
+  }
+  function themaDaten(query) {
+    const q = plain(query.trim()).replace(/[^a-z0-9]+/g, " ").trim();
+    if (q.length < 2) return { gross: false };
+    const terme = themaTerme(query), diags = passendeDiagnosen(q), roh = viWort(query);
+    const bloecke = BLOECKE.filter(b => kapitelSichtbar(b.k)).map(b => {
+      const imTitel = terme.filter(t => trifft(b.sTitel, t, roh)).length, imText = terme.filter(t => trifft(b.sText, t, roh)).length;
+      return { b, s: imTitel * 3 + imText };
+    }).filter(x => x.s).sort((x, y) => y.s - x.s).map(x => x.b);
+    const fragen = themaFragen(query);
+    return { q, terme, diags, bloecke, fragen, gross: diags.length > 0 || bloecke.length >= 3 || (bloecke.length >= 1 && fragen.length >= 3) };
+  }
+  function ausschnitt(text, terme) {
+    const p = plain(text);
+    let pos = -1, wort = "";
+    terme.forEach(t => { const i = p.indexOf(t); if (i >= 0 && (pos < 0 || i < pos)) { pos = i; wort = t; } });
+    if (pos < 0) return { s: text.trim().slice(0, 110) + (text.trim().length > 110 ? " …" : ""), wort: "" };
+    const von = Math.max(0, pos - 40), s = text.slice(von, pos + 80);
+    return { s: (von ? "… " : "") + s.trim() + (pos + 80 < text.length ? " …" : ""), wort };
+  }
+  function themaHtml(th, query) {
+    const eingabe = query.trim(), zeige = eingabe.charAt(0).toUpperCase() + eingabe.slice(1);
+    const blockRow = b => {
+      const a = ausschnitt(vi() ? (b.vi || b.de) : b.de, th.terme), vk = kapitel(b.k.bereich.id, b.k.id), ic = (MENUE_BEREICHE.find(x => x[0] === b.k.bereich.id) || [])[1];
+      return `<button class="row with-ico"${go({ v: "kapitel", b: b.k.bereich.id, k: b.k.id, zu: b.start })}>${icon(ic)}<div class="row-text"><div class="row-main">${esc(vi() ? b.titelVi : b.titel)}</div>` +
+        `<div class="row-meta">${esc(vk.titel)}</div><div class="row-sub">${a.wort ? highlight(a.s, a.wort) : esc(a.s)}</div></div>${chev}</button>`;
+    };
+    let h = `<div class="glass-card thema-kopf"><div class="lbl-small">${T().grossesThema}</div><h2>${esc(T().allesZu(zeige))}</h2><p class="muted small">${T().themaZahlen(th.diags.length, th.bloecke.length, th.fragen.length)}</p></div>`;
+    if (th.diags.length) h += `<div class="section-title">${T().diagnosen}</div><div class="list">` + th.diags.map(d => { const x = diag(d); return `<button class="row"${go({ v: "diagnose", id: d.id })}><div class="row-text"><div class="row-main">${esc(x.name)}</div><div class="row-sub">${esc(d.fach)}</div><div class="row-meta">${esc(x.was.split(". ")[0])}.</div></div>${chev}</button>`; }).join("") + "</div>";
+    if (th.bloecke.length) h += `<div class="section-title">${T().inDenKapiteln}</div><div class="list">` + th.bloecke.slice(0, 8).map(blockRow).join("") + "</div>";
+    if (th.fragen.length) h += `<button class="tile-wide mt"${go({ v: "quiz", such: query.trim() })}>${icon("quiz", "tile-ico")}<span><span class="tile-title">${T().wissenTesten}</span><span class="tile-sub">${T().fragen(th.fragen.length)}</span></span>${chev}</button>`;
+    return h;
+  }
+
   function zeigeSuche() {
     beende3d(suchViewer);
-    const res = sucheAnatomie(state.query), pfl = suchePflege(state.query), q = plain(state.query.trim());
-    let h = "";
+    const alle = sucheAnatomie(state.query), res = alle.filter(t => sichtbar(t.e)), verborgen = alle.length - res.length, q = plain(state.query.trim());
+    const th = themaDaten(state.query), pfl = th.gross ? [] : suchePflege(state.query);
+    let h = th.gross ? themaHtml(th, state.query) : "";
     const top = res[0];
     if (top && top.s >= 60 && (top.e.m3d.length || top.e.figs.length)) {
       const e = top.e, fe = e.figs[0], me = e.m3d[0];
@@ -570,7 +783,8 @@
     }
     if (pfl.length) h += `<div class="section-title">${T().pflegewissen}</div><div class="list">` + pfl.slice(0, 8).map(k => { const vk = kapitel(k.bereich.id, k.id); return `<button class="row with-ico"${go({ v: "kapitel", b: k.bereich.id, k: k.id })}>${icon((MENUE_BEREICHE.find(x => x[0] === k.bereich.id) || [])[1])}<div class="row-text"><div class="row-main">${highlight(vk.titel, q)}</div><div class="row-sub">${esc(bereich(k.bereich.id).titel)} · ${esc(vk.kurz)}</div></div>${chev}</button>`; }).join("") + "</div>";
     if (res.length) h += `<div class="section-title">${T().anatomieTreffer(res.length)}</div><div class="list">` + res.slice(0, 80).map(t => rowHtml(t.e, { hl: q, meta: true })).join("") + "</div>";
-    if (!h) h = `<div class="empty"><div class="big">⌕</div>${esc(T().keinTreffer(state.query))}</div>`;
+    if (verborgen) h += `<button class="tile-wide mt" data-action="medizin">${icon("anatomie", "tile-ico")}<span><span class="tile-title">${T().medizinTitel}</span><span class="tile-sub">${T().mehrImMedizin(verborgen)}</span></span>${chev}</button>`;
+    if (!h) h =`<div class="empty"><div class="big">⌕</div>${esc(T().keinTreffer(state.query))}</div>`;
     searchLayer.innerHTML = `<div class="page-inner">${h}</div>`;
     markiere(searchLayer);
     starte3d(searchLayer, suchViewer);
@@ -587,6 +801,7 @@
   $("searchClear").onclick = () => { searchInput.value = ""; state.query = ""; $("searchClear").hidden = true; searchLayer.innerHTML = ""; searchInput.focus(); };
   $("searchCancel").onclick = schliesseSuche;
   searchLayer.addEventListener("click", ev => {
+    if (ev.target.closest('[data-action="medizin"]')) { setzeMedizin(true); return; }
     const g = ev.target.closest("[data-go]");
     if (g) { push(JSON.parse(g.dataset.go)); return; }
     const row = ev.target.closest("[data-key]");
@@ -608,7 +823,7 @@
 
   // Automatisch erzeugte Anatomiefragen (Latein ↔ Übersetzung, Ablenker aus demselben Bereich)
   function anatomieFragen(n) {
-    return mischen(ALLE.filter(e => e.kat.id !== "wortbau" && e.de.length < 40)).slice(0, n).map((e, i) => {
+    return mischen(ALLE.filter(e => sichtbar(e) && e.kat.id !== "wortbau" && e.de.length < 40)).slice(0, n).map((e, i) => {
       const andere = mischen(e.kat.eintraege.filter(x => x !== e && x.de !== e.de && x.lat !== e.lat)).slice(0, 3);
       const opts = mischen([e].concat(andere));
       return { kat: "anatomie", typ: "single", auto: true, umgekehrt: i % 2 === 1, e, opts, richtig: opts.indexOf(e) };
@@ -619,22 +834,25 @@
     return { frage: f.umgekehrt ? T().autoFrageUm(tr(f.e)) : T().autoFrage(f.e.lat), optionen: f.opts.map(x => f.umgekehrt ? x.lat : tr(x)),
       erklaerung: `${f.e.lat} = ${tr(f.e)}.` + (info(f.e) ? " " + info(f.e) : ""), latOpt: f.umgekehrt };
   }
-  function stelleQuiz(kat) {
+  const quizName = r => r.such ? T().allesZu(r.such) : katTitel(r.kat);
+  function stelleQuiz(r) {
+    const kat = r.kat;
     let fragen;
-    if (kat === "mix") fragen = mischen(QUIZ_I).slice(0, 17).concat(anatomieFragen(3));
+    if (r.such) fragen = themaFragen(r.such);
+    else if (kat === "mix") fragen = state.medizin ? mischen(QUIZ_I).slice(0, 17).concat(anatomieFragen(3)) : mischen(QUIZ_I.filter(q => q.kat !== "anatomie")).slice(0, 20);
     else if (kat === "anatomie") fragen = QUIZ_I.filter(q => q.kat === "anatomie").concat(anatomieFragen(12));
     else { const ks = kat.split("+"); fragen = QUIZ_I.filter(q => ks.indexOf(q.kat) >= 0); }
     return mischen(fragen).map(q => Object.assign({}, q, { anzeige: mischen((q.optionen || q.opts).map((o, i) => i)) }));
   }
 
   function quizSeite(r, seite) {
-    if (!seite.quiz) seite.quiz = { fragen: stelleQuiz(r.kat), i: 0, wahl: [], geprueft: false, ergebnis: [] };
+    if (!seite.quiz) seite.quiz = { fragen: stelleQuiz(r), i: 0, wahl: [], geprueft: false, ergebnis: [] };
     const Q = seite.quiz, n = Q.fragen.length;
     if (Q.i >= n) {
       const richtig = Q.ergebnis.filter(Boolean).length, pct = Math.round(richtig / n * 100), proKat = {};
       Q.fragen.forEach((f, j) => { const k = proKat[f.kat] = proKat[f.kat] || [0, 0]; k[1]++; if (Q.ergebnis[j]) k[0]++; });
       return { titel: T().ergebnis, nach: el => { el.querySelector("[data-q=neu]").onclick = () => { seite.quiz = null; zeichne(seite); }; }, html:
-        gross(T().ergebnis, esc(katTitel(r.kat))) +
+        gross(T().ergebnis, esc(quizName(r))) +
         `<div class="glass-card score"><div class="ring" style="--p:${pct}"><span>${pct}%</span></div><div>${T().vonRichtig(richtig, n)}<br><span class="muted">${T().lob[pct >= 80 ? 0 : pct >= 60 ? 1 : 2]}</span></div></div>` +
         `<div class="section-title">${T().nachThema}</div><div class="list">` + Object.keys(proKat).map(k => `<div class="row"><div class="row-text"><div class="row-main">${esc(katTitel(k))}</div></div><span class="count">${proKat[k][0]} / ${proKat[k][1]}</span></div>`).join("") + "</div>" +
         `<div class="actions mt"><button class="btn primary-btn" data-q="neu">${T().neueRunde}</button></div>` };
@@ -661,7 +879,7 @@
       (Q.geprueft ? `<div class="callout ${Q.ergebnis[Q.i] ? "ok" : "bad"}"><b>${Q.ergebnis[Q.i] ? T().richtig : T().nichtGanz}</b>${esc(f.erklaerung || "")}</div>` +
         `<div class="actions mt"><button class="btn primary-btn" data-q="weiter">${Q.i + 1 < n ? T().naechste : T().zumErgebnis}</button></div>`
         : `<div class="actions mt">${f.typ === "order" && Q.wahl.length ? `<button class="btn" data-q="reset">${T().zuruecksetzen}</button>` : ""}<button class="btn primary-btn" data-q="pruefen"${bereit ? "" : " disabled"}>${T().pruefen}</button></div>`);
-    return { titel: katTitel(r.kat), html: h, nach: el => {
+    return { titel: quizName(r), html: h, nach: el => {
       el.querySelectorAll("[data-opt]").forEach(b => b.onclick = () => {
         const oi = +b.dataset.opt, w = Q.wahl;
         if (f.typ === "single") Q.wahl = [oi];
@@ -686,7 +904,7 @@
     const bild = r.modus === "bild";
     if (!seite.karten) seite.karten = { auswahl: "alle", deck: null, umgekehrt: false };
     const L = seite.karten;
-    const pool = a => { const p = a === "alle" ? ALLE : a === "favs" ? ALLE.filter(e => state.favs.has(e.key)) : KAT[a].eintraege; return bild ? p.filter(e => e.figs.length && e.figs[0].tok) : p; };
+    const pool = a => { const p = (a === "alle" ? ALLE : a === "favs" ? ALLE.filter(e => state.favs.has(e.key)) : KAT[a].eintraege).filter(sichtbar); return bild ? p.filter(e => e.figs.length && e.figs[0].tok) : p; };
     const titel = bild ? T().bildquiz : T().karteikarten;
     const vorne = e => L.umgekehrt ? tr(e) : e.lat, hinten = e => L.umgekehrt ? e.lat : tr(e);
     const vCls = () => L.umgekehrt ? "" : "lat", hCls = () => L.umgekehrt ? "lat" : "";
@@ -695,7 +913,7 @@
       const n = pool(L.auswahl).length;
       return { titel, html: gross(titel, bild ? T().bildLead : T().kartenLead) +
         (bild ? "" : `<div class="section-title">${T().richtung}</div><div class="seg-big"><button data-kr="0" class="${L.umgekehrt ? "" : "active"}">${T().latZuTr}</button><button data-kr="1" class="${L.umgekehrt ? "active" : ""}">${T().trZuLat}</button></div>`) +
-        `<div class="section-title">${T().thema}</div><div class="chips wrap">` + chip("alle", T().alleThemen) + (state.favs.size ? chip("favs", T().gemerktChip) : "") + KATEGORIEN.map(k => chip(k.id, katName(k))).join("") + "</div>" +
+        `<div class="section-title">${T().thema}</div><div class="chips wrap">` + chip("alle", T().alleThemen) + (state.favs.size ? chip("favs", T().gemerktChip) : "") + KATEGORIEN.filter(k => sichtbarIn(k).length).map(k => chip(k.id, katName(k))).join("") + "</div>" +
         `<div class="actions mt"><button class="btn primary-btn" data-ks-start${n ? "" : " disabled"}>${T().kartenStarten(n)}</button></div>`,
         nach: el => {
           el.querySelectorAll("[data-ks]").forEach(b => b.onclick = () => { L.auswahl = b.dataset.ks; zeichne(seite, true); });
@@ -724,44 +942,23 @@
 
   // =====================================================================
   // 12 · TEST-VORBEREITUNG – wie in der Schule: Auswertung erst nach dem Abgeben
-  const THEMEN_IDS = QUIZ_KATEGORIEN.map(k => k.id);
   const eigeneTests = () => store.get("eigeneTests", []);
   const testErgebnisse = () => store.get("testErg", {});
   const testKey = r => r.eigen ? "e:" + r.eigen : "k:" + r.kats.join("+") + ":" + r.n;
   const eigenerTest = id => eigeneTests().find(t => t.id === id);
-  const aktualisiereUebersicht = () => { const s = stack.find(x => x.route.v === "testvorb"); if (s) zeichne(s, true); };
+  const aktualisiereUebersicht = () => { const s = stack.find(x => x.route.v === "testvorb" || x.route.v === "lernen"); if (s) zeichne(s, true); };
 
-  function testUebersicht(seite) {
-    if (!seite.bau) seite.bau = { kats: [], n: 10 };
-    const B = seite.bau, erg = testErgebnisse(), zeit = store.get("testZeit", false);
-    const startRow = (route, titel, sub) => { const p = erg[testKey(route)];
-      return `<button class="row"${go(route)}><div class="row-text"><div class="row-main">${esc(titel)}</div><div class="row-sub">${esc(sub)}</div></div>` +
-        (p != null ? `<span class="count">${T().zuletzt(p)}</span>` : "") + `${chev}</button>`; };
-    const verfuegbar = id => QUIZ.filter(q => q.kat === id).length + (id === "anatomie" ? 12 : 0);
-    const eigene = eigeneTests();
-    let h = gross(T().tabTest, T().testLead);
-    h += `<div class="list"><button class="row" data-test="zeit"><div class="row-text"><div class="row-main">${T().zeitlimit}</div><div class="row-sub">${T().zeitlimitSub}</div></div><span class="schalter${zeit ? " an" : ""}"></span></button></div>`;
-    h += `<div class="section-title">${T().kurztests}</div><div class="list">` + startRow({ v: "test", kats: THEMEN_IDS, n: 20 }, T().gesamttest, T().gesamttestSub(20)) +
-      QUIZ_KATEGORIEN.map(k => { const n = Math.min(10, verfuegbar(k.id)); return startRow({ v: "test", kats: [k.id], n }, katTitel(k.id), T().testFragen(n)); }).join("") + "</div>";
-    h += `<div class="section-title">${T().zusammenstellen}</div><p class="muted small">${T().themenWaehlen}</p><div class="chips wrap">` +
-      QUIZ_KATEGORIEN.map(k => `<button class="chip${B.kats.indexOf(k.id) >= 0 ? " active" : ""}" data-tk="${k.id}">${esc(katTitel(k.id))}</button>`).join("") + "</div>" +
-      `<div class="section-title">${T().anzahl}</div><div class="seg-big">` + [5, 10, 15, 20].map(n => `<button data-tn="${n}" class="${B.n === n ? "active" : ""}">${n}</button>`).join("") + "</div>" +
-      `<div class="actions mt"><button class="btn primary-btn" data-test="bau"${B.kats.length ? "" : " disabled"}>${T().testStarten}</button></div>`;
-    h += `<div class="section-title">${T().meineTests}</div><p class="muted small">${T().meineTestsLead}</p>` +
-      (eigene.length ? `<div class="list">` + eigene.map(t => { const p = erg["e:" + t.id];
+  // Der Tab enthält nur noch selbst geschriebene Tests; die fertigen Tests stehen unter „Lernen“
+  function testUebersicht() {
+    const erg = testErgebnisse(), eigene = eigeneTests();
+    let h = gross(T().tabTest, T().meineTestsLead);
+    h += eigene.length ? `<div class="section-title">${T().meineTests}</div><div class="list">` + eigene.map(t => { const p = erg["e:" + t.id];
         return `<div class="row mein-test"><button class="row-text"${go({ v: "test", eigen: t.id })}><div class="row-main">${esc(t.name)}</div><div class="row-sub">${T().testFragen(t.fragen.length)}${p != null ? " · " + T().zuletzt(p) : ""}</div></button>` +
-          `<button class="edit-btn" aria-label="${T().edBearbeiten}"${go({ v: "testEdit", id: t.id })}>✎</button></div>`; }).join("") + "</div>" : "") +
-      `<div class="actions mt"><button class="btn"${go({ v: "testEdit" })}>${T().neuerTest}</button></div>`;
-    return { titel: T().tabTest, html: h, nach: el => {
-      el.querySelector('[data-test="zeit"]').onclick = () => { store.set("testZeit", !zeit); zeichne(seite, true); };
-      el.querySelectorAll("[data-tk]").forEach(b => b.onclick = () => {
-        const id = b.dataset.tk;
-        B.kats = B.kats.indexOf(id) >= 0 ? B.kats.filter(x => x !== id) : B.kats.concat(id);
-        zeichne(seite, true);
-      });
-      el.querySelectorAll("[data-tn]").forEach(b => b.onclick = () => { B.n = +b.dataset.tn; zeichne(seite, true); });
-      el.querySelector('[data-test="bau"]').onclick = () => push({ v: "test", kats: THEMEN_IDS.filter(id => B.kats.indexOf(id) >= 0), n: B.n });
-    } };
+          `<button class="edit-btn" aria-label="${T().edBearbeiten}"${go({ v: "testEdit", id: t.id })}>✎</button></div>`; }).join("") + "</div>"
+      : `<div class="empty"><div class="big">✎</div>${T().testLeer}</div>`;
+    h += `<div class="actions mt"><button class="btn primary-btn"${go({ v: "testEdit" })}>${T().neuerTest}</button></div>`;
+    h += `<button class="tile-wide mt" data-tab-go="lernen">${icon("quiz", "tile-ico")}<span><span class="tile-title">${T().fertigeTests}</span><span class="tile-sub">${T().fertigeTestsSub}</span></span>${chev}</button>`;
+    return { titel: T().tabTest, html: h };
   }
 
   function stelleTest(r) {
@@ -793,7 +990,7 @@
       }
     }
     const X = seite.test, n = X.fragen.length;
-    const name = r.eigen ? eigenerTest(r.eigen).name : r.kats.length === 1 ? katTitel(r.kats[0]) : r.kats.length === THEMEN_IDS.length ? T().gesamttest : T().gemischterTest;
+    const name = r.eigen ? eigenerTest(r.eigen).name : r.kats.length === 1 ? katTitel(r.kats[0]) : r.kats.length === themenIds().length ? T().gesamttest : T().gemischterTest;
     const kat = id => id === "eigen" ? T().meineTests : katTitel(id);
 
     if (X.ergebnis) {
@@ -913,6 +1110,11 @@
     } };
   }
 
+  // Installieren: Android-Browser melden die Installationsmöglichkeit über dieses Ereignis
+  let installEvent = null;
+  const appUrl = () => location.origin + location.pathname.replace(/index.html$/, "");
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvent = e; const s = aktuell(); if (s && s.route.v === "installieren") zeichne(s, true); });
+
   // =====================================================================
   // 13 · UPDATE-POP-UP – erscheint pro Version genau einmal (Einträge in version.js)
   const updateLayer = $("updateLayer");
@@ -938,7 +1140,7 @@
     document.documentElement.lang = sprache;
     searchInput.placeholder = T().suchen;
     $("searchCancel").textContent = T().abbrechen;
-    const tabs = { start: T().tabStart, lernen: T().tabLernen, test: T().tabTest, gemerkt: T().tabGemerkt, info: T().tabInfo };
+    const tabs = { start: T().tabStart, lernen: T().tabLernen, test: T().tabTest, gemerkt: T().tabGemerkt, info: T().tabInfo, installieren: T().installieren };
     document.querySelectorAll(".tabbar button").forEach(b => { b.querySelector("span").textContent = tabs[b.dataset.tab]; });
     document.querySelectorAll("#langSeg button").forEach(b => b.classList.toggle("active", b.dataset.lang === sprache));
   }

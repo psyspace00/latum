@@ -6,14 +6,34 @@
 
 const UI_TEXTE = {
   de: {
-    appSub: "Anatomie und Pflegewissen für deine Ausbildung",
+    appSub: "Deine Ausbildung zur Pflegefachkraft (Alten- und Krankenpflege)",
     suchen: "Suchen", sucheHero: "Körperteil oder Thema suchen – z. B. „Auge“", abbrechen: "Abbrechen", zurueck: "Zurück",
     tabStart: "Start", tabLernen: "Lernen", tabTest: "Test-Vorbereitung", tabGemerkt: "Gemerkt", tabInfo: "Info",
+    modusUeben: "Üben", modusTest: "Test", uebenLead: "Die Lösung erscheint direkt nach jeder Frage.",
+    testLeer: "Noch kein eigener Test.", fertigeTests: "Fertige Tests", fertigeTestsSub: "Findest du jetzt unter „Lernen“",
+    koerperBasis: "Körper-Grundlagen", basisSub: "Wichtige Begriffe · Grafiken",
+    medizinTitel: "Medizin-Vertiefung", medizinSub: "Blendet weiterführendes Fachwissen ein, z. B. für Weiterbildungen",
+    mehrImMedizin: n => `${n} weitere Begriffe einblenden`,
+    diagnosen: "Diagnosen", diagnosenSub: n => `${n} häufige Krankheitsbilder`, diagnosenLead: "Häufige Krankheitsbilder im Pflegealltag: Was ist das, woran erkennst du es und was ist in der Pflege wichtig?",
+    typischeZeichen: "Typische Zeichen", pflegeSchwerpunkte: "Das ist in der Pflege wichtig",
+    grossesThema: "Großes Thema", allesZu: t => `Alles zu „${t}“`, inDenKapiteln: "In den Pflegekapiteln",
+    themaZahlen: (d, b, f) => [d ? `${d} Diagnose${d === 1 ? "" : "n"}` : "", b ? `${b} Abschnitt${b === 1 ? "" : "e"}` : "", f ? `${f} Frage${f === 1 ? "" : "n"}` : ""].filter(Boolean).join(" · "),
+    installieren: "Installieren", instLead: "So legst du MediSmart wie eine App auf deinen Homescreen. Ein App-Store ist nicht nötig.", instFertig: "MediSmart läuft bereits als App auf deinem Homescreen.",
+    instJetzt: "Jetzt installieren",
+    instIphone: "iPhone und iPad", instIphoneSchritte: ["Öffne diese Seite in Safari.", "Tippe unten auf das Teilen-Symbol (Quadrat mit Pfeil).", "Wähle „Zum Home-Bildschirm“.", "Tippe oben rechts auf „Hinzufügen“."],
+    instAndroid: "Android mit Chrome", instAndroidSchritte: ["Öffne diese Seite in Chrome.", "Tippe oben rechts auf die drei Punkte.", "Wähle „App installieren“ oder „Zum Startbildschirm hinzufügen“.", "Bestätige mit „Installieren“ oder „Hinzufügen“."],
+    instSamsung: "Samsung Internet", instSamsungSchritte: ["Tippe unten auf das Menü (drei Striche).", "Wähle „Seite hinzufügen zu“.", "Wähle „Startbildschirm“ und bestätige."],
+    instTeilen: "An andere weitergeben", instTeilenLead: "Schicke diesen Link an deine Mitschülerinnen und Mitschüler. Sie öffnen ihn und installieren die App ebenso.", instLinkTeilen: "Link teilen", instKopiert: "Link kopiert",
+    feedback: "Feedback", feedbackSub: "Was fehlt? Was können wir besser machen?", feedbackLead: "Deine Rückmeldung geht direkt an die Lehrkraft.",
+    feedbackArt: "Worum geht es?", feedbackArten: ["Verbesserung", "Etwas fehlt", "Wunsch", "Fehler gefunden"], feedbackText: "Deine Nachricht", feedbackPlatz: "Schreibe hier dein Feedback …",
+    feedbackName: "Name (freiwillig)", feedbackNamePlatz: "Dein Name", feedbackSenden: "Feedback senden", feedbackLeer: "Bitte schreibe zuerst eine Nachricht.",
+    feedbackHinweisVorab: "Deine Mail-App öffnet sich mit dem fertigen Text. Bitte tippe dort noch auf Senden.",
+    feedbackDanke: "Danke!", feedbackHinweis: "Prüfe deine Mail-App und tippe dort auf Senden. Falls sie sich nicht geöffnet hat, kopiere den Text und schicke ihn selbst.", feedbackKopieren: "Text kopieren",
     testLead: "Kleine Tests wie in der Schule: Die Lösung erscheint erst nach dem Abgeben.",
     zeitlimit: "Mit Zeitlimit", zeitlimitSub: "1 Minute pro Frage",
-    kurztests: "Kurztests", gesamttest: "Gesamttest", gesamttestSub: n => `${n} gemischte Fragen`, gemischterTest: "Gemischter Test", testFragen: n => n === 1 ? "1 Frage" : `${n} Fragen`, zuletzt: p => `Zuletzt ${p} %`,
+    gesamttest: "Gesamttest", gesamttestSub: n => `${n} gemischte Fragen`, gemischterTest: "Gemischter Test", testFragen: n => n === 1 ? "1 Frage" : `${n} Fragen`, zuletzt: p => `Zuletzt ${p} %`,
     zusammenstellen: "Test zusammenstellen", themenWaehlen: "Wähle ein oder mehrere Themen, dazu die Anzahl der Fragen.", anzahl: "Anzahl der Fragen", testStarten: "Test starten",
-    meineTests: "Meine Tests", meineTestsLead: "Schreibe eigene Fragen, z. B. zu dem, was in deinem Schultest drankommt. Sie bleiben nur auf diesem Gerät gespeichert.", neuerTest: "Eigenen Test erstellen",
+    meineTests: "Meine Tests", meineTestsLead: "Schreibe eigene Tests, z. B. zu dem, was im Schultest drankommt. Sie bleiben nur auf diesem Gerät gespeichert.", neuerTest: "Eigenen Test erstellen",
     testAbgeben: "Test abgeben", testWeiter: "Weiter", testOffen: n => `${n} Frage(n) sind noch unbeantwortet. Trotzdem abgeben?`,
     testNochmal: "Test wiederholen", falschBeantwortet: n => `Noch einmal ansehen (${n})`, alleRichtig: "Alle Fragen richtig beantwortet!", richtigWaere: "Richtig:",
     edNeu: "Neuer Test", edBearbeiten: "Test bearbeiten", edName: "Name des Tests", edNamePlatz: "z. B. Klausur Harnwege", edFrage: n => `Frage ${n}`, edFragePlatz: "Frage eingeben", edAntwort: n => `Antwort ${n}`,
@@ -22,14 +42,14 @@ const UI_TEXTE = {
     versionText: v => `Version ${v}`, wasIstNeu: "Was ist neu?", updateNeu: "Das ist neu", alleKlar: "Alles klar",
     pruefungstraining: "Prüfungstraining", fragenMitFall: n => `${n} Fragen mit Fallbeispielen`, begriffDesTages: "Begriff des Tages",
     koerperAnatomie: "Körper & Anatomie", anatomieSub: "Latein · 3D · Querschnitte",
-    menueSub: { pflegeprozess: "AEDL, SIS, Pflegeplanung", prophylaxen: "11 Prophylaxen komplett", kontrakturen: "Vertiefung", vitalzeichen: "Puls, RR, Temp., Atmung, GCS",
-      herzkreislauf: "Anatomie · Physiologie · Krankheiten", ernaehrung: "Dysphagie · PEG · Bilanz", ausscheidung: "DK legen · Stomaversorgung" },
+    menueSub: { pflegeprozess: "AEDL, SIS, Pflegeplanung", prophylaxen: "13 Prophylaxen", kontrakturen: "Vertiefung", vitalzeichen: "Puls, RR, Temp., Atmung, GCS",
+      herzkreislauf: "Anatomie · Physiologie · Krankheiten", ernaehrung: "Dysphagie · PEG · Bilanz", ausscheidung: "DK legen · Stomaversorgung", biografie: "Lebensgeschichte in der Pflege nutzen" },
     anatomieLead: (a, b, c) => `${a} Fachbegriffe · ${b} Querschnitte · ${c} 3D-Modelle`, modelle3d: "3D-Modelle",
     sektionen: ["Grundlagen", "Bewegungsapparat", "Herz, Kreislauf und Abwehr", "Organsysteme", "Steuerung und Sinne"],
     modellLead: "Schematisches Modell – ziehen zum Drehen, zwei Finger zum Zoomen, antippen zum Öffnen.", strukturenImModell: "Strukturen im Modell",
     begriffe: n => `${n} Begriffe`, themen: "Themen", tippeStruktur: "Tippe auf eine Struktur",
     wissenTesten: "Wissen testen", pruefungsfragenZu: t => `Prüfungsfragen zu „${t}“`, merke: "Merke", achtung: "Achtung", anatomiePrefix: "Anatomie", weiterPrefix: "Weiter",
-    lernen: "Lernen", lernenLead: "Prüfungstraining nach Themen, Karteikarten und Bildquiz", simulation: "Prüfungssimulation", simulationSub: "20 gemischte Fragen aus allen Bereichen",
+    lernen: "Lernen", lernenLead: "Üben, Tests schreiben, Karteikarten und Bildquiz", simulation: "Prüfungssimulation", simulationSub: "20 gemischte Fragen aus allen Bereichen",
     fragenNachThema: "Prüfungsfragen nach Thema", fragen: n => `${n} Fragen`, teilsAuto: " (teils automatisch erzeugt)",
     lateinLernen: "Latein lernen", karteikarten: "Karteikarten", karteiSub: "Latein ↔ Deutsch", bildquiz: "Bildquiz", bildquizSub: "Leuchtende Struktur benennen",
     gemerkt: "Gemerkt", leerGemerkt: "Noch nichts gemerkt.<br>Öffne einen Begriff und tippe auf „Merken“.",
@@ -50,20 +70,40 @@ const UI_TEXTE = {
     kartenStarten: n => `${n} Karten starten`, geschafft: "Geschafft!", kartenGelernt: n => `${n} Karten gelernt.`, gewusstVon: (a, b) => `${a} von ${b} gewusst`,
     wieHeisst: "Wie heißt die leuchtende Struktur?", tippenAufdecken: "Tippen zum Aufdecken", nochmal: "✗ Nochmal", gewusst: "✓ Gewusst",
     infoTitel: "Über MediSmart", infoLead: (a, b, c) => `${a} Begriffe · ${b} Pflegekapitel · ${c} Prüfungsfragen`,
-    infoHtml: "<h3>Wofür?</h3><p>Lern-App für Medizin und die generalistische Pflegeausbildung: anatomische Fachbegriffe in Latein mit Übersetzung, Pflegeprozess, Prophylaxen, Vitalzeichen, Herz-Kreislauf, Ernährung und Prüfungstraining.</p>" +
+    infoHtml: "<h3>Wofür?</h3><p>Lern-App für die Ausbildung zur Pflegefachkraft (Alten- und Krankenpflege): Pflegeprozess, Prophylaxen, Vitalzeichen, Diagnosen, Biografiearbeit, Stoma und Katheter, Ernährung und Prüfungstraining. Die Medizin-Vertiefung ergänzt weiterführendes Wissen für alle, die sich nach der Ausbildung weiterbilden möchten.</p>" +
       "<h3>Bedienung</h3><ul><li><b>DE / VI</b> oben rechts: Sprache der Oberfläche und Erklärungen (Deutsch oder Tiếng Việt). Lateinische Fachbegriffe bleiben immer erhalten.</li><li><b>Suche</b> oben rechts: Körperteile oder Themen auf Deutsch, Vietnamesisch oder Latein.</li>" +
       "<li><b>Zurück</b>: Pfeil oben links oder vom linken Bildschirmrand nach rechts wischen.</li><li><b>3D</b>: ziehen zum Drehen, zwei Finger zum Zoomen, antippen zum Öffnen.</li><li><b>Detailblatt</b>: nach unten wischen zum Schließen.</li></ul>" +
-      "<h3>Grundlagen und Quellen</h3><p>Lateinische Bezeichnungen nach der <i>Terminologia Anatomica</i>. Pflegeinhalte orientiert an den Expertenstandards des DNQP, NPIAP/EPUAP (Dekubitus), ESC/ESH (Blutdruck), NEWS2 und dem Aufbau gängiger Pflegelehrbücher (z. B. „Pflege Heute“). Texte, Grafiken und 3D-Modelle sind eigenständig erstellte, vereinfachte Lernhilfen. Die vietnamesische Übersetzung wurde maschinell erstellt und sollte fachlich gegengelesen werden.</p>" +
+      "<h3>Grundlagen und Quellen</h3><p>Lateinische Bezeichnungen nach der <i>Terminologia Anatomica</i>. Pflegeinhalte orientiert an den Expertenstandards des DNQP, NPIAP/EPUAP (Dekubitus), ESH 2023 und ESC 2024 (Blutdruck), NEWS2 und dem Aufbau gängiger Pflegelehrbücher (z. B. „Pflege Heute“). Texte, Grafiken und 3D-Modelle sind eigenständig erstellte, vereinfachte Lernhilfen. Die vietnamesische Übersetzung wurde maschinell erstellt und sollte fachlich gegengelesen werden.</p>" +
       "<h3>Hinweis</h3><p>MediSmart ersetzt weder Lehrbuch noch Unterricht, ärztliche Anordnungen oder Hausstandards. Normwerte und Maßnahmen dienen der Orientierung.</p>" +
       "<h3>Urheberrecht</h3><p>© 2026 Maximilian Riehn. Alle Rechte vorbehalten. MediSmart ist geistiges Eigentum von Maximilian Riehn. Kopieren, Weitergeben oder Veröffentlichen von Inhalten nur mit schriftlicher Genehmigung.</p>"
   },
   vi: {
-    appSub: "Giải phẫu và kiến thức điều dưỡng cho việc học của bạn",
+    appSub: "Đào tạo điều dưỡng chuyên môn (chăm sóc người già và bệnh viện)",
     suchen: "Tìm kiếm", sucheHero: "Tìm bộ phận cơ thể hoặc chủ đề – ví dụ „Mắt“", abbrechen: "Hủy", zurueck: "Quay lại",
     tabStart: "Trang chủ", tabLernen: "Học", tabTest: "Ôn kiểm tra", tabGemerkt: "Đã lưu", tabInfo: "Thông tin",
+    modusUeben: "Luyện tập", modusTest: "Kiểm tra", uebenLead: "Đáp án hiện ngay sau mỗi câu hỏi.",
+    testLeer: "Chưa có bài kiểm tra tự soạn.", fertigeTests: "Bài kiểm tra có sẵn", fertigeTestsSub: "Nay nằm trong mục „Học“",
+    koerperBasis: "Kiến thức cơ thể cơ bản", basisSub: "Thuật ngữ quan trọng · Hình minh họa",
+    medizinTitel: "Y khoa chuyên sâu", medizinSub: "Hiện kiến thức nâng cao, ví dụ cho đào tạo tiếp theo",
+    mehrImMedizin: n => `Hiện thêm ${n} thuật ngữ`,
+    diagnosen: "Chẩn đoán", diagnosenSub: n => `${n} bệnh thường gặp`, diagnosenLead: "Các bệnh thường gặp trong chăm sóc: đó là gì, nhận biết thế nào và điều gì quan trọng khi chăm sóc?",
+    typischeZeichen: "Dấu hiệu điển hình", pflegeSchwerpunkte: "Điều quan trọng khi chăm sóc",
+    grossesThema: "Chủ đề lớn", allesZu: t => `Tất cả về „${t}“`, inDenKapiteln: "Trong các chương điều dưỡng",
+    themaZahlen: (d, b, f) => [d ? `${d} chẩn đoán` : "", b ? `${b} đoạn` : "", f ? `${f} câu hỏi` : ""].filter(Boolean).join(" · "),
+    installieren: "Cài đặt", instLead: "Cách đưa MediSmart lên màn hình chính như một ứng dụng. Không cần kho ứng dụng.", instFertig: "MediSmart đã chạy như một ứng dụng trên màn hình chính của bạn.",
+    instJetzt: "Cài đặt ngay",
+    instIphone: "iPhone và iPad", instIphoneSchritte: ["Mở trang này trong Safari.", "Chạm biểu tượng Chia sẻ ở dưới (hình vuông có mũi tên).", "Chọn „Thêm vào MH chính“.", "Chạm „Thêm“ ở góc trên bên phải."],
+    instAndroid: "Android với Chrome", instAndroidSchritte: ["Mở trang này trong Chrome.", "Chạm ba chấm ở góc trên bên phải.", "Chọn „Cài đặt ứng dụng“ hoặc „Thêm vào màn hình chính“.", "Xác nhận bằng „Cài đặt“ hoặc „Thêm“."],
+    instSamsung: "Samsung Internet", instSamsungSchritte: ["Chạm menu ở dưới (ba gạch).", "Chọn „Thêm trang vào“.", "Chọn „Màn hình chờ“ và xác nhận."],
+    instTeilen: "Chia sẻ cho người khác", instTeilenLead: "Gửi liên kết này cho các bạn cùng lớp. Họ mở liên kết và cài đặt tương tự.", instLinkTeilen: "Chia sẻ liên kết", instKopiert: "Đã sao chép",
+    feedback: "Góp ý", feedbackSub: "Còn thiếu gì? Có thể cải thiện điều gì?", feedbackLead: "Góp ý của bạn được gửi trực tiếp cho giáo viên.",
+    feedbackArt: "Về vấn đề gì?", feedbackArten: ["Cải thiện", "Còn thiếu", "Mong muốn", "Phát hiện lỗi"], feedbackText: "Nội dung của bạn", feedbackPlatz: "Viết góp ý tại đây …",
+    feedbackName: "Tên (không bắt buộc)", feedbackNamePlatz: "Tên của bạn", feedbackSenden: "Gửi góp ý", feedbackLeer: "Vui lòng viết nội dung trước.",
+    feedbackHinweisVorab: "Ứng dụng thư sẽ mở với nội dung đã soạn. Vui lòng chạm Gửi ở đó.",
+    feedbackDanke: "Cảm ơn!", feedbackHinweis: "Hãy kiểm tra ứng dụng thư và chạm Gửi. Nếu ứng dụng không mở, hãy sao chép nội dung và tự gửi.", feedbackKopieren: "Sao chép nội dung",
     testLead: "Bài kiểm tra ngắn như ở trường: đáp án chỉ hiện sau khi nộp bài.",
     zeitlimit: "Giới hạn thời gian", zeitlimitSub: "1 phút mỗi câu",
-    kurztests: "Bài kiểm tra ngắn", gesamttest: "Kiểm tra tổng hợp", gesamttestSub: n => `${n} câu hỏi hỗn hợp`, gemischterTest: "Bài kiểm tra hỗn hợp", testFragen: n => `${n} câu hỏi`, zuletzt: p => `Lần trước ${p} %`,
+    gesamttest: "Kiểm tra tổng hợp", gesamttestSub: n => `${n} câu hỏi hỗn hợp`, gemischterTest: "Bài kiểm tra hỗn hợp", testFragen: n => `${n} câu hỏi`, zuletzt: p => `Lần trước ${p} %`,
     zusammenstellen: "Tự chọn bài kiểm tra", themenWaehlen: "Chọn một hoặc nhiều chủ đề và số câu hỏi.", anzahl: "Số câu hỏi", testStarten: "Bắt đầu",
     meineTests: "Bài kiểm tra của tôi", meineTestsLead: "Tự viết câu hỏi, ví dụ về nội dung sẽ có trong bài kiểm tra ở trường. Câu hỏi chỉ được lưu trên thiết bị này.", neuerTest: "Tạo bài kiểm tra",
     testAbgeben: "Nộp bài", testWeiter: "Tiếp", testOffen: n => `Còn ${n} câu chưa trả lời. Vẫn nộp bài?`,
@@ -74,14 +114,14 @@ const UI_TEXTE = {
     versionText: v => `Phiên bản ${v}`, wasIstNeu: "Có gì mới?", updateNeu: "Có gì mới", alleKlar: "Đã hiểu",
     pruefungstraining: "Luyện thi", fragenMitFall: n => `${n} câu hỏi kèm tình huống`, begriffDesTages: "Thuật ngữ của ngày",
     koerperAnatomie: "Cơ thể & Giải phẫu", anatomieSub: "Latinh · 3D · Mặt cắt",
-    menueSub: { pflegeprozess: "AEDL, SIS, lập kế hoạch chăm sóc", prophylaxen: "Đầy đủ 11 biện pháp dự phòng", kontrakturen: "Chuyên sâu", vitalzeichen: "Mạch, HA, nhiệt độ, nhịp thở, GCS",
-      herzkreislauf: "Giải phẫu · Sinh lý · Bệnh học", ernaehrung: "Nuốt khó · PEG · Cân bằng dịch", ausscheidung: "Đặt ống thông · Chăm sóc stoma" },
+    menueSub: { pflegeprozess: "AEDL, SIS, lập kế hoạch chăm sóc", prophylaxen: "13 biện pháp dự phòng", kontrakturen: "Chuyên sâu", vitalzeichen: "Mạch, HA, nhiệt độ, nhịp thở, GCS",
+      herzkreislauf: "Giải phẫu · Sinh lý · Bệnh học", ernaehrung: "Nuốt khó · PEG · Cân bằng dịch", ausscheidung: "Đặt ống thông · Chăm sóc stoma", biografie: "Dùng câu chuyện cuộc đời trong chăm sóc" },
     anatomieLead: (a, b, c) => `${a} thuật ngữ · ${b} mặt cắt · ${c} mô hình 3D`, modelle3d: "Mô hình 3D",
     sektionen: ["Cơ sở", "Hệ vận động", "Tim, tuần hoàn và miễn dịch", "Các hệ cơ quan", "Điều khiển và giác quan"],
     modellLead: "Mô hình sơ đồ – kéo để xoay, hai ngón để phóng to, chạm để mở.", strukturenImModell: "Các cấu trúc trong mô hình",
     begriffe: n => `${n} thuật ngữ`, themen: "Chủ đề", tippeStruktur: "Chạm vào một cấu trúc",
     wissenTesten: "Kiểm tra kiến thức", pruefungsfragenZu: t => `Câu hỏi thi về „${t}“`, merke: "Ghi nhớ", achtung: "Chú ý", anatomiePrefix: "Giải phẫu", weiterPrefix: "Tiếp",
-    lernen: "Học", lernenLead: "Luyện thi theo chủ đề, thẻ ghi nhớ và đố hình", simulation: "Thi thử", simulationSub: "20 câu hỏi hỗn hợp từ mọi lĩnh vực",
+    lernen: "Học", lernenLead: "Luyện tập, làm bài kiểm tra, thẻ ghi nhớ và đố hình", simulation: "Thi thử", simulationSub: "20 câu hỏi hỗn hợp từ mọi lĩnh vực",
     fragenNachThema: "Câu hỏi thi theo chủ đề", fragen: n => `${n} câu hỏi`, teilsAuto: " (một phần được tạo tự động)",
     lateinLernen: "Học tiếng Latinh", karteikarten: "Thẻ ghi nhớ", karteiSub: "Latinh ↔ Tiếng Việt", bildquiz: "Đố hình", bildquizSub: "Gọi tên cấu trúc phát sáng",
     gemerkt: "Đã lưu", leerGemerkt: "Chưa lưu mục nào.<br>Mở một thuật ngữ và chạm „Lưu“.",
@@ -102,10 +142,10 @@ const UI_TEXTE = {
     kartenStarten: n => `Bắt đầu ${n} thẻ`, geschafft: "Hoàn thành!", kartenGelernt: n => `Đã học ${n} thẻ.`, gewusstVon: (a, b) => `Đã thuộc ${a}/${b}`,
     wieHeisst: "Cấu trúc phát sáng tên là gì?", tippenAufdecken: "Chạm để lật thẻ", nochmal: "✗ Học lại", gewusst: "✓ Đã thuộc",
     infoTitel: "Giới thiệu MediSmart", infoLead: (a, b, c) => `${a} thuật ngữ · ${b} chương điều dưỡng · ${c} câu hỏi thi`,
-    infoHtml: "<h3>Dùng để làm gì?</h3><p>Ứng dụng học tập cho ngành y và chương trình đào tạo điều dưỡng tổng quát: thuật ngữ giải phẫu tiếng Latinh kèm bản dịch, quy trình điều dưỡng, các biện pháp dự phòng, dấu hiệu sinh tồn, tim mạch, dinh dưỡng và luyện thi.</p>" +
+    infoHtml: "<h3>Dùng để làm gì?</h3><p>Ứng dụng học tập cho chương trình đào tạo điều dưỡng chuyên môn: quy trình điều dưỡng, các biện pháp dự phòng, dấu hiệu sinh tồn, chẩn đoán, Biografiearbeit, stoma và ống thông, dinh dưỡng và luyện thi. Phần Y khoa chuyên sâu bổ sung kiến thức nâng cao cho người muốn học tiếp sau đào tạo.</p>" +
       "<h3>Cách sử dụng</h3><ul><li><b>DE / VI</b> ở góc trên bên phải: ngôn ngữ giao diện và phần giải thích (tiếng Đức hoặc tiếng Việt). Thuật ngữ y khoa tiếng Latinh luôn được giữ nguyên.</li><li><b>Tìm kiếm</b> ở góc trên bên phải: bộ phận cơ thể hoặc chủ đề bằng tiếng Việt, tiếng Đức hoặc tiếng Latinh.</li>" +
       "<li><b>Quay lại</b>: mũi tên ở góc trên bên trái hoặc vuốt từ mép trái màn hình sang phải.</li><li><b>3D</b>: kéo để xoay, hai ngón để phóng to, chạm để mở.</li><li><b>Bảng chi tiết</b>: vuốt xuống để đóng.</li></ul>" +
-      "<h3>Cơ sở và nguồn tham khảo</h3><p>Tên Latinh theo <i>Terminologia Anatomica</i>. Nội dung điều dưỡng dựa trên các tiêu chuẩn chuyên gia của DNQP (Đức), NPIAP/EPUAP (loét tì đè), ESC/ESH (huyết áp), NEWS2 và cấu trúc của các giáo trình điều dưỡng thông dụng (ví dụ „Pflege Heute“). Văn bản, hình minh họa và mô hình 3D là tài liệu học tập đơn giản hóa, được biên soạn độc lập. Bản dịch tiếng Việt được tạo bằng máy và nên được chuyên gia đọc lại.</p>" +
+      "<h3>Cơ sở và nguồn tham khảo</h3><p>Tên Latinh theo <i>Terminologia Anatomica</i>. Nội dung điều dưỡng dựa trên các tiêu chuẩn chuyên gia của DNQP (Đức), NPIAP/EPUAP (loét tì đè), ESH 2023 và ESC 2024 (huyết áp), NEWS2 và cấu trúc của các giáo trình điều dưỡng thông dụng (ví dụ „Pflege Heute“). Văn bản, hình minh họa và mô hình 3D là tài liệu học tập đơn giản hóa, được biên soạn độc lập. Bản dịch tiếng Việt được tạo bằng máy và nên được chuyên gia đọc lại.</p>" +
       "<h3>Lưu ý</h3><p>MediSmart không thay thế giáo trình, bài giảng, y lệnh của bác sĩ hay quy định của cơ sở. Các giá trị bình thường và biện pháp chỉ mang tính tham khảo. Nội dung chuyên môn dựa trên hệ thống y tế Đức.</p>" +
       "<h3>Bản quyền</h3><p>© 2026 Maximilian Riehn. Bảo lưu mọi quyền. MediSmart là tài sản trí tuệ của Maximilian Riehn. Chỉ được sao chép, chia sẻ hoặc công bố nội dung khi có sự đồng ý bằng văn bản.</p>"
   }
@@ -128,4 +168,4 @@ const MODELL_TITEL_VI = { auge3d: "Nhãn cầu 3D (cắt mở)", herz3d: "Tim 3D
 const FIG_LABEL_VI = { "vorne": "trước", "hinten": "sau", "Knochen": "Xương", "Arterie": "Động mạch", "Vene": "Tĩnh mạch", "Rinde": "Vỏ", "Mark": "Tủy",
   "außen": "ngoài", "innen": "trong", "lateral": "bên ngoài", "medial (Nase)": "bên trong (mũi)", "Sehnerv →": "Thần kinh thị →", "Nebenniere": "Tuyến thượng thận", "Schilddrüse": "Tuyến giáp" };
 const QUIZ_KAT_VI = { pflegeprozess: "Quy trình điều dưỡng", prophylaxen: "Dự phòng", kontrakturen: "Co rút", dekubitus: "Loét tì đè", vitalzeichen: "Dấu hiệu sinh tồn",
-  herzkreislauf: "Tim mạch & Phổi", ernaehrung: "Dinh dưỡng", ausscheidung: "Stoma & Ống thông tiểu lưu", anatomie: "Giải phẫu & Latinh" };
+  herzkreislauf: "Tim mạch & Phổi", ernaehrung: "Dinh dưỡng", ausscheidung: "Stoma & Ống thông tiểu lưu", biografie: "Biografiearbeit", diagnosen: "Chẩn đoán", anatomie: "Giải phẫu & Latinh" };

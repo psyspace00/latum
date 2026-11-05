@@ -527,6 +527,36 @@ const BEREICHE = [
             "Wärme (keine Unterkühlung im Unterleib)"
           ] }
         ]
+      },
+      {
+        id: "dehydratation", titel: "Dehydratationsprophylaxe", kurz: "Flüssigkeitsmangel (Exsikkose) früh erkennen und vermeiden",
+        abschnitte: [
+          { h: "Definition" },
+          { p: "Bei einer Dehydratation verliert der Körper mehr Flüssigkeit, als er aufnimmt. Eine ausgeprägte Austrocknung heißt Exsikkose. Ältere Menschen sind besonders gefährdet, weil ihr Durstgefühl nachlässt und ihr Körper weniger Wasser speichert." },
+          { h: "Risikofaktoren" },
+          { liste: ["Vermindertes Durstgefühl, Demenz, Depression", "Schluckstörungen, Hilfebedarf beim Trinken", "Angst vor Toilettengängen oder Inkontinenz", "Fieber, Schwitzen, Hitze, Erbrechen, Durchfall", "Diuretika und Abführmittel"] },
+          { h: "Einschätzung" },
+          { liste: ["Trinkmenge und Trinkverhalten beobachten, ggf. Trinkprotokoll", "Trockene Schleimhäute, borkige Zunge, stehende Hautfalten (bei Älteren nur eingeschränkt aussagekräftig)", "Dunkler, wenig Urin, Obstipation", "Schwindel, niedriger Blutdruck, schneller Puls", "Neue Verwirrtheit, Müdigkeit, Sturz"] },
+          { h: "Maßnahmen" },
+          { liste: ["Orientierung: ca. 1,5–2 l/Tag oder ca. 30 ml/kg Körpergewicht, wenn keine ärztliche Beschränkung besteht", "Lieblingsgetränke erfragen, Getränke sichtbar und in Reichweite stellen", "Regelmäßig anbieten, feste Trinkzeiten und Rituale nutzen", "Trinkhilfen und bei Schluckstörung angedickte Getränke nach Anordnung", "Wasserreiche Speisen anbieten, z. B. Suppe, Melone, Joghurt", "Bei Hitze, Fieber, Erbrechen und Durchfall mehr anbieten und Arzt informieren"] },
+          { warn: "Bei Herz- oder Niereninsuffizienz gilt die ärztlich festgelegte Trinkmenge. Plötzliche Verwirrtheit, Kreislaufprobleme oder sehr wenig Urin: Arzt informieren." },
+          { link: { bereich: "ernaehrung", kapitel: "bilanz" } }
+        ]
+      },
+      {
+        id: "mangelernaehrung", titel: "Mangelernährungsprophylaxe", kurz: "Screening, Gewicht, Wunschkost und Hilfe beim Essen",
+        abschnitte: [
+          { h: "Definition" },
+          { p: "Mangelernährung entsteht, wenn der Körper über längere Zeit zu wenig Energie, Eiweiß oder andere Nährstoffe erhält. Folgen sind Muskelabbau, Stürze, schlechte Wundheilung, Infektionen und Dekubitus. Auch übergewichtige Menschen können mangelernährt sein." },
+          { merke: "Grundlage ist der DNQP-Expertenstandard „Ernährungsmanagement zur Sicherung und Förderung der oralen Ernährung in der Pflege“." },
+          { h: "Risikofaktoren" },
+          { liste: ["Kau- und Schluckprobleme, schlechte Mundgesundheit, schlecht sitzende Zahnprothese", "Appetitlosigkeit, Schmerzen, Übelkeit, Tumorerkrankung", "Demenz, Depression, Einsamkeit", "Bewegungseinschränkung, Hilfebedarf beim Essen", "Medikamente, die Geschmack oder Appetit verändern"] },
+          { h: "Einschätzung" },
+          { liste: ["Screening bei Aufnahme und regelmäßig danach, z. B. MNA oder NRS 2002", "Gewicht regelmäßig kontrollieren und dokumentieren", "Warnzeichen: ungewollter Gewichtsverlust über 5 % in 3 Monaten oder über 10 % in 6 Monaten", "Essverhalten, Vorlieben und Portionen beobachten, ggf. Ernährungsprotokoll"] },
+          { h: "Maßnahmen" },
+          { liste: ["Wunschkost und Gewohnheiten aus der Biografie berücksichtigen", "Ruhige, angenehme Atmosphäre, gemeinsam essen, genug Zeit einplanen", "Kleine Mahlzeiten und Zwischenmahlzeiten, Fingerfood bei Demenz", "Speisen mit Sahne, Butter oder Eiweiß anreichern", "Trinknahrung nach Anordnung, Ernährungsfachkraft einbeziehen", "Mundpflege, Zahnprothese prüfen, Schmerzen behandeln lassen", "Aufrechte Position, Hilfsmittel und Unterstützung beim Essen anbieten"] },
+          { link: { bereich: "ernaehrung", kapitel: "dysphagie" } }
+        ]
       }
     ]
   },
@@ -743,7 +773,7 @@ const BEREICHE = [
             "Systolischer Wert: erstes hörbares Geräusch (Korotkow-Geräusch); diastolischer Wert: Verschwinden des Geräusches"
           ] },
           { warn: "Nicht messen am Arm mit Shunt (Dialyse), nach Brust-OP mit Lymphknotenentfernung, mit Infusion, Lähmung oder Verletzung." },
-          { h: "Einteilung (Erwachsene, Praxismessung, ESC/ESH)" },
+          { h: "Einteilung (Erwachsene, Praxismessung, ESH 2023)" },
           { tabelle: { kopf: ["Kategorie", "Systolisch (mmHg)", "Diastolisch (mmHg)"], zeilen: [
             ["Optimal", "< 120", "< 80"],
             ["Normal", "120–129", "80–84"],
@@ -752,7 +782,8 @@ const BEREICHE = [
             ["Hypertonie Grad 2", "160–179", "100–109"],
             ["Hypertonie Grad 3", "≥ 180", "≥ 110"]
           ] } },
-          { p: "Hypotonie: meist systolisch unter 100 mmHg (bei Frauen unter ca. 100/60). Orthostatische Hypotonie: Abfall um ≥ 20 mmHg systolisch oder ≥ 10 mmHg diastolisch innerhalb von 3 Minuten nach dem Aufstehen (Schellong-Test)." },
+          { p: "Die ESC-Leitlinie 2024 teilt anders ein: nicht erhöht unter 120/70, erhöht von 120/70 bis 139/89, Hypertonie ab 140/90 mmHg. Die Grenze von 140/90 mmHg gilt in beiden Einteilungen. Für Prüfungen zählt die Einteilung, die deine Schule verwendet." },
+          { p: "Hypotonie: dauerhaft unter etwa 100/60 mmHg (die Angaben schwanken je nach Quelle). Ohne Beschwerden ist das meist keine Krankheit. Orthostatische Hypotonie: Abfall um ≥ 20 mmHg systolisch oder ≥ 10 mmHg diastolisch innerhalb von 3 Minuten nach dem Aufstehen (Schellong-Test)." },
           { h: "Fehlerquellen" },
           { tabelle: { kopf: ["Fehler", "Auswirkung"], zeilen: [
             ["Manschette zu schmal / zu locker", "Wert zu hoch"],
@@ -762,7 +793,7 @@ const BEREICHE = [
             ["Messung nach Belastung, Sprechen, Kälte", "Wert zu hoch"]
           ] } },
           { h: "Maßnahmen" },
-          { liste: ["Hypertensive Entgleisung (z. B. > 180/120 mit Beschwerden): Oberkörper hoch, Ruhe, Kontrolle, Arzt sofort", "Hypotonie mit Schwindel: Flachlagerung, Beine hoch (Schocklage nach Anordnung), langsam mobilisieren", "Engmaschige Kontrollen und Dokumentation"] }
+          { liste: ["Hypertensive Entgleisung (über 180/110 mmHg ohne akute Organzeichen): Oberkörper hoch, Ruhe, Kontrolle, Arzt informieren", "Hypertensiver Notfall (zusätzlich z. B. Brustschmerz, Atemnot, Sehstörung, Lähmung, Verwirrtheit): Notruf", "Hypotonie mit Schwindel: Hinsetzen oder hinlegen, Beine hochlagern, wenn keine Gegenanzeige besteht (z. B. Herzinsuffizienz), langsam mobilisieren", "Engmaschige Kontrollen und Dokumentation"] }
         ]
       },
       {
@@ -891,7 +922,7 @@ const BEREICHE = [
         ]
       },
       {
-        id: "physiologie", titel: "Physiologie", kurz: "Herzzyklus, Herzzeitvolumen, Blutdruckregulation",
+        id: "physiologie", medizin: true, titel: "Physiologie", kurz: "Herzzyklus, Herzzeitvolumen, Blutdruckregulation",
         abschnitte: [
           { h: "Herzzyklus" },
           { liste: ["Systole: Anspannungsphase (alle Klappen zu) und Austreibungsphase (Taschenklappen offen)", "Diastole: Entspannungsphase und Füllungsphase (Segelklappen offen)", "Erregung: Sinusknoten (60–80/min) → Vorhöfe → AV-Knoten → His-Bündel → Tawara-Schenkel → Purkinje-Fasern"] },
@@ -909,10 +940,13 @@ const BEREICHE = [
         ]
       },
       {
-        id: "erkrankungen_herz", titel: "Herzerkrankungen", kurz: "Hypertonie, KHK, Herzinfarkt, Herzinsuffizienz, Vorhofflimmern",
+        id: "erkrankungen_herz", titel: "Herzerkrankungen", kurz: "Hypertonie, Hypotonie, KHK, Herzinfarkt, Herzinsuffizienz, Vorhofflimmern",
         abschnitte: [
           { h: "Arterielle Hypertonie" },
-          { liste: ["Dauerhaft erhöhter Blutdruck ≥ 140/90 mmHg; meist primär (essenziell)", "Folgen: Herzinfarkt, Schlaganfall, Herzinsuffizienz, Niereninsuffizienz", "Pflege: regelmäßige RR-Kontrolle, Medikamenteneinnahme, Beratung zu salzarmer Kost, Bewegung, Gewichtsreduktion, Nikotinverzicht"] },
+          { liste: ["Dauerhaft erhöhter Blutdruck ≥ 140/90 mmHg; meist primär (essenziell)", "Oft lange ohne Beschwerden; möglich sind Kopfschmerz, Schwindel, Nasenbluten, Sehstörungen", "Folgen: Herzinfarkt, Schlaganfall, Herzinsuffizienz, Niereninsuffizienz", "Pflege: regelmäßige RR-Kontrolle, Medikamenteneinnahme, Beratung zu salzarmer Kost, Bewegung, Gewichtsreduktion, Nikotinverzicht"] },
+          { warn: "Über 180/110 mmHg mit Brustschmerz, Atemnot, Sehstörung, Lähmung oder Verwirrtheit: hypertensiver Notfall, sofort Notruf." },
+          { h: "Arterielle Hypotonie" },
+          { liste: ["Dauerhaft unter etwa 100/60 mmHg; ohne Beschwerden meist nicht behandlungsbedürftig", "Zeichen: Schwindel, Schwarzwerden vor den Augen, Müdigkeit, kalte Hände und Füße, Synkope", "Ursachen: Veranlagung, Flüssigkeitsmangel, Medikamente, Herzerkrankungen, Blutverlust", "Pflege: langsam aufstehen, vorher im Sitzen kurz warten, ausreichend trinken, Bewegung, Kompressionsstrümpfe nach Anordnung, Sturzgefahr beachten"] },
           { h: "Koronare Herzkrankheit (KHK) und Angina pectoris" },
           { liste: ["Verengung der Koronararterien durch Arteriosklerose → Sauerstoffmangel des Herzmuskels", "Angina pectoris: Brustenge, Druck, Ausstrahlung in linken Arm, Hals, Kiefer, Oberbauch – bessert sich in Ruhe oder durch Nitro", "Pflege: Belastung dosieren, Nitrospray nach Anordnung (vorher RR messen!), Risikofaktoren reduzieren"] },
           { h: "Herzinfarkt (Myokardinfarkt)" },
@@ -1307,6 +1341,96 @@ const BEREICHE = [
             "Immer ein Notfallset mit Ersatzversorgung mitnehmen"
           ] },
           { merke: "Die Abkürzung „AP“ (Anus praeter) ist im Alltag noch üblich. Fachlich genauer sind die Begriffe Colostoma und Ileostoma." }
+        ]
+      }
+    ]
+  },
+
+  // ===================================================================
+  // BIOGRAFIEARBEIT
+  {
+    id: "biografie", titel: "Biografiearbeit", untertitel: "Den Menschen und sein Leben verstehen und in die Pflege einbeziehen", icon: "buch",
+    kapitel: [
+      {
+        id: "bio_grundlagen", titel: "Grundlagen", kurz: "Definition, Ziele, Bedeutung für die Pflege",
+        abschnitte: [
+          { h: "Was ist Biografiearbeit?" },
+          { p: "Biografiearbeit bedeutet, sich gemeinsam mit einem Menschen mit seiner Lebensgeschichte zu beschäftigen und dieses Wissen in die tägliche Pflege einzubeziehen. Sie ist keine einmalige Datenerhebung, sondern ein fortlaufender Prozess, der von Vertrauen lebt." },
+          { tabelle: { kopf: ["Begriff", "Bedeutung"], zeilen: [
+            ["Lebenslauf", "Äußere Daten: Geburt, Schule, Beruf, Familie"],
+            ["Biografie", "Die persönliche Geschichte: Erlebnisse, Gefühle, Werte, Bedeutungen"],
+            ["Biografiearbeit", "Bewusste, wertschätzende Nutzung dieser Geschichte in Beziehung und Pflege"]
+          ] } },
+          { h: "Ziele" },
+          { liste: ["Den Menschen als einzigartige Person sehen und seine Würde achten", "Verhalten besser verstehen, statt es vorschnell als „schwierig“ zu bewerten", "Vertrauen, Sicherheit und Orientierung geben", "Identität und Selbstwertgefühl stärken", "Gewohnheiten und Ressourcen erhalten", "Pflege individuell planen und Angehörige einbeziehen"] },
+          { merke: "Pflegekraft kann fragen, der Mensch entscheidet: Biografiearbeit ist immer freiwillig." },
+          { h: "Einordnung im Pflegeprozess" },
+          { liste: ["Informationssammlung: Gewohnheiten, Vorlieben, Abneigungen und wichtige Ereignisse erfragen", "SIS: Eigene Sicht der Person im Eingangsgespräch festhalten", "AEDL nach Krohwinkel: besonders „Mit existenziellen Erfahrungen des Lebens umgehen“ und „Soziale Bereiche des Lebens sichern“", "Maßnahmenplanung: Tagesablauf, Essen, Kleidung und Rituale anpassen", "Evaluation: Prüfen, ob die Angebote der Person guttun"] },
+          { link: { bereich: "pflegeprozess", kapitel: "assessment" } }
+        ]
+      },
+      {
+        id: "bio_methoden", titel: "Methoden und Gesprächsführung", kurz: "Biografiebogen, Erinnerungspflege, gute Fragen",
+        abschnitte: [
+          { h: "Informationsquellen" },
+          { liste: ["Die Person selbst: Gespräche im Alltag, z. B. bei der Körperpflege", "Angehörige und Freunde, wenn die Person einverstanden ist", "Fotos, Erinnerungsstücke, Musik und Lieblingsgegenstände", "Beobachtung von Verhalten, Vorlieben und Reaktionen", "Überleitungsbogen und frühere Pflegedokumentation"] },
+          { h: "Methoden" },
+          { tabelle: { kopf: ["Methode", "So geht es"], zeilen: [
+            ["Biografiebogen", "Strukturierte Sammlung; Schritt für Schritt ausfüllen, nicht als Verhör"],
+            ["Erinnerungspflege", "Einzeln oder in der Gruppe mit Themen wie Schulzeit, Feste, Beruf"],
+            ["Erinnerungskiste", "Gegenstände aus früherer Zeit zum Anfassen und Erzählen"],
+            ["Lebensbuch", "Fotos und Texte, gemeinsam gestaltet"],
+            ["Musik und Düfte", "Vertraute Lieder oder Gerüche wecken Erinnerungen"],
+            ["Alltagsaktivität", "Vertraute Tätigkeiten, z. B. Wäsche falten, Gartenarbeit, Backen"]
+          ] } },
+          { h: "Wichtige Themen" },
+          { liste: ["Herkunft, Familie, wichtige Bezugspersonen", "Beruf, Hobbys, Stolz und Erfolge", "Tagesablauf: Aufstehen, Schlafen, Körperpflege, Kleidung", "Essen und Trinken: Vorlieben, Rituale, Abneigungen", "Glaube, Werte, Kultur, Lebensweise", "Einschneidende Ereignisse, Verluste, Ängste", "Wünsche für die Pflege und das Lebensende"] },
+          { h: "Gesprächsführung" },
+          { liste: ["Ruhigen Moment und passenden Ort wählen", "Offene Fragen stellen: „Wie war das damals für Sie?“", "Aktiv zuhören, Pausen aushalten, nicht bewerten", "Nur so viel fragen, wie die Person erzählen möchte", "Auf Gefühle eingehen und Gespräche behutsam beenden"] },
+          { warn: "Keine belastenden Themen „ausgraben“. Wenn jemand traurig wird oder abblockt: Thema wechseln, da sein, bei Bedarf Unterstützung holen." }
+        ]
+      },
+      {
+        id: "bio_demenz", titel: "Biografiearbeit bei Demenz", kurz: "Validation, Böhm, Trigger und Beispiele",
+        abschnitte: [
+          { h: "Warum ist sie bei Demenz so wichtig?" },
+          { p: "Das Kurzzeitgedächtnis lässt früher nach als viele alte Erinnerungen. Betroffene leben daher oft in ihrer früheren Lebenswelt. Wer die Biografie kennt, kann Verhalten besser verstehen und passend reagieren. Besonders prägend sind oft Kindheit und junges Erwachsenenalter." },
+          { h: "Beispiele aus dem Pflegealltag" },
+          { tabelle: { kopf: ["Beobachtung", "Möglicher Hintergrund", "Pflegeidee"], zeilen: [
+            ["Unruhe jeden Abend um 17 Uhr", "Früher Feierabend, Kinder von der Schule abholen", "Begleiten, Aufgabe oder Abendritual anbieten"],
+            ["Will um 5 Uhr aufstehen", "Früher Landwirtschaft oder Frühschicht", "Tagesablauf anpassen, nicht zum Liegen drängen"],
+            ["Lehnt das Duschen ab", "Früher nur Waschen am Becken, Scham, schlimme Erfahrung", "Waschen am Waschbecken, Vorlieben beachten"],
+            ["Sammelt Lebensmittel", "Hungerzeiten im Krieg", "Sicherheit geben, Vorrat zeigen, nicht schimpfen"]
+          ] } },
+          { h: "Passende Konzepte" },
+          { tabelle: { kopf: ["Konzept", "Kerngedanke"], zeilen: [
+            ["Validation (Naomi Feil)", "Gefühle annehmen und ernst nehmen, statt die Person zu korrigieren"],
+            ["Integrative Validation (Nicole Richard)", "Gefühle und Antriebe erkennen und bestätigen, Lebensthemen nutzen"],
+            ["Psychobiografisches Modell (Erwin Böhm)", "Prägungen verstehen, um die Seele wiederzubeleben"],
+            ["Personzentrierte Pflege (Tom Kitwood)", "Die Person steht im Mittelpunkt, nicht die Krankheit"]
+          ] } },
+          { merke: "Der DNQP-Expertenstandard „Beziehungsgestaltung in der Pflege von Menschen mit Demenz“ stellt die personzentrierte Haltung in den Mittelpunkt. Das Wissen über die Person ist dafür wichtig." },
+          { h: "Trauma und Auslöser" },
+          { liste: ["Krieg, Flucht, Gewalt, sexuelle Übergriffe und Verluste können wieder aufbrechen", "Mögliche Auslöser: Sirenen, Enge, Dunkelheit, Duschen, Berührung im Intimbereich", "Abwehr nicht persönlich nehmen, Ruhe bewahren und jeden Schritt ankündigen", "Wunsch nach bestimmter Pflegeperson möglichst berücksichtigen", "Auslöser im Team weitergeben und dokumentieren"] },
+          { diagnose: "demenz" }
+        ]
+      },
+      {
+        id: "bio_praxis", titel: "Dokumentation, Grenzen und Vielfalt", kurz: "Datenschutz, Kultur, Teamarbeit, Formulierungen",
+        abschnitte: [
+          { h: "Datenschutz und Schweigepflicht" },
+          { liste: ["Biografische Angaben sind besonders persönlich und vertraulich", "Teilnahme ist freiwillig, Einwilligung beachten", "Nur dokumentieren, was für die Pflege wichtig ist", "Im Team nur fachlich und nicht als Gesprächsstoff austauschen", "Schweigepflicht (§ 203 StGB) und Datenschutz (DSGVO) gelten auch hier"] },
+          { h: "Gut dokumentieren" },
+          { tabelle: { kopf: ["Ungünstig", "Besser"], zeilen: [
+            ["„Ist immer schwierig beim Duschen.“", "„Lehnt Duschen ab. Waschen am Waschbecken wird morgens gut angenommen.“"],
+            ["„Isst nichts.“", "„Trinkt morgens gern Filterkaffee, mag warmes Frühstück um 8 Uhr, lehnt Fisch ab.“"],
+            ["„War im Krieg, deswegen komisch.“", "„Laute Geräusche lösen Angst aus. Tür leise schließen und Maßnahmen ankündigen.“"]
+          ] } },
+          { h: "Vielfalt achten" },
+          { liste: ["Kultur, Religion, Sprache und Migrationsgeschichte erfragen, keine Annahmen treffen", "Rituale, Speisevorschriften, Gebetszeiten und Wünsche zum Sterben berücksichtigen", "Sexuelle Orientierung und geschlechtliche Identität respektieren", "Bei Sprachbarrieren qualifizierte Hilfe nutzen, wenn möglich", "Biografie und eigene Werte auseinanderhalten: Lebensentscheidungen nicht bewerten"] },
+          { h: "Grenzen" },
+          { liste: ["Pflegende sind keine Therapeutinnen und Therapeuten", "Bei schweren Krisen oder Traumafolgen Fachleute hinzuziehen", "Biografie erklärt Verhalten, sie schreibt es aber nicht fest", "Menschen dürfen ihre Geschichte verschweigen oder anders erzählen", "Eigene Belastung im Team oder in der Supervision ansprechen"] },
+          { merke: "Biografiewissen wirkt erst, wenn es im Alltag ankommt: in der Pflegeplanung, im Tagesablauf und in der Übergabe." }
         ]
       }
     ]

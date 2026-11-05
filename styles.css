@@ -187,6 +187,8 @@ mark { background: color-mix(in srgb, var(--hl) 28%, transparent); color: inheri
 .tile-green .tile-ico { background: linear-gradient(135deg, #86efac, #16a34a); }
 .tile-orange .tile-ico { background: linear-gradient(135deg, #fdba74, #ea580c); }
 .tile-amber .tile-ico { background: linear-gradient(135deg, #fcd34d, #b45309); }
+.tile-violet .tile-ico { background: linear-gradient(135deg, #c4b5fd, #7c3aed); }
+.tile-slate .tile-ico { background: linear-gradient(135deg, #94a3b8, #475569); }
 .tile-wide { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px; margin-top: 12px; text-align: left; transition: transform .2s var(--ease); }
 .tile-wide > span:nth-child(2) { flex: 1; }
 .tile-wide .tile-ico { margin: 0; background: linear-gradient(135deg, #fbbf24, #f97316); }
@@ -393,6 +395,13 @@ td:first-child { font-weight: 600; }
 .ed-opt .opt-mark { background: none; }
 .ed-opt .opt-mark.an { background: var(--ok); border-color: var(--ok); }
 .ed-fehler { color: var(--bad); font-size: 14px; margin: 10px 2px 0; }
+.schalter-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 12px 14px; text-align: left; margin-top: 12px; }
+.thema-kopf { padding: 14px; margin-top: 4px; background: linear-gradient(135deg, rgba(20, 184, 166, .16), rgba(99, 102, 241, .12)), var(--card); }
+.thema-kopf h2 { font-size: 22px; line-height: 1.2; margin: 2px 0 4px; letter-spacing: -.01em; }
+.thema-kopf p { margin: 0; }
+.schritte { padding-left: 34px; }
+.link-box { padding: 12px 14px; font-size: 14px; word-break: break-all; }
+.ed-fehler.ok { color: var(--ok); }
 .info-version { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; padding: 14px; }
 
 /* ---------- Update-Pop-up ---------- */
