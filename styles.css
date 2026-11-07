@@ -356,6 +356,8 @@ td:first-child { font-weight: 600; }
 .flash .q { font-size: 25px; font-weight: 700; }
 .flash .q.small { font-size: 17px; font-weight: 600; color: var(--muted); }
 .flash .a { font-size: 20px; margin-top: 12px; color: var(--accent); font-weight: 650; }
+.flash .a.lernkarte-a { font-size: 16px; line-height: 1.45; white-space: pre-line; text-align: left; font-weight: 550; }
+.flash .q.lernkarte-q { font-size: 19px; line-height: 1.35; }
 .flash .tip { margin-top: 14px; font-size: 13px; color: var(--faint); }
 .flash .note { margin-top: 8px; font-size: 14px; color: var(--muted); }
 

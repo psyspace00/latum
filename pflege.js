@@ -996,7 +996,7 @@ const BEREICHE = [
 
   // ===================================================================
   {
-    id: "ernaehrung", titel: "Ernährung", untertitel: "Nährstoffe, Dysphagie, Kostformen, PEG, Bilanz", icon: "apfel",
+    id: "ernaehrung", titel: "Ernährung", untertitel: "Nährstoffe, DGE, Alter, Trinken, Demenz, Dysphagie, PEG, Bilanz", icon: "apfel",
     kapitel: [
       {
         id: "naehrstoffe", titel: "Nährstofflehre", kurz: "Makro- und Mikronährstoffe, Energie- und Flüssigkeitsbedarf",
@@ -1011,7 +1011,7 @@ const BEREICHE = [
           { h: "Mikronährstoffe" },
           { liste: ["Fettlösliche Vitamine: A, D, E, K (Merkhilfe „EDeKA“)", "Wasserlösliche Vitamine: B-Vitamine, C", "Mineralstoffe: z. B. Natrium, Kalium, Kalzium, Magnesium", "Spurenelemente: z. B. Eisen, Jod, Zink, Fluor"] },
           { h: "Bedarf (Erwachsene, Orientierung)" },
-          { liste: ["Energie: Grundumsatz ca. 1 kcal pro kg Körpergewicht pro Stunde; Gesamtbedarf abhängig von Aktivität", "Eiweiß: ca. 0,8 g/kg/Tag, bei älteren und kranken Menschen ca. 1,0–1,2 g/kg/Tag", "Flüssigkeit: ca. 30–35 ml/kg/Tag (etwa 1,5–2 l Trinkmenge), außer bei ärztlicher Beschränkung"] },
+          { liste: ["Energie: Grundumsatz ca. 1 kcal pro kg Körpergewicht pro Stunde; Gesamtbedarf abhängig von Aktivität", "Eiweiß: ca. 0,8 g/kg/Tag, bei älteren und kranken Menschen ca. 1,0–1,2 g/kg/Tag", "Flüssigkeit: ca. 30–35 ml/kg/Tag; DGE: rund 1,5 l Getränke am Tag (ältere Menschen mindestens 1,3 l), außer bei ärztlicher Beschränkung"] },
           { h: "Ernährungszustand einschätzen" },
           { tabelle: { kopf: ["BMI (kg/m²)", "Einteilung (WHO)"], zeilen: [
             ["< 18,5", "Untergewicht"],
@@ -1020,7 +1020,350 @@ const BEREICHE = [
             ["≥ 30", "Adipositas"]
           ] } },
           { p: "BMI = Körpergewicht (kg) ÷ Körpergröße² (m²). Bei älteren Menschen gilt ein BMI unter ca. 20 bereits als Hinweis auf eine Mangelernährung. Screening-Instrumente: MNA (Mini Nutritional Assessment), NRS 2002, MUST. Grundlage: Expertenstandard „Ernährungsmanagement zur Sicherung und Förderung der oralen Ernährung in der Pflege“." },
-          { merke: "Warnzeichen für Mangelernährung: ungewollter Gewichtsverlust (> 5 % in 3 Monaten), Essensreste, Kau- und Schluckprobleme, Appetitlosigkeit, lockere Kleidung." }
+          { merke: "Warnzeichen für Mangelernährung: ungewollter Gewichtsverlust (> 5 % in 3 Monaten), Essensreste, Kau- und Schluckprobleme, Appetitlosigkeit, lockere Kleidung." },
+          { h: "Nährstoffgruppen im Überblick" },
+          { liste: [
+            "Energieliefernd: Kohlenhydrate, Fette und Eiweiße",
+            "Lebensnotwendig, aber ohne Energie: Vitamine und Mineralstoffe – der Körper kann sie nicht selbst bilden",
+            "Sekundäre Pflanzenstoffe: nur in Pflanzen, z. B. Farb- und Duftstoffe; sie wirken als Antioxidantien, fangen freie Radikale ab und schützen Herz und Gefäße",
+            "Ballaststoffe: kaum verdauliche Pflanzenfasern; sie sättigen lange, fördern die Verdauung und senken Cholesterin und Blutzucker",
+            "Wasser: ohne Wasser kein Leben"
+          ] },
+          { h: "Kohlenhydrate" },
+          { tabelle: { kopf: ["Gruppe", "Beispiele"], zeilen: [
+            ["Einfachzucker (Monosaccharide)", "Glucose (Traubenzucker), Fructose (Fruchtzucker)"],
+            ["Zweifachzucker (Disaccharide)", "Saccharose (Haushaltszucker), Maltose (Malzzucker), Lactose (Milchzucker)"],
+            ["Mehrfachzucker (Polysaccharide)", "Stärke, einige Ballaststoffe wie Cellulose"]
+          ] } },
+          { p: "Lebensmittel mit Mehrfachzuckern und Ballaststoffen (Vollkorn, Kartoffeln, Hülsenfrüchte, Gemüse, Obst) sättigen lange und liefern zusätzlich Vitamine und Mineralstoffe. Viel Zucker liefert dagegen „leere“ Energie ohne Vitamine, fördert Heißhunger, Übergewicht und Karies." },
+          { h: "Fette" },
+          { liste: [
+            "Gesättigte Fettsäuren: vor allem in tierischen Lebensmitteln wie Butter, Sahne, Wurst – sparsam verwenden",
+            "Ungesättigte Fettsäuren: in Pflanzenölen, Nüssen und Fisch; besonders die mehrfach ungesättigten (z. B. Omega-3) sind wertvoll",
+            "Trans-Fettsäuren: entstehen beim industriellen Härten von Fett, z. B. in Blätterteig, Frittiertem und Chips; ungünstig für das Cholesterin",
+            "Viel Cholesterin (Innereien, Eigelb, fetter Käse) und gesättigte Fette fördern Arteriosklerose, Herzinfarkt und Schlaganfall"
+          ] },
+          { h: "Energiebedarf" },
+          { p: "Der Gesamtbedarf setzt sich aus dem Ruheenergieverbrauch (abhängig von Alter, Geschlecht, Größe, Gewicht und Hormonen) und dem Verbrauch für Bewegung zusammen. Die körperliche Aktivität wird als PAL-Wert angegeben: von ca. 1,2 (bettlägerig) bis 2,4 (sehr schwere Arbeit). Taillenumfang: erhöhtes Risiko ab über 94 cm (Männer) bzw. über 80 cm (Frauen), deutlich erhöht ab über 102 cm bzw. über 88 cm." }
+        ]
+      },
+      {
+        id: "dge", titel: "Die DGE und ihre Empfehlungen", kurz: "Wer die DGE ist, Gründung, Aufgaben, Ernährungskreis",
+        abschnitte: [
+          { h: "Was ist die DGE?" },
+          { p: "Die Deutsche Gesellschaft für Ernährung e. V. (DGE) ist die wissenschaftliche Fachgesellschaft für Ernährung in Deutschland. Sie ist ein eingetragener Verein mit Sitz in Bonn. Ihr wissenschaftliches Präsidium arbeitet unabhängig. Die DGE ist bundesweit und in regionalen Sektionen aktiv und vertritt Deutschland auch in Europa und international." },
+          { h: "Gründung" },
+          { p: "Die DGE wurde am 4. November 1953 in Bad Neuenahr gegründet. Dabei schlossen sich mehrere Vereinigungen zusammen, die sich schon vorher mit Ernährung und der Versorgung der Bevölkerung beschäftigt hatten. Nach den Hunger- und Mangeljahren von Krieg und Nachkriegszeit sollte es eine gemeinsame, wissenschaftliche Stelle geben. Sie sollte die Ernährungsforschung bündeln und daraus verlässliche Empfehlungen für die Gesundheit der Bevölkerung ableiten." },
+          { merke: "Kurz gesagt: Die DGE wurde gegründet, damit Wissen aus der Ernährungsforschung neutral geprüft und verständlich an die Menschen weitergegeben wird." },
+          { h: "Grundsätze" },
+          { liste: ["Aussagen sind wissenschaftlich begründet", "Sie entstehen neutral, unabhängig und transparent", "Offener, ganzheitlicher und nachhaltiger Blick auf Ernährung", "Leitidee: Wissenschaft und Praxis verbinden"] },
+          { h: "Ziele" },
+          { p: "Auf Grundlage der Forschung erarbeitet die DGE die Ernährungsempfehlungen, die für Deutschland gelten. Diese gibt sie passend für die jeweilige Zielgruppe weiter. Ziel ist, die Gesundheit der Bevölkerung langfristig zu fördern und zu erhalten und dabei auf Nachhaltigkeit zu achten." },
+          { h: "Aufgaben und Leistungen" },
+          { liste: [
+            "Wissenschaftliche Empfehlungen erarbeiten, z. B. Referenzwerte für die Nährstoffzufuhr, Leitlinien, Stellungnahmen und Inhalte für den Ernährungsbericht",
+            "Ergebnisse bekannt machen: Broschüren, Internet, soziale Medien und Veranstaltungen",
+            "Angebote für Ernährungsbildung und -beratung, z. B. Fachmedien, zertifizierte Präventionskurse und Ernährungssoftware",
+            "Qualität sichern: DGE-Qualitätsstandards für die Gemeinschaftsverpflegung, z. B. in Senioreneinrichtungen und bei „Essen auf Rädern“, mit Zertifizierung („Fit im Alter“)",
+            "Fortbildung für Multiplikatoren, z. B. Lehrgänge, Seminare und Lehrpläne",
+            "Forschungsbedarf in der Ernährungswissenschaft erkennen und fördern"
+          ] },
+          { h: "Für wen arbeitet die DGE?" },
+          { p: "Für Wissenschaft und Fachkräfte, für Multiplikatoren wie Pflegekräfte, Lehrkräfte und Ernährungsberatung, für Politik und Verwaltung, Verbände und Unternehmen, für die Gemeinschaftsverpflegung und für die Medien – und über die Medien für alle Verbraucherinnen und Verbraucher." },
+          { h: "Der DGE-Ernährungskreis" },
+          { liste: [
+            "Teilt die Lebensmittel in 7 Gruppen ein: je größer das Segment, desto mehr davon",
+            "In der Mitte stehen die Getränke als größte Gruppe",
+            "Pflanzliche Lebensmittel machen mehr als ¾ aus: Gemüse und Obst, Hülsenfrüchte und Nüsse, Getreide und Kartoffeln, Öle",
+            "Tierische Lebensmittel machen knapp ¼ aus: Milch und Milchprodukte sowie Fisch, Fleisch, Wurst und Eier"
+          ] },
+          { tabelle: { kopf: ["Gruppe", "Orientierung (DGE 2024)"], zeilen: [
+            ["Getränke", "Rund 1,5 Liter am Tag, am besten Wasser oder ungesüßter Tee"],
+            ["Gemüse und Obst", "Mindestens 5 Portionen am Tag: 3 Portionen Gemüse und 2 Portionen Obst (1 Portion ≈ eine Handvoll)"],
+            ["Hülsenfrüchte und Nüsse", "Hülsenfrüchte mindestens 1× pro Woche, täglich eine kleine Handvoll Nüsse"],
+            ["Getreide und Kartoffeln", "Täglich, am besten Vollkorn („dunkel“ heißt nicht automatisch Vollkorn)"],
+            ["Öle und Fette", "Pflanzliche Öle bevorzugen, z. B. Rapsöl; versteckte Fette in Wurst, Gebäck und Fertiggerichten meiden"],
+            ["Milch und Milchprodukte", "Jeden Tag, etwa 2 Portionen"],
+            ["Fisch, Fleisch, Wurst, Eier", "Fisch 1–2× pro Woche (davon 1× fetter Seefisch); Fleisch und Wurst höchstens 300 g pro Woche"]
+          ] } },
+          { h: "Die DGE-Empfehlungen „Gut essen und trinken“ (2024)" },
+          { liste: ["Am besten Wasser trinken", "Obst und Gemüse – viel und bunt", "Hülsenfrüchte und Nüsse regelmäßig essen", "Vollkorn ist die beste Wahl", "Pflanzliche Öle bevorzugen", "Milch und Milchprodukte jeden Tag", "Fisch jede Woche", "Fleisch und Wurst – weniger ist mehr", "Süßes, Salziges und Fettiges – besser stehen lassen", "Mahlzeiten genießen", "In Bewegung bleiben und auf das Gewicht achten"] },
+          { merke: "Grundidee: mehr pflanzliche und weniger tierische Lebensmittel. Das schützt die Gesundheit und schont Umwelt und Klima." },
+          { h: "Tipps für ältere Menschen" },
+          { liste: [
+            "Nüsse bei Kauproblemen gemahlen oder als Mus anbieten",
+            "Langsam an Vollkorn gewöhnen, z. B. Weiß- und Vollkornmehl mischen; fein gemahlenes Vollkornbrot ist weich",
+            "Milch zählt als Lebensmittel, nicht als Getränk",
+            "Joghurt, Kefir, Buttermilch und gereifter Käse sind oft gut verträglich",
+            "Je stärker ein Lebensmittel verarbeitet ist, desto ungünstiger ist es meist für die Gesundheit"
+          ] }
+        ]
+      },
+      {
+        id: "alter", titel: "Ernährung im Alter", kurz: "Veränderungen, Energie, kritische Nährstoffe, Mangelernährung",
+        abschnitte: [
+          { h: "Altersstufen" },
+          { tabelle: { kopf: ["Alter", "Bezeichnung"], zeilen: [
+            ["65–74 Jahre", "Junge, aktive Alte"],
+            ["75–89 Jahre", "Hochbetagte"],
+            ["90–99 Jahre", "Höchstbetagte"],
+            ["ab 100 Jahre", "Langlebige"]
+          ] } },
+          { p: "Ältere Menschen sind sehr verschieden: von rüstigen Seniorinnen und Senioren, die sich selbst versorgen, bis zu kranken und pflegebedürftigen Menschen in Tagespflege oder Pflegeheim. Die Ernährung wird deshalb immer individuell geplant." },
+          { h: "Was sich im Körper verändert" },
+          { tabelle: { kopf: ["Bereich", "Veränderung", "Folge für die Ernährung"], zeilen: [
+            ["Sinne", "Schlechter sehen, riechen und schmecken", "Essen wird schlechter erkannt und schmeckt fad, es wird weniger gegessen"],
+            ["Mund", "Zahnverlust, schlecht sitzende Prothese, weniger Speichel", "Kau- und Schluckprobleme; Vollkorn, Obst und Gemüse werden gemieden"],
+            ["Magen", "Dehnt sich weniger, leert sich langsamer, weniger Magensäure und Intrinsic Factor", "Früh und lange satt; Vitamin B12, Calcium und Eisen werden schlechter aufgenommen"],
+            ["Bauchspeicheldrüse, Leber, Galle", "Weniger Verdauungsenzyme und Insulin", "Verdauungsbeschwerden, höheres Diabetesrisiko"],
+            ["Darm", "Träger, eventuell weniger Enzyme", "Verstopfung; Milchzucker wird teils schlechter vertragen"],
+            ["Nieren", "Können den Harn schlechter konzentrieren", "Mehr Wasserverlust – ausreichend trinken ist wichtig"],
+            ["Muskeln und Knochen", "Muskel- und Knochenmasse nehmen ab, Fettanteil steigt", "Weniger Energiebedarf, mehr Sturz- und Bruchgefahr; Eiweiß, Calcium und Vitamin D sind wichtig"],
+            ["Haut", "Bildet weniger Vitamin D", "Calcium wird schlechter aufgenommen, Osteoporosegefahr"],
+            ["Hormone", "Mehr Sättigungshormone, weniger Durstgefühl", "Weniger Appetit, zu wenig Trinken"]
+          ] } },
+          { merke: "Kernsatz: Der Energiebedarf sinkt, der Nährstoffbedarf bleibt gleich oder steigt. Das Essen im Alter muss deshalb besonders nährstoffreich sein." },
+          { h: "Energie und Eiweiß" },
+          { liste: [
+            "Energie: grobe Orientierung ca. 30 kcal pro kg Körpergewicht am Tag (bei Normalgewicht)",
+            "Mehr Energie nötig z. B. bei großen Wunden, schweren Infekten, Krebs oder Demenz mit starkem Bewegungsdrang",
+            "Eiweiß: ca. 1 g pro kg Körpergewicht am Tag (jüngere Erwachsene 0,8 g), bei Untergewicht, Entzündungen oder Wunden mehr",
+            "Eiweiß auf alle Hauptmahlzeiten verteilen und mit Bewegung verbinden, damit Muskeln erhalten bleiben",
+            "Bei BMI 25–30 keine Diät: Abnehmen kostet im Alter vor allem Muskeln"
+          ] },
+          { h: "Kritische Nährstoffe im Alter – und warum" },
+          { tabelle: { kopf: ["Nährstoff", "Warum kritisch?", "Gute Quellen"], zeilen: [
+            ["Vitamin D", "Die Haut bildet im Alter weniger, viele sind selten draußen. Mangel fördert Osteoporose, Stürze und Knochenbrüche", "Sonnenlicht; aus Lebensmitteln nur wenig (fetter Fisch, Eigelb). Oft Präparat mit 20 µg (800 IE) am Tag, ärztlich abklären"],
+            ["Calcium", "Baustein von Knochen und Zähnen, wichtig für Nerven, Muskeln und Blutgerinnung. Mangel fördert Osteoporose", "Milch und Milchprodukte, grünes Gemüse (Brokkoli, Grünkohl), Sesam, Mineralwasser mit mind. 150 mg/l Calcium"],
+            ["Vitamin B12", "Weniger Magensäure und Intrinsic Factor, dazu Medikamente: Es wird schlechter aufgenommen. Mangel führt zu Blutarmut, Nervenstörungen und Verwirrtheit", "Fleisch, Fisch, Eier, Milchprodukte; Wert regelmäßig ärztlich prüfen lassen"],
+            ["Folat", "Wichtig für Zellteilung und Blutbildung; Mangel z. B. durch Medikamente oder Alkohol führt zu Blutarmut", "Grünes Gemüse, Salat, Hülsenfrüchte, Vollkorn, Orangen"],
+            ["Eisen", "Für den Sauerstofftransport im Blut; Aufnahme bei Magen-Darm-Erkrankungen gestört", "Fleisch, Vollkorn, Haferflocken, Hülsenfrüchte; mit Vitamin C kombinieren"],
+            ["Eiweiß (Protein)", "Erhält Muskeln, Abwehr und Wundheilung; zu wenig führt zu Sarkopenie und Gebrechlichkeit", "Milchprodukte, Fisch, Fleisch, Eier, Hülsenfrüchte"],
+            ["Ballaststoffe", "Der Darm wird träger; Ballaststoffe beugen Verstopfung, Divertikeln und Darmkrebs vor", "Vollkorn, Gemüse, Obst, Hülsenfrüchte, Nüsse – nur mit genug Flüssigkeit"],
+            ["Wasser", "Weniger Durst, weniger Körperwasser, Nieren konzentrieren schlechter", "Wasser, Tee, Saftschorle, wasserreiche Speisen"]
+          ] } },
+          { p: "Außerdem werden oft Vitamin E, Vitamin C und Magnesium als kritische Nährstoffe im Alter genannt." },
+          { h: "Eiweiß clever kombinieren" },
+          { p: "Die biologische Wertigkeit zeigt, wie gut der Körper Nahrungseiweiß in eigenes Eiweiß umbauen kann. Werden pflanzliche Eiweißquellen miteinander oder mit tierischen kombiniert, steigt sie." },
+          { liste: ["Getreide + Hülsenfrüchte: Erbseneintopf mit Brot, Linsen mit Reis oder Spätzle", "Getreide + Milchprodukt: Vollkornbrot mit Käse, Milchreis, Nudelauflauf mit Käse", "Kartoffeln + Milchprodukt: Pellkartoffeln mit Quark, Kartoffelpüree", "Kartoffeln + Ei: Kartoffeln mit Spiegel- oder Rührei"] },
+          { h: "Besondere Anforderungen" },
+          { liste: [
+            "Körperlich: nachlassende Fingerfertigkeit, Lähmungen nach Schlaganfall, Zittern bei Parkinson, Kau- und Schluckstörungen",
+            "Krankheiten und Medikamente, die den Appetit mindern",
+            "Geistig: Vergesslichkeit, Verwirrtheit, Demenz",
+            "Seelisch und sozial: Einsamkeit, Depression, fehlende Lust am Essen"
+          ] },
+          { h: "Malnutrition, Frailty und Sarkopenie" },
+          { tabelle: { kopf: ["Begriff", "Bedeutung"], zeilen: [
+            ["Malnutrition", "Sammelbegriff für Fehl- und Mangelernährung durch zu wenig Energie und/oder Nährstoffe; führt zu messbaren Veränderungen am Körper und wird oft übersehen"],
+            ["Quantitative Mangelernährung", "Über längere Zeit weniger Energie aufgenommen als gebraucht"],
+            ["Qualitative Mangelernährung", "Bestimmte Nährstoffe fehlen, z. B. Eiweiß, Vitamine oder Mineralstoffe – auch bei Normal- oder Übergewicht möglich"],
+            ["Frailty (Gebrechlichkeit)", "Die Reserven schwinden, Belastungen werden schlecht verkraftet. Diagnose bei mindestens 3 von 5 Zeichen: Gewichtsverlust (ca. 5 kg in 12 Monaten), Erschöpfung, schwache Handkraft, langsamer Gang, wenig Aktivität"],
+            ["Sarkopenie", "Altersbedingter Verlust von Muskelmasse und -kraft; zwischen dem 30. und 80. Lebensjahr geht mehr als 30 % der Muskelmasse verloren, mit Folgen für Atmung, Beweglichkeit und Stabilität"]
+          ] } },
+          { h: "Folgen einer Mangelernährung" },
+          { liste: ["Weniger Muskelkraft, mehr Stürze und Knochenbrüche", "Langsamere Genesung", "Schlechtere Wundheilung, höheres Dekubitusrisiko", "Mehr Infekte", "Neurologische und geistige Störungen"] },
+          { h: "Warnzeichen im Pflegealltag" },
+          { liste: ["Der Teller wird nicht mehr leer gegessen oder Mahlzeiten werden ganz abgelehnt", "Getränke werden abgelehnt, Haut und Schleimhäute sind trocken und rissig", "Kein Appetit, „es schmeckt nicht mehr“", "Ringe, Gürtel und Kleidung sitzen immer lockerer", "Beschwerden an den Zähnen oder beim Schlucken"] },
+          { h: "Erkennen und behandeln" },
+          { liste: [
+            "Regelmäßig wiegen und aufmerksam beobachten",
+            "Screening, z. B. MNA, MUST, SGA oder PEMU (Pflegerische Erfassung von Mangelernährung und deren Ursachen)",
+            "Ess- und Trinkprotokolle führen, Essbiografie berücksichtigen, individuelle Ursachen suchen",
+            "Bei Bedarf weitere Untersuchungen, z. B. BIA (Messung der Körperzusammensetzung) oder Laborwerte",
+            "Im Team arbeiten: Pflege, Ernährungsfachkraft, Ärztin oder Arzt, Logopädie, Ergotherapie, Küche und Hauswirtschaft"
+          ] },
+          { tabelle: { kopf: ["Stufe", "Behandlung einer Mangelernährung"], zeilen: [
+            ["1", "Normale Ernährung über den Mund, angepasst und angereichert"],
+            ["2", "Zusätzlich Trinknahrung oder Nährstoffkonzentrate"],
+            ["3", "Enterale Ernährung über eine Sonde"],
+            ["4", "Parenterale Ernährung über die Vene"]
+          ] } },
+          { merke: "Früh erkannt, Gefahr gebannt: Mangelernährung ist behandelbar, wenn man genau hinschaut und sofort handelt." },
+          { link: { bereich: "prophylaxen", kapitel: "mangelernaehrung" } }
+        ]
+      },
+      {
+        id: "trinken", titel: "Trinken im Alter", kurz: "Wie viel, warum, Mangel erkennen und vorbeugen",
+        abschnitte: [
+          { h: "Warum trinken?" },
+          { p: "Der Körper eines Erwachsenen besteht zu 50–60 % aus Wasser, im Alter nur noch zu etwa 40–50 %. Ohne Wasser überlebt ein Mensch nur 2–4 Tage, ohne feste Nahrung 30 Tage und länger." },
+          { liste: [
+            "Wasser ist Bestandteil aller Zellen und Körperflüssigkeiten",
+            "Es transportiert Nährstoffe zu den Organen und Abbauprodukte zu den Nieren",
+            "Es ist an chemischen Reaktionen im Stoffwechsel beteiligt",
+            "Es hält die Körpertemperatur konstant (Schwitzen kühlt)",
+            "Es lässt den Speisebrei im Darm quellen und beugt Verstopfung vor"
+          ] },
+          { p: "Über Nieren, Darm, Haut und Atmung geht ständig Wasser verloren. Durst entsteht erst, wenn etwa 0,5 % des Körpergewichts als Wasser fehlen – bei 60 kg sind das rund 300 ml." },
+          { h: "Wie viel trinken?" },
+          { tabelle: { kopf: ["Gruppe", "Richtwert"], zeilen: [
+            ["Erwachsene allgemein (DGE 2024)", "Rund 1,5 Liter Getränke am Tag"],
+            ["Ältere Menschen (ab 65)", "Mindestens 1,3 Liter, besser 1,5 Liter über Getränke"],
+            ["Gesamtwasser ab 65 Jahren", "Ca. 2,25 l am Tag: 1,31 l aus Getränken, 0,68 l aus fester Nahrung, 0,26 l Oxidationswasser (≈ 30 ml pro kg Körpergewicht)"]
+          ] } },
+          { tabelle: { kopf: ["Wasseraufnahme (Erwachsene)", "Wasserabgabe"], zeilen: [
+            ["Getränke ca. 1,4 l", "Urin ca. 1,4 l"],
+            ["Feste Nahrung ca. 0,9 l", "Stuhl ca. 0,2 l"],
+            ["Oxidationswasser ca. 0,3 l", "Haut ca. 0,5 l und Lunge ca. 0,5 l"],
+            ["Gesamt ca. 2,6 l", "Gesamt ca. 2,6 l"]
+          ] } },
+          { liste: [
+            "Mehr trinken bei Hitze, Kälte, Heizungs- oder Klimaanlagenluft",
+            "… bei körperlicher Aktivität, Unruhe oder Bewegungsdrang",
+            "… bei Fieber, Erbrechen oder Durchfall",
+            "… bei harntreibenden oder abführenden Medikamenten",
+            "… bei viel Salz oder Eiweiß und wenn nur wenig gegessen wird"
+          ] },
+          { warn: "Bei Herzinsuffizienz und bestimmten Nieren- oder Lebererkrankungen kann die Trinkmenge ärztlich begrenzt sein. Dann wird bilanziert, und alle Flüssigkeiten zählen mit, auch Milch und Suppe." },
+          { h: "Ursachen für Flüssigkeitsmangel im Alter" },
+          { tabelle: { kopf: ["Zu wenig getrunken", "Zu viel verloren"], zeilen: [
+            ["Weniger Durstgefühl", "Nieren konzentrieren schlechter, es wird mehr Urin ausgeschieden"],
+            ["Angst vor dem Toilettengang, z. B. bei Inkontinenz oder Prostatabeschwerden", "Schwitzen bei Hitze, überheizten Räumen, Fieber oder Bewegungsdrang"],
+            ["Schluckstörungen", "Durchfall und Erbrechen"],
+            ["Vergesslichkeit, Demenz, fehlende Unterstützung", "Diuretika (harntreibend) und Abführmittel (Laxanzien)"],
+            ["Erziehung: „Beim Essen wird nicht getrunken!“", "–"]
+          ] } },
+          { h: "Symptome eines Flüssigkeitsmangels" },
+          { liste: [
+            "Früh: trockene Haut und Schleimhäute, rissige Lippen, trockener Mund",
+            "Müdigkeit, Schwäche, Konzentrationsprobleme, Kopfschmerzen, Schwindel",
+            "Dunkler, konzentrierter Urin, wenig Urin, Verstopfung",
+            "Bei älteren Menschen: plötzliche Verwirrtheit",
+            "Später: Herzrasen, Temperaturanstieg, Muskelschwäche und -krämpfe, Harnwegsinfekte",
+            "Schwer: Delir, Apathie, Bewusstseinstrübung, Thrombose, Kreislauf- und Nierenversagen – Lebensgefahr"
+          ] },
+          { tabelle: { kopf: ["Wasserverlust (älterer Mann, 75 kg)", "Zeichen"], zeilen: [
+            ["ab 0,5 %", "Durst – wird im Alter oft nicht bemerkt"],
+            ["bis 3 % (ca. 2,5 l)", "Gewichtsabnahme, weniger Urin und Speichel, trockener Mund"],
+            ["ab 5 % (ca. 4 l)", "Schlaffe Haut, geschwollene Zunge, Schluckbeschwerden, schneller Puls, Temperaturanstieg, Bluteindickung"],
+            ["ab 10 % (ca. 7 l)", "Starker körperlicher und geistiger Leistungsabfall, Verwirrtheit, Krämpfe, Kreislaufkollaps – ohne Flüssigkeit Lebensgefahr"]
+          ] } },
+          { merke: "Dehydratation bzw. Exsikkose entsteht im Alter schnell. Bei ersten Zeichen sofort handeln, bei schweren Zeichen sofort ärztliche Hilfe holen." },
+          { h: "Prävention: Trinken fördern" },
+          { liste: [
+            "Zu jeder Mahlzeit ein Getränk anbieten, leere Gläser sofort nachfüllen",
+            "Getränke sichtbar und gut erreichbar hinstellen, die Tagesmenge schon morgens bereitstellen",
+            "Lieblingsgetränke und gewünschte Temperatur erfragen, Abwechslung anbieten",
+            "Farbige Gläser oder farbige Getränke, damit das Wasser gesehen wird",
+            "Wasser mit Obst, Kräutern oder einem Schuss Saft aromatisieren",
+            "Trinkrituale, z. B. ein Glas Wasser nach dem Aufstehen oder der Nachmittagstee",
+            "Trinksprüche und Trinklieder, gemeinsam trinken und zuprosten (Vorbild)",
+            "Trinkstationen („Trink-Oasen“) auf dem Wohnbereich, Hygiene beachten",
+            "Passende Trinkhilfen, z. B. Becher mit zwei Griffen, mit Nasenausschnitt oder kippsicher",
+            "Bei Gefährdeten ein Trinkprotokoll führen, täglich auswerten und Maßnahmen im Team anpassen",
+            "Ermutigen, aber niemals zum Trinken zwingen"
+          ] },
+          { h: "Geeignete Getränke" },
+          { liste: [
+            "Am besten Leitungs- oder Mineralwasser und ungesüßte Kräuter- oder Früchtetees",
+            "Saftschorle aus 3 Teilen Wasser und 1 Teil Saft",
+            "Kaffee sowie schwarzer und grüner Tee zählen mit, aber nur in Maßen (bis ca. 4 Tassen am Tag)",
+            "Milch zählt nicht als Getränk, sondern als Lebensmittel",
+            "Bei Bluthochdruck auf natriumarmes Wasser achten",
+            "Zuckerhaltige und alkoholische Getränke sind nicht empfehlenswert; Alkohol kann mit Medikamenten wechselwirken"
+          ] },
+          { h: "Bei Mundtrockenheit und Schluckstörung" },
+          { liste: [
+            "Mundtrockenheit entsteht oft durch Medikamente oder zu wenig Trinken: häufig kleine Schlucke anbieten, Mund ausspülen, weiche, wasserreiche Speisen; Saures regt den Speichel an",
+            "Bei Schluckstörung fließen dünne Getränke zu schnell: mit Dickungsmittel andicken, Dosierung im Team einheitlich festlegen",
+            "Ruhe und Zeit beim Anreichen, aufrecht sitzen",
+            "Temperatur heißer Getränke prüfen, besonders bei Schnabelbechern"
+          ] },
+          { link: { bereich: "prophylaxen", kapitel: "dehydratation" } }
+        ]
+      },
+      {
+        id: "demenz_ernaehrung", titel: "Ernährung bei Demenz", kurz: "Essverhalten verstehen, Fingerfood, Trinken, Essumfeld",
+        abschnitte: [
+          { h: "Demenz kurz erklärt" },
+          { p: "Demenz ist ein Oberbegriff für Erkrankungen des Gehirns, bei denen geistige Fähigkeiten wie Gedächtnis, Orientierung, Sprache und Urteilsvermögen nachlassen. Gefühle und Sinneseindrücke bleiben lange erhalten. In Deutschland leben etwa 1,8 Millionen Menschen mit Demenz." },
+          { tabelle: { kopf: ["Einteilung", "Merkmale"], zeilen: [
+            ["Primäre Demenz (ca. 90 %)", "Erkrankung des Gehirns selbst, nicht heilbar; Alzheimer ca. 60–65 %, vaskuläre (gefäßbedingte) Demenz ca. 20–25 %"],
+            ["Sekundäre Demenz (ca. 10 %)", "Folge anderer Ursachen, z. B. Vitaminmangel, Stoffwechselstörung, Alkohol oder Medikamente – oft behandelbar"]
+          ] } },
+          { tabelle: { kopf: ["Stadium", "Auswirkung auf Essen und Trinken"], zeilen: [
+            ["Leicht", "Noch selbstständig, aber Einkauf, Planung und Vorrat werden schwierig; Essen und Trinken werden vergessen"],
+            ["Mittelschwer", "Auf Hilfe angewiesen; Konzentration beim Essen fällt schwer, Besteck wird schwierig, Unruhe"],
+            ["Schwer", "Kein selbstständiges Leben mehr; Schluckstörungen, starke Ablenkbarkeit, Mahlzeiten werden abgelehnt"]
+          ] } },
+          { h: "Wie Demenz das Essen und Trinken verändert" },
+          { liste: [
+            "Gedächtnis: Essen und Trinken werden vergessen – oder es wird immer weiter gegessen",
+            "Hunger, Sättigung und Durst werden nicht mehr richtig gespürt",
+            "Geschmack und Geruch verändern sich, oft Vorliebe für Süßes",
+            "Besteck und Speisen werden nicht mehr erkannt (Agnosie), Handlungen gelingen nicht mehr (Apraxie)",
+            "Sprachverlust (Aphasie) erschwert, Wünsche zu äußern; Rückzug und Depression",
+            "Unruhe und Bewegungsdrang: Der Energiebedarf kann bis auf das Doppelte steigen",
+            "Misstrauen, z. B. Angst vor Vergiftung; Überforderung, z. B. durch ein volles Tablett",
+            "Schluckstörungen im späten Stadium"
+          ] },
+          { warn: "Teufelskreis: Demenz → weniger Essen und Trinken → Gewichtsverlust, Nährstoffmangel und Austrocknung → Muskelabbau (Sarkopenie), Gebrechlichkeit und noch schlechtere geistige Leistung. Ein ungewollter Gewichtsverlust kann schon Jahre vor der Diagnose ein Hinweis auf eine Demenz sein." },
+          { h: "Kann Ernährung das Fortschreiten bremsen?" },
+          { p: "Eine Diät, die Demenz heilt oder sicher aufhält, gibt es nicht. Die Ernährung kann aber verhindern, dass sich der Zustand zusätzlich verschlechtert, und sie erhält Kraft und Lebensqualität." },
+          { liste: [
+            "Genug trinken: Flüssigkeitsmangel löst akute Verwirrtheit (Delir) aus und verstärkt die Demenz",
+            "Mangelernährung verhindern: Energie- und Nährstoffmangel schwächt Muskeln, Abwehr und geistige Leistung zusätzlich",
+            "Bei Gewichtsverlust oder Bewegungsdrang energiereich anreichern, z. B. mit Rapsöl, Sahne, Butter, gemahlenen Nüssen, Eiweißpulver oder Trinknahrung",
+            "Vitamin B12, Folat und Vitamin D ärztlich prüfen lassen: Ein Vitaminmangel kann eine Demenz verursachen oder verstärken und ist behandelbar",
+            "Herz- und gefäßfreundlich essen (viel Gemüse, Obst, Vollkorn, Fisch, pflanzliche Öle, wenig Salz): Das senkt Risikofaktoren wie Bluthochdruck und Diabetes, die besonders bei der vaskulären Demenz wichtig sind",
+            "Gemeinsame Mahlzeiten, Bewegung und Beschäftigung fördern Appetit, Teilhabe und geistige Aktivität"
+          ] },
+          { merke: "Für Menschen mit Demenz gelten die gleichen Ernährungsempfehlungen wie für andere ältere Menschen. Entscheidend sind Genuss, Selbstständigkeit und die individuelle Essbiografie." },
+          { h: "Essbiografie" },
+          { p: "Die Essbiografie hält Vorlieben, Abneigungen und Gewohnheiten rund ums Essen und Trinken fest. Sie gehört in die Pflegedokumentation, wird laufend aktualisiert und ist besonders wichtig, wenn sich die Person nicht mehr selbst äußern kann. Angehörige, Pflege, Küche und Hauswirtschaft tragen dazu bei." },
+          { liste: [
+            "Herkunft: Wo hat die Person gelebt, welche regionalen Gerichte kennt sie?",
+            "Kindheit: Lieblingsessen, Trostessen, Hungerzeiten in Krieg oder Nachkriegszeit?",
+            "Tagesablauf: Wie viele Mahlzeiten, wann warm gegessen, spätes Frühstück?",
+            "Getränke: Was, wann und wie viel wurde getrunken?",
+            "Beruf: Wann und was wurde bei der Arbeit gegessen?",
+            "Allergien, Unverträglichkeiten und Abneigungen",
+            "Religion und Kultur: Feste, Tischgebete, Speiseregeln",
+            "Essumgebung: lieber allein oder in Gesellschaft, Ruhe oder Gespräche?"
+          ] },
+          { h: "Speisen anpassen" },
+          { liste: [
+            "Süße Speisen bevorzugt anbieten, auch herzhafte Gerichte leicht süßen",
+            "Energiereich, wenn nötig angereichert",
+            "Kräftige Farben, frische Kräuter statt viel Salz",
+            "Mehrere kleine Mahlzeiten statt weniger großer",
+            "Flexible Essenszeiten, auch abends oder nachts eine warme Mahlzeit möglich",
+            "Bei ständigem Essverlangen energiearme Snacks wie Gemüsesticks oder Gurkenscheiben"
+          ] },
+          { h: "Fingerfood" },
+          { p: "Fingerfood hilft, wieder selbstständig zu essen, wenn Besteck nicht mehr gelingt. Das Anfassen regt die Sinne an und stärkt das Selbstwertgefühl. Die Stücke sollen 1–2 Bissen groß, gut greifbar, nicht krümelig, nicht klebrig und leicht zu kauen und zu schlucken sein." },
+          { tabelle: { kopf: ["Mahlzeit", "Beispiele"], zeilen: [
+            ["Frühstück, Abend, zwischendurch", "Obst- und Gemüsestücke mit Quarkdip, Trockenobst, weiche Müsliriegel, zusammengeklappte kleine Brote, belegte Kräcker, Grießschnitten, Kuchenstücke, geviertelte Eier, Käsewürfel, gefüllte Mini-Windbeutel"],
+            ["Mittag", "Gemüsestücke, Kartoffelecken oder Kroketten, Pizza- oder Quichestücke, Tortellini oder Penne, zarte Hähnchenstreifen, kleine Frikadellen, Fischstäbchen; Soße als Dip oder im Becher zum Trinken"]
+          ] } },
+          { liste: [
+            "„Eat by walking“: Essen zum Mitnehmen für Menschen mit Bewegungsdrang",
+            "Essstationen mit Fingerfood und Getränken entlang der Laufwege, Hygiene beachten",
+            "Fingerfood auch einmal für alle anbieten, damit sich niemand ausgeschlossen fühlt"
+          ] },
+          { h: "Trinken bei Demenz" },
+          { liste: [
+            "Richtwert etwa 1,3 l am Tag, bei Unruhe, Hitze oder Krankheit mehr",
+            "Getränke jederzeit sichtbar hinstellen und immer wieder aktiv anbieten",
+            "Farbige Trinkgefäße, große weiche Henkel, kippsichere Becher oder Trinkhalme",
+            "Getränke bei Bedarf süßen; warme Getränke werden oft lieber getrunken – Temperatur prüfen",
+            "Trinkrituale, gemeinsam zuprosten, Trinklieder",
+            "Bei Schluckstörung andicken; bei Gewichtsverlust energiereiche Getränke wie Milchmixgetränke oder Kakao"
+          ] },
+          { h: "Unterstützendes Essumfeld" },
+          { liste: [
+            "Ruhige, helle Umgebung, Radio und Fernseher aus; geschützte Essenszeiten ohne Visite oder Putzen",
+            "Feste Plätze, feste Tischnachbarn und Bezugspersonen, Rituale wie Tischgebet oder Lied",
+            "Kontrast: Das Essen hebt sich vom Teller ab, der Teller von der Tischdecke; keine gemusterten Teller",
+            "Speisen einzeln nacheinander servieren, nur das nötige Besteck – Überforderung vermeiden",
+            "Gemeinsam essen: Pflegende essen mit und sind Vorbild",
+            "Einbeziehen: Tisch decken oder Kartoffeln schälen gibt Orientierung und das Gefühl, gebraucht zu werden",
+            "So wenig Hilfe wie möglich, so viel wie nötig; Hilfen wie Anreichen oder Kleiderschutz vorher ankündigen",
+            "Essverhalten nicht kommentieren, Essen mit den Fingern erlauben",
+            "Ruhig, klar und wertschätzend sprechen (Validation), nicht widersprechen"
+          ] },
+          { link: { bereich: "ernaehrung", kapitel: "dysphagie" } }
         ]
       },
       {
@@ -1040,6 +1383,28 @@ const BEREICHE = [
             "Nach dem Essen 30 min aufrecht bleiben, Mundhöhle kontrollieren, Mundpflege",
             "Logopädie einbeziehen (Schluckdiagnostik, Schlucktraining)"
           ] },
+          { h: "Kaustörung oder Schluckstörung?" },
+          { tabelle: { kopf: ["", "Kaustörung", "Schluckstörung"], zeilen: [
+            ["Ort", "Zähne und Mundraum", "Rachen und Speiseröhre"],
+            ["Ursachen", "Zahnverlust, schlecht sitzende Prothese, Druckstellen, Pilzbefall, Karies, Parodontitis, Mundtrockenheit", "Folge von Krankheiten wie Schlaganfall, Parkinson oder Demenz"],
+            ["Behandlung", "Meist leichter zu behandeln, z. B. Zahnarzt, Prothese anpassen", "Logopädie, Schlucktraining, Haltung und Konsistenz anpassen"]
+          ] } },
+          { h: "Folgen und indirekte Hinweise" },
+          { liste: [
+            "Weniger Lebensqualität, weil der Genuss am Essen verloren geht",
+            "Angst vor Verschlucken: Essen und Trinken werden abgelehnt, es drohen Mangelernährung und Dehydratation",
+            "Aspirationspneumonie, wenn Schutzreflexe wie Husten fehlen",
+            "Indirekte Hinweise: unklares Fieber (stille Aspiration), Gewichtsverlust, Austrocknung"
+          ] },
+          { h: "Konsistenzstufen" },
+          { tabelle: { kopf: ["Kostform", "Beschreibung"], zeilen: [
+            ["Passierte Kost", "Durch ein Sieb gestrichen, ganz ohne Fasern"],
+            ["Pürierte Kost", "Im Mixer püriert; Komponenten getrennt und ansprechend anrichten"],
+            ["Teilpürierte Kost", "Weiche Bestandteile bleiben, faserige werden püriert"],
+            ["Adaptierte Kost", "Weiche Kost, nicht püriert"],
+            ["Angedickte Getränke", "Mit Dickungsmittel; Dosierung im Team einheitlich festlegen"]
+          ] } },
+          { merke: "Die Diagnose stellt die Ärztin oder der Arzt, meist zusammen mit der Logopädie. Für erste Schluckversuche eignen sich eher Götterspeise oder angedickte Getränke als eiweiß- und fettreiche Speisen wie Milchprodukte." },
           { link: { bereich: "prophylaxen", kapitel: "aspiration" } }
         ]
       },

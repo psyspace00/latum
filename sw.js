@@ -3,10 +3,10 @@
 
 // Offline-Cache: Erst aus dem Netz laden (damit Updates ankommen), sonst aus dem Cache.
 // Bei Änderungen an der Dateiliste die Versionsnummer erhöhen.
-const CACHE = "medismart-v7";
+const CACHE = "medismart-v8";
 const DATEIEN = [
   "./", "./index.html", "./styles.css", "./figuren.css", "./schutz.js", "./app.js", "./data.js", "./figures.js", "./modelle.js",
-  "./pflege.js", "./quiz.js", "./diagnosen.js", "./vi_anatomie.js", "./vi_pflege.js", "./vi_quiz.js", "./sprache.js", "./version.js", "./anatomie3d.js", "./vendor/three.module.min.js", "./manifest.json",
+  "./pflege.js", "./quiz.js", "./schultests.js", "./diagnosen.js", "./vi_anatomie.js", "./vi_pflege.js", "./vi_quiz.js", "./sprache.js", "./version.js", "./anatomie3d.js", "./vendor/three.module.min.js", "./manifest.json",
   "./icons/icon-180.png", "./icons/icon-192.png", "./icons/icon-512.png"
 ];
 

@@ -875,7 +875,7 @@ const BEREICHE_VI = [
   },
 
   {
-    id: "ernaehrung", titel: "Dinh dưỡng", untertitel: "Chất dinh dưỡng, rối loạn nuốt, chế độ ăn, PEG, cân bằng dịch",
+    id: "ernaehrung", titel: "Dinh dưỡng", untertitel: "Chất dinh dưỡng, DGE, tuổi già, uống nước, sa sút trí tuệ, rối loạn nuốt, PEG, cân bằng dịch",
     kapitel: [
       { id: "naehrstoffe", titel: "Dinh dưỡng học", kurz: "Chất đa lượng và vi lượng, nhu cầu năng lượng và nước", abschnitte: [
         { h: "Chất dinh dưỡng đa lượng" },
@@ -888,7 +888,7 @@ const BEREICHE_VI = [
         { h: "Chất dinh dưỡng vi lượng" },
         { liste: ["Vitamin tan trong dầu: A, D, E, K (cách nhớ tiếng Đức „EDeKA“)", "Vitamin tan trong nước: nhóm B, C", "Chất khoáng: ví dụ natri, kali, canxi, magie", "Nguyên tố vi lượng: ví dụ sắt, iốt, kẽm, flo"] },
         { h: "Nhu cầu (người lớn, tham khảo)" },
-        { liste: ["Năng lượng: chuyển hóa cơ bản khoảng 1 kcal mỗi kg cân nặng mỗi giờ; tổng nhu cầu tùy mức hoạt động", "Protein: khoảng 0,8 g/kg/ngày, ở người cao tuổi và người bệnh khoảng 1,0–1,2 g/kg/ngày", "Nước: khoảng 30–35 ml/kg/ngày (khoảng 1,5–2 lít nước uống), trừ khi bác sĩ hạn chế"] },
+        { liste: ["Năng lượng: chuyển hóa cơ bản khoảng 1 kcal mỗi kg cân nặng mỗi giờ; tổng nhu cầu tùy mức hoạt động", "Protein: khoảng 0,8 g/kg/ngày, ở người cao tuổi và người bệnh khoảng 1,0–1,2 g/kg/ngày", "Nước: khoảng 30–35 ml/kg/ngày; DGE: khoảng 1,5 lít đồ uống mỗi ngày (người cao tuổi ít nhất 1,3 lít), trừ khi bác sĩ hạn chế"] },
         { h: "Đánh giá tình trạng dinh dưỡng" },
         { tabelle: { kopf: ["BMI (kg/m²)", "Phân loại (WHO)"], zeilen: [
           ["< 18,5", "Thiếu cân"],
@@ -897,7 +897,338 @@ const BEREICHE_VI = [
           ["≥ 30", "Béo phì"]
         ] } },
         { p: "BMI = cân nặng (kg) ÷ chiều cao² (m²). Ở người cao tuổi, BMI dưới khoảng 20 đã là dấu hiệu suy dinh dưỡng. Công cụ sàng lọc: MNA (Mini Nutritional Assessment), NRS 2002, MUST. Cơ sở: Tiêu chuẩn chuyên gia „Quản lý dinh dưỡng để bảo đảm và thúc đẩy ăn uống qua đường miệng trong điều dưỡng“." },
-        { merke: "Dấu hiệu cảnh báo suy dinh dưỡng: sụt cân ngoài ý muốn (> 5 % trong 3 tháng), bỏ thừa thức ăn, khó nhai và khó nuốt, chán ăn, quần áo rộng ra." }
+        { merke: "Dấu hiệu cảnh báo suy dinh dưỡng: sụt cân ngoài ý muốn (> 5 % trong 3 tháng), bỏ thừa thức ăn, khó nhai và khó nuốt, chán ăn, quần áo rộng ra." },
+        { h: "Tổng quan các nhóm chất dinh dưỡng" },
+        { liste: [
+          "Cung cấp năng lượng: carbohydrat, chất béo và protein",
+          "Thiết yếu nhưng không cung cấp năng lượng: vitamin và chất khoáng – cơ thể không tự tạo ra được",
+          "Hợp chất thực vật thứ cấp: chỉ có trong thực vật, ví dụ chất tạo màu và mùi; chúng là chất chống oxy hóa, trung hòa gốc tự do và bảo vệ tim mạch",
+          "Chất xơ: sợi thực vật khó tiêu; giúp no lâu, hỗ trợ tiêu hóa, giảm cholesterol và đường huyết",
+          "Nước: không có nước thì không có sự sống"
+        ] },
+        { h: "Carbohydrat" },
+        { tabelle: { kopf: ["Nhóm", "Ví dụ"], zeilen: [
+          ["Đường đơn (Monosaccharide)", "Glucose (đường nho), fructose (đường trái cây)"],
+          ["Đường đôi (Disaccharide)", "Saccharose (đường ăn), maltose (đường mạch nha), lactose (đường sữa)"],
+          ["Đường đa (Polysaccharide)", "Tinh bột, một số chất xơ như cellulose"]
+        ] } },
+        { p: "Thực phẩm giàu đường đa và chất xơ (ngũ cốc nguyên hạt, khoai tây, các loại đậu, rau, trái cây) giúp no lâu và cung cấp thêm vitamin, chất khoáng. Ngược lại, nhiều đường chỉ cho năng lượng „rỗng“ không có vitamin, gây thèm ăn, thừa cân và sâu răng." },
+        { h: "Chất béo" },
+        { liste: [
+          "Axit béo bão hòa: chủ yếu trong thực phẩm động vật như bơ, kem, xúc xích – dùng tiết kiệm",
+          "Axit béo không bão hòa: trong dầu thực vật, các loại hạt và cá; đặc biệt loại không bão hòa đa (ví dụ omega-3) rất có giá trị",
+          "Axit béo chuyển hóa (trans): hình thành khi làm cứng chất béo trong công nghiệp, ví dụ trong bánh ngàn lớp, đồ chiên, khoai tây chiên lát; không tốt cho cholesterol",
+          "Nhiều cholesterol (nội tạng, lòng đỏ trứng, phô mai béo) và chất béo bão hòa thúc đẩy xơ vữa động mạch, nhồi máu cơ tim và đột quỵ"
+        ] },
+        { h: "Nhu cầu năng lượng" },
+        { p: "Tổng nhu cầu gồm năng lượng lúc nghỉ (phụ thuộc tuổi, giới, chiều cao, cân nặng và hormon) và năng lượng cho vận động. Mức hoạt động thể lực được tính bằng chỉ số PAL: từ khoảng 1,2 (nằm liệt giường) đến 2,4 (lao động rất nặng). Vòng eo: nguy cơ tăng khi trên 94 cm (nam) hoặc trên 80 cm (nữ), tăng rõ khi trên 102 cm hoặc trên 88 cm." }
+      ] },
+      { id: "dge", titel: "DGE và các khuyến nghị", kurz: "DGE là gì, thành lập, nhiệm vụ, vòng tròn dinh dưỡng", abschnitte: [
+        { h: "DGE là gì?" },
+        { p: "Hội Dinh dưỡng Đức (Deutsche Gesellschaft für Ernährung e. V., DGE) là hội chuyên môn khoa học về dinh dưỡng tại Đức. Đây là một hội đã đăng ký (e. V.), trụ sở tại Bonn. Ban chủ tịch khoa học của hội làm việc độc lập. DGE hoạt động trên toàn quốc và qua các chi hội vùng, đồng thời đại diện cho Đức ở châu Âu và quốc tế." },
+        { h: "Thành lập" },
+        { p: "DGE được thành lập ngày 4 tháng 11 năm 1953 tại Bad Neuenahr. Khi đó nhiều hội trước đây đã làm việc về dinh dưỡng và việc cung cấp lương thực cho dân chúng hợp nhất lại. Sau những năm đói kém và thiếu thốn của chiến tranh và thời hậu chiến, cần có một cơ quan khoa học chung. Cơ quan này gom các nghiên cứu dinh dưỡng lại và đưa ra khuyến nghị đáng tin cậy cho sức khỏe người dân." },
+        { merke: "Tóm lại: DGE được thành lập để kiến thức từ nghiên cứu dinh dưỡng được kiểm tra trung lập và truyền đạt dễ hiểu đến mọi người." },
+        { h: "Nguyên tắc" },
+        { liste: ["Các nhận định đều có cơ sở khoa học", "Được xây dựng trung lập, độc lập và minh bạch", "Cái nhìn cởi mở, toàn diện và bền vững về dinh dưỡng", "Phương châm: kết nối khoa học và thực hành"] },
+        { h: "Mục tiêu" },
+        { p: "Dựa trên nghiên cứu, DGE xây dựng các khuyến nghị dinh dưỡng áp dụng cho nước Đức. Hội truyền đạt các khuyến nghị này phù hợp với từng nhóm đối tượng. Mục tiêu là thúc đẩy và duy trì sức khỏe người dân lâu dài, đồng thời chú ý đến tính bền vững." },
+        { h: "Nhiệm vụ và hoạt động" },
+        { liste: [
+          "Xây dựng khuyến nghị khoa học, ví dụ giá trị tham chiếu cho lượng chất dinh dưỡng, hướng dẫn, ý kiến chuyên môn và nội dung cho báo cáo dinh dưỡng",
+          "Công bố kết quả: tài liệu in, internet, mạng xã hội và sự kiện",
+          "Chương trình giáo dục và tư vấn dinh dưỡng, ví dụ tài liệu chuyên môn, khóa phòng bệnh được chứng nhận và phần mềm dinh dưỡng",
+          "Bảo đảm chất lượng: tiêu chuẩn chất lượng DGE cho suất ăn tập thể, ví dụ trong viện dưỡng lão và dịch vụ „Essen auf Rädern“ (giao cơm tận nhà), có chứng nhận („Fit im Alter“)",
+          "Đào tạo người truyền đạt kiến thức, ví dụ khóa học, hội thảo và chương trình giảng dạy",
+          "Phát hiện và thúc đẩy nhu cầu nghiên cứu trong khoa học dinh dưỡng"
+        ] },
+        { h: "DGE làm việc cho ai?" },
+        { p: "Cho giới khoa học và chuyên gia, cho người truyền đạt kiến thức như điều dưỡng, giáo viên và tư vấn dinh dưỡng, cho chính trị và hành chính, hiệp hội và doanh nghiệp, cho suất ăn tập thể và báo chí – và thông qua báo chí cho mọi người tiêu dùng." },
+        { h: "Vòng tròn dinh dưỡng DGE" },
+        { liste: [
+          "Chia thực phẩm thành 7 nhóm: phần càng lớn thì càng nên ăn nhiều",
+          "Ở giữa là đồ uống, nhóm lớn nhất",
+          "Thực phẩm thực vật chiếm hơn ¾: rau và trái cây, đậu và các loại hạt, ngũ cốc và khoai tây, dầu",
+          "Thực phẩm động vật chiếm gần ¼: sữa và chế phẩm sữa cũng như cá, thịt, xúc xích và trứng"
+        ] },
+        { tabelle: { kopf: ["Nhóm", "Định hướng (DGE 2024)"], zeilen: [
+          ["Đồ uống", "Khoảng 1,5 lít mỗi ngày, tốt nhất là nước lọc hoặc trà không đường"],
+          ["Rau và trái cây", "Ít nhất 5 phần mỗi ngày: 3 phần rau và 2 phần trái cây (1 phần ≈ một nắm tay)"],
+          ["Đậu và các loại hạt", "Đậu ít nhất 1 lần mỗi tuần, mỗi ngày một nắm nhỏ hạt"],
+          ["Ngũ cốc và khoai tây", "Mỗi ngày, tốt nhất là nguyên hạt („màu sẫm“ không có nghĩa là nguyên hạt)"],
+          ["Dầu và chất béo", "Ưu tiên dầu thực vật, ví dụ dầu hạt cải; tránh chất béo ẩn trong xúc xích, bánh và đồ ăn sẵn"],
+          ["Sữa và chế phẩm sữa", "Mỗi ngày, khoảng 2 phần"],
+          ["Cá, thịt, xúc xích, trứng", "Cá 1–2 lần mỗi tuần (trong đó 1 lần cá biển béo); thịt và xúc xích tối đa 300 g mỗi tuần"]
+        ] } },
+        { h: "Khuyến nghị DGE „Ăn uống tốt“ (2024)" },
+        { liste: ["Tốt nhất là uống nước lọc", "Rau và trái cây – nhiều và đa màu", "Ăn đậu và các loại hạt thường xuyên", "Ngũ cốc nguyên hạt là lựa chọn tốt nhất", "Ưu tiên dầu thực vật", "Sữa và chế phẩm sữa mỗi ngày", "Cá mỗi tuần", "Thịt và xúc xích – càng ít càng tốt", "Đồ ngọt, mặn và béo – tốt nhất là bỏ qua", "Thưởng thức bữa ăn", "Vận động và chú ý cân nặng"] },
+        { merke: "Ý chính: nhiều thực phẩm thực vật hơn, ít thực phẩm động vật hơn. Điều này bảo vệ sức khỏe, môi trường và khí hậu." },
+        { h: "Mẹo cho người cao tuổi" },
+        { liste: [
+          "Khi khó nhai, cho dùng hạt xay nhỏ hoặc dạng bơ hạt",
+          "Làm quen dần với ngũ cốc nguyên hạt, ví dụ trộn bột trắng và bột nguyên hạt; bánh mì nguyên hạt xay mịn vẫn mềm",
+          "Sữa được tính là thực phẩm, không phải đồ uống",
+          "Sữa chua, kefir, sữa bơ và phô mai ủ lâu thường dễ dung nạp",
+          "Thực phẩm càng chế biến nhiều thì thường càng kém tốt cho sức khỏe"
+        ] }
+      ] },
+      { id: "alter", titel: "Dinh dưỡng ở người cao tuổi", kurz: "Thay đổi, năng lượng, chất dinh dưỡng cần chú ý, suy dinh dưỡng", abschnitte: [
+        { h: "Các nhóm tuổi" },
+        { tabelle: { kopf: ["Tuổi", "Tên gọi"], zeilen: [
+          ["65–74 tuổi", "Người già trẻ, còn năng động"],
+          ["75–89 tuổi", "Người rất cao tuổi"],
+          ["90–99 tuổi", "Người cực kỳ cao tuổi"],
+          ["từ 100 tuổi", "Người sống thọ"]
+        ] } },
+        { p: "Người cao tuổi rất khác nhau: từ người còn khỏe, tự lo cho bản thân đến người bệnh, cần chăm sóc ở cơ sở chăm sóc ban ngày hoặc viện dưỡng lão. Vì vậy chế độ ăn luôn được lập riêng cho từng người." },
+        { h: "Những thay đổi trong cơ thể" },
+        { tabelle: { kopf: ["Bộ phận", "Thay đổi", "Ảnh hưởng đến ăn uống"], zeilen: [
+          ["Giác quan", "Nhìn, ngửi và nếm kém hơn", "Khó nhận ra món ăn, thấy nhạt, ăn ít hơn"],
+          ["Miệng", "Mất răng, răng giả không vừa, ít nước bọt", "Khó nhai và khó nuốt; tránh ngũ cốc nguyên hạt, trái cây và rau"],
+          ["Dạ dày", "Kém giãn, làm rỗng chậm, ít acid dạ dày và yếu tố nội (Intrinsic Factor)", "No sớm và lâu; hấp thu vitamin B12, canxi và sắt kém hơn"],
+          ["Tụy, gan, mật", "Ít enzym tiêu hóa và insulin hơn", "Rối loạn tiêu hóa, nguy cơ đái tháo đường cao hơn"],
+          ["Ruột", "Chậm hơn, có thể ít enzym hơn", "Táo bón; đôi khi khó dung nạp đường sữa"],
+          ["Thận", "Cô đặc nước tiểu kém hơn", "Mất nhiều nước hơn – cần uống đủ"],
+          ["Cơ và xương", "Khối cơ và khối xương giảm, tỷ lệ mỡ tăng", "Nhu cầu năng lượng giảm, dễ ngã và gãy xương; protein, canxi và vitamin D rất quan trọng"],
+          ["Da", "Tạo ít vitamin D hơn", "Canxi hấp thu kém hơn, nguy cơ loãng xương"],
+          ["Hormon", "Nhiều hormon gây no hơn, cảm giác khát giảm", "Ăn kém ngon, uống quá ít"]
+        ] } },
+        { merke: "Câu cốt lõi: nhu cầu năng lượng giảm, nhu cầu chất dinh dưỡng giữ nguyên hoặc tăng. Vì vậy bữa ăn ở tuổi già phải đặc biệt giàu chất dinh dưỡng." },
+        { h: "Năng lượng và protein" },
+        { liste: [
+          "Năng lượng: định hướng sơ bộ khoảng 30 kcal mỗi kg cân nặng mỗi ngày (khi cân nặng bình thường)",
+          "Cần nhiều năng lượng hơn ví dụ khi có vết thương lớn, nhiễm trùng nặng, ung thư hoặc sa sút trí tuệ kèm đi lại liên tục",
+          "Protein: khoảng 1 g mỗi kg cân nặng mỗi ngày (người trẻ 0,8 g), nhiều hơn khi thiếu cân, viêm hoặc có vết thương",
+          "Chia protein vào mọi bữa chính và kết hợp với vận động để giữ cơ",
+          "BMI 25–30 thì không ăn kiêng: giảm cân ở tuổi già chủ yếu làm mất cơ"
+        ] },
+        { h: "Chất dinh dưỡng cần chú ý ở tuổi già – và lý do" },
+        { tabelle: { kopf: ["Chất dinh dưỡng", "Vì sao cần chú ý?", "Nguồn tốt"], zeilen: [
+          ["Vitamin D", "Da tạo ít hơn khi già, nhiều người ít ra ngoài. Thiếu gây loãng xương, ngã và gãy xương", "Ánh nắng; thực phẩm chỉ cung cấp ít (cá béo, lòng đỏ trứng). Thường dùng viên 20 µg (800 IE) mỗi ngày, hỏi ý kiến bác sĩ"],
+          ["Canxi", "Thành phần của xương và răng, quan trọng cho thần kinh, cơ và đông máu. Thiếu gây loãng xương", "Sữa và chế phẩm sữa, rau xanh (bông cải xanh, cải xoăn), mè, nước khoáng có ít nhất 150 mg/l canxi"],
+          ["Vitamin B12", "Ít acid dạ dày và yếu tố nội, cộng thêm thuốc: hấp thu kém. Thiếu gây thiếu máu, rối loạn thần kinh và lú lẫn", "Thịt, cá, trứng, chế phẩm sữa; nên được bác sĩ kiểm tra định kỳ"],
+          ["Folat", "Quan trọng cho phân chia tế bào và tạo máu; thiếu do thuốc hoặc rượu gây thiếu máu", "Rau xanh, xà lách, đậu, ngũ cốc nguyên hạt, cam"],
+          ["Sắt", "Vận chuyển oxy trong máu; hấp thu kém khi có bệnh dạ dày – ruột", "Thịt, ngũ cốc nguyên hạt, yến mạch, đậu; ăn kèm vitamin C"],
+          ["Protein (chất đạm)", "Giữ cơ, sức đề kháng và giúp lành vết thương; thiếu gây teo cơ (Sarkopenie) và suy yếu", "Chế phẩm sữa, cá, thịt, trứng, đậu"],
+          ["Chất xơ", "Ruột hoạt động chậm hơn; chất xơ phòng táo bón, túi thừa và ung thư ruột", "Ngũ cốc nguyên hạt, rau, trái cây, đậu, hạt – chỉ khi uống đủ nước"],
+          ["Nước", "Ít khát, ít nước trong cơ thể, thận cô đặc kém", "Nước lọc, trà, nước ép pha loãng, món ăn nhiều nước"]
+        ] } },
+        { p: "Ngoài ra vitamin E, vitamin C và magie cũng thường được kể là chất dinh dưỡng cần chú ý ở tuổi già." },
+        { h: "Kết hợp protein thông minh" },
+        { p: "Giá trị sinh học cho biết cơ thể chuyển protein trong thức ăn thành protein của cơ thể tốt đến mức nào. Khi kết hợp các nguồn protein thực vật với nhau hoặc với nguồn động vật, giá trị này tăng lên." },
+        { liste: ["Ngũ cốc + đậu: súp đậu Hà Lan với bánh mì, đậu lăng với cơm hoặc mì Spätzle", "Ngũ cốc + chế phẩm sữa: bánh mì nguyên hạt với phô mai, cơm sữa, mì đút lò với phô mai", "Khoai tây + chế phẩm sữa: khoai tây luộc với quark, khoai tây nghiền", "Khoai tây + trứng: khoai tây với trứng ốp la hoặc trứng bác"] },
+        { h: "Những thách thức đặc biệt" },
+        { liste: [
+          "Thể chất: tay kém khéo léo, liệt sau đột quỵ, run do Parkinson, khó nhai và khó nuốt",
+          "Bệnh tật và thuốc làm giảm cảm giác thèm ăn",
+          "Tinh thần: hay quên, lú lẫn, sa sút trí tuệ",
+          "Tâm lý và xã hội: cô đơn, trầm cảm, không muốn ăn"
+        ] },
+        { h: "Malnutrition, Frailty và Sarkopenie" },
+        { tabelle: { kopf: ["Thuật ngữ", "Ý nghĩa"], zeilen: [
+          ["Malnutrition", "Thuật ngữ chung cho dinh dưỡng sai lệch và suy dinh dưỡng do thiếu năng lượng và/hoặc chất dinh dưỡng; gây thay đổi đo được trên cơ thể và thường bị bỏ sót"],
+          ["Suy dinh dưỡng về lượng", "Trong thời gian dài ăn vào ít năng lượng hơn nhu cầu"],
+          ["Suy dinh dưỡng về chất", "Thiếu một số chất như protein, vitamin hoặc chất khoáng – có thể xảy ra cả khi cân nặng bình thường hoặc thừa cân"],
+          ["Frailty (suy yếu)", "Dự trữ của cơ thể giảm, khó chịu đựng gánh nặng. Chẩn đoán khi có ít nhất 3 trong 5 dấu hiệu: sụt cân (khoảng 5 kg trong 12 tháng), kiệt sức, lực tay yếu, đi chậm, ít vận động"],
+          ["Sarkopenie", "Mất khối cơ và sức cơ do tuổi tác; từ 30 đến 80 tuổi mất hơn 30 % khối cơ, ảnh hưởng đến hô hấp, vận động và sự vững vàng"]
+        ] } },
+        { h: "Hậu quả của suy dinh dưỡng" },
+        { liste: ["Cơ yếu hơn, ngã và gãy xương nhiều hơn", "Hồi phục chậm hơn", "Vết thương lâu lành, nguy cơ loét tì đè cao hơn", "Nhiễm trùng nhiều hơn", "Rối loạn thần kinh và trí tuệ"] },
+        { h: "Dấu hiệu cảnh báo trong chăm sóc hằng ngày" },
+        { liste: ["Không còn ăn hết đĩa hoặc từ chối cả bữa ăn", "Từ chối đồ uống, da và niêm mạc khô, nứt", "Không thấy ngon miệng, „ăn không còn ngon nữa“", "Nhẫn, thắt lưng và quần áo ngày càng rộng", "Đau răng hoặc khó nuốt"] },
+        { h: "Nhận biết và điều trị" },
+        { liste: [
+          "Cân thường xuyên và quan sát kỹ",
+          "Sàng lọc, ví dụ MNA, MUST, SGA hoặc PEMU (đánh giá điều dưỡng về suy dinh dưỡng và nguyên nhân)",
+          "Ghi phiếu theo dõi ăn và uống, chú ý tiểu sử ăn uống, tìm nguyên nhân riêng",
+          "Khi cần làm thêm xét nghiệm, ví dụ BIA (đo thành phần cơ thể) hoặc xét nghiệm máu",
+          "Làm việc nhóm: điều dưỡng, chuyên gia dinh dưỡng, bác sĩ, ngôn ngữ trị liệu, hoạt động trị liệu, bếp và bộ phận phục vụ"
+        ] },
+        { tabelle: { kopf: ["Bậc", "Điều trị suy dinh dưỡng"], zeilen: [
+          ["1", "Ăn bình thường qua miệng, được điều chỉnh và làm giàu năng lượng"],
+          ["2", "Thêm sữa dinh dưỡng uống hoặc chất dinh dưỡng cô đặc"],
+          ["3", "Nuôi ăn qua đường tiêu hóa bằng ống"],
+          ["4", "Nuôi ăn qua đường tĩnh mạch"]
+        ] } },
+        { merke: "Phát hiện sớm, tránh được nguy hiểm: suy dinh dưỡng có thể điều trị nếu quan sát kỹ và hành động ngay." },
+        { link: { bereich: "prophylaxen", kapitel: "mangelernaehrung" } }
+      ] },
+      { id: "trinken", titel: "Uống nước ở tuổi già", kurz: "Uống bao nhiêu, vì sao, nhận biết và phòng thiếu nước", abschnitte: [
+        { h: "Vì sao phải uống?" },
+        { p: "Cơ thể người lớn có 50–60 % là nước, khi về già chỉ còn khoảng 40–50 %. Không có nước con người chỉ sống được 2–4 ngày, không có thức ăn đặc thì 30 ngày hoặc lâu hơn." },
+        { liste: [
+          "Nước là thành phần của mọi tế bào và dịch cơ thể",
+          "Nước vận chuyển chất dinh dưỡng đến các cơ quan và chất thải đến thận",
+          "Nước tham gia các phản ứng hóa học trong chuyển hóa",
+          "Nước giữ thân nhiệt ổn định (đổ mồ hôi làm mát)",
+          "Nước làm thức ăn trong ruột nở ra và phòng táo bón"
+        ] },
+        { p: "Cơ thể liên tục mất nước qua thận, ruột, da và hơi thở. Cảm giác khát chỉ xuất hiện khi đã thiếu khoảng 0,5 % cân nặng là nước – với người 60 kg là khoảng 300 ml." },
+        { h: "Uống bao nhiêu?" },
+        { tabelle: { kopf: ["Nhóm", "Giá trị định hướng"], zeilen: [
+          ["Người lớn nói chung (DGE 2024)", "Khoảng 1,5 lít đồ uống mỗi ngày"],
+          ["Người cao tuổi (từ 65)", "Ít nhất 1,3 lít, tốt hơn 1,5 lít qua đồ uống"],
+          ["Tổng lượng nước từ 65 tuổi", "Khoảng 2,25 lít mỗi ngày: 1,31 lít từ đồ uống, 0,68 lít từ thức ăn đặc, 0,26 lít nước oxy hóa (≈ 30 ml mỗi kg cân nặng)"]
+        ] } },
+        { tabelle: { kopf: ["Nước vào (người lớn)", "Nước ra"], zeilen: [
+          ["Đồ uống khoảng 1,4 lít", "Nước tiểu khoảng 1,4 lít"],
+          ["Thức ăn đặc khoảng 0,9 lít", "Phân khoảng 0,2 lít"],
+          ["Nước oxy hóa khoảng 0,3 lít", "Da khoảng 0,5 lít và phổi khoảng 0,5 lít"],
+          ["Tổng khoảng 2,6 lít", "Tổng khoảng 2,6 lít"]
+        ] } },
+        { liste: [
+          "Uống nhiều hơn khi trời nóng, lạnh, không khí sưởi hoặc máy lạnh",
+          "… khi vận động, bồn chồn hoặc đi lại liên tục",
+          "… khi sốt, nôn hoặc tiêu chảy",
+          "… khi dùng thuốc lợi tiểu hoặc thuốc nhuận tràng",
+          "… khi ăn nhiều muối hoặc protein và khi ăn rất ít"
+        ] },
+        { warn: "Khi suy tim và một số bệnh thận hoặc gan, bác sĩ có thể hạn chế lượng nước uống. Khi đó phải tính cân bằng dịch, và mọi chất lỏng đều được tính, kể cả sữa và súp." },
+        { h: "Nguyên nhân thiếu nước ở tuổi già" },
+        { tabelle: { kopf: ["Uống quá ít", "Mất quá nhiều"], zeilen: [
+          ["Cảm giác khát giảm", "Thận cô đặc kém, bài tiết nhiều nước tiểu hơn"],
+          ["Sợ đi vệ sinh, ví dụ khi tiểu không tự chủ hoặc bệnh tuyến tiền liệt", "Đổ mồ hôi khi trời nóng, phòng quá ấm, sốt hoặc đi lại liên tục"],
+          ["Rối loạn nuốt", "Tiêu chảy và nôn"],
+          ["Hay quên, sa sút trí tuệ, thiếu hỗ trợ", "Thuốc lợi tiểu (Diuretika) và thuốc nhuận tràng (Laxanzien)"],
+          ["Thói quen được dạy: „Khi ăn thì không uống!“", "–"]
+        ] } },
+        { h: "Triệu chứng thiếu nước" },
+        { liste: [
+          "Sớm: da và niêm mạc khô, môi nứt, khô miệng",
+          "Mệt mỏi, yếu, khó tập trung, đau đầu, chóng mặt",
+          "Nước tiểu sẫm màu, cô đặc, ít nước tiểu, táo bón",
+          "Ở người cao tuổi: đột ngột lú lẫn",
+          "Muộn hơn: tim đập nhanh, thân nhiệt tăng, yếu cơ và chuột rút, nhiễm trùng tiết niệu",
+          "Nặng: mê sảng, thờ ơ, rối loạn ý thức, huyết khối, suy tuần hoàn và suy thận – nguy hiểm tính mạng"
+        ] },
+        { tabelle: { kopf: ["Lượng nước mất (ông cụ, 75 kg)", "Dấu hiệu"], zeilen: [
+          ["từ 0,5 %", "Khát – người già thường không nhận ra"],
+          ["đến 3 % (khoảng 2,5 lít)", "Sụt cân, ít nước tiểu và nước bọt, khô miệng"],
+          ["từ 5 % (khoảng 4 lít)", "Da nhăn nheo, lưỡi sưng, khó nuốt, mạch nhanh, thân nhiệt tăng, máu cô đặc"],
+          ["từ 10 % (khoảng 7 lít)", "Suy giảm mạnh thể chất và tinh thần, lú lẫn, chuột rút, trụy tuần hoàn – không bù nước sẽ nguy hiểm tính mạng"]
+        ] } },
+        { merke: "Mất nước (Dehydratation, Exsikkose) ở tuổi già xảy ra rất nhanh. Khi có dấu hiệu đầu tiên phải hành động ngay, khi có dấu hiệu nặng phải gọi bác sĩ ngay." },
+        { h: "Phòng ngừa: khuyến khích uống" },
+        { liste: [
+          "Mỗi bữa ăn đều mời đồ uống, rót thêm ngay khi ly cạn",
+          "Để đồ uống ở chỗ dễ thấy, dễ lấy; chuẩn bị sẵn lượng cả ngày từ buổi sáng",
+          "Hỏi đồ uống yêu thích và nhiệt độ mong muốn, thay đổi đa dạng",
+          "Ly có màu hoặc đồ uống có màu để người bệnh nhìn thấy nước",
+          "Tạo hương cho nước bằng trái cây, rau thơm hoặc một chút nước ép",
+          "Thói quen uống cố định, ví dụ một ly nước sau khi thức dậy hoặc trà buổi chiều",
+          "Câu chúc, bài hát khi uống, cùng uống và cụng ly (làm gương)",
+          "Điểm uống nước („Trink-Oasen“) trong khu sinh hoạt, chú ý vệ sinh",
+          "Dụng cụ hỗ trợ phù hợp, ví dụ cốc hai quai, cốc khoét chỗ mũi hoặc cốc chống đổ",
+          "Với người có nguy cơ, ghi phiếu theo dõi uống nước, đánh giá mỗi ngày và cùng nhóm điều chỉnh biện pháp",
+          "Khuyến khích nhưng không bao giờ ép uống"
+        ] },
+        { h: "Đồ uống phù hợp" },
+        { liste: [
+          "Tốt nhất là nước máy hoặc nước khoáng, trà thảo mộc hoặc trà trái cây không đường",
+          "Nước ép pha loãng gồm 3 phần nước và 1 phần nước ép",
+          "Cà phê, trà đen và trà xanh cũng được tính, nhưng chỉ vừa phải (đến khoảng 4 tách mỗi ngày)",
+          "Sữa không được tính là đồ uống mà là thực phẩm",
+          "Khi tăng huyết áp nên chọn nước ít natri",
+          "Đồ uống có đường và có cồn không được khuyến khích; rượu có thể tương tác với thuốc"
+        ] },
+        { h: "Khi khô miệng và rối loạn nuốt" },
+        { liste: [
+          "Khô miệng thường do thuốc hoặc uống quá ít: thường xuyên mời từng ngụm nhỏ, súc miệng, món mềm nhiều nước; đồ chua kích thích tiết nước bọt",
+          "Khi rối loạn nuốt, đồ uống loãng chảy quá nhanh: làm đặc bằng chất làm đặc, thống nhất liều lượng trong nhóm",
+          "Bình tĩnh và đủ thời gian khi cho uống, ngồi thẳng",
+          "Kiểm tra nhiệt độ đồ uống nóng, nhất là khi dùng cốc có vòi"
+        ] },
+        { link: { bereich: "prophylaxen", kapitel: "dehydratation" } }
+      ] },
+      { id: "demenz_ernaehrung", titel: "Dinh dưỡng khi sa sút trí tuệ", kurz: "Hiểu hành vi ăn uống, Fingerfood, uống nước, môi trường ăn", abschnitte: [
+        { h: "Sa sút trí tuệ là gì?" },
+        { p: "Sa sút trí tuệ (Demenz) là thuật ngữ chung cho các bệnh của não, trong đó các khả năng trí tuệ như trí nhớ, định hướng, ngôn ngữ và khả năng phán đoán suy giảm. Cảm xúc và cảm nhận giác quan được giữ lâu. Ở Đức có khoảng 1,8 triệu người sống với sa sút trí tuệ." },
+        { tabelle: { kopf: ["Phân loại", "Đặc điểm"], zeilen: [
+          ["Sa sút trí tuệ nguyên phát (khoảng 90 %)", "Bệnh của chính não bộ, không chữa khỏi; Alzheimer khoảng 60–65 %, sa sút trí tuệ do mạch máu khoảng 20–25 %"],
+          ["Sa sút trí tuệ thứ phát (khoảng 10 %)", "Do nguyên nhân khác, ví dụ thiếu vitamin, rối loạn chuyển hóa, rượu hoặc thuốc – thường điều trị được"]
+        ] } },
+        { tabelle: { kopf: ["Giai đoạn", "Ảnh hưởng đến ăn uống"], zeilen: [
+          ["Nhẹ", "Còn tự lập nhưng việc mua sắm, lên kế hoạch và dự trữ trở nên khó; quên ăn, quên uống"],
+          ["Trung bình", "Cần người giúp; khó tập trung khi ăn, khó dùng dao nĩa, bồn chồn"],
+          ["Nặng", "Không còn tự sống được; rối loạn nuốt, rất dễ phân tâm, từ chối bữa ăn"]
+        ] } },
+        { h: "Sa sút trí tuệ thay đổi việc ăn uống như thế nào" },
+        { liste: [
+          "Trí nhớ: quên ăn và uống – hoặc ăn mãi không dừng",
+          "Không còn cảm nhận đúng cơn đói, cảm giác no và khát",
+          "Vị giác và khứu giác thay đổi, thường thích đồ ngọt",
+          "Không còn nhận ra dao nĩa và món ăn (Agnosie), không còn thực hiện được động tác (Apraxie)",
+          "Mất ngôn ngữ (Aphasie) làm khó bày tỏ mong muốn; thu mình và trầm cảm",
+          "Bồn chồn và đi lại liên tục: nhu cầu năng lượng có thể tăng gấp đôi",
+          "Nghi ngờ, ví dụ sợ bị đầu độc; bị quá tải, ví dụ bởi khay đầy thức ăn",
+          "Rối loạn nuốt ở giai đoạn muộn"
+        ] },
+        { warn: "Vòng luẩn quẩn: sa sút trí tuệ → ăn uống ít hơn → sụt cân, thiếu chất và mất nước → teo cơ (Sarkopenie), suy yếu và trí tuệ còn kém hơn. Sụt cân ngoài ý muốn có thể là dấu hiệu sa sút trí tuệ nhiều năm trước khi được chẩn đoán." },
+        { h: "Dinh dưỡng có làm chậm tiến triển không?" },
+        { p: "Không có chế độ ăn nào chữa khỏi hoặc chắc chắn ngăn được sa sút trí tuệ. Nhưng dinh dưỡng có thể ngăn tình trạng xấu thêm, giữ sức lực và chất lượng cuộc sống." },
+        { liste: [
+          "Uống đủ: thiếu nước gây lú lẫn cấp (mê sảng, Delir) và làm sa sút trí tuệ nặng hơn",
+          "Ngăn suy dinh dưỡng: thiếu năng lượng và chất dinh dưỡng làm cơ, sức đề kháng và trí tuệ yếu thêm",
+          "Khi sụt cân hoặc đi lại liên tục, làm giàu năng lượng, ví dụ bằng dầu hạt cải, kem, bơ, hạt xay, bột protein hoặc sữa dinh dưỡng",
+          "Nhờ bác sĩ kiểm tra vitamin B12, folat và vitamin D: thiếu vitamin có thể gây hoặc làm nặng sa sút trí tuệ và điều trị được",
+          "Ăn tốt cho tim mạch (nhiều rau, trái cây, ngũ cốc nguyên hạt, cá, dầu thực vật, ít muối): giảm các yếu tố nguy cơ như tăng huyết áp và đái tháo đường, đặc biệt quan trọng với sa sút trí tuệ do mạch máu",
+          "Ăn cùng nhau, vận động và hoạt động giúp ngon miệng, hòa nhập và kích thích trí tuệ"
+        ] },
+        { merke: "Người sa sút trí tuệ áp dụng cùng khuyến nghị dinh dưỡng như những người cao tuổi khác. Điều quan trọng là niềm vui ăn uống, sự tự lập và tiểu sử ăn uống của từng người." },
+        { h: "Tiểu sử ăn uống (Essbiografie)" },
+        { p: "Tiểu sử ăn uống ghi lại sở thích, điều không thích và thói quen ăn uống. Nó thuộc hồ sơ điều dưỡng, được cập nhật liên tục và đặc biệt quan trọng khi người bệnh không còn tự nói được. Người thân, điều dưỡng, bếp và bộ phận phục vụ cùng đóng góp." },
+        { liste: [
+          "Quê quán: người đó đã sống ở đâu, biết những món ăn vùng miền nào?",
+          "Tuổi thơ: món yêu thích, món an ủi, thời kỳ đói khổ trong chiến tranh hoặc hậu chiến?",
+          "Nếp sinh hoạt: mấy bữa, ăn bữa nóng lúc nào, ăn sáng muộn?",
+          "Đồ uống: uống gì, lúc nào và bao nhiêu?",
+          "Nghề nghiệp: ăn gì và lúc nào khi đi làm?",
+          "Dị ứng, không dung nạp và món không thích",
+          "Tôn giáo và văn hóa: lễ hội, cầu nguyện trước bữa ăn, quy định ăn uống",
+          "Không gian ăn: thích ăn một mình hay có người, yên tĩnh hay trò chuyện?"
+        ] },
+        { h: "Điều chỉnh món ăn" },
+        { liste: [
+          "Ưu tiên món ngọt, có thể nêm hơi ngọt cả món mặn",
+          "Giàu năng lượng, làm giàu thêm khi cần",
+          "Màu sắc tươi, dùng rau thơm thay cho nhiều muối",
+          "Nhiều bữa nhỏ thay vì ít bữa lớn",
+          "Giờ ăn linh hoạt, có thể có bữa nóng buổi tối hoặc ban đêm",
+          "Khi luôn muốn ăn, dùng đồ ăn vặt ít năng lượng như rau cắt que hoặc dưa chuột lát"
+        ] },
+        { h: "Fingerfood (thức ăn cầm tay)" },
+        { p: "Fingerfood giúp người bệnh tự ăn lại khi không còn dùng được dao nĩa. Việc cầm nắm kích thích giác quan và tăng lòng tự trọng. Các miếng nên vừa 1–2 miếng cắn, dễ cầm, không vụn, không dính và dễ nhai, dễ nuốt." },
+        { tabelle: { kopf: ["Bữa ăn", "Ví dụ"], zeilen: [
+          ["Bữa sáng, bữa tối, bữa phụ", "Miếng trái cây và rau với sốt quark, trái cây sấy, thanh ngũ cốc mềm, bánh mì nhỏ gập đôi, bánh quy giòn có nhân, bánh bột báng cắt miếng, bánh ngọt cắt nhỏ, trứng cắt tư, phô mai cắt khối, bánh su nhỏ có nhân"],
+          ["Bữa trưa", "Miếng rau, khoai tây múi cau hoặc khoai viên chiên, miếng pizza hoặc quiche, mì Tortellini hoặc Penne, gà xé sợi mềm, thịt viên nhỏ, cá tẩm bột que; nước sốt để chấm hoặc trong cốc để uống"]
+        ] } },
+        { liste: [
+          "„Eat by walking“: thức ăn mang theo cho người đi lại liên tục",
+          "Điểm ăn có Fingerfood và đồ uống dọc lối đi, chú ý vệ sinh",
+          "Thỉnh thoảng phục vụ Fingerfood cho mọi người để không ai cảm thấy bị tách biệt"
+        ] },
+        { h: "Uống nước khi sa sút trí tuệ" },
+        { liste: [
+          "Định hướng khoảng 1,3 lít mỗi ngày, nhiều hơn khi bồn chồn, trời nóng hoặc bị bệnh",
+          "Luôn để đồ uống trong tầm nhìn và chủ động mời nhiều lần",
+          "Cốc có màu, quai lớn mềm, cốc chống đổ hoặc ống hút",
+          "Có thể pha ngọt đồ uống; đồ uống ấm thường được ưa hơn – kiểm tra nhiệt độ",
+          "Thói quen uống cố định, cùng cụng ly, hát bài hát khi uống",
+          "Khi rối loạn nuốt thì làm đặc; khi sụt cân dùng đồ uống giàu năng lượng như sữa lắc hoặc ca cao"
+        ] },
+        { h: "Môi trường ăn hỗ trợ" },
+        { liste: [
+          "Không gian yên tĩnh, sáng sủa, tắt radio và tivi; giờ ăn được bảo vệ, không thăm khám hay dọn dẹp",
+          "Chỗ ngồi cố định, người ngồi cạnh và người chăm sóc cố định, nghi thức như cầu nguyện hoặc bài hát",
+          "Tương phản: món ăn nổi bật trên đĩa, đĩa nổi bật trên khăn bàn; không dùng đĩa có hoa văn",
+          "Dọn từng món lần lượt, chỉ để dao nĩa cần thiết – tránh quá tải",
+          "Ăn cùng nhau: người chăm sóc cùng ăn và làm gương",
+          "Cho tham gia: dọn bàn hoặc gọt khoai tây giúp định hướng và cảm giác được cần đến",
+          "Giúp càng ít càng tốt, nhiều như cần thiết; báo trước khi đút ăn hoặc đeo yếm",
+          "Không nhận xét cách ăn, cho phép ăn bằng tay",
+          "Nói chuyện bình tĩnh, rõ ràng và tôn trọng (Validation), không cãi lại"
+        ] },
+        { link: { bereich: "ernaehrung", kapitel: "dysphagie" } }
       ] },
       { id: "dysphagie", titel: "Rối loạn nuốt (Dysphagie)", kurz: "Nhận biết rối loạn nuốt và hỗ trợ ăn an toàn", abschnitte: [
         { h: "Định nghĩa và nguyên nhân" },
@@ -914,6 +1245,28 @@ const BEREICHE_VI = [
           "Sau ăn ngồi thẳng 30 phút, kiểm tra khoang miệng, chăm sóc răng miệng",
           "Phối hợp ngôn ngữ trị liệu (chẩn đoán nuốt, tập nuốt)"
         ] },
+        { h: "Rối loạn nhai hay rối loạn nuốt?" },
+        { tabelle: { kopf: ["", "Rối loạn nhai", "Rối loạn nuốt"], zeilen: [
+          ["Vị trí", "Răng và khoang miệng", "Họng và thực quản"],
+          ["Nguyên nhân", "Mất răng, răng giả không vừa, chỗ bị cấn, nấm, sâu răng, viêm nha chu, khô miệng", "Hậu quả của bệnh như đột quỵ, Parkinson hoặc sa sút trí tuệ"],
+          ["Điều trị", "Thường dễ điều trị hơn, ví dụ nha sĩ, chỉnh răng giả", "Ngôn ngữ trị liệu, tập nuốt, điều chỉnh tư thế và độ đặc"]
+        ] } },
+        { h: "Hậu quả và dấu hiệu gián tiếp" },
+        { liste: [
+          "Chất lượng cuộc sống giảm vì mất niềm vui ăn uống",
+          "Sợ sặc: từ chối ăn uống, có nguy cơ suy dinh dưỡng và mất nước",
+          "Viêm phổi do hít sặc khi thiếu phản xạ bảo vệ như ho",
+          "Dấu hiệu gián tiếp: sốt không rõ nguyên nhân (hít sặc thầm lặng), sụt cân, mất nước"
+        ] },
+        { h: "Các mức độ đặc" },
+        { tabelle: { kopf: ["Chế độ ăn", "Mô tả"], zeilen: [
+          ["Thức ăn lọc qua rây", "Được miết qua rây, hoàn toàn không còn sợi"],
+          ["Thức ăn xay nhuyễn", "Xay bằng máy; các thành phần để riêng và trình bày hấp dẫn"],
+          ["Thức ăn xay một phần", "Phần mềm giữ nguyên, phần có sợi được xay"],
+          ["Thức ăn điều chỉnh", "Thức ăn mềm, không xay"],
+          ["Đồ uống làm đặc", "Dùng chất làm đặc; thống nhất liều lượng trong nhóm"]
+        ] } },
+        { merke: "Bác sĩ chẩn đoán, thường cùng chuyên viên ngôn ngữ trị liệu. Khi tập nuốt lần đầu, thạch hoặc đồ uống làm đặc phù hợp hơn món giàu đạm và béo như chế phẩm sữa." },
         { link: { bereich: "prophylaxen", kapitel: "aspiration" } }
       ] },
       { id: "kostformen", titel: "Các chế độ ăn", kurz: "Từ ăn thường đến nhịn ăn", abschnitte: [

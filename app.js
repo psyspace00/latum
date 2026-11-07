@@ -571,6 +571,8 @@
     quiz: (r, seite) => quizSeite(r, seite),
     karten: (r, seite) => kartenSeite(r, seite),
     testvorb: () => testUebersicht(),
+    schultest: r => schultestSeite(r),
+    lernkarten: (r, seite) => lernkartenSeite(r, seite),
     test: (r, seite) => testSeite(r, seite),
     testEdit: (r, seite) => testEditor(r, seite),
 
@@ -944,14 +946,58 @@
   // 12 · TEST-VORBEREITUNG – wie in der Schule: Auswertung erst nach dem Abgeben
   const eigeneTests = () => store.get("eigeneTests", []);
   const testErgebnisse = () => store.get("testErg", {});
-  const testKey = r => r.eigen ? "e:" + r.eigen : "k:" + r.kats.join("+") + ":" + r.n;
+  const testKey = r => r.eigen ? "e:" + r.eigen : r.schul ? "s:" + r.schul : "k:" + r.kats.join("+") + ":" + r.n;
   const eigenerTest = id => eigeneTests().find(t => t.id === id);
-  const aktualisiereUebersicht = () => { const s = stack.find(x => x.route.v === "testvorb" || x.route.v === "lernen"); if (s) zeichne(s, true); };
+  const aktualisiereUebersicht = () => stack.filter(x => ["testvorb", "lernen", "schultest"].indexOf(x.route.v) >= 0).forEach(s => zeichne(s, true));
 
-  // Der Tab enthält nur noch selbst geschriebene Tests; die fertigen Tests stehen unter „Lernen“
+  // Schultests: feste Fragen aus quiz.js (test: id) und eigene Lernkarten aus schultests.js
+  const schultest = id => SCHULTESTS.find(s => s.id === id);
+  const schulFragen = id => QUIZ_I.filter(q => q.test === id);
+  const schulName = s => T().schultestName(s.nr, vi() ? s.titel.vi : s.titel.de);
+  const schulKarten = s => s.karten.map(k => vi() ? k.vi : k.de);
+
+  function schultestSeite(r) {
+    const s = schultest(r.id), name = schulName(s), p = testErgebnisse()["s:" + s.id], n = schulFragen(s.id).length;
+    let h = gross(name, T().schultestLead);
+    h += `<div class="section-title">${T().schultestThemen}</div><ul class="glass-card liste">${(vi() ? s.themen.vi : s.themen.de).map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+    h += `<div class="section-title">${T().schultestSchritte}</div><div class="tiles two">` +
+      `<button class="tile tile-teal"${go({ v: "lernkarten", id: s.id })}>${icon("karten", "tile-ico")}<span class="tile-title">${T().lernkarten}</span><span class="tile-sub">${T().lernkartenAnzahl(s.karten.length)}</span></button>` +
+      `<button class="tile tile-indigo"${go({ v: "test", schul: s.id })}>${icon("quiz", "tile-ico")}<span class="tile-title">${T().schultestStarten}</span><span class="tile-sub">${T().testFragen(n)}${p != null ? " · " + T().zuletzt(p) : ""}</span></button></div>`;
+    h += `<div class="section-title">${T().schultestKapitel}</div>` + s.kapitel.map(([b, k]) => {
+      const z = kapitel(b, k), ic = (MENUE_BEREICHE.find(x => x[0] === b) || [])[1];
+      return `<button class="link-card"${go({ v: "kapitel", b, k })}>${icon(ic)}<span><b>${esc(z.titel)}</b><small>${esc(z.kurz)}</small></span>${chev}</button>`;
+    }).join("");
+    return { titel: name, html: h };
+  }
+
+  function lernkartenSeite(r, seite) {
+    const s = schultest(r.id), titel = T().lernkarten;
+    if (!seite.lk) seite.lk = { deck: mischen(s.karten.map((k, i) => i)), gewusst: 0, offen: false };
+    const L = seite.lk, gesamt = s.karten.length, karten = schulKarten(s);
+    if (!L.deck.length) return { titel, html: gross(T().geschafft, T().kartenGelernt(gesamt)) +
+      `<div class="actions"><button class="btn primary-btn" data-k="neu">${T().neueRunde}</button><button class="btn"${go({ v: "test", schul: s.id })}>${T().schultestStarten}</button></div>`,
+      nach: el => { el.querySelector("[data-k=neu]").onclick = () => { seite.lk = null; zeichne(seite); }; } };
+    const [vorne, hinten] = karten[L.deck[0]];
+    return { titel, html: `<div class="quiz-top"><span class="pill">${esc(schulName(s))}</span><span class="muted">${T().gewusstVon(L.gewusst, gesamt)}</span></div>` +
+      `<div class="progress"><div style="width:${Math.round(L.gewusst / gesamt * 100)}%"></div></div>` +
+      `<button class="flash glass-card" data-k="dreh"><div class="flash-body"><div class="q lernkarte-q">${esc(vorne)}</div>` +
+      (L.offen ? `<div class="a lernkarte-a">${esc(hinten)}</div>` : `<div class="tip">${T().tippenAufdecken}</div>`) + "</div></button>" +
+      (L.offen ? `<div class="actions"><button class="btn no" data-k="nein">${T().nochmal}</button><button class="btn yes" data-k="ja">${T().gewusst}</button></div>` : ""),
+      nach: el => {
+        el.querySelector("[data-k=dreh]").onclick = () => { L.offen = !L.offen; zeichne(seite, true); };
+        const ja = el.querySelector("[data-k=ja]"), nein = el.querySelector("[data-k=nein]");
+        if (ja) ja.onclick = () => { L.deck.shift(); L.gewusst++; L.offen = false; zeichne(seite, true); };
+        if (nein) nein.onclick = () => { const k = L.deck.shift(); L.deck.splice(Math.min(L.deck.length, 3 + Math.floor(Math.random() * 4)), 0, k); L.offen = false; zeichne(seite, true); };
+      } };
+  }
+
+  // Der Tab enthält Schultests und selbst geschriebene Tests; die Themen-Tests stehen unter „Lernen“
   function testUebersicht() {
     const erg = testErgebnisse(), eigene = eigeneTests();
-    let h = gross(T().tabTest, T().meineTestsLead);
+    let h = gross(T().tabTest, T().schultestsLead);
+    h += `<div class="section-title">${T().schultests}</div><div class="list">` + SCHULTESTS.map(s => { const p = erg["s:" + s.id];
+      return `<button class="row"${go({ v: "schultest", id: s.id })}><div class="row-text"><div class="row-main">${esc(schulName(s))}</div><div class="row-sub">${T().testFragen(schulFragen(s.id).length)} · ${T().lernkartenAnzahl(s.karten.length)}${p != null ? " · " + T().zuletzt(p) : ""}</div></div>${chev}</button>`; }).join("") + "</div>";
+    h += `<p class="muted small mt">${T().meineTestsLead}</p>`;
     h += eigene.length ? `<div class="section-title">${T().meineTests}</div><div class="list">` + eigene.map(t => { const p = erg["e:" + t.id];
         return `<div class="row mein-test"><button class="row-text"${go({ v: "test", eigen: t.id })}><div class="row-main">${esc(t.name)}</div><div class="row-sub">${T().testFragen(t.fragen.length)}${p != null ? " · " + T().zuletzt(p) : ""}</div></button>` +
           `<button class="edit-btn" aria-label="${T().edBearbeiten}"${go({ v: "testEdit", id: t.id })}>✎</button></div>`; }).join("") + "</div>"
@@ -964,6 +1010,7 @@
   function stelleTest(r) {
     let fragen;
     if (r.eigen) fragen = mischen(eigenerTest(r.eigen).fragen).map(q => Object.assign({ kat: "eigen", typ: "single" }, q));
+    else if (r.schul) fragen = mischen(schulFragen(r.schul));
     else {
       let pool = QUIZ_I.filter(q => r.kats.indexOf(q.kat) >= 0);
       if (r.kats.indexOf("anatomie") >= 0) pool = pool.concat(anatomieFragen(12));
@@ -990,7 +1037,7 @@
       }
     }
     const X = seite.test, n = X.fragen.length;
-    const name = r.eigen ? eigenerTest(r.eigen).name : r.kats.length === 1 ? katTitel(r.kats[0]) : r.kats.length === themenIds().length ? T().gesamttest : T().gemischterTest;
+    const name = r.eigen ? eigenerTest(r.eigen).name : r.schul ? schulName(schultest(r.schul)) : r.kats.length === 1 ? katTitel(r.kats[0]) : r.kats.length === themenIds().length ? T().gesamttest : T().gemischterTest;
     const kat = id => id === "eigen" ? T().meineTests : katTitel(id);
 
     if (X.ergebnis) {

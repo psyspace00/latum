@@ -11,6 +11,35 @@ const FEEDBACK_ADRESSE = "maximilian-wandt@gmx.de";
 
 const APP_VERSIONEN = [
   {
+    nummer: "1.03",
+    de: [
+      { titel: "Neu", punkte: [
+        "Test-Vorbereitung: „Test 1: Ernährung“ mit 25 Fragen und 36 Lernkarten",
+        "Ernährung: neue Kapitel „Die DGE“, „Ernährung im Alter“, „Trinken im Alter“ und „Ernährung bei Demenz“"
+      ] },
+      { titel: "Erweitert", punkte: [
+        "Nährstofflehre: Nährstoffgruppen, Kohlenhydrate, Fette und Energiebedarf",
+        "Dysphagie: Kau- oder Schluckstörung, Folgen und Konsistenzstufen"
+      ] },
+      { titel: "Zuletzt geändert (Version 1.02)", punkte: [
+        "Feedback: Deine Rückmeldung geht direkt an Max"
+      ] }
+    ],
+    vi: [
+      { titel: "Mới", punkte: [
+        "Ôn kiểm tra: „Bài kiểm tra 1: Dinh dưỡng“ với 25 câu hỏi và 36 thẻ học",
+        "Dinh dưỡng: các chương mới „DGE“, „Dinh dưỡng ở người cao tuổi“, „Uống nước ở tuổi già“ và „Dinh dưỡng khi sa sút trí tuệ“"
+      ] },
+      { titel: "Mở rộng", punkte: [
+        "Dinh dưỡng học: nhóm chất dinh dưỡng, carbohydrat, chất béo và nhu cầu năng lượng",
+        "Rối loạn nuốt: rối loạn nhai hay nuốt, hậu quả và các mức độ đặc"
+      ] },
+      { titel: "Thay đổi gần đây (phiên bản 1.02)", punkte: [
+        "Góp ý: Góp ý của bạn nay được gửi trực tiếp cho Max"
+      ] }
+    ]
+  },
+  {
     nummer: "1.02",
     de: [
       { titel: "Geändert", punkte: [
