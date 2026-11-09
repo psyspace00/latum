@@ -11,6 +11,37 @@ const FEEDBACK_ADRESSE = "maximilian-wandt@gmx.de";
 
 const APP_VERSIONEN = [
   {
+    nummer: "1.04",
+    de: [
+      { titel: "Neu", punkte: [
+        "Bereich „Schlaf“ mit 7 Kapiteln: Schlafphasen, Schlaf im Alter, Schlafstörungen und Pflege",
+        "10 Schlafdiagnosen mit Wortherkunft und Übersetzung, z. B. Insomnie, Schlafapnoe, Narkolepsie, Somnambulismus",
+        "16 Prüfungsfragen zum Thema Schlaf"
+      ] },
+      { titel: "Verbessert", punkte: [
+        "In diesem Fenster kommst du jetzt direkt zum Feedback an Max"
+      ] },
+      { titel: "Zuletzt neu (Version 1.03)", punkte: [
+        "„Test 1: Ernährung“ mit 25 Fragen und 36 Lernkarten",
+        "Neue Ernährungskapitel: DGE, Ernährung im Alter, Trinken im Alter, Ernährung bei Demenz"
+      ] }
+    ],
+    vi: [
+      { titel: "Mới", punkte: [
+        "Mục „Giấc ngủ“ với 7 chương: giai đoạn ngủ, giấc ngủ ở tuổi già, rối loạn giấc ngủ và chăm sóc",
+        "10 chẩn đoán về giấc ngủ kèm nguồn gốc từ và bản dịch, ví dụ Insomnie, Schlafapnoe, Narkolepsie, Somnambulismus",
+        "16 câu hỏi thi về giấc ngủ"
+      ] },
+      { titel: "Cải thiện", punkte: [
+        "Từ cửa sổ này bạn có thể gửi góp ý trực tiếp cho Max"
+      ] },
+      { titel: "Mới gần đây (phiên bản 1.03)", punkte: [
+        "„Bài kiểm tra 1: Dinh dưỡng“ với 25 câu hỏi và 36 thẻ học",
+        "Các chương dinh dưỡng mới: DGE, dinh dưỡng ở người cao tuổi, uống nước ở tuổi già, dinh dưỡng khi sa sút trí tuệ"
+      ] }
+    ]
+  },
+  {
     nummer: "1.03",
     de: [
       { titel: "Neu", punkte: [

@@ -40,6 +40,7 @@
     wuerfel: '<path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/>',
     tropfen: '<path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z"/><circle cx="12" cy="14.5" r="2.4"/>',
     buch: '<path d="M5 4.5A2 2 0 0 1 7 3h12v15H7a2 2 0 0 0-2 2z"/><path d="M5 20a2 2 0 0 0 2 2h12v-4M12 7.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zM9.2 14.5c.4-1.6 1.5-2.3 2.8-2.3s2.4.7 2.8 2.3"/>',
+    mond: '<path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/><path d="M16.5 3.5v3M15 5h3M20 8.5v2M19 9.5h2"/>',
     diagnose: '<rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4M12 9v6M9 12h6"/>',
     feedback: '<path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5v10a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5V17A1.5 1.5 0 0 1 4 15.5z"/><path d="M8 9h8M8 12.5h5"/>'
   };
@@ -50,7 +51,7 @@
 
   // Hauptmenü: Körper & Anatomie, danach die Pflegebereiche
   const MENUE_BEREICHE = [["pflegeprozess", "zyklus", "orange"], ["prophylaxen", "schild", "blue"], ["kontrakturen", "gelenk", "indigo"],
-    ["vitalzeichen", "puls", "red"], ["herzkreislauf", "herz", "pink"], ["ernaehrung", "apfel", "green"], ["ausscheidung", "tropfen", "amber"], ["biografie", "buch", "violet"]];
+    ["vitalzeichen", "puls", "red"], ["herzkreislauf", "herz", "pink"], ["ernaehrung", "apfel", "green"], ["ausscheidung", "tropfen", "amber"], ["schlaf", "mond", "night"], ["biografie", "buch", "violet"]];
 
   // =====================================================================
   // 2 · SPRACHE (Oberfläche Deutsch / Tiếng Việt – Fachbegriffe bleiben lateinisch)
@@ -1168,10 +1169,13 @@
   function zeigeNeuigkeiten(versionen) {
     updateLayer.innerHTML = `<div class="update-card" role="dialog" aria-modal="true"><div class="update-eyebrow">${T().updateNeu}</div>` +
       versionen.map(v => `<h2>${T().versionText(v.nummer)}</h2>` + v[sprache].map(g => `<h3>${esc(g.titel)}</h3><ul>${g.punkte.map(p => `<li>${esc(p)}</li>`).join("")}</ul>`).join("")).join("") +
+      `<button class="update-feedback" data-update="feedback">${icon("feedback")}<span>${T().updateFeedback}</span></button>` +
       `<button class="btn primary-btn" data-update="zu">${T().alleKlar}</button></div>`;
     updateLayer.hidden = false;
   }
-  updateLayer.addEventListener("click", ev => { if (ev.target === updateLayer || ev.target.closest('[data-update="zu"]')) updateLayer.hidden = true; });
+  updateLayer.addEventListener("click", ev => {
+    if (ev.target.closest('[data-update="feedback"]')) { updateLayer.hidden = true; push({ v: "feedback" }); return; }
+    if (ev.target === updateLayer || ev.target.closest('[data-update="zu"]')) updateLayer.hidden = true; });
   function pruefeVersion() {
     const aktuelle = APP_VERSIONEN[0].nummer, gesehen = store.get("version", null);
     if (gesehen === aktuelle) return;

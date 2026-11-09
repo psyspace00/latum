@@ -1542,6 +1542,211 @@ const BEREICHE_VI = [
     ]
   },
   {
+    id: "schlaf", titel: "Giấc ngủ (Schlaf)", untertitel: "Giai đoạn ngủ, giấc ngủ ở tuổi già, rối loạn giấc ngủ kèm thuật ngữ, chăm sóc",
+    kapitel: [
+      { id: "schlaf_grundlagen", titel: "Giấc ngủ: Kiến thức cơ bản", kurz: "Chức năng, giai đoạn ngủ, chu kỳ ngủ, nhịp sinh học, nhu cầu ngủ", abschnitte: [
+        { h: "Tại sao chúng ta ngủ?" },
+        { p: "Giấc ngủ là một trạng thái chủ động và thiết yếu cho sự sống. Ý thức giảm xuống, nhưng con người luôn có thể được đánh thức. Trong mô hình điều dưỡng của Krohwinkel, giấc ngủ thuộc AEDL „Nghỉ ngơi và ngủ“ (Ruhen und schlafen können), ở Juchli thuộc ATL „Thức và ngủ“ (Wach sein und schlafen)." },
+        { liste: ["Phục hồi cơ thể và não bộ, tiết kiệm năng lượng", "Trí nhớ: những gì đã học được củng cố và sắp xếp", "Miễn dịch: hệ miễn dịch được tăng cường", "Đổi mới tế bào và lành vết thương, tiết hormon tăng trưởng trong giấc ngủ sâu", "Cân bằng tâm lý và tâm trạng", "Điều hòa chuyển hóa, đường huyết và cảm giác thèm ăn"] },
+        { h: "Các giai đoạn ngủ" },
+        { p: "Người ta phân biệt giấc ngủ Non-REM (N1 đến N3) và giấc ngủ REM. REM là viết tắt của „Rapid Eye Movements“, tức cử động mắt nhanh. Các giai đoạn được đo trong phòng thí nghiệm giấc ngủ bằng đa ký giấc ngủ (Polysomnografie, trong đó có EEG đo sóng não)." },
+        { tabelle: { kopf: ["Giai đoạn", "Điều gì xảy ra?", "Tỷ lệ"], zeilen: [
+          ["N1 – giai đoạn chìm vào giấc ngủ", "Chuyển tiếp từ thức sang ngủ, dễ bị đánh thức, cơ thư giãn, có thể giật nhẹ", "khoảng 5 %"],
+          ["N2 – ngủ nông", "Mạch, nhịp thở và thân nhiệt giảm, hầu như không còn nhận biết môi trường", "khoảng 45–55 %"],
+          ["N3 – ngủ sâu", "Sóng não chậm, khó đánh thức, giai đoạn quan trọng nhất cho phục hồi thể chất", "khoảng 15–20 %"],
+          ["Giấc ngủ REM", "Mơ sống động, mắt chuyển động nhanh, cơ gần như hoàn toàn mềm nhão, mạch và nhịp thở không đều", "khoảng 20–25 %"]
+        ] } },
+        { merke: "Một chu kỳ ngủ kéo dài khoảng 90 phút. Mỗi đêm có 4 đến 6 chu kỳ. Nửa đầu đêm chủ yếu là ngủ sâu, nửa sau chủ yếu là giấc ngủ REM." },
+        { p: "Sách giáo khoa cũ chia theo Rechtschaffen và Kales thành giai đoạn 1 đến 4. Giai đoạn 3 và 4 cộng lại tương ứng với N3 (ngủ sâu) ngày nay." },
+        { h: "Nhịp thức – ngủ" },
+        { p: "Đồng hồ sinh học (nhịp ngày đêm, zirkadianer Rhythmus, từ tiếng Latinh circa = khoảng và dies = ngày) điều khiển ngủ và thức theo nhịp khoảng 24 giờ. Khi trời tối, tuyến tùng (Epiphyse) tạo ra hormon giấc ngủ Melatonin. Ánh sáng mạnh ức chế việc tạo Melatonin." },
+        { liste: ["Yếu tố định nhịp của đồng hồ sinh học: ánh sáng ban ngày, bữa ăn cố định, vận động, tiếp xúc xã hội, giờ giấc cố định", "Khi thiếu các yếu tố này, ví dụ nằm liệt giường trong phòng tối, nhịp sinh học bị rối loạn"] },
+        { h: "Nhu cầu ngủ theo độ tuổi" },
+        { tabelle: { kopf: ["Tuổi", "Thời gian ngủ khuyến nghị mỗi ngày"], zeilen: [
+          ["Trẻ sơ sinh (0–3 tháng)", "14–17 giờ"],
+          ["Trẻ nhũ nhi (4–11 tháng)", "12–15 giờ"],
+          ["Trẻ nhỏ (1–2 tuổi)", "11–14 giờ"],
+          ["Trẻ mẫu giáo (3–5 tuổi)", "10–13 giờ"],
+          ["Trẻ đi học (6–13 tuổi)", "9–11 giờ"],
+          ["Thanh thiếu niên (14–17 tuổi)", "8–10 giờ"],
+          ["Người lớn (18–64 tuổi)", "7–9 giờ"],
+          ["Người cao tuổi (từ 65 tuổi)", "7–8 giờ"]
+        ] } },
+        { p: "Giá trị tham khảo theo National Sleep Foundation của Mỹ. Nhu cầu mỗi người khác nhau: quan trọng là ban ngày người đó có cảm thấy khỏe và làm việc tốt không." }
+      ] },
+      { id: "schlaf_alter", titel: "Giấc ngủ ở tuổi già và yếu tố gây rối loạn", kurz: "Thay đổi ở tuổi già, yếu tố ảnh hưởng, hậu quả của thiếu ngủ", abschnitte: [
+        { h: "Giấc ngủ thay đổi thế nào ở tuổi già" },
+        { tabelle: { kopf: ["Thay đổi", "Hậu quả"], zeilen: [
+          ["Ít ngủ sâu (N3) hơn", "Giấc ngủ nông hơn, dễ thức giấc hơn"],
+          ["Thức giấc ban đêm thường xuyên hơn", "Giấc ngủ bị „chia cắt“, khó ngủ liền mạch"],
+          ["Đồng hồ sinh học dịch về phía trước", "Buổi tối buồn ngủ sớm, sáng thức dậy rất sớm"],
+          ["Ít Melatonin hơn", "Mất nhiều thời gian hơn để ngủ được"],
+          ["Ngủ trưa, chợp mắt ban ngày nhiều hơn", "Áp lực ngủ vào ban đêm giảm"],
+          ["Nằm trên giường lâu hơn", "Thời gian ngủ so với thời gian nằm giảm đi"]
+        ] } },
+        { merke: "Ở tuổi già, giấc ngủ nông hơn và ngắn hơn là bình thường. Chỉ gọi là rối loạn giấc ngủ khi người đó khổ sở vì nó hoặc bị ảnh hưởng vào ban ngày." },
+        { h: "Điều gì làm rối loạn giấc ngủ" },
+        { tabelle: { kopf: ["Lĩnh vực", "Ví dụ"], zeilen: [
+          ["Thể chất", "Đau, khó thở, ho, ngứa, đi tiểu đêm nhiều lần (Nykturie), đói, hội chứng chân không yên (Restless Legs), sốt"],
+          ["Tâm lý", "Sợ hãi, lo lắng, buồn đau, cô đơn, trầm cảm, nhớ nhà sau khi chuyển vào viện dưỡng lão"],
+          ["Môi trường", "Tiếng ồn, ánh sáng, phòng quá nóng, giường lạ, người ở cùng phòng, các lượt kiểm tra"],
+          ["Thuốc và chất kích thích", "Caffein, rượu, nicotin, thuốc lợi tiểu buổi tối, Cortison, một số thuốc chống trầm cảm"],
+          ["Sinh hoạt hằng ngày", "Quá ít vận động và ánh sáng ban ngày, ngủ trưa lâu, giờ đi ngủ quá sớm trong viện dưỡng lão"]
+        ] } },
+        { p: "Để ngủ ngon nên có phòng ngủ yên tĩnh, tối, thông thoáng, nhiệt độ khoảng 16–18 °C." },
+        { h: "Hậu quả của thiếu ngủ" },
+        { liste: ["Mệt mỏi, giảm tập trung và trí nhớ", "Dễ cáu, tâm trạng chán nản, lo âu", "Tăng nguy cơ té ngã và tai nạn, ngủ gật vài giây", "Sức đề kháng yếu hơn, vết thương lâu lành hơn", "Cảm nhận đau mạnh hơn", "Lâu dài: tăng huyết áp, thừa cân, đái tháo đường, trầm cảm", "Ở người cao tuổi: nguy cơ mê sảng (lú lẫn cấp tính, Delir)"] },
+        { diagnose: "delir" }
+      ] },
+      { id: "schlaf_begriffe", titel: "Rối loạn giấc ngủ: Thuật ngữ", kurz: "Phân loại, nguồn gốc từ và bản dịch của tất cả chẩn đoán", abschnitte: [
+        { h: "Phân loại rối loạn giấc ngủ" },
+        { p: "Trong đào tạo điều dưỡng, rối loạn giấc ngủ thường được chia thành hai nhóm lớn:" },
+        { tabelle: { kopf: ["Nhóm", "Ý nghĩa", "Ví dụ"], zeilen: [
+          ["Dyssomnien", "Số lượng, chất lượng hoặc thời điểm của giấc ngủ bị rối loạn", "Insomnie, Hypersomnie, Narkolepsie, Schlafapnoe"],
+          ["Parasomnien", "Hành vi hoặc trải nghiệm bất thường trong khi ngủ, bản thân thời gian ngủ bình thường", "Somnambulismus, Pavor nocturnus, Enuresis nocturna, ác mộng"]
+        ] } },
+        { p: "Phân loại quốc tế (ICSD-3) chi tiết hơn: mất ngủ (Insomnien), rối loạn hô hấp liên quan giấc ngủ (ngáy, Schlafapnoe), ngủ nhiều (Hypersomnien, ví dụ Narkolepsie), rối loạn nhịp thức – ngủ (ví dụ làm ca, Jetlag), Parasomnien và rối loạn vận động liên quan giấc ngủ (ví dụ Restless Legs, Bruxismus)." },
+        { h: "Thành phần cấu tạo từ" },
+        { tabelle: { kopf: ["Thành phần", "Nguồn gốc", "Ý nghĩa"], zeilen: [
+          ["somnus", "tiếng Latinh", "giấc ngủ"],
+          ["in-", "tiếng Latinh", "không"],
+          ["hyper-", "tiếng Hy Lạp", "trên, quá mức"],
+          ["hypo-", "tiếng Hy Lạp", "dưới, quá ít"],
+          ["para-", "tiếng Hy Lạp", "bên cạnh, lệch khỏi"],
+          ["dys-", "tiếng Hy Lạp", "rối loạn, sai lệch"],
+          ["a- / an-", "tiếng Hy Lạp", "không có, không"],
+          ["pnoe", "tiếng Hy Lạp", "hô hấp, hơi thở"],
+          ["nocturnus", "tiếng Latinh", "về đêm (nox = đêm)"],
+          ["-pathie (pathos)", "tiếng Hy Lạp", "đau khổ, bệnh"]
+        ] } },
+        { h: "Tổng quan các chẩn đoán" },
+        { tabelle: { kopf: ["Thuật ngữ", "Nguồn gốc từ", "Bản dịch"], zeilen: [
+          ["Parasomnie", "Hy Lạp para = bên cạnh, lệch khỏi + Latinh somnus = giấc ngủ", "Hành vi bất thường khi ngủ"],
+          ["Hypersomnie", "Hy Lạp hyper = quá mức + Latinh somnus = giấc ngủ", "Chứng ngủ nhiều, buồn ngủ quá mức"],
+          ["Hyposomnie", "Hy Lạp hypo = dưới, quá ít + Latinh somnus = giấc ngủ", "Ngủ quá ít"],
+          ["Insomnie", "Latinh in = không + somnus = giấc ngủ", "Mất ngủ"],
+          ["Schlafapnoe", "Hy Lạp a = không có + pnoe = hô hấp", "Ngừng thở khi ngủ"],
+          ["Narkolepsie", "Hy Lạp narke = tê cứng, mê + lepsis = cơn, bị chộp lấy", "Chứng cơn ngủ kịch phát"],
+          ["Pavor nocturnus", "Latinh pavor = sợ hãi, kinh hoàng + nocturnus = về đêm", "Hoảng sợ ban đêm"],
+          ["Enuresis nocturna", "Hy Lạp enurein = đi tiểu, tiểu dầm + Latinh nocturnus = về đêm", "Tiểu dầm ban đêm, đái dầm"],
+          ["Rhonchopathie", "Hy Lạp rhonchos = tiếng ngáy + pathos = bệnh", "Bệnh ngáy, ngáy bệnh lý"],
+          ["Bruxismus", "Hy Lạp brychein = nghiến răng", "Nghiến răng và siết chặt răng"],
+          ["Somnambulismus", "Latinh somnus = giấc ngủ + ambulare = đi lại", "Mộng du"]
+        ] } },
+        { merke: "Hyposomnie và Insomnie đều có nghĩa là ngủ quá ít. „Insomnie“ là thuật ngữ thông dụng ngày nay cho khó vào giấc và khó ngủ liền mạch." },
+        { h: "Dễ nhầm lẫn" },
+        { tabelle: { kopf: ["Thuật ngữ", "Ý nghĩa"], zeilen: [
+          ["Nykturie", "Đi tiểu đêm: người bệnh thức dậy và đi vệ sinh (Hy Lạp nyx = đêm + uron = nước tiểu)"],
+          ["Enuresis nocturna", "Tiểu dầm ban đêm trong lúc ngủ, không thức dậy"],
+          ["Pavor nocturnus", "Giật mình hoảng sợ từ giấc ngủ sâu, không nhớ gì"],
+          ["Ác mộng (Albtraum)", "Giấc mơ sợ hãi trong giấc ngủ REM, thức dậy và nhớ lại được"]
+        ] } }
+      ] },
+      { id: "schlaf_dyssomnien", titel: "Insomnie, Hypersomnie và Narkolepsie", kurz: "Ngủ quá ít hoặc quá nhiều: dấu hiệu, nguyên nhân, chăm sóc", abschnitte: [
+        { h: "Insomnie / Hyposomnie" },
+        { p: "Bản dịch: mất ngủ hoặc ngủ quá ít. Insomnie xuất phát từ Latinh in = không và somnus = giấc ngủ, Hyposomnie từ Hy Lạp hypo = dưới và Latinh somnus. Đây là rối loạn giấc ngủ thường gặp nhất, nhất là ở tuổi già." },
+        { liste: ["Khó vào giấc: mất hơn khoảng 30 phút mới ngủ được", "Khó ngủ liền mạch: thức giấc nằm lâu hoặc nhiều lần trong đêm", "Thức dậy sớm: thức dậy quá sớm và không ngủ lại được", "Giấc ngủ không phục hồi, ảnh hưởng ban ngày: mệt mỏi, dễ cáu, khó tập trung", "Mạn tính: ít nhất 3 đêm mỗi tuần trong ít nhất 3 tháng"] },
+        { p: "Nguyên nhân: căng thẳng, lo lắng, trầm cảm, đau, khó thở, đi tiểu đêm, thuốc, caffein và rượu, thói quen ngủ không tốt. Thường hình thành một vòng luẩn quẩn giữa nỗi sợ đêm mất ngủ tiếp theo và sự căng thẳng." },
+        { liste: ["Điều trị lựa chọn đầu tiên: liệu pháp nhận thức hành vi cho mất ngủ (KVT-I)", "Vệ sinh giấc ngủ, giờ dậy và giờ đi ngủ cố định", "Chỉ dùng giường để ngủ, nếu nằm thức lâu thì đứng dậy một lúc", "Điều trị nguyên nhân, ví dụ đau", "Thuốc ngủ chỉ dùng ngắn hạn và theo chỉ định bác sĩ"] },
+        { link: { bereich: "schlaf", kapitel: "schlaf_pflege" } },
+        { h: "Hypersomnie (chứng ngủ nhiều)" },
+        { p: "Bản dịch: chứng ngủ nhiều, ngủ quá mức. Từ này xuất phát từ Hy Lạp hyper = trên, quá mức và Latinh somnus = giấc ngủ. Người bệnh rất buồn ngủ ban ngày hoặc ngủ rất lâu, dù ban đêm đã ngủ đủ." },
+        { liste: ["Nguyên nhân thường gặp: ngừng thở khi ngủ, thiếu ngủ, thuốc (ví dụ thuốc an thần), trầm cảm", "Nguyên nhân thể chất: suy giáp, thiếu máu, suy thận, bệnh của não", "Dạng hiếm không rõ nguyên nhân, ví dụ Narkolepsie"] },
+        { warn: "Buồn ngủ nhiều mới xuất hiện ở người cao tuổi luôn phải báo lại. Nguyên nhân có thể là mê sảng, nhiễm trùng, thuốc, hạ đường huyết hoặc đột quỵ." },
+        { h: "Narkolepsie" },
+        { p: "Bản dịch: chứng cơn ngủ kịch phát, dân gian gọi là „bệnh ngủ gật“. Từ này xuất phát từ Hy Lạp narke = tê cứng, mê và lepsis = cơn, bị chộp lấy. Đây là bệnh mạn tính hiếm gặp của não. Thường thiếu chất truyền tin giữ tỉnh táo Orexin (Hypocretin)." },
+        { tabelle: { kopf: ["Dấu hiệu", "Giải thích"], zeilen: [
+          ["Buồn ngủ ban ngày với cơn ngủ", "Đột ngột ngủ thiếp đi không cưỡng lại được, kể cả khi đang ăn hoặc nói chuyện"],
+          ["Kataplexie", "Đột ngột mất trương lực cơ khi xúc động mạnh, ví dụ khi cười, trong khi vẫn tỉnh táo hoàn toàn"],
+          ["Liệt khi ngủ", "Khi chìm vào giấc ngủ hoặc thức dậy, trong chốc lát không cử động được"],
+          ["Ảo giác khi chìm vào giấc ngủ", "Hình ảnh rất sống động, giống như mơ"],
+          ["Giấc ngủ đêm bị rối loạn", "Thức giấc thường xuyên dù rất mệt"]
+        ] } },
+        { liste: ["Điều trị: các giấc ngủ ngắn có kế hoạch trong ngày, giờ ngủ cố định, thuốc", "Chăm sóc: an toàn khi lên cơn ngủ (té ngã, bỏng, giao thông), cấu trúc ngày rõ ràng, giải thích cho người xung quanh", "Việc lái xe thường bị hạn chế"] }
+      ] },
+      { id: "schlaf_atmung", titel: "Ngáy và ngừng thở khi ngủ", kurz: "Rhonchopathie, cơn ngừng thở, liệu pháp CPAP", abschnitte: [
+        { h: "Rhonchopathie (ngáy)" },
+        { p: "Bản dịch: bệnh ngáy, ngáy bệnh lý. Từ này xuất phát từ Hy Lạp rhonchos = tiếng ngáy và pathos = bệnh. Khi hít vào, màn hầu, lưỡi gà và lưỡi chùng xuống, mô rung lên trong luồng khí." },
+        { liste: ["Ngáy nguyên phát: ngáy to nhưng không ngừng thở, chủ yếu làm phiền người nằm cạnh", "Trở nên nguy hiểm khi ngáy không đều kèm khoảng ngừng: dấu hiệu của ngừng thở khi ngủ", "Yếu tố thuận lợi: thừa cân, nằm ngửa, rượu và thuốc ngủ buổi tối, hút thuốc, nghẹt mũi, amidan to"] },
+        { h: "Schlafapnoe (ngừng thở khi ngủ)" },
+        { p: "Bản dịch: ngừng thở khi ngủ. Từ này xuất phát từ Hy Lạp a = không có và pnoe = hô hấp. Trong khi ngủ, nhiều lần xảy ra cơn ngừng thở (Apnoe) kéo dài ít nhất 10 giây. Nồng độ oxy trong máu giảm, não gây ra những phản ứng thức giấc ngắn. Vì vậy giấc ngủ không phục hồi được sức khỏe." },
+        { tabelle: { kopf: ["Dạng", "Nguyên nhân", "Mức độ thường gặp"], zeilen: [
+          ["Ngừng thở khi ngủ do tắc nghẽn (OSA)", "Đường thở trên xẹp xuống khi ngủ, nỗ lực thở vẫn còn", "Dạng thường gặp nhất"],
+          ["Ngừng thở khi ngủ trung ương", "Trung tâm hô hấp ở não tạm thời không phát xung thở, ví dụ khi suy tim hoặc dùng Opioid", "Ít gặp hơn"]
+        ] } },
+        { liste: ["Ngáy to, không đều, có người thấy các khoảng ngừng thở", "Đột ngột giật mình, há miệng thở hoặc cảm giác ngạt", "Rất buồn ngủ ban ngày, ngủ gật vài giây", "Buổi sáng đau đầu và khô miệng", "Khó tập trung, dễ cáu, đi tiểu đêm"] },
+        { p: "Yếu tố nguy cơ: thừa cân, nam giới, tuổi cao, rượu và thuốc ngủ, hút thuốc, nằm ngửa. Chẩn đoán được thực hiện ở phòng thí nghiệm giấc ngủ. Mức độ nặng được tính theo số cơn ngừng thở mỗi giờ (chỉ số ngừng thở – giảm thở, từ 5 lần mỗi giờ là bệnh lý)." },
+        { warn: "Nếu không điều trị, ngừng thở khi ngủ làm tăng nguy cơ tăng huyết áp, rối loạn nhịp tim, nhồi máu cơ tim, đột quỵ và tai nạn. Thuốc an thần, thuốc ngủ và Opioid có thể làm cơn ngừng thở nặng hơn." },
+        { h: "Điều trị và chăm sóc" },
+        { liste: ["Liệu pháp CPAP: mặt nạ thổi áp lực dương nhẹ ban đêm để giữ đường thở mở", "Giảm cân, buổi tối không uống rượu, tránh thuốc ngủ", "Nằm nghiêng thay vì nằm ngửa, ví dụ dùng gối kê", "Khi OSA nhẹ: máng đẩy hàm dưới do nha sĩ làm", "Chăm sóc: theo dõi và ghi chép các khoảng ngừng thở khi trực đêm (thời gian, số lần, màu da, có thể SpO₂)", "Chăm sóc: dặn mang theo máy CPAP khi nhập viện và dùng mỗi đêm", "Chăm sóc: kiểm tra mặt nạ có vừa không, tránh vết tì đè, vệ sinh mặt nạ và ống theo hướng dẫn nhà sản xuất"] },
+        { merke: "Ai có mặt nạ CPAP thì cũng cần dùng ở bệnh viện và viện dưỡng lão. Không có mặt nạ, cơn ngừng thở xuất hiện lại ngay." }
+      ] },
+      { id: "schlaf_parasomnien", titel: "Parasomnien", kurz: "Somnambulismus, Pavor nocturnus, Enuresis nocturna, Bruxismus", abschnitte: [
+        { h: "Parasomnie là gì?" },
+        { p: "Bản dịch: hành vi bất thường khi ngủ. Từ này xuất phát từ Hy Lạp para = bên cạnh, lệch khỏi và Latinh somnus = giấc ngủ. Đây là những sự việc xảy ra khi chìm vào giấc ngủ, trong khi ngủ hoặc khi thức dậy. Thời gian ngủ thường bình thường. Nhiều dạng Parasomnie chủ yếu gặp ở trẻ em và tự hết khi lớn lên." },
+        { tabelle: { kopf: ["Từ giấc ngủ sâu (Non-REM)", "Từ giấc ngủ REM"], zeilen: [
+          ["Thường trong một phần ba đầu của đêm", "Thường trong nửa sau của đêm"],
+          ["Somnambulismus, Pavor nocturnus, trạng thái ngái ngủ lú lẫn", "Ác mộng, rối loạn hành vi giấc ngủ REM"],
+          ["Hầu như không đánh thức được, sáng ra không nhớ gì", "Tỉnh táo và định hướng được, nhớ lại giấc mơ"]
+        ] } },
+        { p: "Ở rối loạn hành vi giấc ngủ REM, cơ không mềm nhão như bình thường: người cao tuổi, thường là nam giới, đánh hoặc đá trong lúc mơ. Đây có thể là dấu hiệu sớm của Parkinson và cần được bác sĩ kiểm tra." },
+        { h: "Somnambulismus (mộng du)" },
+        { p: "Bản dịch: mộng du. Từ này xuất phát từ Latinh somnus = giấc ngủ và ambulare = đi lại. Người bệnh đứng dậy từ giấc ngủ sâu, đi lại với đôi mắt mở „trống rỗng“ và làm những việc đơn giản. Họ hầu như không phản ứng khi được gọi và sáng ra không nhớ gì. Thường gặp ở trẻ khoảng 4 đến 12 tuổi." },
+        { liste: ["Yếu tố khởi phát: thiếu ngủ, căng thẳng, sốt, bàng quang đầy, môi trường lạ, một số thuốc", "Không đánh thức đột ngột, vì có thể gây lú lẫn hoặc phản ứng chống cự", "Nói chuyện nhẹ nhàng và dẫn từ từ về giường", "Đảm bảo an toàn: khóa cửa sổ và cửa ban công, chặn cầu thang, dọn vật cản và đồ vật nguy hiểm", "Đảm bảo ngủ đều đặn và đủ giấc", "Ghi chép và bàn giao các lần xảy ra"] },
+        { h: "Pavor nocturnus (hoảng sợ ban đêm)" },
+        { p: "Bản dịch: hoảng sợ ban đêm, giật mình ban đêm. Từ này xuất phát từ Latinh pavor = sợ hãi, kinh hoàng và nocturnus = về đêm. Thường gặp ở trẻ tuổi mẫu giáo và tiểu học. Trong một phần ba đầu của đêm, trẻ bật dậy từ giấc ngủ sâu, la hét, hoảng loạn, đổ mồ hôi, tim đập nhanh. Trẻ hầu như không đánh thức được, không dỗ được và sáng ra không nhớ gì." },
+        { liste: ["Không đánh thức và không giữ chặt, cơn thường chỉ kéo dài vài phút", "Ở bên cạnh, giữ bình tĩnh, bảo vệ trẻ khỏi bị thương", "Ngủ đủ giấc và có nghi thức buổi tối cố định", "Trấn an cha mẹ: Pavor thường vô hại và tự hết", "Cho bác sĩ khám khi cơn xảy ra rất thường xuyên hoặc bắt đầu ở tuổi trưởng thành"] },
+        { tabelle: { kopf: ["Đặc điểm", "Pavor nocturnus", "Ác mộng"], zeilen: [
+          ["Giai đoạn ngủ", "Ngủ sâu (N3)", "Giấc ngủ REM"],
+          ["Thời điểm", "Một phần ba đầu của đêm", "Nửa sau của đêm, buổi sáng"],
+          ["Có thể giao tiếp", "Không, không dỗ được", "Có, thức dậy và tìm sự an ủi"],
+          ["Trí nhớ", "Không nhớ", "Thường nhớ rõ"]
+        ] } },
+        { h: "Enuresis nocturna (đái dầm)" },
+        { p: "Bản dịch: tiểu dầm ban đêm. Từ này xuất phát từ Hy Lạp enurein = đi tiểu, tiểu dầm và Latinh nocturnus = về đêm. Đó là tình trạng tiểu không tự chủ trong khi ngủ ở trẻ từ 5 tuổi, không có nguyên nhân thực thể." },
+        { tabelle: { kopf: ["Dạng", "Ý nghĩa"], zeilen: [
+          ["Enuresis nguyên phát", "Trẻ chưa bao giờ khô ráo ban đêm trong thời gian dài. Thường có tính gia đình, khả năng kiểm soát bàng quang trưởng thành chậm"],
+          ["Enuresis thứ phát", "Tiểu dầm trở lại sau ít nhất 6 tháng khô ráo. Thường do yếu tố tâm lý, ví dụ có em mới sinh, cha mẹ chia tay, hoặc nguyên nhân thể chất như nhiễm trùng tiểu, đái tháo đường"]
+        ] } },
+        { liste: ["Không bao giờ la mắng, trừng phạt hay làm trẻ xấu hổ", "Ban ngày uống đủ nước, vài giờ trước khi ngủ uống ít hơn", "Đi vệ sinh trước khi ngủ", "Khen thưởng cho những đêm khô ráo, ví dụ lịch dán hình mặt trời", "Quần báo động hoặc thiết bị đánh thức (liệu pháp báo động) sau khi bác sĩ tư vấn", "Cho bác sĩ khám, nhất là khi Enuresis thứ phát"] },
+        { p: "Ở người lớn, mất nước tiểu ban đêm được gọi là tiểu không tự chủ về đêm. Nguyên nhân và chăm sóc xem ở chẩn đoán tiểu không tự chủ." },
+        { diagnose: "inkontinenz" },
+        { h: "Bruxismus (nghiến răng)" },
+        { p: "Bản dịch: nghiến răng và siết chặt răng. Từ này xuất phát từ Hy Lạp brychein = nghiến răng. Cơ nhai hoạt động một cách vô thức, ban đêm khi ngủ (nghiến răng khi ngủ) hoặc ban ngày (nghiến răng khi thức)." },
+        { liste: ["Dấu hiệu: tiếng nghiến răng ban đêm, răng mòn hoặc mẻ", "Dấu hiệu: đau hàm, cơ nhai và tai, đau đầu buổi sáng, căng cứng vùng gáy", "Nguyên nhân: căng thẳng, răng mọc lệch, rượu, caffein, nicotin, một số thuốc, ngừng thở khi ngủ", "Điều trị: máng nhai do nha sĩ làm, giảm căng thẳng, thư giãn, vật lý trị liệu", "Chăm sóc: báo lại những gì quan sát được, giúp vệ sinh và đeo máng, kiểm tra miệng và răng"] }
+      ] },
+      { id: "schlaf_pflege", titel: "Chăm sóc: hỗ trợ giấc ngủ", kurz: "Hỏi tiền sử giấc ngủ, nhật ký giấc ngủ, vệ sinh giấc ngủ, trực đêm, thuốc ngủ", abschnitte: [
+        { h: "Thu thập thông tin" },
+        { liste: ["Hỏi tiền sử giấc ngủ: giờ đi ngủ, giờ dậy, ngủ trưa, nghi thức trước khi ngủ, gối yêu thích, bật hay tắt đèn, cửa mở hay đóng", "Tiểu sử: làm ca, làm nông, thói quen trước đây", "Biên bản hoặc nhật ký giấc ngủ trong 1–2 tuần: vào giấc, các lần thức, giờ dậy, cảm giác ban ngày", "Quan sát khi trực đêm: bồn chồn, nhịp thở, ngáy, khoảng ngừng thở, đi vệ sinh, đau", "Bảng câu hỏi, ví dụ chỉ số chất lượng giấc ngủ Pittsburgh (PSQI) hoặc thang Epworth đánh giá buồn ngủ ban ngày"] },
+        { link: { bereich: "biografie", kapitel: "bio_methoden" } },
+        { h: "Vệ sinh giấc ngủ – mẹo để ngủ ngon" },
+        { liste: ["Giờ đi ngủ và giờ dậy đều đặn, kể cả cuối tuần", "Ban ngày vận động và ra ánh sáng, có việc làm thay vì buồn chán", "Ngủ trưa tối đa 20–30 phút và không ngủ vào chiều muộn", "Từ buổi chiều không uống cà phê, trà đen hoặc Cola", "Buổi tối không ăn nặng, không uống rượu, không hút thuốc", "Phòng ngủ yên tĩnh, tối, thông thoáng, khoảng 16–18 °C", "Chỉ dùng giường để ngủ, không để xem tivi", "Không lên giường khi chưa buồn ngủ", "Buổi tối thư giãn: nghi thức buổi tối, không xem phim gây kích động, tắt màn hình"] },
+        { h: "Biện pháp chăm sóc hỗ trợ giấc ngủ" },
+        { tabelle: { kopf: ["Biện pháp", "Ví dụ"], zeilen: [
+          ["Nghi thức buổi tối", "Thói quen quen thuộc từ tiểu sử, ví dụ cầu nguyện, nghe nhạc, đọc sách, sữa ấm với mật ong"],
+          ["Thư giãn", "Lau rửa làm dịu theo chiều mọc lông, xoa lưng, ngâm chân nước ấm, túi chườm ấm"],
+          ["Đồ uống", "Trà thảo mộc, ví dụ tía tô đất (Melisse), oải hương, Baldrian, hoa bia (Hopfen)"],
+          ["Giảm khó chịu", "Điều trị đau, ngứa và khó thở trước khi đi ngủ, tư thế thoải mái, đi vệ sinh"],
+          ["An toàn và cảm giác được che chở", "Chuông gọi trong tầm tay, đèn ngủ, đồ vật quen thuộc, trò chuyện khi có lo lắng"],
+          ["Tránh làm phiền", "Gộp các biện pháp chăm sóc, đi kiểm tra nhẹ nhàng, đèn mờ, không đánh thức khi không cần"]
+        ] } },
+        { merke: "Người cư trú nên đi ngủ theo thói quen của chính mình, không theo lịch trực. Ai bị đưa lên giường lúc 18 giờ thì 3 giờ sáng đã ngủ đủ." },
+        { h: "Giấc ngủ và sa sút trí tuệ" },
+        { liste: ["Thường gặp: đảo ngược ngày đêm, bồn chồn và đi lang thang ban đêm", "Sundowning: bồn chồn và lú lẫn tăng vào chiều muộn và buổi tối", "Hỗ trợ: nhiều ánh sáng và hoạt động ban ngày, cấu trúc ngày cố định, nghỉ ngắn", "Chú ý tiểu sử: ai trước đây làm việc ban đêm thì có thể hoạt động về đêm", "Quán cà phê đêm (Nachtcafé) hoặc đi cùng thay vì ép buộc, tạo điều kiện an toàn cho nhu cầu đi lại", "Biện pháp hạn chế tự do chỉ khi có phép của tòa án hoặc sự đồng ý, ưu tiên các phương án thay thế"] },
+        { h: "Thuốc ngủ – thận trọng ở tuổi già" },
+        { p: "Thuốc ngủ (Hypnotika) chỉ dùng theo chỉ định bác sĩ và trong thời gian ngắn nhất có thể, thường tối đa 3–4 tuần. Hay dùng là Benzodiazepin (ví dụ Lorazepam) và nhóm thuốc Z (Zolpidem, Zopiclon)." },
+        { liste: ["Nguy cơ té ngã do choáng váng và yếu cơ, kể cả vào buổi sáng (Hang-over)", "Lệ thuộc và quen thuốc, triệu chứng cai khi ngừng đột ngột", "Lú lẫn, rối loạn trí nhớ, mê sảng", "Phản ứng nghịch thường: bồn chồn và kích động thay vì buồn ngủ", "Ức chế hô hấp, nhất là khi ngừng thở khi ngủ hoặc dùng cùng rượu hay Opioid", "Nhiều thuốc trong số này có trong danh sách PRISCUS các thuốc không phù hợp cho người cao tuổi"] },
+        { warn: "Sau khi cho thuốc ngủ: chú ý nguy cơ té ngã, để chuông gọi và đèn ngủ sẵn, đi cùng khi đi vệ sinh ban đêm. Theo dõi và ghi chép tác dụng và tác dụng phụ." },
+        { link: { bereich: "prophylaxen", kapitel: "sturz" } },
+        { h: "Ghi chép" },
+        { tabelle: { kopf: ["Chưa tốt", "Tốt hơn"], zeilen: [
+          ["„Ngủ không ngon.“", "„Thức từ 1 đến 3 giờ, bồn chồn, kêu đau đầu gối phải. Đã cho thuốc khi cần theo y lệnh, ngủ từ 3:30.“"],
+          ["„Ngáy.“", "„Ngáy to, không đều, có khoảng ngừng thở khoảng 15 giây, quan sát thấy khoảng 5 lần trong 10 phút. Đã báo bác sĩ.“"]
+        ] } }
+      ] }
+    ]
+  },
+  {
     id: "biografie", titel: "Làm việc với tiểu sử (Biografiearbeit)", untertitel: "Hiểu con người và cuộc đời của họ, đưa vào việc chăm sóc",
     kapitel: [
       { id: "bio_grundlagen", titel: "Cơ bản", kurz: "Định nghĩa, mục tiêu, ý nghĩa đối với điều dưỡng", abschnitte: [

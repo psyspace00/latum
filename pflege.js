@@ -1712,6 +1712,235 @@ const BEREICHE = [
   },
 
   // ===================================================================
+  // SCHLAF
+  {
+    id: "schlaf", titel: "Schlaf", untertitel: "Schlafphasen, Schlaf im Alter, Schlafstörungen mit Fachbegriffen, Pflege", icon: "mond",
+    kapitel: [
+      {
+        id: "schlaf_grundlagen", titel: "Schlaf: Grundlagen", kurz: "Aufgaben, Schlafphasen, Schlafzyklus, Rhythmus, Schlafbedarf",
+        abschnitte: [
+          { h: "Warum schlafen wir?" },
+          { p: "Schlaf ist ein aktiver, lebenswichtiger Zustand. Das Bewusstsein ist herabgesetzt, der Mensch ist aber jederzeit weckbar. Im Pflegemodell nach Krohwinkel gehört Schlaf zur AEDL „Ruhen und schlafen können“, bei Juchli zur ATL „Wach sein und schlafen“." },
+          { liste: ["Erholung von Körper und Gehirn, Energie wird gespart", "Gedächtnis: Gelerntes wird gefestigt und sortiert", "Abwehr: Das Immunsystem wird gestärkt", "Zellerneuerung und Wundheilung, Ausschüttung von Wachstumshormon im Tiefschlaf", "Seelisches Gleichgewicht und Stimmung", "Regulation von Stoffwechsel, Blutzucker und Appetit"] },
+          { h: "Schlafphasen" },
+          { p: "Man unterscheidet den Non-REM-Schlaf (N1 bis N3) und den REM-Schlaf. REM steht für „Rapid Eye Movements“, also schnelle Augenbewegungen. Gemessen werden die Phasen im Schlaflabor mit der Polysomnografie (u. a. EEG für die Hirnströme)." },
+          { tabelle: { kopf: ["Phase", "Was passiert?", "Anteil"], zeilen: [
+            ["N1 – Einschlafphase", "Übergang vom Wachsein, leicht weckbar, Muskeln entspannen, evtl. Zuckungen", "ca. 5 %"],
+            ["N2 – leichter Schlaf", "Puls, Atmung und Temperatur sinken, Umgebung wird kaum noch wahrgenommen", "ca. 45–55 %"],
+            ["N3 – Tiefschlaf", "Langsame Hirnwellen, schwer weckbar, wichtigste Phase für die körperliche Erholung", "ca. 15–20 %"],
+            ["REM-Schlaf", "Lebhafte Träume, schnelle Augenbewegungen, Muskeln fast völlig erschlafft, Puls und Atmung unregelmäßig", "ca. 20–25 %"]
+          ] } },
+          { merke: "Ein Schlafzyklus dauert etwa 90 Minuten. Pro Nacht gibt es 4 bis 6 Zyklen. In der ersten Nachthälfte überwiegt der Tiefschlaf, in der zweiten der REM-Schlaf." },
+          { p: "Ältere Lehrbücher teilen nach Rechtschaffen und Kales in die Stadien 1 bis 4 ein. Die Stadien 3 und 4 entsprechen zusammen dem heutigen N3 (Tiefschlaf)." },
+          { h: "Schlaf-Wach-Rhythmus" },
+          { p: "Die innere Uhr (zirkadianer Rhythmus, von lat. circa = ungefähr und dies = Tag) steuert Schlafen und Wachen in einem Rhythmus von etwa 24 Stunden. Bei Dunkelheit bildet die Zirbeldrüse (Epiphyse) das Schlafhormon Melatonin. Helles Licht hemmt die Bildung." },
+          { liste: ["Zeitgeber der inneren Uhr: Tageslicht, feste Mahlzeiten, Bewegung, soziale Kontakte, feste Zeiten", "Fehlen Zeitgeber, z. B. bei Bettlägerigkeit in dunklen Zimmern, gerät der Rhythmus durcheinander"] },
+          { h: "Schlafbedarf nach Alter" },
+          { tabelle: { kopf: ["Alter", "Empfohlene Schlafdauer pro Tag"], zeilen: [
+            ["Neugeborene (0–3 Monate)", "14–17 Stunden"],
+            ["Säuglinge (4–11 Monate)", "12–15 Stunden"],
+            ["Kleinkinder (1–2 Jahre)", "11–14 Stunden"],
+            ["Kindergartenkinder (3–5 Jahre)", "10–13 Stunden"],
+            ["Schulkinder (6–13 Jahre)", "9–11 Stunden"],
+            ["Jugendliche (14–17 Jahre)", "8–10 Stunden"],
+            ["Erwachsene (18–64 Jahre)", "7–9 Stunden"],
+            ["Ältere Menschen (ab 65 Jahre)", "7–8 Stunden"]
+          ] } },
+          { p: "Richtwerte nach der amerikanischen National Sleep Foundation. Der Bedarf ist individuell: Entscheidend ist, ob sich der Mensch am Tag erholt und leistungsfähig fühlt." }
+        ]
+      },
+      {
+        id: "schlaf_alter", titel: "Schlaf im Alter und Störfaktoren", kurz: "Veränderungen im Alter, Einflussfaktoren, Folgen von Schlafmangel",
+        abschnitte: [
+          { h: "So verändert sich der Schlaf im Alter" },
+          { tabelle: { kopf: ["Veränderung", "Folge"], zeilen: [
+            ["Weniger Tiefschlaf (N3)", "Schlaf ist leichter, man wird schneller wach"],
+            ["Häufigeres nächtliches Aufwachen", "Schlaf wirkt „zerstückelt“, Durchschlafen fällt schwer"],
+            ["Innere Uhr verschiebt sich nach vorn", "Früh müde am Abend, sehr frühes Erwachen am Morgen"],
+            ["Weniger Melatonin", "Einschlafen dauert länger"],
+            ["Mehr Nickerchen am Tag", "Der Schlafdruck in der Nacht sinkt"],
+            ["Längere Zeit im Bett", "Schlafdauer im Verhältnis zur Liegezeit nimmt ab"]
+          ] } },
+          { merke: "Leichterer und kürzerer Schlaf im Alter ist normal. Eine Schlafstörung liegt erst vor, wenn die Person darunter leidet oder am Tag beeinträchtigt ist." },
+          { h: "Was den Schlaf stört" },
+          { tabelle: { kopf: ["Bereich", "Beispiele"], zeilen: [
+            ["Körperlich", "Schmerzen, Atemnot, Husten, Juckreiz, häufiger nächtlicher Harndrang (Nykturie), Hunger, Restless Legs, Fieber"],
+            ["Seelisch", "Angst, Sorgen, Trauer, Einsamkeit, Depression, Heimweh nach Umzug ins Heim"],
+            ["Umgebung", "Lärm, Licht, zu warmes Zimmer, ungewohntes Bett, Mitbewohnerin oder Mitbewohner, Kontrollgänge"],
+            ["Medikamente und Genussmittel", "Koffein, Alkohol, Nikotin, Entwässerungsmittel am Abend, Kortison, manche Antidepressiva"],
+            ["Tagesablauf", "Zu wenig Bewegung und Tageslicht, lange Mittagsschläfe, sehr frühe Bettzeit im Heim"]
+          ] } },
+          { p: "Für erholsamen Schlaf empfiehlt sich ein ruhiges, dunkles, gut gelüftetes Schlafzimmer mit etwa 16–18 °C." },
+          { h: "Folgen von Schlafmangel" },
+          { liste: ["Müdigkeit, Konzentrations- und Gedächtnisstörungen", "Reizbarkeit, gedrückte Stimmung, Angst", "Erhöhtes Sturz- und Unfallrisiko, Sekundenschlaf", "Schwächere Abwehr, schlechtere Wundheilung", "Stärkeres Schmerzempfinden", "Langfristig: Bluthochdruck, Übergewicht, Diabetes, Depression", "Bei älteren Menschen: Gefahr eines Delirs (akute Verwirrtheit)"] },
+          { diagnose: "delir" }
+        ]
+      },
+      {
+        id: "schlaf_begriffe", titel: "Schlafstörungen: Fachbegriffe", kurz: "Einteilung, Wortherkunft und Übersetzung aller Diagnosen",
+        abschnitte: [
+          { h: "Einteilung der Schlafstörungen" },
+          { p: "In der Pflegeausbildung werden Schlafstörungen meist in zwei große Gruppen eingeteilt:" },
+          { tabelle: { kopf: ["Gruppe", "Bedeutung", "Beispiele"], zeilen: [
+            ["Dyssomnien", "Menge, Qualität oder Zeitpunkt des Schlafes sind gestört", "Insomnie, Hypersomnie, Narkolepsie, Schlafapnoe"],
+            ["Parasomnien", "Ungewöhnliches Verhalten oder Erleben während des Schlafes, der Schlaf an sich ist normal lang", "Somnambulismus, Pavor nocturnus, Enuresis nocturna, Albträume"]
+          ] } },
+          { p: "Die internationale Einteilung (ICSD-3) ist feiner: Insomnien, schlafbezogene Atmungsstörungen (Schnarchen, Schlafapnoe), Hypersomnien (z. B. Narkolepsie), Störungen des Schlaf-Wach-Rhythmus (z. B. Schichtarbeit, Jetlag), Parasomnien und schlafbezogene Bewegungsstörungen (z. B. Restless Legs, Bruxismus)." },
+          { h: "Wortbausteine" },
+          { tabelle: { kopf: ["Baustein", "Herkunft", "Bedeutung"], zeilen: [
+            ["somnus", "lateinisch", "Schlaf"],
+            ["in-", "lateinisch", "un-, nicht"],
+            ["hyper-", "griechisch", "über, übermäßig"],
+            ["hypo-", "griechisch", "unter, zu wenig"],
+            ["para-", "griechisch", "neben, abweichend"],
+            ["dys-", "griechisch", "gestört, fehlerhaft"],
+            ["a- / an-", "griechisch", "ohne, nicht"],
+            ["pnoe", "griechisch", "Atmung, Atem"],
+            ["nocturnus", "lateinisch", "nächtlich (nox = Nacht)"],
+            ["-pathie (pathos)", "griechisch", "Leiden, Krankheit"]
+          ] } },
+          { h: "Die Diagnosen auf einen Blick" },
+          { tabelle: { kopf: ["Fachwort", "Wortherkunft", "Übersetzung"], zeilen: [
+            ["Parasomnie", "griech. para = neben, abweichend + lat. somnus = Schlaf", "Ungewöhnliches Verhalten im Schlaf"],
+            ["Hypersomnie", "griech. hyper = übermäßig + lat. somnus = Schlaf", "Schlafsucht, übermäßige Schläfrigkeit"],
+            ["Hyposomnie", "griech. hypo = unter, zu wenig + lat. somnus = Schlaf", "Zu wenig Schlaf"],
+            ["Insomnie", "lat. in = nicht, un- + somnus = Schlaf", "Schlaflosigkeit"],
+            ["Schlafapnoe", "griech. a = ohne + pnoe = Atmung", "Atemstillstand im Schlaf"],
+            ["Narkolepsie", "griech. narke = Erstarrung, Betäubung + lepsis = Anfall, Ergriffenwerden", "Schlafanfälle, Schlummersucht"],
+            ["Pavor nocturnus", "lat. pavor = Angst, Schrecken + nocturnus = nächtlich", "Nachtschreck"],
+            ["Enuresis nocturna", "griech. enurein = Harn lassen, einnässen + lat. nocturnus = nächtlich", "Nächtliches Einnässen, Bettnässen"],
+            ["Rhonchopathie", "griech. rhonchos = Schnarchen + pathos = Leiden", "Schnarchkrankheit, krankhaftes Schnarchen"],
+            ["Bruxismus", "griech. brychein = mit den Zähnen knirschen", "Zähneknirschen und Zähnepressen"],
+            ["Somnambulismus", "lat. somnus = Schlaf + ambulare = umhergehen", "Schlafwandeln"]
+          ] } },
+          { merke: "Hyposomnie und Insomnie meinen beide zu wenig Schlaf. „Insomnie“ ist der heute übliche Fachbegriff für Ein- und Durchschlafstörungen." },
+          { h: "Verwechslungsgefahr" },
+          { tabelle: { kopf: ["Begriff", "Bedeutung"], zeilen: [
+            ["Nykturie", "Nächtliches Wasserlassen: Die Person wacht auf und geht zur Toilette (griech. nyx = Nacht + uron = Harn)"],
+            ["Enuresis nocturna", "Nächtliches Einnässen im Schlaf, ohne aufzuwachen"],
+            ["Pavor nocturnus", "Aufschrecken aus dem Tiefschlaf, keine Erinnerung"],
+            ["Albtraum", "Angsttraum im REM-Schlaf, man wacht auf und erinnert sich"]
+          ] } }
+        ]
+      },
+      {
+        id: "schlaf_dyssomnien", titel: "Insomnie, Hypersomnie und Narkolepsie", kurz: "Zu wenig oder zu viel Schlaf: Zeichen, Ursachen, Pflege",
+        abschnitte: [
+          { h: "Insomnie / Hyposomnie" },
+          { p: "Übersetzung: Schlaflosigkeit bzw. zu wenig Schlaf. Insomnie kommt von lat. in = nicht und somnus = Schlaf, Hyposomnie von griech. hypo = unter und lat. somnus. Es ist die häufigste Schlafstörung, besonders im Alter." },
+          { liste: ["Einschlafstörung: Einschlafen dauert länger als etwa 30 Minuten", "Durchschlafstörung: häufiges oder langes Wachliegen in der Nacht", "Früherwachen: deutlich zu frühes Erwachen ohne wieder einzuschlafen", "Nicht erholsamer Schlaf mit Folgen am Tag: Müdigkeit, Reizbarkeit, Konzentrationsprobleme", "Chronisch: mindestens 3 Nächte pro Woche über mindestens 3 Monate"] },
+          { p: "Ursachen: Stress, Sorgen, Depression, Schmerzen, Atemnot, Nykturie, Medikamente, Koffein und Alkohol, ungünstige Schlafgewohnheiten. Oft entsteht ein Teufelskreis aus Angst vor der nächsten schlechten Nacht und Anspannung." },
+          { liste: ["Behandlung der ersten Wahl: kognitive Verhaltenstherapie bei Insomnie (KVT-I)", "Schlafhygiene, feste Aufsteh- und Bettzeiten", "Bett nur zum Schlafen nutzen, bei langem Wachliegen kurz aufstehen", "Ursachen behandeln, z. B. Schmerzen", "Schlafmittel nur kurzzeitig und ärztlich verordnet"] },
+          { link: { bereich: "schlaf", kapitel: "schlaf_pflege" } },
+          { h: "Hypersomnie (Schlafsucht)" },
+          { p: "Übersetzung: Schlafsucht, übermäßiger Schlaf. Das Wort kommt von griech. hyper = über, übermäßig und lat. somnus = Schlaf. Die Betroffenen sind am Tag stark schläfrig oder schlafen sehr lange, obwohl sie nachts ausreichend geschlafen haben." },
+          { liste: ["Häufige Ursachen: Schlafapnoe, Schlafmangel, Medikamente (z. B. Beruhigungsmittel), Depression", "Körperliche Ursachen: Schilddrüsenunterfunktion, Blutarmut, Nierenschwäche, Erkrankungen des Gehirns", "Seltenere Formen ohne erkennbare Ursache, z. B. Narkolepsie"] },
+          { warn: "Neu auftretende, starke Schläfrigkeit bei älteren Menschen immer melden. Dahinter können ein Delir, eine Infektion, Medikamente, Unterzucker oder ein Schlaganfall stecken." },
+          { h: "Narkolepsie" },
+          { p: "Übersetzung: Schlafanfallskrankheit, im Volksmund „Schlummersucht“. Das Wort kommt von griech. narke = Erstarrung, Betäubung und lepsis = Anfall, Ergriffenwerden. Es ist eine seltene, chronische Erkrankung des Gehirns. Meist fehlt der wach haltende Botenstoff Orexin (Hypocretin)." },
+          { tabelle: { kopf: ["Zeichen", "Erklärung"], zeilen: [
+            ["Tagesschläfrigkeit mit Schlafattacken", "Plötzliches, nicht unterdrückbares Einschlafen, auch beim Essen oder Sprechen"],
+            ["Kataplexie", "Plötzlicher Verlust der Muskelspannung bei starken Gefühlen, z. B. Lachen, bei vollem Bewusstsein"],
+            ["Schlaflähmung", "Beim Einschlafen oder Aufwachen kann man sich kurz nicht bewegen"],
+            ["Halluzinationen beim Einschlafen", "Sehr lebhafte, traumartige Bilder"],
+            ["Gestörter Nachtschlaf", "Häufiges Erwachen trotz großer Müdigkeit"]
+          ] } },
+          { liste: ["Behandlung: geplante kurze Schlafpausen am Tag, feste Schlafzeiten, Medikamente", "Pflege: Sicherheit bei Schlafattacken (Sturz, Verbrühung, Straßenverkehr), Tagesstruktur, Aufklärung des Umfelds", "Autofahren ist oft nur eingeschränkt erlaubt"] }
+        ]
+      },
+      {
+        id: "schlaf_atmung", titel: "Schnarchen und Schlafapnoe", kurz: "Rhonchopathie, Atemaussetzer, CPAP-Therapie",
+        abschnitte: [
+          { h: "Rhonchopathie (Schnarchen)" },
+          { p: "Übersetzung: Schnarchkrankheit, krankhaftes Schnarchen. Das Wort kommt von griech. rhonchos = Schnarchen und pathos = Leiden. Beim Einatmen erschlaffen Gaumensegel, Zäpfchen und Zunge, das Gewebe flattert im Luftstrom." },
+          { liste: ["Primäres Schnarchen: Lautes Schnarchen ohne Atemaussetzer, vor allem eine Belastung für die Partnerin oder den Partner", "Gefährlich wird es, wenn unregelmäßiges Schnarchen mit Pausen auftritt: Hinweis auf eine Schlafapnoe", "Begünstigt durch Übergewicht, Rückenlage, Alkohol und Schlafmittel am Abend, Rauchen, verstopfte Nase, große Rachenmandeln"] },
+          { h: "Schlafapnoe" },
+          { p: "Übersetzung: Atemstillstand im Schlaf. Das Wort kommt von griech. a = ohne und pnoe = Atmung. Es kommt im Schlaf wiederholt zu Atemaussetzern (Apnoen) von mindestens 10 Sekunden. Der Sauerstoffgehalt im Blut sinkt, das Gehirn löst kurze Weckreaktionen aus. Der Schlaf ist dadurch nicht erholsam." },
+          { tabelle: { kopf: ["Form", "Ursache", "Häufigkeit"], zeilen: [
+            ["Obstruktive Schlafapnoe (OSA)", "Die oberen Atemwege fallen im Schlaf zusammen, der Atemantrieb ist vorhanden", "Häufigste Form"],
+            ["Zentrale Schlafapnoe", "Das Atemzentrum im Gehirn gibt zeitweise keinen Atemimpuls, z. B. bei Herzinsuffizienz oder Opioiden", "Seltener"]
+          ] } },
+          { liste: ["Lautes, unregelmäßiges Schnarchen mit beobachteten Atempausen", "Plötzliches Aufschrecken mit Luftschnappen oder Erstickungsgefühl", "Starke Tagesmüdigkeit, Sekundenschlaf", "Morgendliche Kopfschmerzen und Mundtrockenheit", "Konzentrationsstörungen, Gereiztheit, Nykturie"] },
+          { p: "Risikofaktoren: Übergewicht, männliches Geschlecht, höheres Alter, Alkohol und Schlafmittel, Rauchen, Rückenlage. Die Diagnose stellt ein Schlaflabor. Der Schweregrad richtet sich nach den Atemaussetzern pro Stunde (Apnoe-Hypopnoe-Index, ab 5 pro Stunde krankhaft)." },
+          { warn: "Unbehandelt erhöht die Schlafapnoe das Risiko für Bluthochdruck, Herzrhythmusstörungen, Herzinfarkt, Schlaganfall und Unfälle. Beruhigungs-, Schlafmittel und Opioide können die Atemaussetzer verstärken." },
+          { h: "Behandlung und Pflege" },
+          { liste: ["CPAP-Therapie: Eine Maske gibt nachts einen leichten Überdruck und hält die Atemwege offen", "Gewicht reduzieren, abends kein Alkohol, Schlafmittel vermeiden", "Seitenlage statt Rückenlage, z. B. mit Lagerungskissen", "Bei leichter OSA: Unterkieferschiene vom Zahnarzt", "Pflege: Atempausen im Nachtdienst beobachten und dokumentieren (Dauer, Häufigkeit, Hautfarbe, ggf. SpO₂)", "Pflege: CPAP-Gerät bei Aufnahme mitbringen lassen und jede Nacht nutzen", "Pflege: Maskensitz prüfen, Druckstellen vermeiden, Maske und Schlauch nach Herstellerangabe reinigen"] },
+          { merke: "Wer eine CPAP-Maske hat, braucht sie auch im Krankenhaus und im Heim. Ohne Maske treten die Atemaussetzer sofort wieder auf." }
+        ]
+      },
+      {
+        id: "schlaf_parasomnien", titel: "Parasomnien", kurz: "Somnambulismus, Pavor nocturnus, Enuresis nocturna, Bruxismus",
+        abschnitte: [
+          { h: "Was ist eine Parasomnie?" },
+          { p: "Übersetzung: ungewöhnliches Verhalten im Schlaf. Das Wort kommt von griech. para = neben, abweichend und lat. somnus = Schlaf. Es sind Ereignisse, die beim Einschlafen, im Schlaf oder beim Aufwachen auftreten. Die Schlafdauer ist meist normal. Viele Parasomnien kommen vor allem bei Kindern vor und verschwinden mit dem Älterwerden." },
+          { tabelle: { kopf: ["Aus dem Tiefschlaf (Non-REM)", "Aus dem REM-Schlaf"], zeilen: [
+            ["Meist im ersten Drittel der Nacht", "Meist in der zweiten Nachthälfte"],
+            ["Somnambulismus, Pavor nocturnus, Schlaftrunkenheit", "Albträume, REM-Schlaf-Verhaltensstörung"],
+            ["Kaum weckbar, am Morgen keine Erinnerung", "Wach und orientiert, Erinnerung an den Traum"]
+          ] } },
+          { p: "Bei der REM-Schlaf-Verhaltensstörung fehlt die normale Muskelerschlaffung: Ältere Menschen, meist Männer, schlagen oder treten im Traum um sich. Sie kann ein frühes Zeichen von Parkinson sein und sollte ärztlich abgeklärt werden." },
+          { h: "Somnambulismus (Schlafwandeln)" },
+          { p: "Übersetzung: Schlafwandeln. Das Wort kommt von lat. somnus = Schlaf und ambulare = umhergehen. Die Person steht aus dem Tiefschlaf auf, läuft mit offenen, „leeren“ Augen umher und führt einfache Handlungen aus. Sie ist kaum ansprechbar und erinnert sich am Morgen nicht. Häufig bei Kindern zwischen etwa 4 und 12 Jahren." },
+          { liste: ["Auslöser: Schlafmangel, Stress, Fieber, volle Blase, ungewohnte Umgebung, manche Medikamente", "Nicht abrupt wecken, das kann Verwirrung oder Abwehr auslösen", "Ruhig ansprechen und sanft zurück ins Bett führen", "Umgebung sichern: Fenster und Balkontür verschließen, Treppen sichern, Stolperfallen und gefährliche Gegenstände entfernen", "Für regelmäßigen und ausreichenden Schlaf sorgen", "Episoden dokumentieren und weitergeben"] },
+          { h: "Pavor nocturnus (Nachtschreck)" },
+          { p: "Übersetzung: Nachtschreck, nächtliches Aufschrecken. Das Wort kommt von lat. pavor = Angst, Schrecken und nocturnus = nächtlich. Meist bei Kindern im Vorschul- und Grundschulalter. Das Kind schreckt im ersten Drittel der Nacht aus dem Tiefschlaf hoch, schreit, wirkt panisch und schwitzt, das Herz rast. Es ist kaum weckbar, lässt sich nicht trösten und erinnert sich am Morgen nicht." },
+          { liste: ["Nicht wecken und nicht festhalten, die Episode dauert meist nur wenige Minuten", "Dabeibleiben, ruhig bleiben, vor Verletzungen schützen", "Ausreichend Schlaf und feste Abendrituale", "Eltern beruhigen: Der Pavor ist meist harmlos und verschwindet von allein", "Ärztlich abklären bei sehr häufigen Episoden oder Beginn im Erwachsenenalter"] },
+          { tabelle: { kopf: ["Merkmal", "Pavor nocturnus", "Albtraum"], zeilen: [
+            ["Schlafphase", "Tiefschlaf (N3)", "REM-Schlaf"],
+            ["Zeitpunkt", "Erstes Drittel der Nacht", "Zweite Nachthälfte, morgens"],
+            ["Ansprechbar", "Nein, nicht zu beruhigen", "Ja, wacht auf und sucht Trost"],
+            ["Erinnerung", "Keine", "Oft lebhafte Erinnerung"]
+          ] } },
+          { h: "Enuresis nocturna (Bettnässen)" },
+          { p: "Übersetzung: nächtliches Einnässen. Das Wort kommt von griech. enurein = Harn lassen, einnässen und lat. nocturnus = nächtlich. Gemeint ist unwillkürliches Einnässen im Schlaf bei Kindern ab 5 Jahren, ohne körperliche Ursache." },
+          { tabelle: { kopf: ["Form", "Bedeutung"], zeilen: [
+            ["Primäre Enuresis", "Das Kind war noch nie längere Zeit nachts trocken. Häufig familiär, die Reifung der Blasenkontrolle ist verzögert"],
+            ["Sekundäre Enuresis", "Erneutes Einnässen nach mindestens 6 trockenen Monaten. Oft seelische Auslöser, z. B. Geburt eines Geschwisters, Trennung, oder körperliche Ursachen wie Harnwegsinfekt, Diabetes"]
+          ] } },
+          { liste: ["Nie schimpfen, bestrafen oder beschämen", "Tagsüber ausreichend trinken, in den letzten Stunden vor dem Schlafen weniger", "Vor dem Schlafen zur Toilette gehen", "Belohnung für trockene Nächte, z. B. Sonnen-Kalender", "Klingelhose oder Weckgerät (Alarmtherapie) nach ärztlicher Beratung", "Ärztliche Abklärung, vor allem bei sekundärer Enuresis"] },
+          { p: "Bei Erwachsenen spricht man bei nächtlichem Urinverlust von nächtlicher Harninkontinenz. Ursachen und Pflege stehen bei der Diagnose Harninkontinenz." },
+          { diagnose: "inkontinenz" },
+          { h: "Bruxismus (Zähneknirschen)" },
+          { p: "Übersetzung: Zähneknirschen und Zähnepressen. Das Wort kommt von griech. brychein = mit den Zähnen knirschen. Die Kaumuskeln arbeiten unbewusst, nachts im Schlaf (Schlafbruxismus) oder am Tag (Wachbruxismus)." },
+          { liste: ["Zeichen: Knirschgeräusche in der Nacht, abgenutzte oder abgebrochene Zähne", "Zeichen: Schmerzen in Kiefer, Kaumuskeln und Ohren, morgendliche Kopfschmerzen, Verspannungen im Nacken", "Ursachen: Stress und Anspannung, Fehlstellung der Zähne, Alkohol, Koffein, Nikotin, manche Medikamente, Schlafapnoe", "Behandlung: Aufbissschiene vom Zahnarzt, Stressabbau, Entspannung, Physiotherapie", "Pflege: Beobachtung weitergeben, Schiene reinigen und einsetzen helfen, Mund und Zähne kontrollieren"] }
+        ]
+      },
+      {
+        id: "schlaf_pflege", titel: "Pflege: Schlaf fördern", kurz: "Schlafanamnese, Schlafprotokoll, Schlafhygiene, Nachtdienst, Schlafmittel",
+        abschnitte: [
+          { h: "Informationen sammeln" },
+          { liste: ["Schlafanamnese: Bettzeit, Aufstehzeit, Mittagsschlaf, Einschlafrituale, Lieblingskissen, Licht an oder aus, Tür offen oder zu", "Biografie: Schichtarbeit, Landwirtschaft, frühere Gewohnheiten", "Schlafprotokoll oder Schlaftagebuch über 1–2 Wochen: Einschlafen, Wachphasen, Aufwachen, Befinden am Tag", "Beobachtung im Nachtdienst: Unruhe, Atmung, Schnarchen, Atempausen, Toilettengänge, Schmerzen", "Fragebögen, z. B. Pittsburgher Schlafqualitätsindex (PSQI) oder Epworth-Schläfrigkeitsskala für die Tagesmüdigkeit"] },
+          { link: { bereich: "biografie", kapitel: "bio_methoden" } },
+          { h: "Schlafhygiene – Tipps für guten Schlaf" },
+          { liste: ["Regelmäßige Bett- und Aufstehzeiten, auch am Wochenende", "Am Tag Bewegung und Tageslicht, Beschäftigung statt Langeweile", "Mittagsschlaf höchstens 20–30 Minuten und nicht am späten Nachmittag", "Ab dem Nachmittag kein Kaffee, schwarzer Tee oder Cola", "Abends keine schweren Mahlzeiten, kein Alkohol, nicht rauchen", "Schlafzimmer ruhig, dunkel, gut gelüftet, etwa 16–18 °C", "Bett nur zum Schlafen nutzen, nicht zum Fernsehen", "Nicht ins Bett gehen, bevor man müde ist", "Abends zur Ruhe kommen: Abendrituale, keine aufregenden Filme, Bildschirm aus"] },
+          { h: "Schlaffördernde Pflegemaßnahmen" },
+          { tabelle: { kopf: ["Maßnahme", "Beispiele"], zeilen: [
+            ["Abendrituale", "Gewohnte Abläufe aus der Biografie, z. B. Gebet, Musik, Lesen, warme Milch mit Honig"],
+            ["Entspannung", "Beruhigende Waschung in Haarwuchsrichtung, Rückeneinreibung, warmes Fußbad, Wärmflasche"],
+            ["Getränke", "Kräutertee, z. B. Melisse, Lavendel, Baldrian, Hopfen"],
+            ["Beschwerden lindern", "Schmerzen, Juckreiz und Atemnot vor der Nacht behandeln, bequeme Lagerung, Toilettengang"],
+            ["Sicherheit und Geborgenheit", "Klingel in Reichweite, Nachtlicht, vertraute Gegenstände, Gespräch bei Sorgen"],
+            ["Störungen vermeiden", "Pflegemaßnahmen bündeln, leise Kontrollgänge, gedimmtes Licht, nicht ohne Grund wecken"]
+          ] } },
+          { merke: "Bewohnerinnen und Bewohner sollen nicht nach dem Dienstplan, sondern nach ihren eigenen Gewohnheiten ins Bett gehen. Wer um 18 Uhr ins Bett gebracht wird, ist um 3 Uhr ausgeschlafen." },
+          { h: "Schlaf und Demenz" },
+          { liste: ["Häufig: Tag-Nacht-Umkehr, nächtliche Unruhe und Umherlaufen", "Sundowning: Unruhe und Verwirrtheit nehmen am späten Nachmittag und Abend zu", "Hilfen: viel Tageslicht und Aktivität am Tag, feste Tagesstruktur, kurze Ruhezeiten", "Biografie beachten: Wer früher nachts arbeitete, ist vielleicht nachts aktiv", "Nachtcafé oder Begleitung statt Zwang, Bewegungsdrang sicher ermöglichen", "Freiheitsentziehende Maßnahmen nur mit richterlicher Genehmigung bzw. Einwilligung, Alternativen nutzen"] },
+          { h: "Schlafmittel – Vorsicht im Alter" },
+          { p: "Schlafmittel (Hypnotika) werden nur ärztlich verordnet und möglichst kurz eingesetzt, meist höchstens 3–4 Wochen. Häufig sind Benzodiazepine (z. B. Lorazepam) und sogenannte Z-Substanzen (Zolpidem, Zopiclon)." },
+          { liste: ["Sturzgefahr durch Benommenheit und Muskelschwäche, auch noch am Morgen (Hang-over)", "Abhängigkeit und Gewöhnung, Entzugssymptome beim plötzlichen Absetzen", "Verwirrtheit, Gedächtnisstörungen, Delir", "Paradoxe Reaktion: Unruhe und Erregung statt Müdigkeit", "Atemdämpfung, besonders bei Schlafapnoe oder zusammen mit Alkohol oder Opioiden", "Viele dieser Mittel stehen auf der PRISCUS-Liste der für ältere Menschen ungeeigneten Medikamente"] },
+          { warn: "Nach der Gabe eines Schlafmittels: Sturzrisiko beachten, Klingel und Nachtlicht bereitstellen, beim nächtlichen Toilettengang begleiten. Wirkung und Nebenwirkungen beobachten und dokumentieren." },
+          { link: { bereich: "prophylaxen", kapitel: "sturz" } },
+          { h: "Dokumentation" },
+          { tabelle: { kopf: ["Ungünstig", "Besser"], zeilen: [
+            ["„Hat schlecht geschlafen.“", "„War von 1 bis 3 Uhr wach, unruhig, äußerte Schmerzen im rechten Knie. Bedarfsmedikation nach AVO gegeben, ab 3:30 Uhr geschlafen.“"],
+            ["„Schnarcht.“", "„Lautes, unregelmäßiges Schnarchen mit Atempausen von etwa 15 Sekunden, ca. 5-mal in 10 Minuten beobachtet. Arzt informiert.“"]
+          ] } }
+        ]
+      }
+    ]
+  },
+
+  // ===================================================================
   // BIOGRAFIEARBEIT
   {
     id: "biografie", titel: "Biografiearbeit", untertitel: "Den Menschen und sein Leben verstehen und in die Pflege einbeziehen", icon: "buch",

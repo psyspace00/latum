@@ -42,11 +42,11 @@ const UI_TEXTE = {
     edNeu: "Neuer Test", edBearbeiten: "Test bearbeiten", edName: "Name des Tests", edNamePlatz: "z. B. Klausur Harnwege", edFrage: n => `Frage ${n}`, edFragePlatz: "Frage eingeben", edAntwort: n => `Antwort ${n}`,
     edHinweis: "Tippe auf den Kreis der richtigen Antwort. Mindestens 2 Antworten ausfüllen.", edFrageNeu: "+ Frage hinzufügen", edFrageWeg: "Entfernen", edSpeichern: "Speichern", edLoeschen: "Test löschen", edLoeschenFrage: "Diesen Test wirklich löschen?",
     edFehlerName: "Bitte gib dem Test einen Namen.", edFehlerFrage: n => `Frage ${n}: Bitte Frage, mindestens 2 Antworten und die richtige Antwort ausfüllen.`,
-    versionText: v => `Version ${v}`, wasIstNeu: "Was ist neu?", updateNeu: "Das ist neu", alleKlar: "Alles klar",
+    versionText: v => `Version ${v}`, wasIstNeu: "Was ist neu?", updateNeu: "Das ist neu", alleKlar: "Alles klar", updateFeedback: "Feedback + Ergänzung gerne an Max schreiben",
     pruefungstraining: "Prüfungstraining", fragenMitFall: n => `${n} Fragen mit Fallbeispielen`, begriffDesTages: "Begriff des Tages",
     koerperAnatomie: "Körper & Anatomie", anatomieSub: "Latein · 3D · Querschnitte",
     menueSub: { pflegeprozess: "AEDL, SIS, Pflegeplanung", prophylaxen: "13 Prophylaxen", kontrakturen: "Vertiefung", vitalzeichen: "Puls, RR, Temp., Atmung, GCS",
-      herzkreislauf: "Anatomie · Physiologie · Krankheiten", ernaehrung: "DGE · Alter · Trinken · Demenz · PEG", ausscheidung: "DK legen · Stomaversorgung", biografie: "Lebensgeschichte in der Pflege nutzen" },
+      herzkreislauf: "Anatomie · Physiologie · Krankheiten", ernaehrung: "DGE · Alter · Trinken · Demenz · PEG", ausscheidung: "DK legen · Stomaversorgung", schlaf: "Schlafphasen · 10 Diagnosen · Schlafhygiene", biografie: "Lebensgeschichte in der Pflege nutzen" },
     anatomieLead: (a, b, c) => `${a} Fachbegriffe · ${b} Querschnitte · ${c} 3D-Modelle`, modelle3d: "3D-Modelle",
     sektionen: ["Grundlagen", "Bewegungsapparat", "Herz, Kreislauf und Abwehr", "Organsysteme", "Steuerung und Sinne"],
     modellLead: "Schematisches Modell – ziehen zum Drehen, zwei Finger zum Zoomen, antippen zum Öffnen.", strukturenImModell: "Strukturen im Modell",
@@ -117,11 +117,11 @@ const UI_TEXTE = {
     edNeu: "Bài kiểm tra mới", edBearbeiten: "Sửa bài kiểm tra", edName: "Tên bài kiểm tra", edNamePlatz: "ví dụ Kiểm tra đường tiết niệu", edFrage: n => `Câu ${n}`, edFragePlatz: "Nhập câu hỏi", edAntwort: n => `Đáp án ${n}`,
     edHinweis: "Chạm vào vòng tròn của đáp án đúng. Điền ít nhất 2 đáp án.", edFrageNeu: "+ Thêm câu hỏi", edFrageWeg: "Xóa", edSpeichern: "Lưu", edLoeschen: "Xóa bài kiểm tra", edLoeschenFrage: "Bạn có chắc muốn xóa bài kiểm tra này?",
     edFehlerName: "Vui lòng đặt tên cho bài kiểm tra.", edFehlerFrage: n => `Câu ${n}: Vui lòng điền câu hỏi, ít nhất 2 đáp án và đáp án đúng.`,
-    versionText: v => `Phiên bản ${v}`, wasIstNeu: "Có gì mới?", updateNeu: "Có gì mới", alleKlar: "Đã hiểu",
+    versionText: v => `Phiên bản ${v}`, wasIstNeu: "Có gì mới?", updateNeu: "Có gì mới", alleKlar: "Đã hiểu", updateFeedback: "Góp ý + bổ sung xin gửi cho Max",
     pruefungstraining: "Luyện thi", fragenMitFall: n => `${n} câu hỏi kèm tình huống`, begriffDesTages: "Thuật ngữ của ngày",
     koerperAnatomie: "Cơ thể & Giải phẫu", anatomieSub: "Latinh · 3D · Mặt cắt",
     menueSub: { pflegeprozess: "AEDL, SIS, lập kế hoạch chăm sóc", prophylaxen: "13 biện pháp dự phòng", kontrakturen: "Chuyên sâu", vitalzeichen: "Mạch, HA, nhiệt độ, nhịp thở, GCS",
-      herzkreislauf: "Giải phẫu · Sinh lý · Bệnh học", ernaehrung: "DGE · Tuổi già · Uống nước · Sa sút trí tuệ · PEG", ausscheidung: "Đặt ống thông · Chăm sóc stoma", biografie: "Dùng câu chuyện cuộc đời trong chăm sóc" },
+      herzkreislauf: "Giải phẫu · Sinh lý · Bệnh học", ernaehrung: "DGE · Tuổi già · Uống nước · Sa sút trí tuệ · PEG", ausscheidung: "Đặt ống thông · Chăm sóc stoma", schlaf: "Giai đoạn ngủ · 10 chẩn đoán · Vệ sinh giấc ngủ", biografie: "Dùng câu chuyện cuộc đời trong chăm sóc" },
     anatomieLead: (a, b, c) => `${a} thuật ngữ · ${b} mặt cắt · ${c} mô hình 3D`, modelle3d: "Mô hình 3D",
     sektionen: ["Cơ sở", "Hệ vận động", "Tim, tuần hoàn và miễn dịch", "Các hệ cơ quan", "Điều khiển và giác quan"],
     modellLead: "Mô hình sơ đồ – kéo để xoay, hai ngón để phóng to, chạm để mở.", strukturenImModell: "Các cấu trúc trong mô hình",
@@ -174,4 +174,4 @@ const MODELL_TITEL_VI = { auge3d: "Nhãn cầu 3D (cắt mở)", herz3d: "Tim 3D
 const FIG_LABEL_VI = { "vorne": "trước", "hinten": "sau", "Knochen": "Xương", "Arterie": "Động mạch", "Vene": "Tĩnh mạch", "Rinde": "Vỏ", "Mark": "Tủy",
   "außen": "ngoài", "innen": "trong", "lateral": "bên ngoài", "medial (Nase)": "bên trong (mũi)", "Sehnerv →": "Thần kinh thị →", "Nebenniere": "Tuyến thượng thận", "Schilddrüse": "Tuyến giáp" };
 const QUIZ_KAT_VI = { pflegeprozess: "Quy trình điều dưỡng", prophylaxen: "Dự phòng", kontrakturen: "Co rút", dekubitus: "Loét tì đè", vitalzeichen: "Dấu hiệu sinh tồn",
-  herzkreislauf: "Tim mạch & Phổi", ernaehrung: "Dinh dưỡng", ausscheidung: "Stoma & Ống thông tiểu lưu", biografie: "Biografiearbeit", diagnosen: "Chẩn đoán", anatomie: "Giải phẫu & Latinh" };
+  herzkreislauf: "Tim mạch & Phổi", ernaehrung: "Dinh dưỡng", ausscheidung: "Stoma & Ống thông tiểu lưu", schlaf: "Giấc ngủ", biografie: "Biografiearbeit", diagnosen: "Chẩn đoán", anatomie: "Giải phẫu & Latinh" };
